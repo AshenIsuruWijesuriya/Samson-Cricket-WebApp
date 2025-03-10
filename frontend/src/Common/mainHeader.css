@@ -1,0 +1,34 @@
+/* styles.css */
+
+header {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Space around the header */
+    text-align: center; /* Center the content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+li {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items horizontally */
+    margin: 0 auto;
+}
+
+img {
+    width: 100px; /* Set a fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the image circular */
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+h1 {
+    font-size: 24px; /* Font size for the header text */
+    color: #333; /* Dark text color */
+    margin: 0; /* Remove default margin */
+    font-family: 'Arial', sans-serif; /* Font family */
+}
