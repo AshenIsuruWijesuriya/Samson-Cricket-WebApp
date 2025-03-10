@@ -1,8 +1,10 @@
 import './App.css';
 
+import Home from "./Pages/Home";
+
 const App = () => {
   return (
-    <h1>Hishen</h1>
+    <Home/>
   );
 }
 
