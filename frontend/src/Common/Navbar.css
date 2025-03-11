@@ -1,5 +1,5 @@
 .navbar {
-    background: linear-gradient(to bottom right, #0042cf, #000b5bf6);
+    background: linear-gradient(to bottom right, #ff0000, #b21500f6);
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
@@ -29,5 +29,5 @@
 }
 
 .navbar-item a:hover {
-    color: #ff0000;
+    color: #140076;
 }

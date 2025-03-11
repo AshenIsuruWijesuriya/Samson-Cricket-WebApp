@@ -1,0 +1,47 @@
+
+.dashboard-container {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 20px;
+    background-color: #ffffff; /* Light background for the dashboard */
+    gap:50px;
+
+}
+
+.ad-title{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size:40px;
+}
+
+.card {
+    background-image: url('../../assets/images/signInbg.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    width: 300px; /* Set a fixed width for the card */
+    height: 350px; /* Set a fixed height for the card */
+    margin: 10px 0;
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.card-link {
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* Text color */
+    font-size: 40px; /* Font size */
+    font-weight: bold; /* Bold text */
+    text-align: center;
+}
