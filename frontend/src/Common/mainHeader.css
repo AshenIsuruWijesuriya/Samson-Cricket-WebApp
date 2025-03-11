@@ -1,34 +1,63 @@
-/* styles.css */
-
 header {
-    background-color: #f8f9fa; /* Light background color */
-    padding: 20px; /* Space around the header */
-    text-align: center; /* Center the content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-ul {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-}
-
-li {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center items horizontally */
+    background-color: #ffffff;
+    padding: 10px 20px; /* Space around the header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo/title and buttons */
     margin: 0 auto;
 }
 
+.header-content {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-grow: 1; /* Allow this section to grow and take available space */
+    margin-left: 200px;
+}
+
 img {
-    width: 100px; /* Set a fixed width for the image */
+    width: 70px; /* Set a fixed width for the image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50%; /* Make the image circular */
-    margin-bottom: 10px; /* Space between image and text */
 }
 
 h1 {
     font-size: 24px; /* Font size for the header text */
-    color: #333; /* Dark text color */
+    color: #080464; /* Dark text color */
     margin: 0; /* Remove default margin */
-    font-family: 'Arial', sans-serif; /* Font family */
+    margin-left: 10px; /* Space between image and text */
+    font-weight: bolder; /* Make the text bolder */
+}
+
+.header-actions {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+}
+
+.cart-button, .login-button {
+    margin-left: 20px; /* Space between buttons */
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 16px; /* Font size for buttons */
+}
+
+.cart-button {
+    background-color: #007bff; /* Blue background for cart */
+    color: white; /* White text color */
+}
+
+.login-button {
+    background-color: #28a745; /* Green background for login */
+    color: white; /* White text color */
+}
+
+.cart-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.login-button:hover {
+    background-color: #218838; /* Darker green on hover */
 }

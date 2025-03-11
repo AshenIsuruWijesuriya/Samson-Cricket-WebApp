@@ -1,10 +1,10 @@
 import React from 'react';
-import MainHeader from '../Common/mainHeader';
 
-
-const Home = () =>{
-    return(
-        <MainHeader/>
+const Home = () => {
+    return (
+        <div>
+            <h1>Homepage</h1>
+        </div>
     );
 };
 

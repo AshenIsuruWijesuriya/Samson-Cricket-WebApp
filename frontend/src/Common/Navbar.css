@@ -1,0 +1,34 @@
+.navbar {
+    background-color: #bc0000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin: 0 auto;
+}
+
+.navbar-item {
+    margin-left: 20px;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-item a:hover {
+    color: #ff0000;
+    background-color: rgb(255, 255, 255);
+}
