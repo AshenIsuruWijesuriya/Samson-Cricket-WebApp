@@ -10,9 +10,7 @@ const MainHeader = () => {
                 <h1>SAMSON CRICKET</h1>
             </a>
             <div className="header-actions">
-                <button className="login-button">
-                    Sign In
-                </button>
+                <a href="/signIn" className="signIn">Sign In</a>
                 <button className="cart-button">
                     Cart
                 </button>
