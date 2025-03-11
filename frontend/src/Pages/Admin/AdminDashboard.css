@@ -4,7 +4,6 @@
     align-items: center;
     justify-content:center;
     padding: 20px;
-    background-color: #ffffff; /* Light background for the dashboard */
     gap:50px;
 
 }
@@ -17,6 +16,7 @@
     text-align: center;
     font-weight: bold;
     font-size:40px;
+    color: white;
 }
 
 .card {
@@ -44,4 +44,16 @@
     font-size: 40px; /* Font size */
     font-weight: bold; /* Bold text */
     text-align: center;
+}
+
+.adminbgimg {
+    position: fixed; /* Make the background fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/adminbg.jpeg'); /* Ensure the path is correct */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    z-index: -1; /* Send the background behind other elements */
 }

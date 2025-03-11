@@ -6,6 +6,7 @@ const AdminDashboard = () => {
     return (
         <div>
         <AdminHeader/>
+        <div className='adminbgimg'></div>
         <div className='ad-title'>Select a Service</div>
         <div className="dashboard-container">
             <a href='/admindashboard/manage-users' className="card-link">
