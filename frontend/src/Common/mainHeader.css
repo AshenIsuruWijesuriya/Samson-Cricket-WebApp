@@ -1,63 +1,72 @@
 header {
     background-color: #ffffff;
-    padding: 10px 20px; /* Space around the header */
+    padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between logo/title and buttons */
+    align-items: center;
+    justify-content: space-between;
     margin: 0 auto;
 }
 
 .header-content {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    flex-grow: 1; /* Allow this section to grow and take available space */
-    margin-left: 200px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.header-content a {
+    color: inherit;
+    text-decoration: none;
 }
 
 img {
-    width: 70px; /* Set a fixed width for the image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Make the image circular */
+    width: 70px;
+    height: auto;
+    border-radius: 50%;
+    margin-left:210px ;
 }
 
 h1 {
-    font-size: 24px; /* Font size for the header text */
-    color: #080464; /* Dark text color */
-    margin: 0; /* Remove default margin */
-    margin-left: 10px; /* Space between image and text */
-    font-weight: bolder; /* Make the text bolder */
+    font-size: 24px;
+    color: #080464;
+    margin: 0;
+    margin-left: 10px;
+    font-weight: bolder;
 }
 
 .header-actions {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
+    display: flex;
+    align-items: center;
 }
 
 .cart-button, .login-button {
-    margin-left: 20px; /* Space between buttons */
-    padding: 10px 15px; /* Padding for buttons */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Change cursor on hover */
-    font-size: 16px; /* Font size for buttons */
+    margin-left: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .cart-button {
-    background-color: #007bff; /* Blue background for cart */
-    color: white; /* White text color */
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
 }
 
 .login-button {
-    background-color: #28a745; /* Green background for login */
-    color: white; /* White text color */
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
 }
 
 .cart-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #ff0000;
+    color: rgb(255, 255, 255);
 }
 
 .login-button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
 }
