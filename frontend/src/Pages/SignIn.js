@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SignIn.css'; // Import the CSS file
+import './SignIn.css'; 
 import SignHeader from '../Components/SignHeader/signHeader'
 
 const SignIn = () => {
@@ -13,17 +13,14 @@ const SignIn = () => {
         console.log('Password:', password);
     };
 
-    const handleForgotPassword = () => {
-        // Handle forgot password logic here
-        console.log('Forgot Password clicked');
-    };
-
     return (
         <div>
+            <div className="sign-in-bg"></div>
         <SignHeader />
+
         <div className="sign-in-container">
             
-            <h2>Sign In</h2>
+            <h2>Sign In to your Samson Cricket Account</h2>
             <form onSubmit={handleSubmit} className="sign-in-form">
                 <div className="input-group">
                     <label htmlFor="email">Email Address:</label>
@@ -47,13 +44,15 @@ const SignIn = () => {
                         className="input"
                     />
                 </div>
-                <button type="submit" className="button">Login</button>
+                <div className="forgot-password">
+                <a href='/forgot-password'>Fogot Password?</a>
+                </div>
+                <button type="submit" className="button">Sign In</button>
+                <div className="signUp">
+                <p>Dont have an Account?</p>
+                <a href='/signUp'>Sign Up</a>
+                </div>
             </form>
-            <div className="forgot-password">
-                <button onClick={handleForgotPassword} className="link">
-                    Forgot Password?
-                </button>
-            </div>
         </div>
         </div>
     );

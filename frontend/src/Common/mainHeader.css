@@ -21,11 +21,11 @@ header {
     text-decoration: none;
 }
 
-img {
+.header-content img{
     width: 70px;
     height: auto;
     border-radius: 50%;
-    margin-left:210px ;
+    margin-left: 185px;
 }
 
 h1 {

@@ -5,7 +5,7 @@ import './signHeader.css';
 const signHeader = () => {
     return (
         <header>
-            <a href="/" className="header-content">
+            <a href="/" className="header-sign">
                 <img src={logo1} alt="Samson Cricket Logo" /> 
                 <h1>SAMSON CRICKET</h1>
             </a>

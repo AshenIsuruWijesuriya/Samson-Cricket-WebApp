@@ -1,6 +1,6 @@
 .navbar {
-    background-color: #bc0000;
-    padding: 10px 20px;
+    background: linear-gradient(to bottom right, #c90000, #ff5410f6);
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,11 +24,10 @@
     color: #ffffff;
     font-size: 18px;
     font-weight: bold;
-    padding: 20px;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 15px;
+    transition: color 0.3s ease, background-color 0.3s ease
 }
 
 .navbar-item a:hover {
-    color: #ff0000;
-    background-color: rgb(255, 255, 255);
+    color: #140046;
 }
