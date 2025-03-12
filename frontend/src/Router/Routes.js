@@ -4,7 +4,10 @@ import Home from '../Pages/Home';
 import Shop from '../Pages/Shop/Shop'; 
 import Coaching from '../Pages/Coaching/Coaching';
 import Services from '../Pages/Services/Service';
+
 import SignIn from '../Pages/SignIn';
+import SignUp from '../Pages/SignUp';
+
 import Consulting from '../Pages/Consulting/Consulting';
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
@@ -25,6 +28,7 @@ const AppRoutes = () => {
 
                 {/* Sign In & Sign Up */}
                 <Route path="/signIn" element={<SignIn />} />
+                <Route path="/signUp" element={<SignUp />} />
 
                 {/* Admin Dashboard */}
                 <Route path="/admindashboard" element={<AdminDashboard />} />

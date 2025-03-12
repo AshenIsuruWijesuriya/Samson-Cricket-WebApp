@@ -23,10 +23,11 @@ const SignIn = () => {
             <h2>Sign In to your Samson Cricket Account</h2>
             <form onSubmit={handleSubmit} className="sign-in-form">
                 <div className="input-group">
-                    <label htmlFor="email">Email Address:</label>
+                    <label htmlFor="email"></label>
                     <input
                         type="email"
                         id="email"
+                        placeholder="Email Address" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -34,10 +35,11 @@ const SignIn = () => {
                     />
                 </div>
                 <div className="input-group">
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password"></label>
                     <input
                         type="password"
                         id="password"
+                        placeholder="Password" 
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
