@@ -1,10 +1,10 @@
 .navbar {
-    background: linear-gradient(to bottom right, #ff0000, #b21500f6);
+    background: linear-gradient(to bottom right, #ff0000, #980000f6);
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
 }
 
 .navbar-menu {
@@ -22,12 +22,14 @@
 .navbar-item a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: bold;
+    font-family:Cambria;
     padding: 15px;
     transition: color 0.3s ease, background-color 0.3s ease
 }
 
 .navbar-item a:hover {
     color: #140076;
+    background-color: rgb(255, 255, 255);
 }

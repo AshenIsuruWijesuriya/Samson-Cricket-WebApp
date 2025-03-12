@@ -1,5 +1,5 @@
-header {
-    background-color: #ffffff;
+.mainHeader {
+    background: linear-gradient(to bottom right, #ffffff, #fffffff6);
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -22,18 +22,19 @@ header {
 }
 
 .header-content img{
-    width: 70px;
+    width: 100px;
     height: auto;
     border-radius: 50%;
     margin-left: 186px;
 }
 
-h1 {
-    font-size: 24px;
-    color: #080464;
+.titlename {
+    font-size: 34px;
+    color: #00006f;
     margin: 0;
     margin-left: 10px;
     font-weight: bolder;
+    font-family:Georgia;
 }
 
 .header-actions {
@@ -47,27 +48,21 @@ h1 {
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     text-decoration: none;
+    font-family:Cambria;
 }
 
-.cart-button {
-    background-color: #ffffff;
-    color: rgb(255, 0, 0);
-}
 
 .signIn {
-    background-color: #ffffff;
     color: rgb(255, 0, 0);
 }
 
 .cart-button:hover {
-    background-color: #ff0000;
     color: rgb(255, 255, 255);
 }
 
-.login-button:hover {
-    background-color: #ffffff;
-    color: rgb(255, 0, 0);
+.signIn:hover {
+    color: rgb(255, 255, 255);
 }
