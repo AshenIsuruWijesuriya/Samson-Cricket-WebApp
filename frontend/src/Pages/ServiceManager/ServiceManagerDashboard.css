@@ -1,0 +1,45 @@
+.servicebgimg {
+    /* background: url('/assets/service-bg.jpg') no-repeat center center; */
+    background: linear-gradient(135deg, #1e3c72, #dadee6);
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+}
+
+.sm-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 20px 0;
+    background: linear-gradient(90deg, #ff8c00, #ff2e63);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 220px;
+    transition: 0.3s;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    background: linear-gradient(135deg, #66bb6a, #1b5e20);
+    transform: scale(1.05);
+}
