@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SignUp.css'; 
+import MainHeader from '../Common/mainHeader';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ const SignUp = () => {
     return (
         <div>
         <div className="signup-bg">
+        <MainHeader />
             <div className="signup-wrapper">
                 <h2>Create an Account for Samson Cricket</h2>
                 <form className="signup-form" onSubmit={handleSubmit}>
@@ -81,7 +83,7 @@ const SignUp = () => {
                         />
                     </div>
                     <button type="submit" className="signup-button">Sign Up</button>
-                    <div className="signIn">
+                    <div className="signIn-links">
                 <p>Already have an Account?</p>
                 <a href='/signIn'>Sign In</a>
                 </div>
