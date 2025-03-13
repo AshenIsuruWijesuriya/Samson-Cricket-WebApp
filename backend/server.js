@@ -5,6 +5,9 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
+
+// const userRoutes = require('./routes/authRoutes');
+
 //db connection
 const connectDB = require("./config/db");
 connectDB();
@@ -15,6 +18,10 @@ app.use(cookieParser());
 app.use(cors({credentials: true}));
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
+
+// Middleware
+// app.use(bodyParser.json());
+// app.use('/api/users', userRoutes);
 
 app.get('/', async (req, res, next) => {
   res.send({ message: 'Awesome it works 🐻' });

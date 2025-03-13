@@ -3,31 +3,18 @@ import axios from 'axios';
 import './SignUp.css'; 
 import MainHeader from '../Common/mainHeader';
 
-const SignUp = () => {
-    const [formData, setFormData] = useState({
-        firstname: '',
-        lastname: '',
-        email: '',
-        password: '',
-    });
-    
-
-    const {firstname, lastname, email, password } = formData;
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+const SignUp = () => { 
+    const [firstname, setFirstName] = useState();
+    const [lastname, setLastName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('/api/users/register', formData);
-            console.log('User  registered:', response.data);
-            // Handle successful registration (e.g., redirect or show message)
-        } catch (error) {
-            console.error('Error registering user:', error.response.data);
-            // Handle error (e.g., show error message)
-        }
+
+        axios.post('',(firstname,lastname,email,password))
+        .then(result => console.log(result))
+        .catch(err => console.log(err))
     };
 
     return (
@@ -43,7 +30,7 @@ const SignUp = () => {
                             type="text" 
                             name="firstname" 
                             value={firstname} 
-                            onChange={handleChange} 
+                            onChange={(e) => setFirstName(e.target.value)} 
                             placeholder="First Name" 
                             required 
                             className="input-field-first"
@@ -54,7 +41,7 @@ const SignUp = () => {
                             type="text" 
                             name="lastname" 
                             value={lastname} 
-                            onChange={handleChange} 
+                            onChange={(e) => setLastName(e.target.value)}  
                             placeholder="Last Name" 
                             required 
                             className="input-field-last"
@@ -66,7 +53,7 @@ const SignUp = () => {
                             type="email" 
                             name="email" 
                             value={email} 
-                            onChange={handleChange} 
+                            onChange={(e) => setEmail(e.target.value)}  
                             placeholder="Email" 
                             required 
                             className="input-field"
@@ -77,7 +64,7 @@ const SignUp = () => {
                             type="password" 
                             name="password" 
                             value={password} 
-                            onChange={handleChange} 
+                            onChange={(e) => setPassword(e.target.value)} 
                             placeholder="Password" 
                             required 
                             className="input-field"
