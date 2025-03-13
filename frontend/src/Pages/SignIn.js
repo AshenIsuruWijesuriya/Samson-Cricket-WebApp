@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './SignIn.css'; 
+import './SignIn.css';
+import MainHeader from '../Common/mainHeader'; 
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const SignIn = () => {
     return (
         <div>
             <div className="sign-in-bg"></div>
-
+            <MainHeader/>
         <div className="sign-in-container">
             
             <h2>Sign In to your Samson Cricket Account</h2>

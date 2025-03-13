@@ -25,8 +25,9 @@
 .titlename {
     margin-left: 10px; /* Space between logo and title */
     font-size: 34px; /* Adjust as needed */
-    font-family:'Impact';
+    font-family:Impact;
     color:#00094e;
+    font-weight: 500;
 }
 
 .navbar {

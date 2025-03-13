@@ -88,16 +88,16 @@ h2 {
     z-index: -1; /* Send the background behind other elements */
 }
 
-.signIn {
+.signIn-text {
     margin-bottom: 15px;
     text-align: center;
 }
-.signIn p{
+.signIn-text p{
     color:white;
     font-family:sans-serif;
     font-size: 16px;
 }
-.signIn a {
+.signIn-text a {
     background: none;
     border: none;
     color: #ff0000;
@@ -107,10 +107,10 @@ h2 {
     font-size: 16px;
 }
 
-.signIn p{
+.signIn-text p{
     font-weight:400;
 }
 
-.signIn a{
+.signIn-text a{
     font-weight:bold;
 }
