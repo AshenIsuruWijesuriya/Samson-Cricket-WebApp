@@ -77,7 +77,6 @@
     border: 1px solid #ff0000; /* Adjust as needed */
     border-radius: 40px; /* Rounded corners */
     transition: background-color 0.3s;
-    margin-top:10px;
 }
 
 .signIn:hover {
