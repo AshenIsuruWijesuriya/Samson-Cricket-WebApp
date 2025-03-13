@@ -3,6 +3,12 @@ const createError = require('http-errors');
 const morgan = require('morgan');
 require('dotenv').config();
 
+//db connection
+const connectDB = require("./config/db");
+connectDB();
+
+
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
