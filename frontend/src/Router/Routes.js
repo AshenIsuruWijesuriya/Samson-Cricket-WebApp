@@ -13,6 +13,8 @@ import AdminDashboard from '../Pages/Admin/AdminDashboard';
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 
+import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
+
 const AppRoutes = () => {
     return (
         <Router>
@@ -34,6 +36,9 @@ const AppRoutes = () => {
                 <Route path="/admindashboard" element={<AdminDashboard />} />
                 <Route path="/admindashboard/manage-users" element={<ManageUsers />} />
                 <Route path="/admindashboard/manage-inventory" element={<ManageInventory />} />
+
+                {/* Service Manager Dashboard */}
+                <Route path="/servicedashboard" element={<ServiceManagerDashboard />} />
 
             </RouterRoutes>
         </Router>
