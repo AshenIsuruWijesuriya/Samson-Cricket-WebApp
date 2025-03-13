@@ -34,7 +34,7 @@ const SignUp = () => {
         <div className="signup-bg">
         <MainHeader/>
             <div className="signup-wrapper">
-                <h2>Create an Account for Samson Cricket</h2>
+                <h2 className='signUp-title'>Create an Account for Samson Cricket</h2>
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className='names-align'>
                     <div className="input-group">

@@ -8,6 +8,7 @@ h2{
     text-align: center;
     font-size:27px;
     color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS';
 }
 
 .sign-in-container {
@@ -32,17 +33,19 @@ h2{
     font-weight: bold;
     font-size: 17px;
     text-align: left;
+    font-family: 'Trebuchet MS';
 }
 
 .input {
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ffffff;
+    border: 1px solid #ffffff71;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: 16px;
     width: 95%;
     margin-top:10px;
     color: white;
+    font-family: 'Trebuchet MS';
 }
 
 .button {
@@ -56,6 +59,7 @@ h2{
     cursor: pointer;
     margin: 15px auto;
     font-weight: bold;
+    font-family: 'Trebuchet MS';
 }
 
 .button:hover{
@@ -75,12 +79,14 @@ h2{
     color: #ff0000;
     cursor: pointer;
     text-decoration: underline;
+    font-family: 'Trebuchet MS';
 }
 
 .signUp {
     margin-top: 1px;
     margin-bottom: 15px;
     text-align: center;
+    font-family: 'Trebuchet MS';
 }
 .signUp p{
     color:white;
