@@ -16,9 +16,19 @@
     text-align: center;
     font-weight: bold;
     font-size:40px;
-    padding: 20px;
     color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+    font-family: 'Trebuchet MS';
+}
+
+.ad-title-p{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+    color: rgb(255, 255, 255);
     font-family: 'Trebuchet MS';
 }
 
@@ -29,6 +39,7 @@
     width: 300px; /* Set a fixed width for the card */
     height: 400px; /* Set a fixed height for the card */
     margin: 10px 0;
+    border: 4px rgba(255, 255, 255, 0.514) solid;
     border-radius: 40px; /* Rounded corners */
     display: flex;
     justify-content: center;
@@ -42,19 +53,20 @@
 }
 
 .admin-card-link {
-    text-decoration: none;
+    text-decoration: none; /* No underline */
     color: rgb(255, 255, 255); /* Text color */
     font-size: 40px; /* Font size */
     font-weight: bold; /* Bold text */
-    text-align: center;
-    font-family: 'Trebuchet MS';
+    text-align: center; /* Center text */
+    font-family: 'Trebuchet MS'; /* Font family */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Text shadow */
 }
 .adminbgimg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #ffffff, #d6d6d6); 
+    height: 100%; 
+    background-image: url('../../assets/images/admin-card.jpg');
     background-size: cover; 
 } 

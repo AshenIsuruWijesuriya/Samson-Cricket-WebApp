@@ -12,7 +12,7 @@ const AdminHeader = () => {
                 </a>
             </div>
             <a href="/admindashboard">
-                <h1 className="admindashboard-title">Admin Dashboard</h1>
+                <div className="admindashboard-title">Admin Dashboard</div>
             </a>
             <div className="admin-username">
                 <h1 className="admindashboard-username">Welcome</h1>
