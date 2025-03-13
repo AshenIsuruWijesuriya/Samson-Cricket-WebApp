@@ -5,6 +5,8 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
+const userRoutes =  require('./routes/userRoutes');
+
 
 // const userRoutes = require('./routes/authRoutes');
 
@@ -27,7 +29,7 @@ app.get('/', async (req, res, next) => {
   res.send({ message: 'Awesome it works 🐻' });
 });
 
-app.use('/api', require('./routes/api.route'));
+app.use('/api/users', userRoutes);
 
 app.use((req, res, next) => {
   next(createError.NotFound());

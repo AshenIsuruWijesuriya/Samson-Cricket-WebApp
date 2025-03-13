@@ -1,28 +1,38 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SignUp.css'; 
-import MainHeader from '../Common/mainHeader';
 
-const SignUp = () => { 
-    const [firstname, setFirstName] = useState();
-    const [lastname, setLastName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+const SignUp = () => {
+    const [formData, setFormData] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+    });
+
+    const {firstname, lastname, email, password } = formData;
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        axios.post('',(firstname,lastname,email,password))
-        .then(result => console.log(result))
-        .catch(err => console.log(err))
+        try {
+            const response = await axios.post('/api/users/register', formData);
+            console.log('User  registered:', response.data);
+            // Handle successful registration (e.g., redirect or show message)
+        } catch (error) {
+            console.error('Error registering user:', error.response.data);
+            // Handle error (e.g., show error message)
+        }
     };
 
     return (
         <div>
         <div className="signup-bg">
-        <MainHeader/>
             <div className="signup-wrapper">
-                <h2 className='signUp-title'>Create an Account for Samson Cricket</h2>
+                <h2>Create an Account for Samson Cricket</h2>
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className='names-align'>
                     <div className="input-group">
@@ -30,7 +40,7 @@ const SignUp = () => {
                             type="text" 
                             name="firstname" 
                             value={firstname} 
-                            onChange={(e) => setFirstName(e.target.value)} 
+                            onChange={handleChange} 
                             placeholder="First Name" 
                             required 
                             className="input-field-first"
@@ -41,7 +51,7 @@ const SignUp = () => {
                             type="text" 
                             name="lastname" 
                             value={lastname} 
-                            onChange={(e) => setLastName(e.target.value)}  
+                            onChange={handleChange} 
                             placeholder="Last Name" 
                             required 
                             className="input-field-last"
@@ -53,7 +63,7 @@ const SignUp = () => {
                             type="email" 
                             name="email" 
                             value={email} 
-                            onChange={(e) => setEmail(e.target.value)}  
+                            onChange={handleChange} 
                             placeholder="Email" 
                             required 
                             className="input-field"
@@ -64,14 +74,14 @@ const SignUp = () => {
                             type="password" 
                             name="password" 
                             value={password} 
-                            onChange={(e) => setPassword(e.target.value)} 
+                            onChange={handleChange} 
                             placeholder="Password" 
                             required 
                             className="input-field"
                         />
                     </div>
                     <button type="submit" className="signup-button">Sign Up</button>
-                    <div className="signIn-text">
+                    <div className="signIn">
                 <p>Already have an Account?</p>
                 <a href='/signIn'>Sign In</a>
                 </div>
