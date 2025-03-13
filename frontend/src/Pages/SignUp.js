@@ -30,11 +30,13 @@ const SignUp = () => {
     };
 
     return (
+        <div>
         <div className="signup-bg">
-            <SignHeader />
+        <SignHeader />
             <div className="signup-wrapper">
                 <h2>Create an Account for Samson Cricket</h2>
                 <form className="signup-form" onSubmit={handleSubmit}>
+                    <div className='names-align'>
                     <div className="input-group">
                         <input 
                             type="text" 
@@ -43,7 +45,7 @@ const SignUp = () => {
                             onChange={handleChange} 
                             placeholder="First Name" 
                             required 
-                            className="input-field"
+                            className="input-field-first"
                         />
                     </div>
                     <div className="input-group">
@@ -54,8 +56,9 @@ const SignUp = () => {
                             onChange={handleChange} 
                             placeholder="Last Name" 
                             required 
-                            className="input-field"
+                            className="input-field-last"
                         />
+                    </div>
                     </div>
                     <div className="input-group">
                         <input 
@@ -81,11 +84,12 @@ const SignUp = () => {
                     </div>
                     <button type="submit" className="signup-button">Sign Up</button>
                     <div className="signIn">
-                <p>Already user?</p>
+                <p>Already have an Account?</p>
                 <a href='/signIn'>Sign In</a>
                 </div>
                 </form>
             </div>
+        </div>
         </div>
     );
 };
