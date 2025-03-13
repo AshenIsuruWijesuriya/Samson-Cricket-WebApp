@@ -2,15 +2,17 @@ const express = require('express');
 const createError = require('http-errors');
 const morgan = require('morgan');
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 //db connection
 const connectDB = require("./config/db");
 connectDB();
 
-
-
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
+app.use(cors({credentials: true}));
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
