@@ -1,0 +1,36 @@
+.sm-header {
+    background: #333;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sm-header h1 {
+    margin: 0;
+}
+
+.sm-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.sm-header nav ul li {
+    display: inline;
+}
+
+.sm-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background 0.3s;
+}
+
+.sm-header nav ul li a:hover {
+    background: #555;
+    border-radius: 5px;
+}
