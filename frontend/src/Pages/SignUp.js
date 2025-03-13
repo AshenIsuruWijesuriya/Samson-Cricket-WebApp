@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SignUp.css'; 
-import SignHeader from '../Components/SignHeader/signHeader';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -32,7 +31,6 @@ const SignUp = () => {
     return (
         <div>
         <div className="signup-bg">
-        <SignHeader />
             <div className="signup-wrapper">
                 <h2>Create an Account for Samson Cricket</h2>
                 <form className="signup-form" onSubmit={handleSubmit}>

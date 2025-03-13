@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './SignIn.css'; 
-import SignHeader from '../Components/SignHeader/signHeader'
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +15,6 @@ const SignIn = () => {
     return (
         <div>
             <div className="sign-in-bg"></div>
-        <SignHeader />
 
         <div className="sign-in-container">
             
