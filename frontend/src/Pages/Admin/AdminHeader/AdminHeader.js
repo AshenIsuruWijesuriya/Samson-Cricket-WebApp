@@ -1,18 +1,24 @@
 import React from "react";
-import Logo from '../../../assets/images/logo1.png'; 
+import logo1 from '../../../assets/images/logo1.png'; 
 import './AdminHeader.css'; 
 
 const AdminHeader = () => {
     return (
-        <header>
-            <a href="/" className="adminheader-content">
-                <img src={Logo} alt="Samson Cricket Logo" /> 
-                <h1>SAMSON CRICKET</h1>
+        <header className="header">
+            <div className="header-left">
+                <a href="/" className="header-content">
+                    <img src={logo1} alt="Samson Cricket Logo" /> 
+                    <h1 className="titlename">SAMSON CRICKET</h1>
+                </a>
+            </div>
+            <a href="/admindashboard">
+                <h1 className="admindashboard-title">Admin Dashboard</h1>
             </a>
-            <div className="welcome-text2"><a href="/admindashboard">Admin Dashboard</a></div>
-            <div className="welcome-text">Welcome!</div>
-            <div className="adminheader-actions">
-                <a href="/logout" className="logout">Logout</a>
+            <div className="admin-username">
+                <h1 className="admindashboard-username">Welcome</h1>
+            </div>
+            <div className="header-right">
+                <a href="/signIn" className="signIn">Logout</a>
             </div>
         </header>
     );
