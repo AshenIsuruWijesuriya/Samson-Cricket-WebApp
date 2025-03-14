@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const userSchema = new mongoose.Schema(
   {
     firstname: {
@@ -6,9 +7,9 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     lastname: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
@@ -19,10 +20,11 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     role: {
-        type: String,
-        default: 'Normal User' 
-    }
-}
+      type: String,
+      default: 'Normal User',
+    },
+  },
+  { collection: 'users' } // Specify the collection name here
 );
 
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("User", userSchema); // Model name is "User "

@@ -1,5 +1,5 @@
 const express = require('express');
-const { registerUser  } = require('../controllers/userController'); // Adjust the path as necessary
+const { registerUser  } = require('../controllers/userController'); 
 
 const router = express.Router();
 
