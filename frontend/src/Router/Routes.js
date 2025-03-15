@@ -14,6 +14,7 @@ import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
+import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 
 const AppRoutes = () => {
     return (
@@ -31,6 +32,9 @@ const AppRoutes = () => {
                 {/* Sign In & Sign Up */}
                 <Route path="/signIn" element={<SignIn />} />
                 <Route path="/signUp" element={<SignUp />} />
+
+                {/* User Dashboard */}
+                <Route path="/userdashboard" element={<UserDashboard />} />
 
                 {/* Admin Dashboard */}
                 <Route path="/admindashboard" element={<AdminDashboard />} />
