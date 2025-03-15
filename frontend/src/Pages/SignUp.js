@@ -94,7 +94,7 @@ const SignUp = () => {
             <div className="signup-bg">
                 <MainHeader />
                 <div className="signup-wrapper">
-                    <h2>Create an Account for Samson 23 Cricket</h2>
+                    <h2>Create an Account for Samson Cricket</h2>
                     {error && <div className="error-message">{error}</div>}
                     <form className="signup-form" onSubmit={handleSubmit}>
                         <div className='names-align'>
@@ -105,7 +105,6 @@ const SignUp = () => {
                                     value={firstname} 
                                     onChange={handleChange} 
                                     placeholder="First Name" 
-                                    required 
                                     className="input-field-first"
                                 />
                             </div>
@@ -116,7 +115,6 @@ const SignUp = () => {
                                     value={lastname} 
                                     onChange={handleChange} 
                                     placeholder="Last Name" 
-                                    required 
                                     className="input-field-last"
                                 />
                             </div>
@@ -128,7 +126,6 @@ const SignUp = () => {
                                 value={email} 
                                 onChange={handleChange} 
                                 placeholder="Email" 
-                                required 
                                 className="input-field"
                             />
                         </div>
@@ -139,7 +136,6 @@ const SignUp = () => {
                                 value={password} 
                                 onChange={handleChange} 
                                 placeholder="Password" 
-                                required 
                                 className="input-field"
                             />
                         </div>
