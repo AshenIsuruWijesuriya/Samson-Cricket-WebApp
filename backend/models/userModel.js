@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      default: 'Normal User',
+      default: 'Normal',
     },
   },
   { collection: 'users' } // Specify the collection name here
