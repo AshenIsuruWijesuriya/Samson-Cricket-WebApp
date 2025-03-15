@@ -6,7 +6,7 @@ const UserDashboard = () => {
     return (
         <div className="dashboard">
             <div className="main-content">
-                <h1>User Dashboard</h1>
+                <h1>User Dashboard Not Finished</h1>
             </div>
         </div>
     );
