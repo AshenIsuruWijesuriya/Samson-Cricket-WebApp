@@ -3,6 +3,8 @@ import axios from 'axios';
 import './SignUp.css'; 
 import MainHeader from '../Common/mainHeader';
 
+const api = process.env.REACT_APP_BASE_URL;
+
 const SignUp = () => {
     const [formData, setFormData] = useState({
         firstname: '',
@@ -26,7 +28,8 @@ const SignUp = () => {
         e.preventDefault();
         setError(''); // Reset error state
         try {
-            const response = await axios.post('/api/users/register', formData);
+            // formData.role = "Admin";
+            const response = await axios.post( api +'/api/users/register', formData);
             console.log('User  registered:', response.data);
             // Handle successful registration (e.g., redirect or show message)
         } catch (error) {

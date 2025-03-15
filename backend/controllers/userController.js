@@ -1,9 +1,8 @@
-const express = require('express');
 const User = require('../models/userModel'); // Adjust the path as necessary
 const bcrypt = require('bcryptjs');
 
 exports.registerUser  = async (req, res) => {
-    const { firstname, lastname, email, password } = req.body;
+    const { firstname, lastname, email, password, role} = req.body;
 
     console.log('Received data:', req.body); // Log the received data
 
@@ -20,6 +19,7 @@ exports.registerUser  = async (req, res) => {
             lastname,
             email,
             password: hashedPassword,
+            role
         });
 
         await newUser .save();
