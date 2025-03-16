@@ -1,8 +1,17 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import logo1 from '../../../assets/images/logo1.png'; 
 import './ConsultingHeader.css'; 
 
 const ConsultingHeader = () => {
+
+    const navigate = useNavigate();
+    
+        const handleLogout = () => {
+            localStorage.removeItem('token');
+            navigate('/signIn');
+        };
+
     return (
         <header className="header">
             <div className="header-left">
@@ -18,7 +27,7 @@ const ConsultingHeader = () => {
                 <h1 className="consultantdashboard-username">Welcome</h1>
             </div>
             <div className="header-right">
-                <a href="/signIn" className="signIn">Logout</a>
+                <button onClick={handleLogout} className="logout-btn">Logout</button>
             </div>
         </header>
     );

@@ -30,6 +30,9 @@ const SignIn = () => {
                 // Redirect based on user role
                 if (user.role === 'Admin') {
                     window.location.href = '/admindashboard'; 
+                }
+                if (user.role === 'Consultant') {
+                    window.location.href = '/consultantdashboard'; 
                 } else {
                     window.location.href = '/userdashboard'; 
                 }
