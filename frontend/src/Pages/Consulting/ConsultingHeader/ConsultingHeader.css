@@ -1,0 +1,81 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 20px;
+    background-color: #ffffff; /* Adjust as needed */
+    position: fixed; /* Fix header at the top */
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    width: 65px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333; /* Adjust as needed */
+}
+
+.titlename {
+    margin-left: 10px; /* Space between logo and title */
+    font-size: 34px; /* Adjust as needed */
+    font-family:Impact;
+    color:#00094e;
+    font-weight: 500;
+    font-family: Impact;
+}
+
+.consultantdashboard-title{
+    font-family:Calibri;
+    font-weight:900;
+    font-size:40px;
+    color:red;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.consultantdashboard-username{
+    font-family: 'Trebuchet MS';
+    font-size:20px;
+    font-weight: bold;
+    color:rgb(20, 0, 65);
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.signIn {
+    text-decoration: none;
+    color: #0d004d; /* Adjust as needed */
+    padding: 8px 12px;
+    font-size: 18px;
+    border: 2px solid #070054; /* Adjust as needed */
+    border-radius: 40px; /* Rounded corners */
+    font-weight: bolder;
+    font-family: 'Trebuchet MS';
+    transition: background-color 0.3s;
+}
+
+.signIn:hover {
+    background-color: #ffffff; /* Change background on hover */
+    color: rgb(255, 0, 0); /* Change text color on hover */
+    border: 2px solid #ff0000;
+}
