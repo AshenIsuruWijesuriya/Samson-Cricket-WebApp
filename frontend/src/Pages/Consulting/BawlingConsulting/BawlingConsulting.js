@@ -1,7 +1,7 @@
 import React, { useState } from 'react';  // Import useState from React
-import './BattingConsulting.css';
+import './BawlingConsulting.css';
 
-const BattingConsulting = () => {
+const BawlingConsulting = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -34,16 +34,15 @@ const BattingConsulting = () => {
 
     return (
         <div className='container'>
-            <h2 className='title'>Batting Consulting</h2>
+            <h2 className='title'>Bawling Consulting</h2>
             <div className='para'>
                 <p>
-                    Our batting consultation service is designed to help players improve their technique, footwork, and shot selection. 
-                    Whether you're a beginner or an advanced player, our expert coaches will provide personalized guidance to enhance your game.
+                Bowling Consulting helps players refine their bowling techniques with expert guidance. Our coaches provide personalized feedback to improve speed, accuracy, and strategy. Book a session to elevate your bowling performance today!
                 </p>
             </div>
 
             <div className='para2'>
-                <h2>Book a Batting Consulting</h2>
+                <h2>Book a Bawling Consulting</h2>
             </div>
             
             <form onSubmit={handleSubmit} className="consulting-form">
@@ -131,4 +130,4 @@ const BattingConsulting = () => {
     );
 };
 
-export default BattingConsulting;
+export default BawlingConsulting;

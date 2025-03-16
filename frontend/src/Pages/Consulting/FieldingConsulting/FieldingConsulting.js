@@ -1,7 +1,7 @@
 import React, { useState } from 'react';  // Import useState from React
-import './BattingConsulting.css';
+import './FieldingConsulting.css';
 
-const BattingConsulting = () => {
+const FieldingConsulting = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -34,16 +34,16 @@ const BattingConsulting = () => {
 
     return (
         <div className='container'>
-            <h2 className='title'>Batting Consulting</h2>
+            <h2 className='title'>Fielding Consulting</h2>
             <div className='para'>
                 <p>
-                    Our batting consultation service is designed to help players improve their technique, footwork, and shot selection. 
-                    Whether you're a beginner or an advanced player, our expert coaches will provide personalized guidance to enhance your game.
+                Fielding consulting enhances players' agility, catching, and throwing techniques. Our experts provide personalized 
+                drills to improve reflexes and positioning. Book a session to sharpen your defensive skills on the field.
                 </p>
             </div>
 
             <div className='para2'>
-                <h2>Book a Batting Consulting</h2>
+                <h2>Book a Fielding Consulting</h2>
             </div>
             
             <form onSubmit={handleSubmit} className="consulting-form">
@@ -131,4 +131,4 @@ const BattingConsulting = () => {
     );
 };
 
-export default BattingConsulting;
+export default FieldingConsulting;

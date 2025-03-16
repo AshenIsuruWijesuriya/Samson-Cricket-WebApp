@@ -20,6 +20,10 @@ import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
 import BookSessions from '../Pages/Consulting/BookSessions/BookSessions';
 import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
+import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
+import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingConsulting';
+import PhysicalConsulting from '../Pages/Consulting/PhysicalConsulting/PhysicalConsulting';
+import Feedback from '../Pages/Consulting/Communication/Feedback';
 
 
 const AppRoutes = () => {
@@ -54,6 +58,10 @@ const AppRoutes = () => {
                 <Route path="/consultantdashboard" element={<ConsultantDashboard />} />
                 <Route path="/consultantdashboard/book-sessions" element={<BookSessions/>} />
                 <Route path="/batting-consulting" element={<BattingConsulting/>} />
+                <Route path="/bawling-consulting" element={<BawlingConsulting/>} />
+                <Route path="/fielding-consulting" element={<FieldingConsulting/>} />
+                <Route path="/physical-consulting" element={<PhysicalConsulting/>} />
+                <Route path="/consultantdashboard/communication" element={<Feedback/>} />
 
 
 
