@@ -36,7 +36,7 @@ h2{
     font-family: 'Trebuchet MS';
 }
 
-.input {
+.signIn-input{
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ffffff71;
@@ -48,7 +48,7 @@ h2{
     font-family: 'Trebuchet MS';
 }
 
-.button {
+.signIn-button {
     padding: 10px;
     font-size: 19px;
     background-color: #e00000;
@@ -62,7 +62,7 @@ h2{
     font-family: 'Trebuchet MS';
 }
 
-.button:hover{
+.signIn-button:hover{
     background-color: #920000;
     color: rgb(255, 255, 255);
 }

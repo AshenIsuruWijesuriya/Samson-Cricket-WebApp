@@ -61,7 +61,7 @@ const SignIn = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="input"
+                            className="signIn-input"
                         />
                     </div>
                     <div className="input-group">
@@ -73,13 +73,13 @@ const SignIn = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
-                            className="input"
+                            className="signIn-input"
                         />
                     </div>
                     <div className="forgot-password">
                         <a href='/forgot-password'>Forgot Password?</a>
                     </div>
-                    <button type="submit" className="button">Sign In</button>
+                    <button type="submit" className="signIn-button">Sign In</button>
                     <div className="signUp">
                         <p>Don't have an Account?</p>
                         <a href='/signUp'>Sign Up</a>
