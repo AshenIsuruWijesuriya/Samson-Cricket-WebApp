@@ -14,7 +14,13 @@ import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
+
 import UserDashboard from '../Pages/UserDashboard/UserDashboard';
+
+import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
+import BookSessions from '../Pages/Consulting/BookSessions/BookSessions';
+import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
+
 
 const AppRoutes = () => {
     return (
@@ -43,6 +49,13 @@ const AppRoutes = () => {
 
                 {/* Service Manager Dashboard */}
                 <Route path="/servicedashboard" element={<ServiceManagerDashboard />} />
+
+                {/* Consulting Dashboard */}
+                <Route path="/consultantdashboard" element={<ConsultantDashboard />} />
+                <Route path="/consultantdashboard/book-sessions" element={<BookSessions/>} />
+                <Route path="/batting-consulting" element={<BattingConsulting/>} />
+
+
 
             </RouterRoutes>
         </Router>
