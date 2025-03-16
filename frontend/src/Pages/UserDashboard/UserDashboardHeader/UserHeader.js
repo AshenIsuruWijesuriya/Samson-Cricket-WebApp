@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import logo1 from '../../../assets/images/logo1.png';
 import './UserHeader.css';
+import Swal from 'sweetalert2';
 
 const AdminHeader = () => {
     const [userName, setUserName] = useState("");
@@ -18,12 +19,19 @@ const AdminHeader = () => {
         }
     }, []);
 
-        const navigate = useNavigate();
-    
-        const handleLogout = () => {
-            localStorage.removeItem('token');
-            navigate('/signIn');
-        };
+    const navigate = useNavigate();
+        
+            const handleLogout = () => {
+                localStorage.removeItem('token');
+                Swal.fire({
+                    title: 'Logout Successful!',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500, // Close after 1.5 seconds
+                }).then(() => {
+                    navigate('/');
+                });
+    }
 
 
     return (

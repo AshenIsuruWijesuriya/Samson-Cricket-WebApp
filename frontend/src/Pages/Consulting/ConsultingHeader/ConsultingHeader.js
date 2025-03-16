@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import logo1 from '../../../assets/images/logo1.png'; 
 import './ConsultingHeader.css'; 
+import Swal from 'sweetalert2';
 
 const ConsultingHeader = () => {
 
@@ -9,8 +10,15 @@ const ConsultingHeader = () => {
     
         const handleLogout = () => {
             localStorage.removeItem('token');
-            navigate('/signIn');
-        };
+            Swal.fire({
+                title: 'Logout Successful!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500, // Close after 1.5 seconds
+            }).then(() => {
+                navigate('/');
+            });
+    };
 
     return (
         <header className="header">
