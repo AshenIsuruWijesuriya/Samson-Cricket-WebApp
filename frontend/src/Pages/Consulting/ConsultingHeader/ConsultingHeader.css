@@ -4,10 +4,6 @@
     align-items: center;
     padding: 7px 20px;
     background-color: #ffffff; /* Adjust as needed */
-    position: fixed; /* Fix header at the top */
-    top: 0;
-    left: 0;
-    width: 100vw;
 }
 
 .header-left {
