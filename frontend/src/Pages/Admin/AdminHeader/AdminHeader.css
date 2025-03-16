@@ -57,7 +57,7 @@ a{
     align-items: center;
 }
 
-.signIn {
+.logout-btn{
     text-decoration: none;
     color: #0d004d; /* Adjust as needed */
     padding: 8px 12px;
@@ -69,7 +69,7 @@ a{
     transition: background-color 0.3s;
 }
 
-.signIn:hover {
+.logout-btn:hover {
     background-color: #ffffff; /* Change background on hover */
     color: rgb(255, 0, 0); /* Change text color on hover */
     border: 2px solid #ff0000;
