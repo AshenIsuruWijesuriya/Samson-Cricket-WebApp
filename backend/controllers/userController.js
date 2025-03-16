@@ -46,7 +46,7 @@ exports.loginUser  = async (req, res) => {
         }
 
         // Generate a token (optional, but recommended for authentication)
-        const token = jwt.sign({ id: user._id, role: user.role }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id, role: user.role, firstname: user.firstname }, 'your_jwt_secret', { expiresIn: '1h' });
 
         // Send back user data and token
         res.status(200).json({
