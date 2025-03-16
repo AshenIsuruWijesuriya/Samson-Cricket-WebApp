@@ -1,6 +1,7 @@
 import React from "react";
 import logo1 from '../../../assets/images/logo1.png'; 
 import './AdminHeader.css'; 
+import LogoutButton from "../../../services/LogoutService";
 
 const AdminHeader = () => {
     return (
@@ -18,7 +19,7 @@ const AdminHeader = () => {
                 <h1 className="admindashboard-username">Welcome</h1>
             </div>
             <div className="header-right">
-                <a href="/signIn" className="signIn">Logout</a>
+                <p>Logout<LogoutButton/></p>
             </div>
         </header>
     );
