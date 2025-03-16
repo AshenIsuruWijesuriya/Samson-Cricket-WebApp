@@ -1,7 +1,7 @@
 import React, { useState } from 'react';  // Import useState from React
-import './BattingConsulting.css';
+import './PhysicalConsulting.css';
 
-const BattingConsulting = () => {
+const PhysicalConsulting = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -34,16 +34,17 @@ const BattingConsulting = () => {
 
     return (
         <div className='container'>
-            <h2 className='title'>Batting Consulting</h2>
+            <h2 className='title'>Physical Consulting</h2>
             <div className='para'>
                 <p>
-                    Our batting consultation service is designed to help players improve their technique, footwork, and shot selection. 
-                    Whether you're a beginner or an advanced player, our expert coaches will provide personalized guidance to enhance your game.
+                Physical consulting focuses on fitness, strength, and conditioning tailored for cricket performance. Our experts provide 
+                personalized training plans to enhance endurance, agility, 
+                and injury prevention. Optimize your physical capabilities to excel on the field.
                 </p>
             </div>
 
             <div className='para2'>
-                <h2>Book a Batting Consulting</h2>
+                <h2>Book a Physical Consulting</h2>
             </div>
             
             <form onSubmit={handleSubmit} className="consulting-form">
@@ -131,4 +132,4 @@ const BattingConsulting = () => {
     );
 };
 
-export default BattingConsulting;
+export default PhysicalConsulting;
