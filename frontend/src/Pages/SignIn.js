@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import './SignIn.css';
-import MainHeader from '../Common/mainHeader'; 
-import axios from 'axios'; // Make sure to install axios
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import MainHeader from '../Common/mainHeader';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const api = process.env.REACT_APP_BASE_URL;
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,28 +18,27 @@ const SignIn = () => {
             const response = await axios.post(api + '/api/users/login', { email, password });
             const { token, user } = response.data;
 
-            // Store token in local storage or state management
             localStorage.setItem('token', token);
 
-            // Show success alert
             Swal.fire({
                 title: 'Login Successful!',
                 text: 'Welcome back, ' + user.firstname + '!',
                 icon: 'success',
-                confirmButtonText: 'OK'
+                showConfirmButton: false, // Remove the OK button
+                timer: 1500, // Close after 1.5 seconds
             }).then(() => {
-                // Redirect based on user role
+                // Navigate directly after the timer
                 if (user.role === 'Admin') {
-                    window.location.href = '/admindashboard'; 
-                }
-                if (user.role === 'Consultant') {
-                    window.location.href = '/consultantdashboard'; 
+                    navigate('/admindashboard');
+                } else if (user.role === 'Consultant') {
+                    navigate('/consultantdashboard');
+                } else if (user.role === 'ServiceManager') {
+                    navigate('/servicedashboard');
                 } else {
-                    window.location.href = '/userdashboard'; 
+                    navigate('/userdashboard');
                 }
             });
         } catch (err) {
-            // Show error alert
             Swal.fire({
                 title: 'Login Failed',
                 text: err.response.data.message || 'An error occurred. Please try again.',
@@ -51,7 +51,7 @@ const SignIn = () => {
     return (
         <div>
             <div className="sign-in-bg"></div>
-            <MainHeader/>
+            <MainHeader />
             <div className="sign-in-container">
                 <h2>Sign In to your Samson Cricket Account</h2>
                 <form onSubmit={handleSubmit} className="sign-in-form">
@@ -60,7 +60,7 @@ const SignIn = () => {
                         <input
                             type="email"
                             id="email"
-                            placeholder="Email Address" 
+                            placeholder="Email Address"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -72,7 +72,7 @@ const SignIn = () => {
                         <input
                             type="password"
                             id="password"
-                            placeholder="Password" 
+                            placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
