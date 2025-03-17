@@ -1,0 +1,85 @@
+.home-content {
+    text-align: center;
+}
+
+.home-section {
+    margin-bottom: 0px;
+    background-color: #f9f9f9;
+}
+
+.section-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+.section-image {
+    width: 40%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.section-text {
+    width: 40%;
+    max-width: 500px;
+    text-align: left;
+    margin: 10px;
+}
+
+.section-text h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.section-text p {
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.section-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.section-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-image, .section-text {
+        width: 90%; /* Take up more width on smaller screens */
+        max-width: 100%;
+        text-align: center; /* Center text on smaller screens */
+    }
+
+    .section-content {
+      justify-content: center;
+    }
+}
+
+/* Specific section styling (optional) */
+.shop-section {
+    background-color: #3100d4;
+}
+
+.coaching-section {
+    background-color: #00efd3;
+}
+
+.services-section {
+    background-color: #fcbd00;
+}
+
+.consulting-section {
+    background-color: #f10400;
+}
