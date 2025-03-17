@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center; /* Center content horizontally */
     flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    height: 400px;
 }
 
 .section-image {
@@ -19,7 +20,7 @@
     max-width: 500px;
     height: auto;
     border-radius: 8px;
-    margin: 10px;
+    margin: 25px;
 }
 
 .section-text {
@@ -30,28 +31,38 @@
 }
 
 .section-text h2 {
-    color: white;
+    color: rgb(255, 255, 255);
     margin-bottom: 15px;
+    font-size: 36px;
+    font-family: Impact;
 }
 
 .section-text p {
-    color: #ffffff;
+    color: #cccccc;
     line-height: 1.6;
     margin-bottom: 20px;
+    font-family:'Trebuchet MS';
+    font-size: 20px;
 }
 
 .section-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: #ffffff00;
+    color: rgb(255, 255, 255);
+    border: 2px solid white ;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 35px;
     transition: background-color 0.3s;
+    font-family:'Trebuchet MS';
+    font-weight: 600px;
 }
 
 .section-button:hover {
-    background-color: #0056b3;
+    background-color: #ffffff00;
+    color: rgb(255, 32, 32);
+    border: 2px solid rgb(255, 61, 61) ;
+
 }
 
 /* Responsive adjustments */
@@ -69,17 +80,17 @@
 
 /* Specific section styling (optional) */
 .shop-section {
-    background-color: #3100d4;
+    background-image: url('../assets/images/homeshopcont.jpeg');
 }
 
 .coaching-section {
-    background-color: #00efd3;
+    background-image: url('../assets/images/admin-card.jpg');
 }
 
 .services-section {
-    background-color: #fcbd00;
+    background-image: url('../assets/images/admin-card.jpg');
 }
 
 .consulting-section {
-    background-color: #f10400;
+    background-image: url('../assets/images/admin-card.jpg');
 }
