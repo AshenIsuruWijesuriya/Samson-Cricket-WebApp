@@ -4,23 +4,27 @@
 
 .home-section {
     margin-bottom: 0px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
 }
 
 .section-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content horizontally */
-    flex-wrap: wrap; /* Allow wrapping for responsiveness */
-    height: 400px;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.4); /* Add a semi-transparent dark overlay to section-content */
 }
 
 .section-image {
-    width: 40%;
+    width: 50%;
     max-width: 500px;
     height: auto;
     border-radius: 8px;
     margin: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .section-text {
@@ -35,14 +39,16 @@
     margin-bottom: 15px;
     font-size: 36px;
     font-family: Impact;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .section-text p {
-    color: #cccccc;
+    color: #ffffff;
     line-height: 1.6;
     margin-bottom: 20px;
-    font-family:'Trebuchet MS';
+    font-family: 'Trebuchet MS';
     font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .section-button {
@@ -50,47 +56,48 @@
     padding: 10px 20px;
     background-color: #ffffff00;
     color: rgb(255, 255, 255);
-    border: 2px solid white ;
+    border: 2px solid white;
     text-decoration: none;
     border-radius: 35px;
     transition: background-color 0.3s;
-    font-family:'Trebuchet MS';
+    font-family: 'Trebuchet MS';
     font-weight: 600px;
 }
 
 .section-button:hover {
     background-color: #ffffff00;
     color: rgb(255, 32, 32);
-    border: 2px solid rgb(255, 61, 61) ;
-
+    border: 2px solid rgb(255, 61, 61);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .section-image, .section-text {
-        width: 90%; /* Take up more width on smaller screens */
+        width: 90%;
         max-width: 100%;
-        text-align: center; /* Center text on smaller screens */
+        text-align: center;
     }
 
     .section-content {
-      justify-content: center;
+        justify-content: center;
     }
 }
 
-/* Specific section styling (optional) */
 .shop-section {
-    background-image: url('../assets/images/homeshopcont.jpeg');
+    background-image: url('../assets/images/shophomeb.jpeg');
+    background-blend-mode: multiply; /* Blend the background image with a darker color */
 }
 
 .coaching-section {
-    background-image: url('../assets/images/admin-card.jpg');
+    background-image: url('../assets/images/homecoach.jpeg');
+    background-blend-mode: multiply; /* Blend the background image with a darker color */
 }
 
 .services-section {
-    background-image: url('../assets/images/admin-card.jpg');
+    background-image: url('../assets/images/servicehome.png');
+    background-blend-mode: multiply; /* Blend the background image with a darker color */
 }
 
 .consulting-section {
-    background-image: url('../assets/images/admin-card.jpg');
+    background-image: url('../assets/images/consultbghome.png');
+    background-blend-mode: multiply; /* Blend the background image with a darker color */
 }

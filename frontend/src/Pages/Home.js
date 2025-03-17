@@ -2,9 +2,9 @@ import React from 'react';
 import MainHeader from '../Common/mainHeader';
 import './Home.css'; // Import your CSS file
 import shopImage from '../assets/images/shopbghome.png';
-import coachingImage from '../assets/images/adminbg.jpg';
-import servicesImage from '../assets/images/adminbg.jpg';
-import consultingImage from '../assets/images/signInbg.jpg';
+import coachingImage from '../assets/images/coachbghome.jpeg';
+import servicesImage from '../assets/images/servhome.jpeg';
+import consultingImage from '../assets/images/consulthome.png';
 
 const Home = () => {
     return (
