@@ -1,17 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes as RouterRoutes, Navigate } from 'react-router-dom';
 import Home from '../Pages/Home';
+
+import SignIn from '../Pages/SignIn';
+import SignUp from '../Pages/SignUp';
+
 import Shop from '../Pages/Shop/Shop';
 import Coaching from '../Pages/Coaching/Coaching';
 import Services from '../Pages/Services/Service';
-import SignIn from '../Pages/SignIn';
-import SignUp from '../Pages/SignUp';
 import Consulting from '../Pages/Consulting/Consulting';
+
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
+import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
+
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
+
 import UserDashboard from '../Pages/UserDashboard/UserDashboard';
+
 import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
 import BookSessions from '../Pages/Consulting/BookSessions/BookSessions';
 import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
@@ -86,6 +93,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute roles={['Admin']}>
                             <ManageUsers />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admindashboard/manage-users/customer-users"
+                    element={
+                        <ProtectedRoute roles={['Admin']}>
+                            <CustomerUsers/>
                         </ProtectedRoute>
                     }
                 />

@@ -111,6 +111,18 @@ exports.updateUser = async (req, res) => {
     }
 };
 
+// Get Users by Role
+exports.getUsersByRole = async (req, res) => {
+    try {
+        const { role } = req.params;
+        const users = await User.find({ role: role });
+        res.status(200).json(users);
+    } catch (error) {
+        console.error('Error getting users by role:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
 // Delete User
 exports.deleteUser = async (req, res) => {
     try {

@@ -1,0 +1,136 @@
+.customer-users-bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../assets/images/admin-card.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  .customer-users-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .customer-users-title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #ffffff;
+  }
+  
+  .customer-users-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .customer-users-thead {
+    background-color: #000000;
+    color: white;
+  }
+  
+  .customer-users-tr-header {
+    background-color: #000000;
+    color: white;
+  }
+  
+  .customer-users-th,
+  .customer-users-td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    font-family: 'Trebuchet MS';
+    font-size: 17px;
+  }
+  
+  .customer-users-th {
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .customer-users-tbody .customer-users-tr-data {
+    background-color: #000000a4;
+  }
+  
+  .navigation-path-admindb {
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .navigation-path-admindb a {
+    color: rgb(184, 184, 184);
+    text-decoration: none;
+  }
+  
+  .navigation-path-admindb a:hover {
+    text-decoration: underline;
+  }
+  
+  .customer-users-delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .customer-users-delete-btn:hover {
+    color: #c0392b;
+  }
+  
+  .customer-users-delete-btn:focus {
+    outline: none;
+  }
+
+  .customer-users-filter-container {
+      margin: 20px auto;
+      width: 80%;
+      display: flex; /* Enable flexbox */
+      justify-content: center; /* Center horizontally */
+  }
+
+  .customer-users-search-input {
+      width: 50%; /* Adjust width as needed */
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 24px;
+      font-size: 16px;
+      background-color: #000000a4;
+      color: white;
+  }
+
+  .customer-users-search-input:focus {
+      outline: none;
+      border-color: #ff0000ca;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+
+  .customer-users-email-btn {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    cursor: pointer;
+    color: #3498db; /* Blue color (or any color you prefer) */
+    font-size: 1.2em; /* Match delete button icon size */
+    padding: 5px 10px; /* Match delete button padding */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .customer-users-email-btn:hover {
+    color: #2980b9; /* Darker blue on hover */
+  }
+
+  .customer-users-email-btn:focus {
+    outline: none; /* Remove focus outline */
+  }
