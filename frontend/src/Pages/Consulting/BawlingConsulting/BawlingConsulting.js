@@ -33,20 +33,25 @@ const BawlingConsulting = () => {
     };
 
     return (
-        <div className='container'>
-            <h2 className='title'>Bawling Consulting</h2>
-            <div className='para'>
+
+        <>
+            <div className="bawlingfullpage-container"></div>
+        
+       
+        <div className='bawlingcontainer'>
+            <h2 className='bawlingtitle'>Bawling Consulting</h2>
+            <div className='bawlingpara'>
                 <p>
                 Bowling Consulting helps players refine their bowling techniques with expert guidance. Our coaches provide personalized feedback to improve speed, accuracy, and strategy. Book a session to elevate your bowling performance today!
                 </p>
             </div>
 
-            <div className='para2'>
+            <div className='bawlingpara2'>
                 <h2>Book a Bawling Consulting</h2>
             </div>
             
-            <form onSubmit={handleSubmit} className="consulting-form">
-                <div className="form-group">
+            <form onSubmit={handleSubmit} className="bawlingconsulting-form">
+                <div className="bawlingform-group">
                     <label htmlFor="name">Name:</label>
                     <input 
                         type="text" 
@@ -58,7 +63,7 @@ const BawlingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="bawlingform-group">
                     <label htmlFor="email">Email:</label>
                     <input 
                         type="email" 
@@ -70,7 +75,7 @@ const BawlingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="bawlingform-group">
                     <label htmlFor="contact">Contact Number:</label>
                     <input 
                         type="text" 
@@ -82,7 +87,7 @@ const BawlingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="bawlingform-group">
                     <label htmlFor="date">Select Date:</label>
                     <input 
                         type="date" 
@@ -94,7 +99,7 @@ const BawlingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="bawlingform-group">
                     <label htmlFor="time">Select Time:</label>
                     <input 
                         type="time" 
@@ -107,7 +112,7 @@ const BawlingConsulting = () => {
                 </div>
 
                 {/* New field for selecting consulting type */}
-                <div className="form-group">
+                <div className="bawlingform-group">
                     <label htmlFor="consultingType">Consulting Type:</label>
                     <select 
                         id="consultingType" 
@@ -124,9 +129,10 @@ const BawlingConsulting = () => {
                     </select>
                 </div>
 
-                <button type="submit" className="submit-btn">Submit</button>
+                <button type="submit" className="bawlingsubmit-btn">Submit</button>
             </form>
         </div>
+        </>
     );
 };
 

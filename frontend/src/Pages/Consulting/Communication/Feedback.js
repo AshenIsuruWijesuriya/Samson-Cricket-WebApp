@@ -20,9 +20,9 @@ const Feedback = () => {
     };
 
     return (
-        <div className='container'>
-            <h2 className='title'>Feedback</h2>
-            <div className='para'>
+        <div className='feedbackcontainer'>
+            <h2 className='feedbacktitle'>Feedback</h2>
+            <div className='feedbackpara'>
                 <p>
                     The feedback session in the consulting section provides players with personalized insights and performance analysis.
                     Coaches review strengths, areas for improvement,
@@ -30,11 +30,11 @@ const Feedback = () => {
                 </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="form">
-                <div className='para2'>
+            <form onSubmit={handleSubmit} className="feedbackform">
+                <div className='feedbackpara2'>
                     <h2>Give your feedback</h2>
                 </div>
-                <div className="form-group">
+                <div className="feedbackform-group">
                     <label htmlFor="name">Name:</label>
                     <input
                         type="text"
@@ -46,7 +46,7 @@ const Feedback = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="feedbackform-group">
                     <label htmlFor="email">Email:</label>
                     <input
                         type="email"
@@ -58,7 +58,7 @@ const Feedback = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="feedbackform-group">
                     <label htmlFor="feedback">Feedback:</label>
                     <textarea
                         id="feedback"
@@ -71,7 +71,7 @@ const Feedback = () => {
                     />
                 </div>
 
-                <button type="submit" className="submit-btn">Submit</button>
+                <button type="submit" className="feedbacksubmit-btn">Submit</button>
             </form>
         </div>
     );
