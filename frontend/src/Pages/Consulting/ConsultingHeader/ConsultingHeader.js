@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import logo1 from '../../../assets/images/logo1.png'; 
 import './ConsultingHeader.css'; 
@@ -6,7 +6,21 @@ import Swal from 'sweetalert2';
 
 const ConsultingHeader = () => {
 
-    const navigate = useNavigate();
+    const [userName, setUserName] = useState("");
+    
+        useEffect(() => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                try {
+                    const payload = JSON.parse(atob(token.split('.')[1]));
+                    setUserName(payload.firstname || "User"); 
+                } catch (error) {
+                    console.error('Error decoding token:', error);
+                }
+            }
+        }, []);
+    
+        const navigate = useNavigate();
     
         const handleLogout = () => {
             localStorage.removeItem('token');
@@ -18,7 +32,7 @@ const ConsultingHeader = () => {
             }).then(() => {
                 navigate('/');
             });
-    };
+        };
 
     return (
         <header className="header">
@@ -32,7 +46,7 @@ const ConsultingHeader = () => {
                 <div className="consultantdashboard-title">Consultant Dashboard</div>
             </a>
             <div className="consultantdashboard-username">
-                <h1 className="consultantdashboard-username">Welcome</h1>
+                <h1 className="consultantdashboard-username">Welcome, {userName}</h1>
             </div>
             <div className="header-right">
                 <button onClick={handleLogout} className="logout-btn">Logout</button>

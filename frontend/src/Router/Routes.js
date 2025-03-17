@@ -141,7 +141,7 @@ const AppRoutes = () => {
                 />
                 
                 <Route
-                    path="/batting-consulting"
+                    path="/consultantdashboard/manage-questions"
                     element={
                         <ProtectedRoute roles={['Consultant']}>
                             <BattingConsulting />
