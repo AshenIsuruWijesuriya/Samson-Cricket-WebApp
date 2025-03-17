@@ -13,12 +13,12 @@ import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
 import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
-import BookSessions from '../Pages/Consulting/BookSessions/BookSessions';
+
 import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
 import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
 import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingConsulting';
 import PhysicalConsulting from '../Pages/Consulting/PhysicalConsulting/PhysicalConsulting';
-import Feedback from '../Pages/Consulting/Communication/Feedback';
+
 
 const AppRoutes = () => {
     const isAuthenticated = () => {
@@ -115,14 +115,7 @@ const AppRoutes = () => {
                         </ProtectedRoute>
                     }
                 />
-                <Route
-                    path="/consultantdashboard/book-sessions"
-                    element={
-                        <ProtectedRoute roles={['Consultant']}>
-                            <BookSessions />
-                        </ProtectedRoute>
-                    }
-                />
+                
                 <Route
                     path="/batting-consulting"
                     element={
@@ -155,14 +148,7 @@ const AppRoutes = () => {
                         </ProtectedRoute>
                     }
                 />
-                <Route
-                    path="/consultantdashboard/communication"
-                    element={
-                        <ProtectedRoute roles={['Consultant']}>
-                            <Feedback />
-                        </ProtectedRoute>
-                    }
-                />
+                
             </RouterRoutes>
         </Router>
     );
