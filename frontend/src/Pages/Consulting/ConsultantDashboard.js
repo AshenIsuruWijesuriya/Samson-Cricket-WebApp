@@ -7,21 +7,21 @@ const ConsultantDashboard = () => {
     return (
         <div className='container'>
         <ConsultingHeader/>
-        <div className='con-title'>Select a Service</div>
+       
         <div className="dashboard-container">
-            <a href='/consultantdashboard/book-sessions' className="con-card-link">
+            <a href='/consultantdashboard/manage-consultant' className="con-card-link">
                 <div className="con-card">
-                   Book a session
+                  Manage Consultant
                 </div>
             </a>
-            <a href='/consultantdashboard/manage-session' className="con-card-link">
+            <a href='/consultantdashboard/manage-consulting-session' className="con-card-link">
                 <div className="con-card">
-                    Manage sessions
+                    Manage Consulting Sessions
                 </div>
             </a>
-            <a href='/consultantdashboard/communication' className="con-card-link">
+            <a href='/consultantdashboard/manage-questions' className="con-card-link">
                 <div className="con-card">
-                    Communication
+                    Q & A
                 </div>
             </a>
         </div>
