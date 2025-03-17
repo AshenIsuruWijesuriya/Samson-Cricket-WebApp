@@ -71,6 +71,13 @@ const AppRoutes = () => {
                 {/* Sign In & Sign Up */}
                 <Route path="/signIn" element={<SignIn />} />
                 <Route path="/signUp" element={<SignUp />} />
+
+                {/* Consulting Home Side */}
+                <Route path="/batting-consulting" element={ <BattingConsulting /> }/>
+                <Route path="/bawling-consulting" element={<BawlingConsulting />}/>
+                <Route path="/fielding-consulting" element={<FieldingConsulting />}/>
+                <Route path="/physical-consulting" element={<PhysicalConsulting />}/>
+
                 {/* User Dashboard */}
                 <Route
                     path="/userdashboard"
@@ -140,38 +147,7 @@ const AppRoutes = () => {
                     }
                 />
                 
-                <Route
-                    path="/consultantdashboard/manage-questions"
-                    element={
-                        <ProtectedRoute roles={['Consultant']}>
-                            <BattingConsulting />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/bawling-consulting"
-                    element={
-                        <ProtectedRoute roles={['Consultant']}>
-                            <BawlingConsulting />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/fielding-consulting"
-                    element={
-                        <ProtectedRoute roles={['Consultant']}>
-                            <FieldingConsulting />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/physical-consulting"
-                    element={
-                        <ProtectedRoute roles={['Consultant']}>
-                            <PhysicalConsulting />
-                        </ProtectedRoute>
-                    }
-                />
+                
                 
             </RouterRoutes>
         </Router>
