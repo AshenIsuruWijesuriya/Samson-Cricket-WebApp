@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 
 // Register User
 exports.registerUser = async (req, res) => {
@@ -121,5 +122,48 @@ exports.deleteUser = async (req, res) => {
     } catch (error) {
         console.error('Error deleting user:', error);
         res.status(500).json({ message: 'Server error' });
+    }
+};
+
+exports.sendOtp = async (req, res) => {
+    const { email } = req.body;
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    req.app.locals.otps = req.app.locals.otps || {};
+    req.app.locals.otps[email] = otp;
+
+    const transporter = nodemailer.createTransport({
+        service: 'gmail', // Or your email service
+        auth: {
+            user: process.env.EMAIL_USER, // Access from .env
+            pass: process.env.EMAIL_PASS, // Access from .env
+        },
+    });
+
+    const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: 'Your OTP',
+        text: `Your OTP is: ${otp}`,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.json({ message: 'OTP sent successfully' });
+    } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(500).json({ message: 'Failed to send OTP' });
+    }
+};
+
+exports.verifyOtp = (req, res) => {
+    const { email, otp } = req.body;
+    const storedOtp = req.app.locals.otps?.[email];
+
+    if (storedOtp && storedOtp === otp) {
+        delete req.app.locals.otps[email]; // Remove OTP after successful verification
+        res.json({ verified: true });
+    } else {
+        res.json({ verified: false });
     }
 };

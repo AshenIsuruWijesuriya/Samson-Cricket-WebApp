@@ -15,7 +15,7 @@
     justify-content: center;
     flex-wrap: wrap;
     height: 500px;
-    background: rgba(0, 0, 0, 0.4); /* Add a semi-transparent dark overlay to section-content */
+    background: rgba(0, 0, 0, 0.6); /* Add a semi-transparent dark overlay to section-content */
 }
 
 .section-image {
@@ -38,7 +38,7 @@
     color: rgb(255, 255, 255);
     margin-bottom: 15px;
     font-size: 36px;
-    font-family: Impact;
+    font-family: 'Trebuchet MS';
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
