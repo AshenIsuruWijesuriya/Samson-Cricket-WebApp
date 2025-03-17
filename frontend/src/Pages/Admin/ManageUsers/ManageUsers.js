@@ -14,7 +14,7 @@ const ManageUsers = () => {
 
             <h2 className='manage-users-heading'>Select user type you want</h2>
             <div className="manage-users-container">
-                <a href='/' className="manage-user-link">
+                <a href='/admindashboard/manage-users/customer-users' className="manage-user-link">
                     <div className="manage-user-box manage-customers">
                         <FaRegUser className="user-box-icon" />
                         <h2>Manage Customers</h2>
@@ -41,7 +41,7 @@ const ManageUsers = () => {
                 <a href='/' className="manage-user-link">
                     <div className="manage-user-box manage-consultation-managers">
                         <FaUserTie className="user-box-icon" />
-                        <h2>Manage Consultation Managers</h2>
+                        <h2>Manage Consulting Managers</h2>
                     </div>
                 </a>
                 <a href='/' className="manage-user-link">
