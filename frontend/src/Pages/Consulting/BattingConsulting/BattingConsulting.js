@@ -33,21 +33,25 @@ const BattingConsulting = () => {
     };
 
     return (
-        <div className='container'>
-            <h2 className='title'>Batting Consulting</h2>
-            <div className='para'>
+
+        <>
+         <div className="battingfullpage-container"></div>
+        
+        <div className='battingcontainer'>
+            <h2 className='battingtitle'>Batting Consulting</h2>
+            <div className='battingpara'>
                 <p>
                     Our batting consultation service is designed to help players improve their technique, footwork, and shot selection. 
                     Whether you're a beginner or an advanced player, our expert coaches will provide personalized guidance to enhance your game.
                 </p>
             </div>
 
-            <div className='para2'>
+            <div className='battingpara2'>
                 <h2>Book a Batting Consulting</h2>
             </div>
             
-            <form onSubmit={handleSubmit} className="consulting-form">
-                <div className="form-group">
+            <form onSubmit={handleSubmit} className="battingconsulting-form">
+                <div className="battingform-group">
                     <label htmlFor="name">Name:</label>
                     <input 
                         type="text" 
@@ -59,7 +63,7 @@ const BattingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="battingform-group">
                     <label htmlFor="email">Email:</label>
                     <input 
                         type="email" 
@@ -71,7 +75,7 @@ const BattingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="battingform-group">
                     <label htmlFor="contact">Contact Number:</label>
                     <input 
                         type="text" 
@@ -83,7 +87,7 @@ const BattingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="battingform-group">
                     <label htmlFor="date">Select Date:</label>
                     <input 
                         type="date" 
@@ -95,7 +99,7 @@ const BattingConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="battingform-group">
                     <label htmlFor="time">Select Time:</label>
                     <input 
                         type="time" 
@@ -108,7 +112,7 @@ const BattingConsulting = () => {
                 </div>
 
                 {/* New field for selecting consulting type */}
-                <div className="form-group">
+                <div className="battingform-group">
                     <label htmlFor="consultingType">Consulting Type:</label>
                     <select 
                         id="consultingType" 
@@ -125,9 +129,11 @@ const BattingConsulting = () => {
                     </select>
                 </div>
 
-                <button type="submit" className="submit-btn">Submit</button>
+                <button type="submit" className="battingsubmit-btn">Submit</button>
             </form>
+         
         </div>
+        </>
     );
 };
 

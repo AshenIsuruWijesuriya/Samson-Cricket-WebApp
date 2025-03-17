@@ -1,4 +1,4 @@
-.feedback-container {
+.feedbackcontainer {
     width: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -6,13 +6,44 @@
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-  
-.h2 {
-    text-align: center;
-    color: #333;
+
+.feedbackpara {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px; /* Rounds all four corners */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+    line-height: 1.6;
+    color: blue;
+    text-align: center; /* Centers text */
+    max-width: 80%; /* Ensures content is not too wide */
+    margin: 0 auto;
+}
+
+.feedbackpara2 h2 {
+    font-size: 28px; /* Adjust size as needed */
+    font-weight: bold;
+    color: #0d004d; /* Dark blue shade */
+    text-align: center; /* Center align */
+    text-transform: uppercase;
+    margin: 20px 0; /* Space above and below */
+    padding: 0; /* No padding */
+    background: none; /* No background */
+    box-shadow: none; /* No shadow */
 }
   
-.form {
+.feedbacktitle {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: black;
+    font-family: 'Trebuchet MS';
+}
+  
+.feedbackform {
     border: 2px solid #ccc;  /* Add border around the form */
     border-color: black;
     padding: 20px;
@@ -22,42 +53,52 @@
     margin: 60px auto; 
     text-align: center;
 }
-  
-.label {
-    margin-top: 10px;
+
+.feedbackform-group {
+    margin-bottom: 15px;
+    text-align:left; /* Centers the input elements */
+}
+
+.feedbackform-group label {
+    margin-top: 30px;
     font-weight: bold;
     width: 100px; /* Set a fixed width for the label */
-    text-align: right; /* Align label text to the right */
+    text-align:right; /* Align label text to the right */
     padding-right: 10px; /* Add space between label and input */
    
 }
   
-.input,textarea {
-    flex-grow: 1;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: left;
-    width: 100%;
-    resize: none; /* Recommended: prevent user resizing */
-    min-height: 100px;
-    text-align: left; /* Or center, right, justify as needed */
-}
-
-
-  
-.button {
-    margin-top: 15px;
+.feedbackform-group input,
+.feedbackform-group textarea {
+    
+    width: 60%;  /* Center the input fields with a width of 60% */
     padding: 10px;
-    background-color: #007bff;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 0 auto;  /* Ensure the input fields are centered */
+    display: block;
+}
+
+
+  
+.feedbacksubmit-btn {
+    background-color: #4CAF50;
     color: white;
+    padding: 12px 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    width: 60%;  /* Button centered with the form width */
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
   
-.button:hover {
-    background-color: #0056b3;
+.feedbacksubmit-btn:hover {
+    background-color: #45a049;
 }
   

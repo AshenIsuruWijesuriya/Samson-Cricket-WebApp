@@ -33,9 +33,13 @@ const PhysicalConsulting = () => {
     };
 
     return (
-        <div className='container'>
-            <h2 className='title'>Physical Consulting</h2>
-            <div className='para'>
+
+        <>
+         <div className="physicalfullpage-container"></div>
+        
+        <div className='physicalcontainer'>
+            <h2 className='physicaltitle'>Physical Consulting</h2>
+            <div className='physicalpara'>
                 <p>
                 Physical consulting focuses on fitness, strength, and conditioning tailored for cricket performance. Our experts provide 
                 personalized training plans to enhance endurance, agility, 
@@ -43,12 +47,12 @@ const PhysicalConsulting = () => {
                 </p>
             </div>
 
-            <div className='para2'>
+            <div className='physicalpara2'>
                 <h2>Book a Physical Consulting</h2>
             </div>
             
-            <form onSubmit={handleSubmit} className="consulting-form">
-                <div className="form-group">
+            <form onSubmit={handleSubmit} className="physicalconsulting-form">
+                <div className="physicalform-group">
                     <label htmlFor="name">Name:</label>
                     <input 
                         type="text" 
@@ -60,7 +64,7 @@ const PhysicalConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="physicalform-group">
                     <label htmlFor="email">Email:</label>
                     <input 
                         type="email" 
@@ -72,7 +76,7 @@ const PhysicalConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="physicalform-group">
                     <label htmlFor="contact">Contact Number:</label>
                     <input 
                         type="text" 
@@ -84,7 +88,7 @@ const PhysicalConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="physicalform-group">
                     <label htmlFor="date">Select Date:</label>
                     <input 
                         type="date" 
@@ -96,7 +100,7 @@ const PhysicalConsulting = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="physicalform-group">
                     <label htmlFor="time">Select Time:</label>
                     <input 
                         type="time" 
@@ -109,7 +113,7 @@ const PhysicalConsulting = () => {
                 </div>
 
                 {/* New field for selecting consulting type */}
-                <div className="form-group">
+                <div className="physicalform-group">
                     <label htmlFor="consultingType">Consulting Type:</label>
                     <select 
                         id="consultingType" 
@@ -126,9 +130,10 @@ const PhysicalConsulting = () => {
                     </select>
                 </div>
 
-                <button type="submit" className="submit-btn">Submit</button>
+                <button type="submit" className="physicalsubmit-btn">Submit</button>
             </form>
         </div>
+        </>
     );
 };
 
