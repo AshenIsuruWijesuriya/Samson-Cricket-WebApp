@@ -1,90 +1,113 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 7px 20px;
-    background-color: #ffffff; /* Adjust as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 20px;
+  background-color: #ffffff; /* Adjust as needed */
 }
 
 .header-left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-left img {
-    width: 65px;
+  width: 65px;
 }
 
 .header-content {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #333; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333; /* Adjust as needed */
 }
 
 .titlename {
-    margin-left: 10px; /* Space between logo and title */
-    font-size: 34px; /* Adjust as needed */
-    font-family:Impact;
-    color:#00094e;
-    font-weight: 500;
-    font-family: Impact;
+  margin-left: 10px; /* Space between logo and title */
+  font-size: 34px; /* Adjust as needed */
+  font-family: Impact;
+  color: #00094e;
+  font-weight: 500;
+  font-family: Impact;
 }
 
 .navbar {
-    flex-grow: 1; /* Allow navbar to take available space */
-    text-align: center; /* Center the navbar items */
+  flex-grow: 1; /* Allow navbar to take available space */
+  text-align: center; /* Center the navbar items */
 }
 
 .navbar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-flex; /* Use inline-flex for horizontal layout */
-    gap:10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex; /* Use inline-flex for horizontal layout */
+  gap: 10px;
 }
 
 .navbar-item {
-    margin: 0 15px; /* Space between navbar items */
+  margin: 0 15px; /* Space between navbar items */
 }
 
 .navbar-item a {
-    text-decoration: none;
-    color: #ff0000; /* Adjust as needed */
-    font-weight: 700 ;
-    font-family: 'Trebuchet MS';
-    font-size: 18px;
-    padding: 8px 18px;
-    border-radius: 40px;
-
+  text-decoration: none;
+  color: #ff0000; /* Adjust as needed */
+  font-weight: 700;
+  font-family: "Trebuchet MS";
+  font-size: 18px;
+  padding: 8px 18px;
+  border-radius: 40px;
 }
 
 .navbar-item a:hover {
-    background-color: rgb(255, 255, 255);
-    color: hsl(246, 100%, 22%);
-    border: 2px solid #000d70;
-    padding: 8px 16px;
+  background-color: rgb(255, 255, 255);
+  color: hsl(246, 100%, 22%);
+  border: 2px solid #000d70;
+  padding: 8px 16px;
 }
 
 .header-right {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .signIn {
-    text-decoration: none;
-    color: #0d004d; /* Adjust as needed */
-    padding: 8px 12px;
-    font-size: 18px;
-    border: 2px solid #070054; /* Adjust as needed */
-    border-radius: 40px; /* Rounded corners */
-    font-weight: bolder;
-    font-family: 'Trebuchet MS';
-    transition: background-color 0.3s;
+  text-decoration: none;
+  color: #0d004d; /* Adjust as needed */
+  padding: 8px 12px;
+  font-size: 18px;
+  border: 2px solid #070054; /* Adjust as needed */
+  border-radius: 40px; /* Rounded corners */
+  font-weight: bolder;
+  font-family: "Trebuchet MS";
+  transition: background-color 0.3s;
 }
 
 .signIn:hover {
-    background-color: #ffffff; /* Change background on hover */
-    color: rgb(255, 0, 0); /* Change text color on hover */
-    border: 2px solid #ff0000;
+  background-color: #ffffff; /* Change background on hover */
+  color: rgb(255, 0, 0); /* Change text color on hover */
+  border: 2px solid #ff0000;
 }
+
+.user-profile {
+  display: flex; /* Use flexbox to align icon and text */
+  align-items: center; /* Vertically align items */
+  gap: 5px; /* Add some space between the icon and text */
+}
+
+.user-profile-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+}
+
+.user-icon {
+  font-size: 2.5em; /* Adjust icon size as needed */
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+}
+
+.user-icon:hover {
+    color:rgb(0, 2, 117);
+  }

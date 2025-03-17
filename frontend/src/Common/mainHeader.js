@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import logo1 from '../assets/images/logo1.png';
 import './mainHeader.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import { FaRegUser, FaUserCog, FaUserTie, FaUserShield } from "react-icons/fa"; // Import different icons
 
 const MainHeader = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [userName, setUserName] = useState("");
     const [userRole, setUserRole] = useState("");
     const navigate = useNavigate();
 
@@ -15,7 +15,6 @@ const MainHeader = () => {
             try {
                 const payload = JSON.parse(atob(token.split('.')[1]));
                 setIsLoggedIn(true);
-                setUserName(payload.firstname || "User");
                 setUserRole(payload.role);
             } catch (error) {
                 console.error('Error decoding token:', error);
@@ -34,6 +33,19 @@ const MainHeader = () => {
             navigate('/consultantdashboard');
         } else {
             navigate('/userdashboard');
+        }
+    };
+
+    const getUserIcon = () => {
+        switch (userRole) {
+            case 'Admin':
+                return <FaUserShield className="user-icon" />;
+            case 'ServiceManager':
+                return <FaUserCog className="user-icon" />;
+            case 'Consultant':
+                return <FaUserTie className="user-icon" />;
+            default:
+                return <FaRegUser className="user-icon" />;
         }
     };
 
@@ -56,8 +68,8 @@ const MainHeader = () => {
             </nav>
             <div className="header-right">
                 {isLoggedIn ? (
-                    <button onClick={handleUserNameClick} className="signIn">
-                        {userName}
+                    <button onClick={handleUserNameClick} className="user-profile-button">
+                        {getUserIcon()}
                     </button>
                 ) : (
                     <a href="/signIn" className="signIn">
