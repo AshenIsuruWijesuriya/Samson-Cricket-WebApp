@@ -1,5 +1,7 @@
 import React, { useState } from 'react';  // Import useState from React
+
 import './BattingConsulting.css';
+import MainHeader from '../../../Common/mainHeader';
 
 const BattingConsulting = () => {
     const [formData, setFormData] = useState({
@@ -34,9 +36,11 @@ const BattingConsulting = () => {
 
     return (
 
+       
+
         <>
          <div className="battingfullpage-container"></div>
-        
+        <MainHeader/>
         <div className='battingcontainer'>
             <h2 className='battingtitle'>Batting Consulting</h2>
             <div className='battingpara'>

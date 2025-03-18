@@ -1,5 +1,6 @@
 import React, { useState } from 'react';  // Import useState from React
 import './PhysicalConsulting.css';
+import MainHeader from '../../../Common/mainHeader';
 
 const PhysicalConsulting = () => {
     const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const PhysicalConsulting = () => {
 
         <>
          <div className="physicalfullpage-container"></div>
-        
+        <MainHeader/>
         <div className='physicalcontainer'>
             <h2 className='physicaltitle'>Physical Consulting</h2>
             <div className='physicalpara'>

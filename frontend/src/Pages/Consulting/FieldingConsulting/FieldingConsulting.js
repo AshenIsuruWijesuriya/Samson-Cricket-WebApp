@@ -1,5 +1,6 @@
 import React, { useState } from 'react';  // Import useState from React
 import './FieldingConsulting.css';
+import MainHeader from '../../../Common/mainHeader';
 
 const FieldingConsulting = () => {
     const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const FieldingConsulting = () => {
 
         <>
          <div className="fieldingfullpage-container"></div>
-      
+        <MainHeader/>
         <div className='fieldingcontainer'>
             <h2 className='fieldingtitle'>Fielding Consulting</h2>
             <div className='fieldingpara'>

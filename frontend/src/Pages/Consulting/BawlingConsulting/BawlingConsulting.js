@@ -1,5 +1,6 @@
 import React, { useState } from 'react';  // Import useState from React
 import './BawlingConsulting.css';
+import MainHeader from '../../../Common/mainHeader';
 
 const BawlingConsulting = () => {
     const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const BawlingConsulting = () => {
         <>
             <div className="bawlingfullpage-container"></div>
         
-       
+       <MainHeader/>
         <div className='bawlingcontainer'>
             <h2 className='bawlingtitle'>Bawling Consulting</h2>
             <div className='bawlingpara'>
