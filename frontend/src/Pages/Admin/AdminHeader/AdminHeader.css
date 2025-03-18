@@ -1,4 +1,4 @@
-.header {
+.admin-header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,58 +6,59 @@
     background-color: #ffffff; 
 }
 
-.header-left {
+.admin-header-left-section {
     display: flex;
     align-items: center;
 }
 
-.header-left img {
-    width: 65px;
+.admin-header-logo-image {
+    width: 55px;
 }
 
-.header-content {
+.admin-header-logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: #333; 
 }
 
-.titlename {
+.admin-header-title-text {
     margin-left: 10px; 
-    font-size: 34px; 
-    font-family:Impact;
-    color:#00094e;
-    font-weight: 500;
+    font-size: 24px; 
     font-family: Impact;
+    color: #00094e;
+    font-weight: 500;
 }
 
-.admindashboard-title{
-    font-family:Calibri;
-    font-weight:900;
-    font-size:40px;
-    color:red;
+.admin-dashboard-title-text {
+    font-family: Calibri;
+    font-weight: 900;
+    font-size: 30px;
+    color: red;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-.admindashboard-username{
-    font-family: 'Trebuchet MS';
-    font-size:20px;
-    font-weight: bold;
-    color:rgb(20, 0, 65);
-    text-decoration: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-.header-right {
+.admin-header-right-section {
     display: flex;
     align-items: center;
 }
 
-.logout-btn{
+.admin-username-display {
+    font-family:sans-serif;
+    font-size: 16px; /* Slightly increased size */
+    font-weight: bold;
+    color: rgb(20, 0, 65);
+    text-decoration: none;
+    margin-right: 15px; /* Added spacing between username and button */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+a {
+    text-decoration: none;
+}
+
+.admin-logout-button {
     text-decoration: none;
     color: #0d004d; 
     padding: 8px 12px;
@@ -69,7 +70,7 @@ a{
     transition: background-color 0.3s;
 }
 
-.logout-btn:hover {
+.admin-logout-button:hover {
     background-color: #ffffff; 
     color: rgb(255, 0, 0);
     border: 2px solid #ff0000;

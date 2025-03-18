@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo1 from '../assets/images/logo1.png';
 import './mainHeader.css';
 import { useNavigate } from 'react-router-dom';
-import { FaRegUser, FaUserCog, FaUserTie, FaUserShield } from "react-icons/fa"; // Import different icons
+import { FaRegUser, FaUserCog, FaUserTie, FaUserShield } from "react-icons/fa";
 
 const MainHeader = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,40 +39,40 @@ const MainHeader = () => {
     const getUserIcon = () => {
         switch (userRole) {
             case 'Admin':
-                return <FaUserShield className="user-icon" />;
+                return <FaUserShield className="mh-user-icon" />;
             case 'ServiceManager':
-                return <FaUserCog className="user-icon" />;
+                return <FaUserCog className="mh-user-icon" />;
             case 'Consultant':
-                return <FaUserTie className="user-icon" />;
+                return <FaUserTie className="mh-user-icon" />;
             default:
-                return <FaRegUser className="user-icon" />;
+                return <FaRegUser className="mh-user-icon" />;
         }
     };
 
     return (
-        <header className="header">
-            <div className="header-left">
-                <a href="/" className="header-content">
-                    <img src={logo1} alt="Samson Cricket Logo" />
-                    <h1 className="titlename">SAMSON CRICKET</h1>
+        <header className="mh-header">
+            <div className="mh-header-left">
+                <a href="/" className="mh-header-content">
+                    <img src={logo1} alt="Samson Cricket Logo" className="mh-logo-img" />
+                    <h1 className="mh-titlename">SAMSON CRICKET</h1>
                 </a>
             </div>
-            <nav className="navbar">
-                <ul className="navbar-menu">
-                    <li className="navbar-item"><a href="/shop">Shop</a></li>
-                    <li className="navbar-item"><a href="/services">Services</a></li>
-                    <li className="navbar-item"><a href="/coaching">Coaching</a></li>
-                    <li className="navbar-item"><a href="/consulting">Consulting</a></li>
-                    <li className="navbar-item"><a href="/about">About Us</a></li>
+            <nav className="mh-navbar">
+                <ul className="mh-navbar-menu">
+                    <li className="mh-navbar-item"><a href="/shop" className="mh-nav-link">Shop</a></li>
+                    <li className="mh-navbar-item"><a href="/services" className="mh-nav-link">Services</a></li>
+                    <li className="mh-navbar-item"><a href="/coaching" className="mh-nav-link">Coaching</a></li>
+                    <li className="mh-navbar-item"><a href="/consulting" className="mh-nav-link">Consulting</a></li>
+                    <li className="mh-navbar-item"><a href="/about" className="mh-nav-link">About Us</a></li>
                 </ul>
             </nav>
-            <div className="header-right">
+            <div className="mh-header-right">
                 {isLoggedIn ? (
-                    <button onClick={handleUserNameClick} className="user-profile-button">
+                    <button onClick={handleUserNameClick} className="mh-user-profile-button">
                         {getUserIcon()}
                     </button>
                 ) : (
-                    <a href="/signIn" className="signIn">
+                    <a href="/signIn" className="mh-sign-in">
                         Sign In
                     </a>
                 )}

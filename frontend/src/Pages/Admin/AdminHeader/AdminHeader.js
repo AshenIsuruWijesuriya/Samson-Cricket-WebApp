@@ -34,21 +34,20 @@ const AdminHeader = () => {
     };
 
     return (
-        <header className="header">
-            <div className="header-left">
-                <a href="/" className="header-content">
-                    <img src={logo1} alt="Samson Cricket Logo" />
-                    <h1 className="titlename">SAMSON CRICKET</h1>
+        <header className="admin-header-container">
+            <div className="admin-header-left-section">
+                <a href="/" className="admin-header-logo-link">
+                    <img src={logo1} alt="Samson Cricket Logo" className="admin-header-logo-image" />
+                    <h1 className="admin-header-title-text">SAMSON CRICKET</h1>
                 </a>
             </div>
-            <a href="/admindashboard">
-                <div className="admindashboard-title">Admin Dashboard</div>
+            <a href="/admindashboard" className="admin-dashboard-link">
+                <div className="admin-dashboard-title-text">Admin Dashboard</div>
             </a>
-            <div className="admin-username">
-                <h1 className="admindashboard-username">Welcome, {userName}</h1>
-            </div>
-            <div className="header-right">
-                <button onClick={handleLogout} className="logout-btn">Logout</button>
+            
+            <div className="admin-header-right-section">
+                <h1 className="admin-username-display">{userName}</h1>
+                <button onClick={handleLogout} className="admin-logout-button">Logout</button>
             </div>
         </header>
     );
