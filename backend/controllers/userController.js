@@ -173,7 +173,7 @@ exports.verifyOtp = (req, res) => {
     const storedOtp = req.app.locals.otps?.[email];
 
     if (storedOtp && storedOtp === otp) {
-        delete req.app.locals.otps[email]; // Remove OTP after successful verification
+        delete req.app.locals.otps[email]; 
         res.json({ verified: true });
     } else {
         res.json({ verified: false });

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo1 from '../assets/images/logo1.png';
 import './mainHeader.css';
 import { useNavigate } from 'react-router-dom';
-import { FaRegUser, FaUserCog, FaUserTie, FaUserShield } from "react-icons/fa";
+import { FaRegUser, FaUserCog, FaUserTie, FaUserShield, FaMoneyBillAlt } from "react-icons/fa";
 
 const MainHeader = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,7 +31,11 @@ const MainHeader = () => {
             navigate('/servicedashboard');
         } else if (userRole === 'Consultant') {
             navigate('/consultantdashboard');
-        } else {
+        }else if (userRole === 'Coach') {
+            navigate('/coachingdashboard'); 
+        }else if (userRole === 'Finance') {
+            navigate('/financedashboard'); 
+        }else {
             navigate('/userdashboard');
         }
     };
@@ -43,6 +47,10 @@ const MainHeader = () => {
             case 'ServiceManager':
                 return <FaUserCog className="mh-user-icon" />;
             case 'Consultant':
+                return <FaUserTie className="mh-user-icon" />;
+            case 'Finance':
+                return <FaMoneyBillAlt className="mh-user-icon" />;
+            case 'Coach':
                 return <FaUserTie className="mh-user-icon" />;
             default:
                 return <FaRegUser className="mh-user-icon" />;

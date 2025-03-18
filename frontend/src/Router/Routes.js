@@ -22,6 +22,10 @@ import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 
 import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
 
+import FinanceDashboard from '../Pages/Payment/FinanceDashboard';
+
+import CoachingDashboard from '../Pages/Coaching/CoachingDashbaord/CoachingDashboard';
+
 import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
 import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
 import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingConsulting';
@@ -146,9 +150,25 @@ const AppRoutes = () => {
                         </ProtectedRoute>
                     }
                 />
-                
-                
-                
+
+                {/* Finance Dashboard */}
+                <Route
+                    path="/financedashboard"
+                    element={
+                        <ProtectedRoute roles={['Finance']}>
+                            <FinanceDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                {/* Coaching Dashboard */}
+                <Route
+                    path="/coachingdashboard"
+                    element={
+                        <ProtectedRoute roles={['Coach']}>
+                            <CoachingDashboard />
+                        </ProtectedRoute>
+                    }
+                />
             </RouterRoutes>
         </Router>
     );

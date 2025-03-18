@@ -1,0 +1,77 @@
+.ch-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 20px;
+    background-color: #ffffff;
+}
+
+.ch-brand-container {
+    display: flex;
+    align-items: center;
+}
+
+.ch-brand-logo {
+    width: 55px;
+}
+
+.ch-brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.ch-brand-title {
+    margin-left: 10px;
+    font-size: 24px;
+    font-family: Impact;
+    color: #00094e;
+    font-weight: 500;
+}
+
+.ch-dashboard-title {
+    font-family: Calibri;
+    font-weight: 900;
+    font-size: 30px;
+    color: red;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.ch-user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.ch-user-display-name {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(20, 0, 65);
+    text-decoration: none;
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ch-logout-button {
+    text-decoration: none;
+    color: #0d004d;
+    padding: 8px 12px;
+    font-size: 18px;
+    border: 2px solid #070054;
+    border-radius: 40px;
+    font-weight: bolder;
+    font-family: 'Trebuchet MS';
+    transition: background-color 0.3s;
+}
+
+.ch-logout-button:hover {
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
+    border: 2px solid #ff0000;
+}

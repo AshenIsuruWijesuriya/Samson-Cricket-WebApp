@@ -34,7 +34,11 @@ const SignIn = () => {
                     navigate('/consultantdashboard');
                 } else if (user.role === 'ServiceManager') {
                     navigate('/servicedashboard');
-                } else {
+                } else if (user.role === 'Coach') {
+                    navigate('/coachingdashboard');
+                }else if (user.role === 'Finance') {
+                    navigate('/financedashboard');
+                }else {
                     navigate('/userdashboard');
                 }
             });
