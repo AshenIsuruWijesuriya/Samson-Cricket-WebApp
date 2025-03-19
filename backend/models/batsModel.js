@@ -34,8 +34,23 @@ const cricketBatSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    status: {
+      type: String,
+      enum: ["in stock", "out of stock"],
+      default: "out of stock",
+    },
   },
   { collection: "bats" } // Specify the collection name here
 );
+
+// Pre-save middleware to update status based on stock
+cricketBatSchema.pre("save", function (next) {
+  if (this.stock > 0) {
+    this.status = "in stock";
+  } else {
+    this.status = "out of stock";
+  }
+  next();
+});
 
 module.exports = mongoose.model("CricketBat", cricketBatSchema); // Model name is "CricketBat"
