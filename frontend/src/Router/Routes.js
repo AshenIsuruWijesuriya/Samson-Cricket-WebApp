@@ -3,23 +3,34 @@ import { BrowserRouter as Router, Route, Routes as RouterRoutes, Navigate } from
 import Home from '../Pages/Home';
 import SignIn from '../Pages/SignIn';
 import SignUp from '../Pages/SignUp';
+
 import Shop from '../Pages/Shop/Shop';
 import ViewBats from '../Pages/Shop/ViewBats/ViewBats';
+
+import PaymentForm from '../Pages/Payment/Checkout/PaymentForm';
+
 import Coaching from '../Pages/Coaching/Coaching';
 import Services from '../Pages/Services/Service';
 import Consulting from '../Pages/Consulting/Consulting';
+
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
 import AdminUsers from '../Pages/Admin/ManageUsers/AdminUsers/AdminUsers';
 import ManageBats from '../Pages/Admin/ManageInventory/ManageBats/ManageBats';
+
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
 import ManageRepairs from '../Pages/ServiceManager/ManageRepair/ManageRepairs';
+
 import UserDashboard from '../Pages/UserDashboard/UserDashboard';
+
 import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
+
 import FinanceDashboard from '../Pages/Payment/FinanceDashboard';
+
 import CoachingDashboard from '../Pages/Coaching/CoachingDashbaord/CoachingDashboard';
+
 import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
 import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
 import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingConsulting';
@@ -78,6 +89,16 @@ const AppRoutes = () => {
                     <Route path="/bawling-consulting" element={<BawlingConsulting />} />
                     <Route path="/fielding-consulting" element={<FieldingConsulting />} />
                     <Route path="/physical-consulting" element={<PhysicalConsulting />} />
+
+                    <Route
+                        path="/checkout"
+                        element={
+                            <ProtectedRoute roles={['Normal']}>
+                                <PaymentForm />
+                            </ProtectedRoute>
+                        }
+                    />
+
                     {/* User Dashboard */}
                     <Route
                         path="/userdashboard"

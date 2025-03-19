@@ -1,13 +1,15 @@
 // Pages/Cart/Cart.js
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 import MainHeader from '../../Common/mainHeader';
 import './Cart.css';
-import Swal from 'sweetalert2'; // Import SweetAlert
+import Swal from 'sweetalert2';
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
-  const api = process.env.REACT_APP_BASE_URL; // Assuming you have your API base URL here
+  const navigate = useNavigate();
+  const api = process.env.REACT_APP_BASE_URL;
 
   const handleRemove = (itemId) => {
     Swal.fire({
@@ -38,6 +40,25 @@ const Cart = () => {
     return cartItems
       .reduce((total, item) => total + item.price * item.quantity, 0)
       .toFixed(2);
+  };
+
+  const handleCheckout = () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      navigate('/checkout');
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Login Required',
+        text: 'You need to login first before proceeding to checkout.',
+        confirmButtonText: 'Go to Login',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/signin');
+        }
+      });
+    }
   };
 
   return (
@@ -92,7 +113,9 @@ const Cart = () => {
             <div className="sc-cart-total">
               <strong>Total:</strong> LKR {calculateTotal()}
             </div>
-            <button className="sc-checkout-button">Proceed to Checkout</button>
+            <button onClick={handleCheckout} className="sc-checkout-button">
+              Proceed to Checkout
+            </button>
           </>
         )}
       </div>
