@@ -1,45 +1,90 @@
-.servicebgimg {
-    /* background: url('/assets/service-bg.jpg') no-repeat center center; */
-    background: linear-gradient(135deg, #1e3c72, #dadee6);
-    background-size: cover;
-    height: 200px;
-    width: 100%;
-}
-
-.sm-title {
+/* Dark background with modern UI */
+.sm-dashboard-container {
+    background-color: #121212; /* Dark theme */
+    min-height: 100vh;
+    padding: 0px 0px;
     text-align: center;
-    font-size: 26px;
-    font-weight: bold;
     color: #ffffff;
-    margin: 20px 0;
-    background: linear-gradient(90deg, #ff8c00, #ff2e63);
-    padding: 10px;
-    border-radius: 8px;
 }
 
-.dashboard-container {
+/* Dashboard Title */
+.sm-dashboard-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #ffcc00; /* Yellow title */
+}
+
+/* Service Card Container */
+.sm-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* Individual Cards with unique background and hover effect */
+.sm-repair-card {
+    background-image: url("../../assets/images/repairlogo.png");
+}
+.sm-inventory-card {
+    background-image: url("../../assets/images/inventorylogo.jpg");
+}
+.sm-reports-card {
+    background-image: url("../../assets/images/reportlogo.jpg");
+}
+.sm-analysis-card {
+    background-image: url("../../assets/images/analysis.jpg");
+}
+
+/* Common Card Styles */
+.sm-card {
+    width: 280px;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-.card-link {
+/* Card Hover Effect */
+.sm-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Text Overlay on Cards */
+.sm-card-text {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Card Links */
+.sm-card-link {
     text-decoration: none;
 }
 
-.card {
-    background: linear-gradient(135deg, #4CAF50, #2E7D32);
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    width: 220px;
-    transition: 0.3s;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover {
-    background: linear-gradient(135deg, #66bb6a, #1b5e20);
-    transform: scale(1.05);
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sm-card {
+        width: 100%;
+        max-width: 350px;
+    }
 }
