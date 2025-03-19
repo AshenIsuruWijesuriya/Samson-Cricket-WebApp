@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2'; // Import SweetAlert2
-import './SignUp.css'; 
+import Swal from 'sweetalert2';
+import './SignUp.css';
 import MainHeader from '../Common/mainHeader';
 
 const api = process.env.REACT_APP_BASE_URL;
 
-const SignUp = () => {
+const SignUpPage = () => {
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
@@ -26,15 +26,14 @@ const SignUp = () => {
     };
 
     const validateEmail = (email) => {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple regex for email validation
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(''); // Reset error state
+        setError('');
 
-        // Validation checks
         if (!firstname || !lastname || !email || !password) {
             Swal.fire({
                 title: 'Error!',
@@ -68,18 +67,15 @@ const SignUp = () => {
         try {
             const response = await axios.post(api + '/api/users/register', formData);
             console.log('User  registered:', response.data);
-            // Show success alert
             Swal.fire({
                 title: 'Success!',
                 text: 'You have successfully registered!',
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
-            // Optionally, redirect or reset form here
         } catch (error) {
             console.error('Error registering user:', error.response?.data || error.message);
             setError(error.response?.data?.message || 'An error occurred. Please try again.');
-            // Show error alert
             Swal.fire({
                 title: 'Error!',
                 text: error.response?.data?.message || 'An error occurred. Please try again.',
@@ -91,58 +87,59 @@ const SignUp = () => {
 
     return (
         <div>
-            <div className="signup-bg">
+            <div className="signup-page-bg-container">
+                <div className="signup-page-bg"></div>
                 <MainHeader />
-                <div className="signup-wrapper">
-                    <h2>Create an Account for Samson Cricket</h2>
-                    {error && <div className="error-message">{error}</div>}
-                    <form className="signup-form" onSubmit={handleSubmit}>
-                        <div className='names-align'>
-                            <div className="input-group">
+                <div className="signup-page-wrapper">
+                    <h2 className="signup-page-title">Create an Account for Samson Cricket</h2>
+                    {error && <div className="signup-page-error-message">{error}</div>}
+                    <form className="signup-page-form" onSubmit={handleSubmit}>
+                        <div className='signup-page-names-align'>
+                            <div className="signup-page-input-group">
                                 <input 
                                     type="text" 
                                     name="firstname" 
                                     value={firstname} 
                                     onChange={handleChange} 
                                     placeholder="First Name" 
-                                    className="input-field-first"
+                                    className="signup-page-input-field-first"
                                 />
                             </div>
-                            <div className="input-group">
+                            <div className="signup-page-input-group">
                                 <input 
                                     type="text" 
                                     name="lastname" 
                                     value={lastname} 
                                     onChange={handleChange} 
                                     placeholder="Last Name" 
-                                    className="input-field-last"
+                                    className="signup-page-input-field-last"
                                 />
                             </div>
                         </div>
-                        <div className="input-group">
+                        <div className="signup-page-input-group">
                             <input 
                                 type="email" 
                                 name="email" 
                                 value={email} 
                                 onChange={handleChange} 
                                 placeholder="Email" 
-                                className="input-field"
+                                className="signup-page-input-field"
                             />
                         </div>
-                        <div className="input-group">
+                        <div className="signup-page-input-group">
                             <input 
                                 type="password" 
                                 name="password" 
                                 value={password} 
                                 onChange={handleChange} 
                                 placeholder="Password" 
-                                className="input-field"
+                                className="signup-page-input-field"
                             />
                         </div>
-                        <button type="submit" className="signup-button">Sign Up</button>
-                        <div className="signIn-links">
-                            <p>Already have an Account?</p>
-                            <a href='/signIn'>Sign In</a>
+                        <button type="submit" className="signup-page-button">Sign Up</button>
+                        <div className="signup-page-signin-links">
+                            <p className="signup-page-signin-text">Already have an Account?</p>
+                            <a href='/signIn' className="signup-page-signin-link">Sign In</a>
                         </div>
                     </form>
                 </div>
@@ -151,4 +148,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default SignUpPage;
