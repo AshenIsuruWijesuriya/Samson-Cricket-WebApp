@@ -14,8 +14,9 @@ const ViewBats = () => {
   const fetchBats = useCallback(async () => {
     try {
       const response = await axios.get(`${api}/api/bats`);
-      setBats(response.data);
-      setFilteredBats(response.data);
+      let sortedBats = response.data.sort((a, b) => b.stock - a.stock);
+      setBats(sortedBats);
+      setFilteredBats(sortedBats);
     } catch (error) {
       console.error('Error fetching bats:', error);
     }
@@ -30,7 +31,8 @@ const ViewBats = () => {
       const searchString = `${bat.brand} ${bat.model}`.toLowerCase();
       return searchString.includes(searchTerm.toLowerCase());
     });
-    setFilteredBats(results);
+    let sortedResults = results.sort((a, b) => b.stock - a.stock);
+    setFilteredBats(sortedResults);
   }, [searchTerm, bats]);
 
   const handleBatClick = (bat) => {
