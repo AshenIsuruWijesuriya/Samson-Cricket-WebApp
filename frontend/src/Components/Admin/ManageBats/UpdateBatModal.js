@@ -1,12 +1,12 @@
 // UpdateBatModal.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './UpdateBatModal.css';
 
-const api = process.env.REACT_APP_BASE_URL;
-
 const UpdateBatModal = ({ bat, onClose, onBatUpdated }) => {
+  const api = useMemo(() => process.env.REACT_APP_BASE_URL, []); // Memoize the API URL
+
   const [updatedBat, setUpdatedBat] = useState({
     brand: '',
     model: '',
@@ -29,7 +29,7 @@ const UpdateBatModal = ({ bat, onClose, onBatUpdated }) => {
         setImagePreviews(bat.images.map((image) => `${api}/uploads/${image}`));
       }
     }
-  }, [bat, api]);
+  }, [bat, api]); // api is now a dependency due to useMemo
 
   const handleInputChange = (e) => {
     setUpdatedBat({ ...updatedBat, [e.target.name]: e.target.value });
@@ -46,7 +46,7 @@ const UpdateBatModal = ({ bat, onClose, onBatUpdated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-  
+
     if (
       !updatedBat.brand ||
       !updatedBat.model ||
@@ -64,7 +64,7 @@ const UpdateBatModal = ({ bat, onClose, onBatUpdated }) => {
       });
       return;
     }
-  
+
     try {
       const formData = new FormData();
       for (const key in updatedBat) {
@@ -72,7 +72,7 @@ const UpdateBatModal = ({ bat, onClose, onBatUpdated }) => {
           formData.append(key, updatedBat[key]);
         }
       }
-  
+
       if (selectedFiles.length > 0) {
         for (let i = 0; i < selectedFiles.length; i++) {
           formData.append('images', selectedFiles[i]);
@@ -82,10 +82,9 @@ const UpdateBatModal = ({ bat, onClose, onBatUpdated }) => {
           formData.append('existingImages', image);
         });
       }
-  
-      await axios.put(`${api}/api/bats/${bat._id}`, formData, {
-      });
-  
+
+      await axios.put(`${api}/api/bats/${bat._id}`, formData, {});
+
       Swal.fire({
         title: 'Success!',
         text: 'Bat successfully updated!',

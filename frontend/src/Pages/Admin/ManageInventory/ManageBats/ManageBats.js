@@ -1,5 +1,4 @@
-// ManageBats.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AdminHeader from "../../AdminHeader/AdminHeader";
 import "./ManageBats.css";
@@ -17,9 +16,19 @@ const ManageBats = () => {
   const [selectedBat, setSelectedBat] = useState(null);
   const api = process.env.REACT_APP_BASE_URL;
 
+  const fetchBats = useCallback(async () => {
+    try {
+      const response = await axios.get(`${api}/api/bats`);
+      setBats(response.data);
+      setFilteredBats(response.data);
+    } catch (error) {
+      console.error("Error fetching bats:", error);
+    }
+  }, [api]);
+
   useEffect(() => {
     fetchBats();
-  }, [api]);
+  }, [fetchBats]);
 
   useEffect(() => {
     const results = bats.filter((bat) => {
@@ -28,16 +37,6 @@ const ManageBats = () => {
     });
     setFilteredBats(results);
   }, [searchTerm, bats]);
-
-  const fetchBats = async () => {
-    try {
-      const response = await axios.get(`${api}/api/bats`);
-      setBats(response.data);
-      setFilteredBats(response.data);
-    } catch (error) {
-      console.error("Error fetching bats:", error);
-    }
-  };
 
   const handleDeleteBat = async (batId) => {
     Swal.fire({
@@ -93,7 +92,7 @@ const ManageBats = () => {
       <div className="bats-content">
         <AdminHeader />
         <div className="navigation-path-admindb">
-          <a href="/admindashboard">Admin Dashboard</a> / Manage Bats
+          <a href="/admindashboard">Admin Dashboard</a> / <a href="/admindashboard/manage-inventory">Manage Inventory</a> / Manage Bats
         </div>
         <h2 className="bats-title">Manage Bats</h2>
 
