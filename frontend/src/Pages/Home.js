@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MainHeader from '../Common/mainHeader';
 import './Home.css';
-import shopImage from '../assets/images/shopbghome.png';
+import shopImage from '../assets/images/shophome.png';
 import coachingImage from '../assets/images/coaching.png';
 import servicesImage from '../assets/images/servhome.jpeg';
 import consultingImage from '../assets/images/consulthome.png';
