@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import MainHeader from '../../../Common/mainHeader';
 import './ViewBats.css';
-import Swal from 'sweetalert2'; // Import SweetAlert
+import Swal from 'sweetalert2';
 
 const ViewBats = () => {
   const [bats, setBats] = useState([]);
@@ -43,7 +43,6 @@ const ViewBats = () => {
 
   const handleAddToCart = (bat) => {
     if (bat.stock > 0) {
-      // In Stock
       Swal.fire({
         icon: 'success',
         title: 'Added to Cart!',
@@ -52,7 +51,6 @@ const ViewBats = () => {
       console.log('Added to cart:', bat);
       handleCloseDetails();
     } else {
-      // Out of Stock
       Swal.fire({
         icon: 'error',
         title: 'Out of Stock',
@@ -110,29 +108,36 @@ const ViewBats = () => {
               <button className="bat-details-close" onClick={handleCloseDetails}>
                 &times;
               </button>
-              <h2 className="bat-details-title">{selectedBat.brand} {selectedBat.model}</h2>
-              {selectedBat.images && selectedBat.images.length > 0 && (
-                <img
-                  src={`${api}/uploads/${selectedBat.images[0]}`}
-                  alt={selectedBat.model}
-                  className="bat-details-image"
-                />
-              )}
-              <p className="bat-details-info">Wood: {selectedBat.woodType}</p>
-              <p className="bat-details-info">Grade: {selectedBat.grade}</p>
-              <p className="bat-details-info">Weight: {selectedBat.weight}</p>
-              <p className="bat-details-price">
-                Price: LKR {selectedBat.price.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </p>
-              <p className={`bat-details-stock ${selectedBat.stock > 0 ? 'bat-details-stock-in' : 'bat-details-stock-out'}`}>
-                Stock: {selectedBat.stock > 0 ? 'In Stock' : 'Out of Stock'}
-              </p>
-              <button className="bat-details-add-to-cart" onClick={() => handleAddToCart(selectedBat)}>
-                Add to Cart
-              </button>
+              <div className="bat-details-content">
+                <div className="bat-details-image-section">
+                  {selectedBat.images && selectedBat.images.length > 0 && (
+                    <img
+                      src={`${api}/uploads/${selectedBat.images[0]}`}
+                      alt={selectedBat.model}
+                      className="bat-details-image"
+                    />
+                  )}
+                </div>
+                <div className="bat-details-info-section">
+                  <h2 className="bat-details-title">{selectedBat.brand} {selectedBat.model}</h2>
+                  <p className="bat-details-info"><strong>Wood:</strong> {selectedBat.woodType}</p>
+                  <p className="bat-details-info"><strong>Grade:</strong> {selectedBat.grade}</p>
+                  <p className="bat-details-info"><strong>Weight:</strong> {selectedBat.weight}</p>
+                  <p className="bat-details-price">
+                    <strong>Price:</strong> LKR {selectedBat.price.toLocaleString(undefined, {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </p>
+                  <p className={`bat-details-stock ${selectedBat.stock > 0 ? 'bat-details-stock-in' : 'bat-details-stock-out'}`}>
+                    <strong>Stock:</strong> {selectedBat.stock > 0 ? 'In Stock' : 'Out of Stock'}
+                  </p>
+                  <p className="bat-details-description"><strong>Description:</strong> {selectedBat.description || 'No description available.'}</p>
+                  <button className="bat-details-add-to-cart" onClick={() => handleAddToCart(selectedBat)}>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
