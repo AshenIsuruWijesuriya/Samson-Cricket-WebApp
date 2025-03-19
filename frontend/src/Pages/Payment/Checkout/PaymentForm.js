@@ -14,6 +14,8 @@ const PaymentForm = () => {
     const [cardNumber, setCardNumber] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
     const [cvv, setCvv] = useState('');
+    const [deliveryAddress, setDeliveryAddress] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const { cartItems } = useContext(CartContext);
 
     const navigate = useNavigate();
@@ -94,6 +96,8 @@ const PaymentForm = () => {
             cardNumber: cardNumber,
             expiryDate: expiryDate,
             cvv: cvv,
+            deliveryAddress: deliveryAddress,
+            phoneNumber: phoneNumber,
         };
 
         Swal.fire({
@@ -137,33 +141,48 @@ const PaymentForm = () => {
                 </div>
                 <div className="payment-form-container">
                     <h2>Payment Details</h2>
-                    <form onSubmit={handleSubmit} className="payment-form">
-                        <div className="form-group">
-                            <label htmlFor="firstName">First Name</label>
-                            <input type="text" id="firstName" value={firstName} readOnly />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="lastName">Last Name</label>
-                            <input type="text" id="lastName" value={lastName} readOnly />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" value={email} readOnly />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="cardNumber">Card Number</label>
-                            <input type="text" id="cardNumber" onChange={(e) => setCardNumber(e.target.value)} required />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="expiryDate">Expiry Date</label>
-                            <input type="text" id="expiryDate" placeholder="MM/YY" onChange={(e) => setExpiryDate(e.target.value)} required />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="cvv">CVV</label>
-                            <input type="text" id="cvv" onChange={(e) => setCvv(e.target.value)} required />
-                        </div>
-                        <button type="submit" className="payment-button">Pay Now</button>
-                    </form>
+                    <div className="information-section">
+                        <h3>Personal Information</h3>
+                        <p><strong>Name:</strong> {firstName} {lastName}</p>
+                        <p><strong>Email:</strong> {email}</p>
+                    </div>
+                    <div className="delivery-section">
+                        <h3>Delivery Address</h3>
+                        <textarea
+                            value={deliveryAddress}
+                            onChange={(e) => setDeliveryAddress(e.target.value)}
+                            placeholder="Enter your delivery address"
+                            className="delivery-textarea"
+                        />
+                        <input
+                            type="tel"
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            placeholder="Enter your phone number"
+                            className="phone-input"
+                        />
+                    </div>
+                    <div className="card-section">
+                        <h3>Card Information</h3>
+                        <form onSubmit={handleSubmit} className="payment-form">
+                            <div className="form-group">
+                                <label htmlFor="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" onChange={(e) => setCardNumber(e.target.value)} required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="expiryDate">Expiry Date</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" onChange={(e) => setExpiryDate(e.target.value)} required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="cvv">CVV</label>
+                                <input type="text" id="cvv" onChange={(e) => setCvv(e.target.value)} required />
+                            </div>
+                            <div className="total-preview">
+                                <strong>Total to Pay:</strong> LKR {calculateTotal()}
+                            </div>
+                            <button type="submit" className="payment-button">Pay Now</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
