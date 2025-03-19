@@ -3,13 +3,31 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import MainHeader from '../../Common/mainHeader';
 import './Cart.css';
+import Swal from 'sweetalert2'; // Import SweetAlert
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
   const api = process.env.REACT_APP_BASE_URL; // Assuming you have your API base URL here
 
   const handleRemove = (itemId) => {
-    removeFromCart(itemId);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, remove it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeFromCart(itemId);
+        Swal.fire(
+          'Removed!',
+          'Your item has been removed from the cart.',
+          'success'
+        );
+      }
+    });
   };
 
   const handleQuantityChange = (itemId, newQuantity) => {
