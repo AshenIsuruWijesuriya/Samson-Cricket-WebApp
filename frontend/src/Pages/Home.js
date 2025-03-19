@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import MainHeader from '../Common/mainHeader';
-import './Home.css'; // Import your CSS file
+import './Home.css';
 import shopImage from '../assets/images/shopbghome.png';
-import coachingImage from '../assets/images/coachbghome.jpeg';
+import coachingImage from '../assets/images/coaching.png';
 import servicesImage from '../assets/images/servhome.jpeg';
 import consultingImage from '../assets/images/consulthome.png';
 
 const Home = () => {
+    const [bats, setBats] = useState([]);
+    const api = process.env.REACT_APP_BASE_URL;
+
+    useEffect(() => {
+        const fetchBats = async () => {
+            try {
+                const response = await axios.get(`${api}/api/bats`); 
+                setBats(response.data.slice(0, 5)); 
+            } catch (error) {
+                console.error('Error fetching bats:', error);
+            }
+        };
+        fetchBats();
+    }, [api]);
+
     return (
         <div>
             <MainHeader />
@@ -19,6 +35,33 @@ const Home = () => {
                             <p>Discover a wide range of high-quality cricket bats, balls, protective gear, and accessories. Gear up for your next match with the best equipment.</p>
                             <a href="/shop" className="section-button">Explore Shop</a>
                         </div>
+                    </div>
+                </section>
+
+                {/* Preview Bats Section */}
+                <section className="home-section preview-bats-section">
+                    <div className="preview-bats-content">
+                        <h2 className='preview-title'>Featured Bats</h2>
+                        <div className="preview-bats-grid">
+                            {bats.map((bat) => (
+                                <div key={bat._id} className="preview-bat-item">
+                                    <div className="preview-bat-image-container">
+                                        {bat.images && bat.images.length > 0 && (
+                                            <img
+                                                src={`${api}/uploads/${bat.images[0]}`}
+                                                alt={bat.model}
+                                                className="preview-bat-image"
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="preview-bat-details">
+                                        <h3>{bat.brand} {bat.model}</h3>
+                                        <p>LKR {bat.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <a href="/shop/bats" className="section-button">View All Bats</a>
                     </div>
                 </section>
 

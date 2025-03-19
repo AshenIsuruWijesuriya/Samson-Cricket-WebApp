@@ -6,6 +6,8 @@ import SignIn from '../Pages/SignIn';
 import SignUp from '../Pages/SignUp';
 
 import Shop from '../Pages/Shop/Shop';
+import ViewBats from '../Pages/Shop/ViewBats/ViewBats'
+
 import Coaching from '../Pages/Coaching/Coaching';
 import Services from '../Pages/Services/Service';
 import Consulting from '../Pages/Consulting/Consulting';
@@ -70,6 +72,9 @@ const AppRoutes = () => {
                 <Route path="/" element={<Home />} />
                 {/* Navbar */}
                 <Route path="/shop" element={<Shop />} />
+                <Route path="/shop/bats" element={<ViewBats />} />
+
+
                 <Route path="/services" element={<Services />} />
                 <Route path="/coaching" element={<Coaching />} />
                 <Route path="/consulting" element={<Consulting />} />

@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
-    gap: 30px;
+    gap: 20px;
     position: relative;
     z-index: 1;
 }
@@ -32,7 +32,7 @@
     background-image: url('../../../assets/images/adminbg.jpg');
     background-size: cover;
     background-position: center;
-    width: 300px;
+    width: 280px;
     height: 400px;
     margin: 10px 0;
     border: 4px rgba(255, 255, 255, 0.514) solid;

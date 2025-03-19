@@ -1,0 +1,183 @@
+.bat-shop-container {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .bat-shop-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .bat-shop-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .bat-shop-filter {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .bat-shop-search {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .bat-shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+    gap: 20px;
+  }
+  
+  .bat-shop-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 100%; /* Ensure the item fills its grid cell */
+  }
+  
+  .bat-shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .bat-shop-image-container {
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bat-shop-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .bat-shop-details {
+    padding: 15px;
+  }
+  
+  .bat-shop-name {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .bat-shop-info {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .bat-shop-price-stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .bat-shop-price {
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  .bat-shop-stock {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .bat-shop-stock-in {
+    background-color: #e6f7e9;
+    color: #3f8600;
+  }
+  
+  .bat-shop-stock-out {
+    background-color: #fff0f0;
+    color: #d93025;
+  }
+  
+  /* Add these styles to your ViewBats.css */
+  .bat-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .bat-details-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .bat-details-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .bat-details-title {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .bat-details-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+  
+  .bat-details-info,
+  .bat-details-price,
+  .bat-details-stock {
+    margin-bottom: 8px;
+  }
+  
+  .bat-details-stock-in {
+    color: green;
+  }
+  
+  .bat-details-stock-out {
+    color: red;
+  }
+  
+  .bat-details-add-to-cart {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  .bat-details-add-to-cart:hover {
+    background-color: #0056b3;
+  }

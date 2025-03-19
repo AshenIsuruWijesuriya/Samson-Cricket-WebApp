@@ -5,7 +5,7 @@ import './ManageInventory.css';
 
 const ManageInventory = () => {
     return (
-        <div className='manage-inventory-bg'>
+        <div className='adminbgimg'>
             <AdminHeader />
 
             <div className="navigation-path-admindb">

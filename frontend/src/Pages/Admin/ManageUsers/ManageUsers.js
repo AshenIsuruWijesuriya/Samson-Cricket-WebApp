@@ -5,7 +5,7 @@ import './ManageUsers.css';
 
 const ManageUsers = () => {
     return (
-        <div className='manage-users-bg'>
+        <div className='adminbgimg'>
             <AdminHeader />
 
             <div className="navigation-path-admindb">
