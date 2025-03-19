@@ -116,7 +116,12 @@
   font-size: 1.8em; /* Increased icon size */
   color: #34495e;
   transition: color 0.3s ease;
+  margin-right:10px ;
+  margin-top: 5px ;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .mh-cart-icon:hover {
   color: #a90000; /* Cart hover color */
