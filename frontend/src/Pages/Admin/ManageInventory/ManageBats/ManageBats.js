@@ -121,14 +121,14 @@ const ManageBats = () => {
         <table className="bats-table">
           <thead className="bats-thead">
             <tr className="bats-tr-header">
-              <th className="bats-th">Image</th>
+              <th className="bats-th">Bat Image</th>
               <th className="bats-th">Brand</th>
               <th className="bats-th">Model</th>
               <th className="bats-th">Wood Type</th>
               <th className="bats-th">Grade</th>
               <th className="bats-th">Weight</th>
               <th className="bats-th">Price (LKR)</th>
-              <th className="bats-th">Stock</th>
+              <th className="bats-th">Stock Count</th>
               <th className="bats-th">Status</th>
               <th className="bats-th">Action</th>
             </tr>

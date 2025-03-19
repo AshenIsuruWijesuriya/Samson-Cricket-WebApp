@@ -1,0 +1,108 @@
+.manage-inventory-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.manage-inventory-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+}
+
+.manage-inventory-description {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.manage-inventory-box {
+    background-image: url('../../../assets/images/adminbg.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 400px;
+    margin: 10px 0;
+    border: 4px rgba(255, 255, 255, 0.514) solid;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.manage-inventory-box:hover {
+    transform: scale(1.05);
+}
+
+.manage-inventory-link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manage-inventory-bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/images/admin-card.jpg');
+    background-size: cover;
+    z-index: 0;
+}
+
+.inventory-box-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.manage-inventory-box h2 {
+    font-size: 30px;
+}
+
+.manage-inventory-heading {
+    font-size: 40px;
+}
+
+.navigation-path-admindb {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #ffffff;
+    font-family: 'Trebuchet MS';
+}
+
+.navigation-path-admindb a {
+    color: #8c8c8c;
+    text-decoration: none;
+}
+
+.navigation-path-admindb a:hover {
+    text-decoration: underline;
+}
+
+.navigation-path-admindb span {
+    margin: 0 5px;
+}   
