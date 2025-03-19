@@ -86,8 +86,9 @@
 }
 
 .preview-title{
-    color: #000000;
+    color: #373737;
     font-size: 40px;
+    font-family: 'Trebuchet MS';
 }
 
 .preview-bats-content {
@@ -129,6 +130,7 @@
 .preview-bat-details h3 {
     font-size: 1.1rem;
     margin-bottom: 5px;
+    font-family: 'Trebuchet MS';
 }
 
 .preview-bat-details p {

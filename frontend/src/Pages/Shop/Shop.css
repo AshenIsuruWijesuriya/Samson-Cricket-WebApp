@@ -1,100 +1,121 @@
 .cricket-shop-content {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .cricket-shop-section {
-    margin-bottom: 0px;
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.cricket-shop-section:hover {
+    transform: translateY(-5px);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .cricket-shop-section-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 500px;
-    background: rgba(0, 0, 0, 0.6); /* Add a semi-transparent dark overlay to section-content */
+    text-align: center;
 }
 
 .cricket-shop-icon {
     font-size: 3em;
+    color: #007bff;
     margin-bottom: 15px;
-    color: rgb(255, 255, 255); /* Change icon color to white */
+    font-family: 'Trebuchet MS';
+}
+
+.cricket-shop-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: 'Trebuchet MS';
+}
+
+.cricket-shop-section p {
+    font-size: 1em;
+    font-family: 'Trebuchet MS';
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .cricket-shop-button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #ffffff00;
-    color: rgb(255, 255, 255);
-    border: 2px solid white;
-    text-decoration: none;
-    border-radius: 35px;
-    transition: background-color 0.3s;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
     font-family: 'Trebuchet MS';
-    font-weight: 600px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
 .cricket-shop-button:hover {
-    background-color: #ffffff00;
-    color: rgb(255, 32, 32);
-    border: 2px solid rgb(255, 61, 61);
+    background-color: #0056b3;
 }
 
-.cricket-shop-section-content h2 {
-    color: rgb(255, 255, 255);
-    margin-bottom: 15px;
-    font-size: 36px;
-    font-family: 'Trebuchet MS';
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.cricket-shop-section-content p {
-    color: #ffffff;
-    line-height: 1.6;
+.cricket-shop-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 20px;
-    font-family: 'Trebuchet MS';
-    font-size: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.cricket-shop-images img {
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cricket-bats-section,
+.cricket-protections-section,
+.cricket-merchandise-section,
+.cricket-shoes-section {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-    .cricket-shop-section-content {
-        flex-direction: column; /* Stack content vertically on smaller screens */
+    .cricket-shop-section {
+        width: 95%;
+        margin-bottom: 30px;
     }
 
-    .cricket-shop-icon,
-    .cricket-shop-section-content h2,
-    .cricket-shop-section-content p,
+    .cricket-shop-images img {
+        width: 150px;
+        height: 100px;
+        margin: 5px;
+    }
+
+    .cricket-shop-section-content {
+        padding: 20px;
+    }
+
+    .cricket-shop-icon {
+        font-size: 2.5em;
+    }
+
+    .cricket-shop-section h2 {
+        font-size: 1.5em;
+    }
+
+    .cricket-shop-section p {
+        font-size: 0.9em;
+    }
+
     .cricket-shop-button {
-        width: 90%; /* Make elements take full width on smaller screens */
-        max-width: 100%;
-        text-align: center;
+        padding: 10px 20px;
+        font-size: 0.9em;
     }
-
-    .cricket-shop-section-content {
-        justify-content: center;
-    }
-}
-
-.cricket-bats-section {
-    /* background-image: url('../assets/images/shophomeb.jpeg'); */
-    background-blend-mode: multiply;
-}
-
-.cricket-protections-section {
-    /* background-image: url('../assets/images/protections.jpeg'); */
-    background-blend-mode: multiply;
-}
-
-.cricket-merchandise-section {
-    /* background-image: url('../assets/images/merchandise.jpeg'); */
-    background-blend-mode: multiply;
-}
-
-.cricket-shoes-section {
-    /* background-image: url('../assets/images/shoes.jpeg'); */
-    background-blend-mode: multiply;
 }

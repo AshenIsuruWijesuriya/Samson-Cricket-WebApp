@@ -1,19 +1,21 @@
 .bat-shop-container {
     background-color: #f4f4f4;
     min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: sans-serif;
   }
   
   .bat-shop-content {
     max-width: 1200px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px; 
+    
   }
   
   .bat-shop-title {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+    font-family: 'Trebuchet MS';
   }
   
   .bat-shop-filter {
