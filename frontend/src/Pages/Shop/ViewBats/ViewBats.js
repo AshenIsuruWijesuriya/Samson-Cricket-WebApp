@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import axios from 'axios';
 import MainHeader from '../../../Common/mainHeader';
 import './ViewBats.css';
 import Swal from 'sweetalert2';
+import { CartContext } from '../../../context/CartContext'; // Corrected path
 
 const ViewBats = () => {
   const [bats, setBats] = useState([]);
@@ -10,6 +11,7 @@ const ViewBats = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedBat, setSelectedBat] = useState(null);
   const api = process.env.REACT_APP_BASE_URL;
+  const { addToCart } = useContext(CartContext); // Access addToCart from context
 
   const fetchBats = useCallback(async () => {
     try {
@@ -45,12 +47,12 @@ const ViewBats = () => {
 
   const handleAddToCart = (bat) => {
     if (bat.stock > 0) {
+      addToCart(bat); // Use addToCart from context
       Swal.fire({
         icon: 'success',
         title: 'Added to Cart!',
         text: `${bat.brand} ${bat.model} has been added to your cart.`,
       });
-      console.log('Added to cart:', bat);
       handleCloseDetails();
     } else {
       Swal.fire({

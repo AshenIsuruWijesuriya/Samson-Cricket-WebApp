@@ -105,3 +105,32 @@
 .mh-user-icon:hover {
   color: rgb(0, 2, 117);
 }
+
+.mh-cart-container {
+  margin-right: 15px;
+  position: relative;
+}
+
+.mh-cart-icon {
+  font-size: 1.5em;
+  color: #34495e;
+  transition: color 0.3s ease;
+}
+
+.mh-cart-icon:hover {
+  color: #e74c3c; /* Cart hover color */
+}
+
+.mh-cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  min-width: 20px; /* Ensure count is visible even with single digit */
+  text-align: center; /* Center the number */
+  padding: 4px 6px; /* Adjust padding for better appearance */
+  font-size: 0.8em;
+  line-height: 1; /* Adjust line-height to center vertically */
+}
