@@ -1,0 +1,119 @@
+/* manageRepair.css */
+
+.repair-management-container {
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .repair-management-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #007bff;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+  }
+  
+  .repair-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .repair-management-th,
+  .repair-management-td {
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    text-align: left;
+    transition: background-color 0.3s ease;
+  }
+  
+  .repair-management-th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .repair-management-tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .repair-management-tr:hover {
+    background-color: #f0f8ff;
+  }
+  
+  .repair-management-select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .repair-management-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .repair-management-actions {
+    display: flex;
+  }
+  
+  .repair-management-email-btn,
+  .repair-management-delete-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 0.5rem;
+  }
+  
+  .repair-management-actions button:last-child {
+    margin-right: 0;
+  }
+  
+  .repair-management-email-btn:hover,
+  .repair-management-delete-btn:hover {
+    opacity: 0.8;
+  }
+  
+  .repair-management-email-btn:focus,
+  .repair-management-delete-btn:focus {
+    outline: none;
+  }
+  
+  .repair-management-email-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .repair-management-delete-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .repair-management-no-requests {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #777;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    font-weight: 500;
+  }

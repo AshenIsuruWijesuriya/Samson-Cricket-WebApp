@@ -9,7 +9,8 @@ import Shop from '../Pages/Shop/Shop';
 import ViewBats from '../Pages/Shop/ViewBats/ViewBats'
 
 import Coaching from '../Pages/Coaching/Coaching';
-import Services from '../Pages/Services/Service';
+import Services from '../Pages/Services/Service';   
+
 import Consulting from '../Pages/Consulting/Consulting';
 
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
@@ -20,6 +21,7 @@ import AdminUsers from '../Pages/Admin/ManageUsers/AdminUsers/AdminUsers';
 import ManageBats from '../Pages/Admin/ManageInventory/ManageBats/ManageBats'
 
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
+import ManageRepairs from '../Pages/ServiceManager/ManageRepair/ManageRepairs';
 
 import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 
@@ -33,6 +35,7 @@ import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingCons
 import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
 import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingConsulting';
 import PhysicalConsulting from '../Pages/Consulting/PhysicalConsulting/PhysicalConsulting';
+   
 
 
 const AppRoutes = () => {
@@ -152,6 +155,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute roles={['ServiceManager']}>
                             <ServiceManagerDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/servicedashboard/manage-repairs"
+                    element={
+                        <ProtectedRoute roles={['ServiceManager']}>
+                            <ManageRepairs />
                         </ProtectedRoute>
                     }
                 />
