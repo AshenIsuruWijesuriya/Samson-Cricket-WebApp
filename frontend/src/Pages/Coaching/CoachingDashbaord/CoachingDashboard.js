@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CoachingHeader from './CoachingHeader/CoachingHeader';
+import CoachingHeader from '../CoachingHeader/CoachingHeader';
 import './CoachingDashboard.css';
 import { FaUsers, FaBoxes, FaChartLine, FaCommentDots } from 'react-icons/fa';
 import usersImage from '../../../assets/images/adminbg.jpg'; 

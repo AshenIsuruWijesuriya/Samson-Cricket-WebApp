@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import logo1 from '../../../../assets/images/logo1.png';
+import logo1 from '../../../assets/images/logo1.png';
 import './CoachingHeader.css';
 import Swal from 'sweetalert2'; 
 
