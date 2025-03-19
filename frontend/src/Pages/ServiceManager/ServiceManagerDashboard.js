@@ -2,10 +2,7 @@ import React from 'react';
 import ServiceManagerHeader from "../ServiceManager/ServicemanagerHeader/ServiceManagerHeader";
 import "./ServiceManagerDashboard.css"; // Import CSS file
 
-// import repairLogo from "../../assets/images/repairlogo.png";
-// import inventoryLogo from "../../assets/images/inventorylogo.jpg";
-// import reportsLogo from "../../assets/images/reportlogo.jpg";
-// import analysisLogo from "../../assets/images/analysis.jpg";
+
 
 const ServiceManagerDashboard = () => {
     return (
@@ -17,7 +14,7 @@ const ServiceManagerDashboard = () => {
 
             {/* Service Cards */}
             <div className="sm-card-container">
-                <a href="/servicemanager/manage-repairs" className="sm-card-link">
+                <a href="/servicedashboard/manage-repairs" className="sm-card-link">
                     <div className="sm-card sm-repair-card">
                         <span className="sm-card-text">Manage Repairs</span>
                     </div>

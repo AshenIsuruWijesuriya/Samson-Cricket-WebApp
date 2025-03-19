@@ -1,4 +1,3 @@
-// src/components/Services.js
 import React, { useState } from "react";
 import MainHeader from "../../Common/mainHeader";
 import RepairForm from "./RepairForm"; // Import Repair Form Component
@@ -6,6 +5,12 @@ import "./Services.css"; // Import CSS file
 
 const Services = () => {
     const [showForm, setShowForm] = useState(false); // State for pop-up form visibility
+    const [repairRequests, setRepairRequests] = useState([]); // State to store repair requests
+
+    const handleRepairRequestAdded = (newRequest) => {
+        setRepairRequests([...repairRequests, newRequest]);
+        setShowForm(false); // Close the form after submission
+    };
 
     return (
         <div className="service-page-wrapper">
@@ -65,7 +70,12 @@ const Services = () => {
             </div>
 
             {/* Render Repair Form */}
-            {showForm && <RepairForm closeForm={() => setShowForm(false)} />}
+            {showForm && (
+                <RepairForm
+                    closeForm={() => setShowForm(false)}
+                    onRepairRequestAdded={handleRepairRequestAdded} // Pass the function
+                />
+            )}
         </div>
     );
 };
