@@ -1,76 +1,79 @@
-.header {
+/* UserHeader.css */
+
+.user-header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 7px 20px;
-    background-color: #ffffff; /* Adjust as needed */
+    background-color: #ffffff;
 }
 
-.header-left {
+.user-header-left-section {
     display: flex;
     align-items: center;
 }
 
-.header-left img {
-    width: 65px;
+.user-header-logo-image {
+    width: 55px;
 }
 
-.header-content {
+.user-header-logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333; /* Adjust as needed */
+    color: #333;
 }
 
-.titlename {
-    margin-left: 10px; /* Space between logo and title */
-    font-size: 34px; /* Adjust as needed */
-    font-family:Impact;
-    color:#00094e;
-    font-weight: 500;
+.user-header-title-text {
+    margin-left: 10px;
+    font-size: 24px;
     font-family: Impact;
+    color: #00094e;
+    font-weight: 500;
 }
 
-.userdashboard-title{
-    font-family:Calibri;
-    font-weight:900;
-    font-size:40px;
-    color:red;
+.user-dashboard-title-text {
+    font-family: Calibri;
+    font-weight: 900;
+    font-size: 30px;
+    color: red;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-.userdashboard-username{
-    font-family: 'Trebuchet MS';
-    font-size:20px;
-    font-weight: bold;
-    color:rgb(20, 0, 65);
-    text-decoration: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-.header-right {
+.user-header-right-section {
     display: flex;
     align-items: center;
 }
 
-.logout-btn{
+.user-username-display {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(20, 0, 65);
     text-decoration: none;
-    color: #0d004d; /* Adjust as needed */
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: none;
+}
+
+.user-logout-button {
+    text-decoration: none;
+    color: #0d004d;
     padding: 8px 12px;
     font-size: 18px;
-    border: 2px solid #070054; /* Adjust as needed */
-    border-radius: 40px; /* Rounded corners */
+    border: 2px solid #070054;
+    border-radius: 40px;
     font-weight: bolder;
     font-family: 'Trebuchet MS';
     transition: background-color 0.3s;
 }
 
-.logout-btn:hover {
-    background-color: #ffffff; /* Change background on hover */
-    color: rgb(255, 0, 0); /* Change text color on hover */
+.user-logout-button:hover {
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
     border: 2px solid #ff0000;
 }
