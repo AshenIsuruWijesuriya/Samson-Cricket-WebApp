@@ -15,6 +15,7 @@
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+    font-size:35px;
     font-family: 'Trebuchet MS';
   }
   
@@ -26,7 +27,7 @@
   .bat-shop-search {
     padding: 10px 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 35px;
     width: 300px;
     font-size: 16px;
     outline: none;
@@ -36,6 +37,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
     gap: 20px;
+    margin-top:50px ;
   }
   
   .bat-shop-item {
