@@ -1,0 +1,74 @@
+/* Repair Form Popup */
+.repair-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.repair-form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    position: relative;
+}
+
+.repair-form h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.repair-form input,
+.repair-form select,
+.repair-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.repair-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.repair-form button:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    background: #ff4d4d;
+}
+
+.close-btn:hover {
+    background: #cc0000;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
