@@ -1,4 +1,3 @@
-// Pages/Checkout/PaymentForm.js
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PaymentForm.css';
@@ -16,8 +15,7 @@ const PaymentForm = () => {
     const [cvv, setCvv] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const { cartItems } = useContext(CartContext);
-
+    const { cartItems, clearCart } = useContext(CartContext);
     const navigate = useNavigate();
     const api = process.env.REACT_APP_BASE_URL;
 
@@ -89,26 +87,83 @@ const PaymentForm = () => {
         }
     }, [navigate, api]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const paymentData = {
             cardNumber: cardNumber,
             expiryDate: expiryDate,
             cvv: cvv,
-            deliveryAddress: deliveryAddress,
-            phoneNumber: phoneNumber,
         };
 
-        Swal.fire({
-            icon: 'success',
-            title: 'Payment Successful!',
-            text: 'Your payment has been processed.',
-        }).then(() => {
-            navigate('/');
-        });
+        const token = localStorage.getItem('token');
+        const decoded = jwtDecode(token);
+        const userId = decoded.id;
+
+        const orderData = {
+            userId: userId,
+            items: cartItems.map(item => ({
+                productId: item._id,
+                quantity: item.quantity,
+                price: item.price,
+            })),
+            totalAmount: parseFloat(calculateTotal()),
+            deliveryAddress: deliveryAddress,
+            phoneNumber: phoneNumber,
+            paymentMethod: "Credit Card",
+            paymentDetails: paymentData,
+        };
+
+        try {
+            console.log(token);
+            console.log(typeof token)
+            console.log(`Bearer ${token}`)
+            const response = await fetch(`${api}/api/order/create-order`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(orderData)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Error creating order:', errorData);
+
+                let errorMessage = 'An error occurred while processing your payment.';
+                if (errorData && errorData.message) {
+                    errorMessage = errorData.message;
+                }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Payment Failed',
+                    text: errorMessage,
+                });
+                return;
+            }
+
+            clearCart();
+            Swal.fire({
+                icon: 'success',
+                title: 'Payment Successful!',
+                text: 'Your payment has been processed.',
+            }).then(() => {
+                navigate('/');
+            });
+
+        } catch (error) {
+            console.error('Error creating order:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Payment Failed',
+                text: 'A network error occurred while processing your payment.',
+            });
+        }
 
         console.log("payment data:", paymentData);
+        console.log("order data:", orderData);
     };
 
     const calculateTotal = () => {

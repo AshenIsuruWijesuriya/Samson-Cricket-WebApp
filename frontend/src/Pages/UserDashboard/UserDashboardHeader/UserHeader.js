@@ -23,6 +23,7 @@ const UserHeader = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('userId');
         Swal.fire({
             title: 'Logout Successful!',
             icon: 'success',

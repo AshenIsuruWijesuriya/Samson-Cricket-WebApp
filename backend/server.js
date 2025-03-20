@@ -5,7 +5,8 @@ require('dotenv').config();
 
 const userRoutes =  require('./routes/userRoutes');
 const batRoutes = require('./routes/batsRoutes');
-const repairRoutes = require('./routes/repairRoutes'); // Import repair routes
+const repairRoutes = require('./routes/repairRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 //db connection
 const connectDB = require("./config/db");
@@ -27,6 +28,7 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/users', userRoutes);
 app.use('/api/bats', batRoutes);
 app.use('/api/services', repairRoutes);
+app.use('/api/order', orderRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 @ http://localhost:${PORT}`));
