@@ -21,7 +21,6 @@ const PaymentForm = () => {
     const [otp, setOtp] = useState('');
     const [generatedOtp, setGeneratedOtp] = useState('');
     const [otpModalOpen, setOtpModalOpen] = useState(false);
-    const [orderData, setOrderData] = useState(null); // To store order data temporarily
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -118,18 +117,10 @@ const PaymentForm = () => {
         }
     };
 
-    const handleVerifyOtp = async () => {
+    const handleVerifyOtp = () => {
         if (otp === generatedOtp) {
             setOtpModalOpen(false);
-            // await handlePlaceOrder();  // Removed to move inside success
-            Swal.fire({
-                icon: 'success',
-                title: 'Verification Successful!',
-                text: 'OTP verified successfully.',
-            }).then(() => {
-                handlePlaceOrder(); // Call handlePlaceOrder after successful verification
-            });
-
+            handlePlaceOrder();
         } else {
             Swal.fire({
                 icon: 'error',
@@ -163,7 +154,6 @@ const PaymentForm = () => {
             paymentMethod: "Credit Card",
             paymentDetails: paymentData,
         };
-        setOrderData(order); // Store order data
 
         try {
             const response = await fetch(`${api}/api/order/create-order`, {
@@ -191,8 +181,6 @@ const PaymentForm = () => {
                 });
                 return;
             }
-            const responseData = await response.json();
-
 
             clearCart();
             Swal.fire({
@@ -202,8 +190,6 @@ const PaymentForm = () => {
             }).then(() => {
                 navigate(`/userdashboard`);
             });
-
-
 
         } catch (error) {
             console.error('Error creating order:', error);
@@ -215,9 +201,9 @@ const PaymentForm = () => {
         }
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await handleGenerateOtp();
+        handleGenerateOtp();
     };
 
     const calculateTotal = () => {
