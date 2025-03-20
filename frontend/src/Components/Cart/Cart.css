@@ -6,11 +6,13 @@
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  font-family: 'Trebuchet MS';
 }
 
 .sc-cart-title {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 35px;
 }
 
 .sc-cart-empty {
@@ -29,6 +31,7 @@
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #eee;
+  margin-top:40px;
 }
 
 .sc-item-image-container {
@@ -47,6 +50,7 @@
 .sc-item-details {
   flex-grow: 1;
   margin-left: 20px;
+  font-size: 20px;
 }
 
 .sc-item-name {
@@ -87,18 +91,19 @@
 
 .sc-checkout-button {
   display: block;
-  width: 200px;
+  font-family: 'Trebuchet MS';
+  width: 320px;
   margin: 20px auto;
-  background-color: #3498db;
+  background-color: #ec1a1a;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1.1em;
+  font-size: 1.3em;
   transition: background-color 0.3s ease;
 }
 
 .sc-checkout-button:hover {
-  background-color: #2980b9;
+  background-color: #b40d0d;
 }

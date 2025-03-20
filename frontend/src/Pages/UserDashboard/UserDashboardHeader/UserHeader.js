@@ -42,7 +42,7 @@ const UserHeader = () => {
                 </a>
             </div>
             <a href="/userdashboard" className="user-dashboard-link">
-                <div className="user-dashboard-title-text">User Dashboard</div>
+                <div className="user-dashboard-title-text">User Profile</div>
             </a>
             
             <div className="user-header-right-section">

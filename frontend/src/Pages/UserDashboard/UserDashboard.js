@@ -1,18 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
+import UserHeader from '../UserDashboard/UserDashboardHeader/UserHeader';
+import './UserDashboard.css';
 
-import UserHeader from '../UserDashboard/UserDashboardHeader/UserHeader'
-
-import './UserDashboard.css'; // Create a CSS file for styling
+import EditProfile from '../../Components/UserDashboard/EditProfile';
 
 const UserDashboard = () => {
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const handleOptionClick = (option) => {
+        setSelectedOption(option);
+    };
+
+    const renderPreview = () => {
+        switch (selectedOption) {
+            case 'editProfile':
+                return <div><EditProfile/></div>;
+            case 'myOrders':
+                return <div><h2>My Orders</h2><p>Here are your orders.</p></div>;
+            case 'myCoaching':
+                return <div><h2>My Coaching</h2><p>Your coaching sessions.</p></div>;
+            case 'myConsulting':
+                return <div><h2>My Consulting</h2><p>Your consulting appointments.</p></div>;
+            case 'myServices':
+                return <div><h2>My Services</h2><p>Your available services.</p></div>;
+            default:
+                return <div><h2>Welcome to your Dashboard</h2><p>Please select an option from the left.</p></div>;
+        }
+    };
+
     return (
-        <div>
-            <UserHeader/>
-        <div className="dashboard">
-            <div className="main-content">
-                <h1>User Dashboard</h1>
+        <div className="ud-container">
+            <UserHeader />
+            <div className="ud-main-layout">
+                <div className="ud-sidebar">
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('editProfile')}>Edit Profile</button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myOrders')}>My Orders</button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myCoaching')}>My Coaching</button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myConsulting')}>My Consulting</button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myServices')}>My Services</button>
+                </div>
+                <div className="ud-content-area">
+                    {renderPreview()}
+                </div>
             </div>
-        </div>
         </div>
     );
 };
