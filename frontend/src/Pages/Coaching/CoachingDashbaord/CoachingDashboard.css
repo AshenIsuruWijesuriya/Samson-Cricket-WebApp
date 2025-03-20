@@ -1,4 +1,3 @@
-
 /* Apply to body to set dark theme */
 body {
     background-color: var(--primary-bg);
@@ -51,24 +50,24 @@ body {
     height: 280px;
     padding: 20px;
     border-radius: var(--border-radius);
-    background: var(--card-bg);
+    background: rgba(68, 57, 57, 0.1); /* Lighter card background */
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow intensity */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Center everything */
     text-align: center;
-    transition: var(--transition);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* User-friendly transition */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Lighter border */
     position: relative;
 }
 
 /* Hover Effects */
 .coaching-card:hover {
-    transform: translateY(-5px);
-    border: 2px solid var(--accent-color);
-    box-shadow: 0 10px 20px rgba(31, 111, 235, 0.5);
+    transform: translateY(-5px); /* More noticeable lift */
+    box-shadow: 0 12px 25px rgba(31, 111, 235, 0.3); /* Smoother, less intense glow */
+    border: 1px solid var(--accent-color);
 }
 
 /* Icon Styling - Larger and Centered */
@@ -76,22 +75,21 @@ body {
     font-size: 4em; /* Bigger icon */
     margin-bottom: 15px;
     color: white;
-    transition: var(--transition);
+    transition: text-shadow 0.3s ease-in-out; /* Smooth text-shadow transition */
 }
 
 /* Subtle Glow on Hover */
 .coaching-card:hover .coaching-card-icon {
-    color: #fff;
-    text-shadow: 0 0 12px var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color); /* More subtle glow */
 }
 
 /* Card Text */
 .coaching-card-link {
     text-decoration: none;
     color:white;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 600;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 5px rgba(200, 195, 195, 0.3);
 }
 
 /* Background with Gradient Overlay */
