@@ -1,0 +1,88 @@
+/* Order.css */
+
+.order-container {
+    max-width: 1500px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.order-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.order-table th,
+.order-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 15px;
+    color: #444;
+}
+
+.order-table th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+    color: #333;
+}
+
+.order-table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.order-table ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-table ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.order-table button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 13px;
+    border: none;
+    border-radius: 34px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.order-table button:hover {
+    background-color: #0056b3;
+}
+
+.order-table button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
+.order-table tr:hover {
+    background-color: #e8f0fe;
+}
+
+.order-table td ul li:last-child {
+    margin-bottom: 0;
+}

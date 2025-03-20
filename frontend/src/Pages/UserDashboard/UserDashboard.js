@@ -3,6 +3,7 @@ import UserHeader from '../UserDashboard/UserDashboardHeader/UserHeader';
 import './UserDashboard.css';
 
 import EditProfile from '../../Components/UserDashboard/EditProfile';
+import MyOrder from '../../Components/UserDashboard/MyOrders';
 
 const UserDashboard = () => {
     const [selectedOption, setSelectedOption] = useState(null);
@@ -16,7 +17,7 @@ const UserDashboard = () => {
             case 'editProfile':
                 return <div><EditProfile/></div>;
             case 'myOrders':
-                return <div><h2>My Orders</h2><p>Here are your orders.</p></div>;
+                return <div><MyOrder/></div>;
             case 'myCoaching':
                 return <div><h2>My Coaching</h2><p>Your coaching sessions.</p></div>;
             case 'myConsulting':
