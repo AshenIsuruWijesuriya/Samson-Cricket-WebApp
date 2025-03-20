@@ -25,7 +25,7 @@ const MainFooter = () => {
         <div className="mf-section">
           <h3 className="mf-title">Contact Us</h3>
           <ul className="mf-list">
-            <li><a href="mailto:info@samsoncricket.com" className="mf-link">info@samsoncricket.com</a></li>
+            <li><a href="mailto:info@samsoncricket.com" className="mf-link">cricketsamson@gmail.com</a></li>
             <li><a href="tel:+11234567890" className="mf-link">+1 (123) 456-7890</a></li>
             <li>123 Cricket Lane, Sportsville, CA 90001</li>
           </ul>
@@ -37,7 +37,7 @@ const MainFooter = () => {
             <a href="https://www.twitter.com/" className="mf-social-link" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
             <a href="https://www.instagram.com/" className="mf-social-link" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
             <a href="https://www.linkedin.com/" className="mf-social-link" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-            <a href="mailto:info@samsoncricket.com" className="mf-social-link"><FaEnvelope /></a>
+            <a href="mailto:cricketsamson@gmail.com" className="mf-social-link"><FaEnvelope /></a>
           </div>
         </div>
       </div>

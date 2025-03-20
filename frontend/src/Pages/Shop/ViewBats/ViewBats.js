@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import axios from 'axios';
 import MainHeader from '../../../Common/mainHeader';
+import MainFooter from '../../../Common/mainFooter';
 import './ViewBats.css';
 import Swal from 'sweetalert2';
 import { CartContext } from '../../../context/CartContext'; // Corrected path
@@ -146,6 +147,7 @@ const ViewBats = () => {
           </div>
         )}
       </div>
+      <MainFooter/>
     </div>
   );
 };
