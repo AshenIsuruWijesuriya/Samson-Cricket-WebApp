@@ -3,6 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import './SignUp.css';
 import MainHeader from '../Common/mainHeader';
+import { useNavigate } from 'react-router-dom';
 
 const api = process.env.REACT_APP_BASE_URL;
 
@@ -14,6 +15,11 @@ const SignUpPage = () => {
         password: '',
     });
     const [error, setError] = useState('');
+    const [otp, setOtp] = useState('');
+    const [generatedOtp, setGeneratedOtp] = useState('');
+    const [otpModalOpen, setOtpModalOpen] = useState(false);
+    // const [emailToVerify, setEmailToVerify] = useState(''); // Removed unused variable
+    const navigate = useNavigate();
 
     const { firstname, lastname, email, password } = formData;
 
@@ -39,7 +45,7 @@ const SignUpPage = () => {
                 title: 'Error!',
                 text: 'All fields are required.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
             });
             return;
         }
@@ -49,7 +55,7 @@ const SignUpPage = () => {
                 title: 'Error!',
                 text: 'Please enter a valid email address.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
             });
             return;
         }
@@ -59,29 +65,63 @@ const SignUpPage = () => {
                 title: 'Error!',
                 text: 'Password must be at least 8 characters long.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
             });
             return;
         }
 
+        // Store the email to be verified
+        // setEmailToVerify(email);  // Removed setting of unused variable
+        // Generate and send OTP
         try {
-            const response = await axios.post(api + '/api/users/register', formData);
-            console.log('User  registered:', response.data);
-            Swal.fire({
-                title: 'Success!',
-                text: 'You have successfully registered!',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        } catch (error) {
-            console.error('Error registering user:', error.response?.data || error.message);
-            setError(error.response?.data?.message || 'An error occurred. Please try again.');
+            const response = await axios.post(`${api}/api/auth/generate-otp`, { email });
+            setGeneratedOtp(response.data.otp);
+            setOtpModalOpen(true); // Open the OTP modal
+        } catch (err) {
+            console.error('Error generating OTP:', err.response?.data || err.message);
+            setError(err.response?.data?.message || 'Failed to send OTP. Please try again.');
             Swal.fire({
                 title: 'Error!',
-                text: error.response?.data?.message || 'An error occurred. Please try again.',
+                text: err.response?.data?.message || 'Failed to send OTP. Please try again.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
             });
+        }
+    };
+
+    const handleVerifyOtp = async () => {
+        if (otp === generatedOtp) {
+            setOtpModalOpen(false); // Close the modal
+            // Proceed with registration
+            try {
+                const response = await axios.post(api + '/api/users/register', formData);
+                console.log('User registered:', response.data);
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You have successfully registered!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                }).then(() => {
+                    navigate('/signin');
+                });
+            } catch (error) {
+                console.error('Error registering user:', error.response?.data || error.message);
+                setError(error.response?.data?.message || 'An error occurred. Please try again.');
+                Swal.fire({
+                    title: 'Error!',
+                    text: error.response?.data?.message || 'An error occurred. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
+            }
+        } else {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Incorrect OTP. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            setOtp(''); // Clear the OTP input
         }
     };
 
@@ -96,43 +136,43 @@ const SignUpPage = () => {
                     <form className="signup-page-form" onSubmit={handleSubmit}>
                         <div className='signup-page-names-align'>
                             <div className="signup-page-input-group">
-                                <input 
-                                    type="text" 
-                                    name="firstname" 
-                                    value={firstname} 
-                                    onChange={handleChange} 
-                                    placeholder="First Name" 
+                                <input
+                                    type="text"
+                                    name="firstname"
+                                    value={firstname}
+                                    onChange={handleChange}
+                                    placeholder="First Name"
                                     className="signup-page-input-field-first"
                                 />
                             </div>
                             <div className="signup-page-input-group">
-                                <input 
-                                    type="text" 
-                                    name="lastname" 
-                                    value={lastname} 
-                                    onChange={handleChange} 
-                                    placeholder="Last Name" 
+                                <input
+                                    type="text"
+                                    name="lastname"
+                                    value={lastname}
+                                    onChange={handleChange}
+                                    placeholder="Last Name"
                                     className="signup-page-input-field-last"
                                 />
                             </div>
                         </div>
                         <div className="signup-page-input-group">
-                            <input 
-                                type="email" 
-                                name="email" 
-                                value={email} 
-                                onChange={handleChange} 
-                                placeholder="Email" 
+                            <input
+                                type="email"
+                                name="email"
+                                value={email}
+                                onChange={handleChange}
+                                placeholder="Email"
                                 className="signup-page-input-field"
                             />
                         </div>
                         <div className="signup-page-input-group">
-                            <input 
-                                type="password" 
-                                name="password" 
-                                value={password} 
-                                onChange={handleChange} 
-                                placeholder="Password" 
+                            <input
+                                type="password"
+                                name="password"
+                                value={password}
+                                onChange={handleChange}
+                                placeholder="Password"
                                 className="signup-page-input-field"
                             />
                         </div>
@@ -144,6 +184,20 @@ const SignUpPage = () => {
                     </form>
                 </div>
             </div>
+            {otpModalOpen && (
+                <div className="otp-modal">
+                    <div className="otp-modal-content">
+                        <h2>Verify OTP</h2>
+                        <input
+                            type="text"
+                            placeholder="Enter OTP"
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value)}
+                        />
+                        <button onClick={handleVerifyOtp}>Verify</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
