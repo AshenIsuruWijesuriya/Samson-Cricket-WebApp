@@ -56,9 +56,8 @@ const MyOrder = () => {
                                 <th>Total Amount</th>
                                 <th>Delivery Address</th>
                                 <th>Phone Number</th>
-                                <th>Payment Method</th>
-                                <th>Order Status</th>
                                 <th>Order Date & Time</th>
+                                <th>Order Status</th>
                                 <th>Contact</th>
                             </tr>
                         </thead>
@@ -69,7 +68,9 @@ const MyOrder = () => {
                                         <ul>
                                             {order.items.map((item) => (
                                                 <li key={item.productId._id}>
-                                                    Product: {item.productId.brand} {item.productId.model}, Quantity: {item.quantity}, Price: LKR {item.price.toFixed(2)}
+                                                    Product: {item.productId.brand} {item.productId.model}
+                                                    <br/>Quantity: {item.quantity}
+                                                    <br/>Price: LKR {item.price.toFixed(2)}
                                                 </li>
                                             ))}
                                         </ul>
@@ -77,9 +78,8 @@ const MyOrder = () => {
                                     <td>LKR {order.totalAmount.toFixed(2)}</td>
                                     <td>{order.deliveryAddress}</td>
                                     <td>{order.phoneNumber}</td>
-                                    <td>{order.paymentMethod}</td>
-                                    <td>{order.orderStatus}</td>
                                     <td>{new Date(order.orderDate).toLocaleString()}</td>
+                                    <td>{order.orderStatus}</td>
                                     <td>
                                         <button className="contact-button" onClick={() => handleContact(order)}>
                                             <FaPhoneAlt />
