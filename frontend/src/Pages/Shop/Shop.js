@@ -1,36 +1,48 @@
 import React from 'react';
 import MainHeader from '../../Common/mainHeader';
-import './Shop.css'; // Import your CSS file
-import { FaShieldAlt, FaTshirt, FaShoePrints } from 'react-icons/fa';
+import MainFooter from '../../Common/mainFooter';
+import './Shop.css';
+import { GiCricketBat, GiAmericanFootballHelmet, GiRunningShoe, GiPoloShirt } from "react-icons/gi";
+import { useNavigate } from 'react-router-dom';
 
-import batImage1 from '../../assets/images/gripReplacement.jpg'; // Import your bat images
-import batImage2 from '../../assets/images/gripReplacement.jpg';
-import batImage3 from '../../assets/images/gripReplacement.jpg';
-import batImage4 from '../../assets/images/gripReplacement.jpg';
+import batImage1 from '../../assets/images/bat1.png';
+import batImage2 from '../../assets/images/bat2.png';
+import batImage3 from '../../assets/images/bat3.png';
+import batImage4 from '../../assets/images/bat4.png';
 
-import protectionImage1 from '../../assets/images/gripReplacement.jpg'; // Import your protection images
-import protectionImage2 from '../../assets/images/gripReplacement.jpg';
-import protectionImage3 from '../../assets/images/gripReplacement.jpg';
-import protectionImage4 from '../../assets/images/gripReplacement.jpg';
+import protectionImage1 from '../../assets/images/helmet.png';
+import protectionImage2 from '../../assets/images/pads.png';
+import protectionImage3 from '../../assets/images/gloves.png';
+import protectionImage4 from '../../assets/images/cricketball.png';
 
-import merchandiseImage1 from '../../assets/images/gripReplacement.jpg'; // Import your merchandise images
-import merchandiseImage2 from '../../assets/images/gripReplacement.jpg';
-import merchandiseImage3 from '../../assets/images/gripReplacement.jpg';
-import merchandiseImage4 from '../../assets/images/gripReplacement.jpg';
+import merchandiseImage1 from '../../assets/images/merch3.png';
+import merchandiseImage2 from '../../assets/images/merch1.png';
+import merchandiseImage3 from '../../assets/images/merch4.png';
+import merchandiseImage4 from '../../assets/images/merch2.png';
 
-import shoeImage1 from '../../assets/images/gripReplacement.jpg'; // Import your shoe images
-import shoeImage2 from '../../assets/images/gripReplacement.jpg';
-import shoeImage3 from '../../assets/images/gripReplacement.jpg';
-import shoeImage4 from '../../assets/images/gripReplacement.jpg';
+import shoeImage1 from '../../assets/images/shoe1.png';
+import shoeImage2 from '../../assets/images/shoe3.png';
+import shoeImage3 from '../../assets/images/shoe2.png';
+import shoeImage4 from '../../assets/images/shoe4.png';
+
 
 const Shop = () => {
+    const navigate = useNavigate();
+
+    const navigateTo = (path) => {
+        navigate(path);
+    };
+
     return (
         <div>
             <MainHeader />
             <main className="cricket-shop-content">
-                <section className="cricket-shop-section cricket-bats-section">
+                <section
+                    className="cricket-shop-section cricket-bats-section"
+                    onClick={() => navigateTo('/shop/bats')}
+                >
                     <div className="cricket-shop-section-content">
-                        <FaShieldAlt className="cricket-shop-icon" />
+                        <GiCricketBat className="cricket-shop-icon" />
                         <h2>Cricket Bats</h2>
                         <p>
                             Explore our wide range of cricket bats, from beginner to professional levels. Find the perfect bat for your playing style.
@@ -41,15 +53,16 @@ const Shop = () => {
                             <img src={batImage3} alt="Cricket Bat 3" />
                             <img src={batImage4} alt="Cricket Bat 4" />
                         </div>
-                        <a href="/shop/bats" className="cricket-shop-button">
-                            View Bats
-                        </a>
+                        <p className="browse-more">Click to browse more</p>
                     </div>
                 </section>
 
-                <section className="cricket-shop-section cricket-protections-section">
+                <section
+                    className="cricket-shop-section cricket-protections-section"
+                    onClick={() => navigateTo('/shop/protections')}
+                >
                     <div className="cricket-shop-section-content">
-                        <FaShieldAlt className="cricket-shop-icon" />
+                        <GiAmericanFootballHelmet className="cricket-shop-icon" />
                         <h2>Protections & Others</h2>
                         <p>
                             Stay safe on the field with our protective gear and accessories. Helmets, pads, gloves, and more to keep you protected.
@@ -60,15 +73,16 @@ const Shop = () => {
                             <img src={protectionImage3} alt="Protection 3" />
                             <img src={protectionImage4} alt="Protection 4" />
                         </div>
-                        <a href="/shop/protections" className="cricket-shop-button">
-                            View Protections
-                        </a>
+                         <p className="browse-more">Click to browse more</p>
                     </div>
                 </section>
 
-                <section className="cricket-shop-section cricket-merchandise-section">
+                <section
+                    className="cricket-shop-section cricket-merchandise-section"
+                    onClick={() => navigateTo('/shop/merchandise')}
+                >
                     <div className="cricket-shop-section-content">
-                        <FaTshirt className="cricket-shop-icon" />
+                        <GiPoloShirt className="cricket-shop-icon" />
                         <h2>Merchandise</h2>
                         <p>
                             Show your love for the game with our stylish cricket merchandise. Jerseys, caps, and other apparel for fans and players.
@@ -79,15 +93,16 @@ const Shop = () => {
                             <img src={merchandiseImage3} alt="Merchandise 3" />
                             <img src={merchandiseImage4} alt="Merchandise 4" />
                         </div>
-                        <a href="/shop/merchandise" className="cricket-shop-button">
-                            View Merchandise
-                        </a>
+                        <p className="browse-more">Click to browse more</p>
                     </div>
                 </section>
 
-                <section className="cricket-shop-section cricket-shoes-section">
+                <section
+                    className="cricket-shop-section cricket-shoes-section"
+                    onClick={() => navigateTo('/shop/shoes')}
+                >
                     <div className="cricket-shop-section-content">
-                        <FaShoePrints className="cricket-shop-icon" />
+                        <GiRunningShoe className="cricket-shop-icon" />
                         <h2>Shoes</h2>
                         <p>
                             Get the right footwear for your game. Our cricket shoes provide comfort, support, and traction for peak performance.
@@ -98,12 +113,11 @@ const Shop = () => {
                             <img src={shoeImage3} alt="Shoe 3" />
                             <img src={shoeImage4} alt="Shoe 4" />
                         </div>
-                        <a href="/shop/shoes" className="cricket-shop-button">
-                            View Shoes
-                        </a>
+                         <p className="browse-more">Click to browse more</p>
                     </div>
                 </section>
             </main>
+            <MainFooter/>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import MainHeader from "../Common/mainHeader";
+import MainFooter from "../Common/mainFooter";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -104,6 +105,7 @@ const SignIn = () => {
           </div>
         </form>
       </div>
+      <MainFooter/>
     </div>
   );
 };

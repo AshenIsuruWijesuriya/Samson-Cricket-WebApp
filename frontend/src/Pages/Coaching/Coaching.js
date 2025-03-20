@@ -9,6 +9,7 @@ import coach3 from '../../assets/images/coach3.jpg';
 import coach4 from '../../assets/images/coach4.jpg';
 import coach5 from '../../assets/images/coach5.jpg';
 import coach6 from '../../assets/images/coach6.jpg';
+import MainFooter from '../../Common/mainFooter';
 
 
 const Coaching = () => {
@@ -22,6 +23,7 @@ const Coaching = () => {
   ];
 
   return (
+    <div>
     <div className="coaching-page">
       <MainHeader />
       <div className="coaching-content">
@@ -55,6 +57,8 @@ const Coaching = () => {
           </a>
         </div>
       </div>
+    </div>
+    <MainFooter/>
     </div>
   );
 };

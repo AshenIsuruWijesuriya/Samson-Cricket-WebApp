@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MainHeader from "../../Common/mainHeader";
+import MainFooter from "../../Common/mainFooter";
 import RepairForm from "./RepairForm"; // Import Repair Form Component
 import "./Services.css"; // Import CSS file
 
@@ -13,9 +14,9 @@ const Services = () => {
     };
 
     return (
-        <div className="service-page-wrapper">
+        <div>
             <MainHeader />
-
+        <div className="service-page-wrapper">
             {/* Bat Repairs & Restoration Section */}
             <section className="repair-service-area">
                 <div className="repair-section-layout">
@@ -76,6 +77,8 @@ const Services = () => {
                     onRepairRequestAdded={handleRepairRequestAdded} // Pass the function
                 />
             )}
+        </div>
+        <MainFooter/>
         </div>
     );
 };
