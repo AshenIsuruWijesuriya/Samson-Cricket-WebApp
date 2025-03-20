@@ -13,9 +13,9 @@ const Services = () => {
     };
 
     return (
-        <div className="service-page-wrapper">
+        <div>
             <MainHeader />
-
+        <div className="service-page-wrapper">
             {/* Bat Repairs & Restoration Section */}
             <section className="repair-service-area">
                 <div className="repair-section-layout">
@@ -76,6 +76,7 @@ const Services = () => {
                     onRepairRequestAdded={handleRepairRequestAdded} // Pass the function
                 />
             )}
+        </div>
         </div>
     );
 };
