@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MainHeader from "../../Common/mainHeader";
+import MainFooter from "../../Common/mainFooter";
 import RepairForm from "./RepairForm"; // Import Repair Form Component
 import "./Services.css"; // Import CSS file
 
@@ -77,6 +78,7 @@ const Services = () => {
                 />
             )}
         </div>
+        <MainFooter/>
         </div>
     );
 };

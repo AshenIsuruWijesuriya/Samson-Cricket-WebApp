@@ -3,6 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import './SignUp.css';
 import MainHeader from '../Common/mainHeader';
+import MainFooter from "../Common/mainFooter";
 import { useNavigate } from 'react-router-dom';
 
 const api = process.env.REACT_APP_BASE_URL;
@@ -198,6 +199,7 @@ const SignUpPage = () => {
                     </div>
                 </div>
             )}
+            <MainFooter/>
         </div>
     );
 };

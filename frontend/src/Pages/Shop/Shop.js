@@ -1,5 +1,6 @@
 import React from 'react';
 import MainHeader from '../../Common/mainHeader';
+import MainFooter from '../../Common/mainFooter';
 import './Shop.css';
 import { GiCricketBat, GiAmericanFootballHelmet, GiRunningShoe, GiPoloShirt } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom';
@@ -20,9 +21,10 @@ import merchandiseImage3 from '../../assets/images/merch4.png';
 import merchandiseImage4 from '../../assets/images/merch2.png';
 
 import shoeImage1 from '../../assets/images/shoe1.png';
-import shoeImage2 from '../../assets/images/shoe2.png';
-import shoeImage3 from '../../assets/images/shoe3.png';
+import shoeImage2 from '../../assets/images/shoe3.png';
+import shoeImage3 from '../../assets/images/shoe2.png';
 import shoeImage4 from '../../assets/images/shoe4.png';
+
 
 const Shop = () => {
     const navigate = useNavigate();
@@ -115,6 +117,7 @@ const Shop = () => {
                     </div>
                 </section>
             </main>
+            <MainFooter/>
         </div>
     );
 };

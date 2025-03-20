@@ -6,6 +6,7 @@ import shopImage from '../assets/images/shophome.png';
 import coachingImage from '../assets/images/coaching.png';
 import servicesImage from '../assets/images/servhome.jpeg';
 import consultingImage from '../assets/images/consulthome.png';
+import MainFooter from '../Common/mainFooter';
 
 const Home = () => {
     const [bats, setBats] = useState([]);
@@ -98,6 +99,7 @@ const Home = () => {
                     </div>
                 </section>
             </main>
+            <MainFooter/>
         </div>
     );
 };
