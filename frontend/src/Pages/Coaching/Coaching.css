@@ -123,3 +123,27 @@
 .coach-card button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
+
+/* ===================== */
+/* View All Coaches Button */
+/* ===================== */
+.view-all-coaches {
+  text-align: center; /* Center-align the button */
+  margin-top: 2rem; /* Space above the button */
+  margin-bottom: 2rem; /* Space below the button */
+}
+
+.view-all-coaches button {
+  background-color: #007bff; /* Blue background for the button */
+  color: #ffffff; /* White text for contrast */
+  border: none;
+  padding: 0.75rem 1.5rem; /* Comfortable padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+.view-all-coaches button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

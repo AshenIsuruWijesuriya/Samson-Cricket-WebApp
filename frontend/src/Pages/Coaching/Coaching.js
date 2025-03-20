@@ -49,6 +49,9 @@ const Coaching = () => {
             </div>
           ))}
         </div>
+        <div className="view-all-coaches">
+          <button onClick={() => alert('Viewing all coaches')}>View All Coaches</button>
+        </div>
       </div>
     </div>
   );
