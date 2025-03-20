@@ -34,7 +34,7 @@ body {
     text-align: center;
     font-size: 34px;
     font-weight: 700;
-    color: var(--text-color);
+    color: white;
 }
 
 /* Subtitle Styling */
@@ -75,7 +75,7 @@ body {
 .coaching-card-icon {
     font-size: 4em; /* Bigger icon */
     margin-bottom: 15px;
-    color: var(--accent-color);
+    color: white;
     transition: var(--transition);
 }
 
@@ -88,7 +88,7 @@ body {
 /* Card Text */
 .coaching-card-link {
     text-decoration: none;
-    color: var(--text-color);
+    color:white;
     font-size: 20px;
     font-weight: 600;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
