@@ -29,10 +29,10 @@ const Coaching = () => {
         <div className="coaching-description">
           <h1>Welcome to Samson Cricket Coaching</h1>
           <p>
-            At Samson Cricket Coaching, we offer personalized coaching sessions, online coaching sessions and 
-            academic coaching sessions to help you achieve your goals. 
-            Whether you're looking to improve your skills, advance your career, or enhance your fitness, our 
-            expert coaches are here to guide you every step of the way. Book a session today and take the 
+            At Samson Cricket Coaching, we offer personalized coaching sessions, online coaching sessions and
+            academic coaching sessions to help you achieve your goals.
+            Whether you're looking to improve your skills, advance your career, or enhance your fitness, our
+            expert coaches are here to guide you every step of the way. Book a session today and take the
             first step towards your success!
           </p>
         </div>
@@ -50,7 +50,9 @@ const Coaching = () => {
           ))}
         </div>
         <div className="view-all-coaches">
-          <button onClick={() => alert('Viewing all coaches')}>View All Coaches</button>
+          <a href="/ViewCoaches" className="cricket-shop-button">
+            View All Coaches
+          </a>
         </div>
       </div>
     </div>

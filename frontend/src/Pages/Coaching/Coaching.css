@@ -133,17 +133,18 @@
   margin-bottom: 2rem; /* Space below the button */
 }
 
-.view-all-coaches button {
-  background-color: #007bff; /* Blue background for the button */
-  color: #ffffff; /* White text for contrast */
+.view-all-coaches a.cricket-shop-button { /* Target the <a> tag with the class */
+  background-color: #007bff;
+  color: #ffffff;
   border: none;
-  padding: 0.75rem 1.5rem; /* Comfortable padding */
-  border-radius: 5px; /* Rounded corners */
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.2s ease; /* Smooth hover effect */
+  transition: background-color 0.2s ease;
+  text-decoration: none; /* Remove underline from link */
 }
 
-.view-all-coaches button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+.view-all-coaches a.cricket-shop-button:hover {
+  background-color: #0056b3;
 }
