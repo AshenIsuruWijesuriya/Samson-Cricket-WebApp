@@ -3,13 +3,13 @@ import "./SignIn.css";
 import MainHeader from "../Common/mainHeader";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const api = process.env.REACT_APP_BASE_URL;
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,15 +22,15 @@ const SignIn = () => {
       const { token, user } = response.data;
 
       localStorage.setItem("token", token);
+      localStorage.setItem("userId", user.id); // Store the user ID
 
       Swal.fire({
         title: "Login Successful!",
         text: "Welcome back, " + user.firstname + "!",
         icon: "success",
-        showConfirmButton: false, // Remove the OK button
-        timer: 1500, // Close after 1.5 seconds
+        showConfirmButton: false,
+        timer: 1500,
       }).then(() => {
-        // Navigate directly after the timer
         if (user.role === "Admin") {
           navigate("/admindashboard");
         } else if (user.role === "Consultant") {
@@ -48,8 +48,7 @@ const SignIn = () => {
     } catch (err) {
       Swal.fire({
         title: "Login Failed",
-        text:
-          err.response.data.message || "An error occurred. Please try again.",
+        text: err.response.data.message || "An error occurred. Please try again.",
         icon: "error",
         confirmButtonText: "OK",
       });

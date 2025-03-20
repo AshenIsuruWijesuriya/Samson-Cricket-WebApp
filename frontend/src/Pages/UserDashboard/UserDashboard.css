@@ -1,9 +1,82 @@
-.dashboard {
+/* UserDashboard.css */
+
+.ud-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ud-main-layout {
+    flex-grow: 1;
     display: flex;
 }
 
-.main-content {
-    margin-left: 220px; /* Adjust based on sidebar width */
+.ud-sidebar {
+    width: 200px; /* Adjust sidebar width as needed */
+    background-color: #f0f0f0;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    
+    border-right: 1px solid #ddd;
+}
+
+.ud-sidebar-btn {
+    background-color: #ffffff;
+    font-family: 'Trebuchet MS';
+    padding: 20px 15px;
+    border: none;
+    color: rgb(84, 84, 84);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.ud-sidebar-btn:hover {
+    background-color: #df2727;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.ud-content-area {
     flex-grow: 1;
+    padding: 20px;
+}
+
+.ud-content-area h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.ud-content-area p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .ud-main-layout {
+        flex-direction: column;
+    }
+
+    .ud-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        flex-direction: row;
+        flex-wrap: wrap; /* Allow buttons to wrap onto multiple lines */
+        padding: 10px;
+    }
+
+    .ud-sidebar-btn {
+        width: auto; /* Allow buttons to size based on content */
+        flex-grow: 1;
+        text-align: center;
+    }
 }

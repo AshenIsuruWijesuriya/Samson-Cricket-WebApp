@@ -1,0 +1,76 @@
+.ep-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    font-family: 'Trebuchet MS';
+}
+
+.ep-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    margin-top:80px ;
+}
+
+.ep-title {
+    text-align: center;
+    margin-bottom:50px;
+    color: #333;
+    font-size: 34px;
+}
+
+.ep-form-group {
+    margin-bottom: 15px;
+}
+
+.ep-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size:20px;
+    color: rgb(255, 30, 30);
+}
+
+.ep-input,
+.ep-textarea {
+    width: 100%;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 17px;
+}
+
+.ep-textarea {
+    resize: vertical;
+}
+
+.ep-save-button {
+    margin-top:20px ;
+    background-color: #eb0000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.ep-save-button:hover {
+    background-color: #d40a0a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .ep-container {
+        padding: 10px;
+    }
+
+    .ep-form {
+        max-width: 100%;
+    }
+}
