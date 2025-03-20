@@ -52,7 +52,7 @@
     font-size: 16px;
     min-height: 100px;
     resize: vertical;
-    margin-bottom: 10px; /* Added margin for spacing */
+    margin-bottom: 10px;
 }
 
 .phone-input {
@@ -153,6 +153,77 @@
     font-size: 18px;
     font-weight: 600;
     text-align: right;
+}
+
+.otp-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.otp-modal-content {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 28px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.otp-modal-content h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.otp-modal-content input {
+    padding: 12px;
+    margin-bottom: 20px;
+    width: calc(100% - 40px);
+    border: 1px solid #bdc3c7;
+    border-radius: 16px;
+    font-size: 18px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.otp-modal-content input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+
+.otp-modal-content button {
+    background-color: #ee0101;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.otp-modal-content button:hover {
+    background-color: #bd0202;
+    transform: scale(1.05);
+}
+
+.otp-modal-content button:active {
+    transform: scale(1);
 }
 
 /* Optional: Adjust for responsiveness */

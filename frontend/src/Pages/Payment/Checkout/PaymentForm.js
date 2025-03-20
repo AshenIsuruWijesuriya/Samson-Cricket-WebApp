@@ -18,6 +18,9 @@ const PaymentForm = () => {
     const { cartItems, clearCart } = useContext(CartContext);
     const navigate = useNavigate();
     const api = process.env.REACT_APP_BASE_URL;
+    const [otp, setOtp] = useState('');
+    const [generatedOtp, setGeneratedOtp] = useState('');
+    const [otpModalOpen, setOtpModalOpen] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -87,9 +90,47 @@ const PaymentForm = () => {
         }
     }, [navigate, api]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleGenerateOtp = async () => {
+        try {
+            const response = await fetch(`${api}/api/auth/generate-otp`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email }),
+            });
 
+            if (!response.ok) {
+                throw new Error('Failed to generate OTP');
+            }
+
+            const data = await response.json();
+            setGeneratedOtp(data.otp);
+            setOtpModalOpen(true);
+        } catch (error) {
+            console.error('Error generating OTP:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'OTP Error',
+                text: 'Failed to send OTP to your email.',
+            });
+        }
+    };
+
+    const handleVerifyOtp = () => {
+        if (otp === generatedOtp) {
+            setOtpModalOpen(false);
+            handlePlaceOrder();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Verification Failed',
+                text: 'Incorrect OTP. Please try again.',
+            });
+        }
+    };
+
+    const handlePlaceOrder = async () => {
         const paymentData = {
             cardNumber: cardNumber,
             expiryDate: expiryDate,
@@ -100,7 +141,7 @@ const PaymentForm = () => {
         const decoded = jwtDecode(token);
         const userId = decoded.id;
 
-        const orderData = {
+        const order = {
             userId: userId,
             items: cartItems.map(item => ({
                 productId: item._id,
@@ -115,16 +156,13 @@ const PaymentForm = () => {
         };
 
         try {
-            console.log(token);
-            console.log(typeof token)
-            console.log(`Bearer ${token}`)
             const response = await fetch(`${api}/api/order/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(orderData)
+                body: JSON.stringify(order)
             });
 
             if (!response.ok) {
@@ -150,7 +188,7 @@ const PaymentForm = () => {
                 title: 'Payment Successful!',
                 text: 'Your payment has been processed.',
             }).then(() => {
-                navigate('/');
+                navigate(`/userdashboard`);
             });
 
         } catch (error) {
@@ -161,9 +199,11 @@ const PaymentForm = () => {
                 text: 'A network error occurred while processing your payment.',
             });
         }
+    };
 
-        console.log("payment data:", paymentData);
-        console.log("order data:", orderData);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleGenerateOtp();
     };
 
     const calculateTotal = () => {
@@ -176,70 +216,39 @@ const PaymentForm = () => {
         <div>
             <MainHeader />
             <div className="payment-page-container">
-                <div className="cart-preview">
-                    <h3>Cart Items</h3>
-                    <ul>
-                        {cartItems.map((item) => (
-                            <li key={item._id} className="cart-item">
-                                <img
-                                    src={`${api}/uploads/${item.images[0]}`}
-                                    alt={`${item.brand} ${item.model}`}
-                                    className="cart-item-image"
-                                />
-                                <div className="cart-item-details">
-                                    {item.brand} {item.model} - Quantity: {item.quantity} - Price: LKR {(item.price * item.quantity).toFixed(2)}
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <p><strong>Total:</strong> LKR {calculateTotal()}</p>
-                </div>
-                <div className="payment-form-container">
-                    <h2>Payment Details</h2>
-                    <div className="information-section">
-                        <h3>Personal Information</h3>
-                        <p><strong>Name:</strong> {firstName} {lastName}</p>
-                        <p><strong>Email:</strong> {email}</p>
-                    </div>
-                    <div className="delivery-section">
-                        <h3>Delivery Address</h3>
-                        <textarea
-                            value={deliveryAddress}
-                            onChange={(e) => setDeliveryAddress(e.target.value)}
-                            placeholder="Enter your delivery address"
-                            className="delivery-textarea"
-                        />
-                        <input
-                            type="tel"
-                            value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
-                            placeholder="Enter your phone number"
-                            className="phone-input"
-                        />
-                    </div>
-                    <div className="card-section">
-                        <h3>Card Information</h3>
-                        <form onSubmit={handleSubmit} className="payment-form">
-                            <div className="form-group">
-                                <label htmlFor="cardNumber">Card Number</label>
-                                <input type="text" id="cardNumber" onChange={(e) => setCardNumber(e.target.value)} required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="expiryDate">Expiry Date</label>
-                                <input type="text" id="expiryDate" placeholder="MM/YY" onChange={(e) => setExpiryDate(e.target.value)} required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="cvv">CVV</label>
-                                <input type="text" id="cvv" onChange={(e) => setCvv(e.target.value)} required />
-                            </div>
-                            <div className="total-preview">
-                                <strong>Total to Pay:</strong> LKR {calculateTotal()}
-                            </div>
-                            <button type="submit" className="payment-button">Pay Now</button>
-                        </form>
-                    </div>
+                <div className="card-section">
+                    <h3>Card Information</h3>
+                    <form onSubmit={handleSubmit} className="payment-form">
+                        <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                        <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+                        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <input type="text" placeholder="Card Number" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} required />
+                        <input type="text" placeholder="Expiry Date (MM/YY)" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} required />
+                        <input type="text" placeholder="CVV" value={cvv} onChange={(e) => setCvv(e.target.value)} required />
+                        <input type="text" placeholder="Delivery Address" value={deliveryAddress} onChange={(e) => setDeliveryAddress(e.target.value)} required />
+                        <input type="text" placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+
+                        <div className="total-preview">
+                            <strong>Total to Pay:</strong> LKR {calculateTotal()}
+                        </div>
+                        <button type="submit" className="payment-button">Pay Now</button>
+                    </form>
                 </div>
             </div>
+            {otpModalOpen && (
+                <div className="otp-modal">
+                    <div className="otp-modal-content">
+                        <h2>Verify OTP</h2>
+                        <input
+                            type="text"
+                            placeholder="Enter OTP"
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value)}
+                        />
+                        <button onClick={handleVerifyOtp}>Verify</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
