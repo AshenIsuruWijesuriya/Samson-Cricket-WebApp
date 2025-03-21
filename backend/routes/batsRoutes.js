@@ -6,6 +6,7 @@ const {
   updateBat,
   deleteBat,
   updateBatStock,
+  updateStockAfterPayment,
 } = require('../controllers/batsController'); 
 
 const router = express.Router();
@@ -16,5 +17,6 @@ router.get('/:id', getBatById);
 router.put('/:id', updateBat);
 router.delete('/:id', deleteBat);
 router.patch('/:id/stock', updateBatStock);
+router.put('/update-stock-after-payment', updateStockAfterPayment);
 
 module.exports = router;

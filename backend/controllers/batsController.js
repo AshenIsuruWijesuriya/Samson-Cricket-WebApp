@@ -148,3 +148,37 @@ exports.updateBatStock = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+exports.updateStockAfterPayment = async (req, res) => {
+  try {
+    const items = req.body; // Array of { batId: String, quantity: Number }
+    console.log("Items received to update stock:", items); // Added logging
+
+    if (!Array.isArray(items)) {
+      return res.status(400).json({ message: "Invalid input: Expected an array of items" });
+    }
+
+    for (const item of items) {
+      if (!item.batId || item.quantity === undefined || item.quantity === null) {
+        return res.status(400).json({ message: "Invalid input: Each item must have 'batId' and 'quantity'" });
+      }
+
+      const bat = await CricketBat.findById(item.batId);
+      if (!bat) {
+        return res.status(404).json({ message: `Bat with ID ${item.batId} not found` });
+      }
+
+      if (bat.stock < item.quantity) {
+        return res.status(400).json({ message: `Insufficient stock for bat ID ${item.batId}` });
+      }
+
+      bat.stock -= item.quantity;
+      await bat.save();
+      console.log(`Stock updated for bat ID ${item.batId}. New stock: ${bat.stock}`); // Added logging
+    }
+
+    res.status(200).json({ message: "Stock levels updated successfully" });
+  } catch (error) {
+    console.error("Error updating stock after payment:", error);
+    res.status(500).json({ message: "Internal server error", error: error.message }); // Include error message
+  }
+};

@@ -19,6 +19,7 @@ import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
 import AdminUsers from '../Pages/Admin/ManageUsers/AdminUsers/AdminUsers';
 import ManageBats from '../Pages/Admin/ManageInventory/ManageBats/ManageBats';
+import ManageProtectionGear from '../Pages/Admin/ManageInventory/ManageProtection/ManageProtectionGear';
 
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
 import ManageRepairs from '../Pages/ServiceManager/ManageRepair/ManageRepairs';
@@ -37,6 +38,7 @@ import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingC
 import PhysicalConsulting from '../Pages/Consulting/PhysicalConsulting/PhysicalConsulting';
 import { CartProvider } from '../context/CartContext'; // Import CartProvider
 import Cart from '../Components/Cart/Cart'; // Import Cart component
+import ViewProtectionGear from '../Pages/Shop/ViewProtectionGear/ViewProtectionGear';
 
 const AppRoutes = () => {
     const isAuthenticated = () => {
@@ -77,6 +79,7 @@ const AppRoutes = () => {
                     {/* Navbar */}
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/shop/bats" element={<ViewBats />} />
+                    <Route path="/shop/protection-gears" element={<ViewProtectionGear />} />
                     <Route path="/cart" element={<Cart />} /> {/* Cart route */}
                     <Route path="/services" element={<Services />} />
                     <Route path="/coaching" element={<Coaching />} />
@@ -154,6 +157,14 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Admin']}>
                                 <ManageBats />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-inventory/manage-protections"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageProtectionGear />
                             </ProtectedRoute>
                         }
                     />

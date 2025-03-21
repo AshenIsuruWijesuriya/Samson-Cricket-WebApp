@@ -59,7 +59,7 @@ const Shop = () => {
 
                 <section
                     className="cricket-shop-section cricket-protections-section"
-                    onClick={() => navigateTo('/shop/protections')}
+                    onClick={() => navigateTo('/shop/protection-gears')}
                 >
                     <div className="cricket-shop-section-content">
                         <GiAmericanFootballHelmet className="cricket-shop-icon" />

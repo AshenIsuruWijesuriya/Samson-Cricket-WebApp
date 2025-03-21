@@ -1,0 +1,235 @@
+.gear-shop-container {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.gear-shop-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.gear-shop-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 35px;
+    font-family: 'Trebuchet MS';
+}
+
+.gear-shop-filter {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gear-shop-search {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 35px;
+    width: 300px;
+    font-size: 16px;
+    outline: none;
+}
+
+.gear-shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.gear-shop-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.gear-shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gear-shop-image-container {
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gear-shop-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.gear-shop-details {
+    padding: 15px;
+}
+
+.gear-shop-name {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.gear-shop-info {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.gear-shop-price-stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.gear-shop-price {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.gear-shop-stock {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.gear-shop-stock-in {
+    background-color: #e6f7e9;
+    color: #3f8600;
+}
+
+.gear-shop-stock-out {
+    background-color: #fff0f0;
+    color: #d93025;
+}
+
+.gear-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.gear-details-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+}
+
+.gear-details-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.gear-details-content {
+    display: flex;
+}
+
+.gear-details-image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gear-details-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.gear-details-info-section {
+    flex: 1;
+}
+
+.gear-details-title {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.gear-details-info,
+.gear-details-price,
+.gear-details-stock,
+.gear-details-description {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.gear-details-stock-in {
+    color: green;
+}
+
+.gear-details-stock-out {
+    color: red;
+}
+
+.gear-details-add-to-cart {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.gear-details-add-to-cart:hover {
+    background-color: #0056b3;
+}
+
+.cart-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cart-popup-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.cart-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
