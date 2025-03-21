@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import './UpdateGearModal.css'; // Create CSS
+import './UpdateGearModal.css';
 
 const UpdateGearModal = ({ gear, onClose, onGearUpdated }) => {
     const api = useMemo(() => process.env.REACT_APP_BASE_URL, []);
@@ -18,15 +18,15 @@ const UpdateGearModal = ({ gear, onClose, onGearUpdated }) => {
         stock: 0,
     });
     const [error, setError] = useState('');
-      const [selectedFiles, setSelectedFiles] = useState([]);
+    const [selectedFiles, setSelectedFiles] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
 
     useEffect(() => {
         if (gear) {
             setUpdatedGear({ ...gear });
-             if (gear.images && gear.images.length > 0) {
-        setImagePreviews(gear.images.map((image) => `${api}/uploads/${image}`));
-      }
+            if (gear.images && gear.images.length > 0) {
+                setImagePreviews(gear.images.map((image) => `${api}/uploads/${image}`));
+            }
         }
     }, [gear, api]);
 
@@ -34,10 +34,10 @@ const UpdateGearModal = ({ gear, onClose, onGearUpdated }) => {
         setUpdatedGear({ ...updatedGear, [e.target.name]: e.target.value });
     };
 
-      const handleFileChange = (e) => {
+    const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
         setSelectedFiles(files);
-           const previews = files.map((file) => URL.createObjectURL(file));
+        const previews = files.map((file) => URL.createObjectURL(file));
         setImagePreviews(previews);
     };
 
@@ -45,7 +45,7 @@ const UpdateGearModal = ({ gear, onClose, onGearUpdated }) => {
         e.preventDefault();
         setError('');
 
-         if (
+        if (
             !updatedGear.category ||
             !updatedGear.brand ||
             !updatedGear.model ||
@@ -65,20 +65,20 @@ const UpdateGearModal = ({ gear, onClose, onGearUpdated }) => {
         try {
             const formData = new FormData();
             for (const key in updatedGear) {
-                 if (key !== 'images') {
-        formData.append(key, updatedGear[key]);
-      }
+                if (key !== 'images') {
+                    formData.append(key, updatedGear[key]);
+                }
             }
 
-             if (selectedFiles.length > 0) {
-        for (let i = 0; i < selectedFiles.length; i++) {
-          formData.append('images', selectedFiles[i]);
-        }
-      } else if (gear.images && gear.images.length > 0) {
-        gear.images.forEach((image) => {
-          formData.append('existingImages', image);
-        });
-      }
+            if (selectedFiles.length > 0) {
+                for (let i = 0; i < selectedFiles.length; i++) {
+                    formData.append('images', selectedFiles[i]);
+                }
+            } else if (gear.images && gear.images.length > 0) {
+                gear.images.forEach((image) => {
+                    formData.append('existingImages', image);
+                });
+            }
 
             await axios.put(`${api}/api/protection/${gear._id}`, formData, {});
 
@@ -95,7 +95,7 @@ const UpdateGearModal = ({ gear, onClose, onGearUpdated }) => {
             setError(
                 error.response?.data?.message || 'An error occurred. Please try again.'
             );
-             Swal.fire({
+            Swal.fire({
                 title: 'Error!',
                 text:
                     error.response?.data?.message || 'An error occurred. Please try again.',
@@ -105,29 +105,77 @@ const UpdateGearModal = ({ gear, onClose, onGearUpdated }) => {
         }
     };
 
+    const categoryOptions = [
+        'Helmet',
+        'Batting Pads',
+        'Wicket Keeping Pads',
+        'Gloves',
+        'Bowl Guard',
+        'Tie Pads',
+        'Arm Guard'
+    ];
+    const specialTypeOptions = ['Left Handed', 'Right Handed'];
+    const sizeTypeOptions = ['Junior', 'Adult'];
+
     return (
         <div className="gear-modal-overlay">
             <div className="gear-modal-content">
                 <h2 className="gear-modal-title">Update Gear</h2>
                 {error && <div className="gear-modal-error">{error}</div>}
                 <form className="gear-modal-form" onSubmit={handleSubmit}>
-                    <input placeholder="Category" name="category" value={updatedGear.category} onChange={handleInputChange} className="gear-modal-input" />
+                    <select
+                        name="category"
+                        value={updatedGear.category}
+                        onChange={handleInputChange}
+                        className="gear-modal-input"
+                    >
+                        <option value="">Select Category</option>
+                        {categoryOptions.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
                     <input placeholder="Brand" name="brand" value={updatedGear.brand} onChange={handleInputChange} className="gear-modal-input" />
                     <input placeholder="Model" name="model" value={updatedGear.model} onChange={handleInputChange} className="gear-modal-input" />
-                    <input placeholder="Special Type" name="specialType" value={updatedGear.specialType} onChange={handleInputChange} className="gear-modal-input" />
-                    <input placeholder="Size Type" name="sizeType" value={updatedGear.sizeType} onChange={handleInputChange} className="gear-modal-input" />
+                    <select
+                        name="specialType"
+                        value={updatedGear.specialType}
+                        onChange={handleInputChange}
+                        className="gear-modal-input"
+                    >
+                        <option value="">Select Special Type</option>
+                        {specialTypeOptions.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
+                    <select
+                        name="sizeType"
+                        value={updatedGear.sizeType}
+                        onChange={handleInputChange}
+                        className="gear-modal-input"
+                    >
+                        <option value="">Select Size Type</option>
+                        {sizeTypeOptions.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
                     <input type="number" placeholder="Price" name="price" value={updatedGear.price} onChange={handleInputChange} className="gear-modal-input" />
                     <textarea placeholder="Description" name="description" value={updatedGear.description} onChange={handleInputChange} className="gear-modal-input" />
                     <input type="number" placeholder="Stock" name="stock" value={updatedGear.stock} onChange={handleInputChange} className="gear-modal-input" />
-                      <input
+                    <input
                         type="file"
                         name="images"
                         multiple
                         onChange={handleFileChange}
                         className="gear-modal-input"
                     />
-                      <div className="gear-modal-image-previews">
-                         {imagePreviews.map((preview, index) => (
+                    <div className="gear-modal-image-previews">
+                        {imagePreviews.map((preview, index) => (
                             <img
                                 key={index}
                                 src={preview}
