@@ -147,6 +147,7 @@ const PaymentForm = () => {
                 productId: item._id,
                 quantity: item.quantity,
                 price: item.price,
+                productModel: item.category ? 'CricketProtectionGear' : 'CricketBat' // Determine product model
             })),
             totalAmount: parseFloat(calculateTotal()),
             deliveryAddress: deliveryAddress,

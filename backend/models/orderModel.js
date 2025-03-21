@@ -1,4 +1,3 @@
-// models/orderModel.js
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
@@ -20,7 +19,7 @@ const orderSchema = new mongoose.Schema({
       productModel: {
         type: String,
         required: true,
-        enum: ["CricketBat"], 
+        enum: ["CricketBat", "CricketProtectionGear"], // added models
       },
       quantity: {
         type: Number,

@@ -1,6 +1,7 @@
 // controllers/orderController.js
 const Order = require("../models/orderModel");
 const CricketBat = require("../models/batsModel");
+const CricketProtectionGear = require("../models/protectionModel");
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 
@@ -18,15 +19,28 @@ const createOrder = async (req, res) => {
         }
 
         for (const item of items) {
-            const product = await CricketBat.findById(item.productId);
+            let product;
+            if (item.productModel === 'CricketBat') {
+                product = await CricketBat.findById(item.productId);
+            } else if (item.productModel === 'CricketProtectionGear') {
+                product = await CricketProtectionGear.findById(item.productId);
+            } else {
+                return res.status(400).json({ message: "Invalid product model" });
+            }
+
             if (!product) {
                 return res.status(400).json({ message: "Invalid product ID" });
             }
+
             if (item.quantity <= 0) {
                 return res.status(400).json({ message: "Invalid quantity" });
             }
-            item.price = product.price;
-            item.productModel = 'CricketBat';
+
+            if (product.stock < item.quantity) {
+              return res.status(400).json({message: "Insufficient Stock"})
+            }
+
+            item.price = product.price; // Set price from the found product
         }
 
         const totalAmount = items.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -45,6 +59,15 @@ const createOrder = async (req, res) => {
         });
 
         await order.save();
+
+        // Update product stock after order is saved
+        for (const item of items) {
+            if (item.productModel === 'CricketBat') {
+                await CricketBat.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
+            } else if (item.productModel === 'CricketProtectionGear') {
+                await CricketProtectionGear.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
+            }
+        }
 
         res.status(201).json({ message: "Order created successfully", order: order });
     } catch (error) {
