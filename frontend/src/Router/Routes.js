@@ -30,6 +30,7 @@ import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
 import FinanceDashboard from '../Pages/Payment/FinanceDashboard';
 
 import CoachingDashboard from '../Pages/Coaching/CoachingDashbaord/CoachingDashboard';
+import ViewCoaches from '../Pages/Coaching/ViewCoaches/ViewCoaches';
 
 import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
 import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
@@ -80,6 +81,7 @@ const AppRoutes = () => {
                     <Route path="/cart" element={<Cart />} /> {/* Cart route */}
                     <Route path="/services" element={<Services />} />
                     <Route path="/coaching" element={<Coaching />} />
+                    <Route path="/ViewCoaches" element={<ViewCoaches />} />
                     <Route path="/consulting" element={<Consulting />} />
                     {/* Sign In & Sign Up */}
                     <Route path="/signIn" element={<SignIn />} />

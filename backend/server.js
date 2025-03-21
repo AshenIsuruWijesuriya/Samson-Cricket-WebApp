@@ -8,6 +8,7 @@ const batRoutes = require('./routes/batsRoutes');
 const repairRoutes = require('./routes/repairRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const otpRoutes = require('./routes/otpRoutes');
+const coachRoutes = require('./routes/coachRoutes');
 
 //db connection
 const connectDB = require("./config/db");
@@ -31,6 +32,7 @@ app.use('/api/bats', batRoutes);
 app.use('/api/services', repairRoutes);
 app.use('/api/order', orderRoutes);
 app.use('/api/auth', otpRoutes);
+app.use('/api/coach', coachRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 @ http://localhost:${PORT}`));
