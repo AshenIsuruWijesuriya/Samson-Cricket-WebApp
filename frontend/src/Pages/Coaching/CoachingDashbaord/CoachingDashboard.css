@@ -1,133 +1,133 @@
 /* Apply to body to set dark theme */
-body {
-    background-color: var(--primary-bg);
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--text-color);
-}
 
-/* ---------------------- COACHING SECTION ---------------------- */
 .coaching-container {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px;
-    gap: 20px;
-    flex-wrap: nowrap; /* Keep in one horizontal line */
-    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 35px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     white-space: nowrap;
     max-width: 100%;
+    margin: 0 auto;
     scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for cleaner look */
 .coaching-container::-webkit-scrollbar {
     display: none;
 }
 
-/* Title Styling */
 .coaching-title {
-    margin-top: 70px;
-    margin-bottom: 45px;
+    margin-top: 90px;
+    margin-bottom: 30px;
     text-align: center;
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 700;
-    color: white;
+    color: #070606;
 }
 
-/* Subtitle Styling */
-.coaching-title-p {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 18px;
-    color: var(--accent-color);
-}
-
-/* ---------------------- COMPACT DASHBOARD CARD ---------------------- */
 .coaching-card {
-    width: 260px; /* Small and clean */
-    height: 280px;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    background: rgba(68, 57, 57, 0.1); /* Lighter card background */
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow intensity */
+    width: 250px;
+    height: 250px;
+    padding: 25px;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center everything */
+    justify-content: center;
     text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* User-friendly transition */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Lighter border */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
 }
 
-/* Hover Effects */
+.coaching-card-users {
+    background-color: #6366f1;
+}
+
+.coaching-card-inventory {
+    background-color: #f59e0b;
+}
+
+.coaching-card-reports {
+    background-color: #10b981;
+}
+
+.coaching-card-feedback {
+    background-color: #e11d48;
+}
+
 .coaching-card:hover {
-    transform: translateY(-5px); /* More noticeable lift */
-    box-shadow: 0 12px 25px rgba(31, 111, 235, 0.3); /* Smoother, less intense glow */
-    border: 1px solid var(--accent-color);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Icon Styling - Larger and Centered */
+.coaching-card-users:hover {
+    background-color: #4f46e5;
+    box-shadow: 0 20px 40px #4f46e550;
+}
+
+.coaching-card-inventory:hover {
+    background-color: #d97706;
+    box-shadow: 0 20px 40px #d9770650;
+}
+
+.coaching-card-reports:hover {
+    background-color: #059669;
+    box-shadow: 0 20px 40px #05966950;
+}
+
+.coaching-card-feedback:hover {
+    background-color: #be123c;
+    box-shadow: 0 20px 40px #be123c50;
+}
+
 .coaching-card-icon {
-    font-size: 4em; /* Bigger icon */
-    margin-bottom: 15px;
-    color: white;
-    transition: text-shadow 0.3s ease-in-out; /* Smooth text-shadow transition */
+    font-size: 5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    transition: text-shadow 0.3s ease-in-out;
 }
 
-/* Subtle Glow on Hover */
-.coaching-card:hover .coaching-card-icon {
-    text-shadow: 0 0 10px var(--accent-color); /* More subtle glow */
-}
-
-/* Card Text */
 .coaching-card-link {
     text-decoration: none;
-    color:white;
-    font-size: 26px;
-    font-weight: 600;
-    text-shadow: 0 2px 5px rgba(200, 195, 195, 0.3);
+    color: inherit;
 }
 
-/* Background with Gradient Overlay */
 .coaching-bg {
+    background-color: #f1f1f1;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; 
-    background: linear-gradient(rgba(13, 17, 23, 0.9), rgba(22, 27, 34, 0.9)), 
-                url('../../../assets/images/admin-card.jpg');
+    height: 100%;
     background-size: cover;
     background-position: center;
 }
 
-/* ---------------------- RESPONSIVE DESIGN ---------------------- */
-
-/* Tablets (Break into Two Rows) */
 @media screen and (max-width: 1024px) {
     .coaching-container {
-        flex-wrap: wrap;
         justify-content: center;
     }
 }
 
-/* Mobile Phones (Stack Cards Vertically) */
 @media screen and (max-width: 600px) {
     .coaching-container {
         flex-direction: column;
         align-items: center;
         overflow-x: hidden;
+        white-space: normal;
     }
     .coaching-card {
-        width: 90%;
+        width: 95%;
         height: auto;
-        padding: 20px;
+        padding: 25px;
     }
     .coaching-card-icon {
-        font-size: 3.5em;
+        font-size: 4em;
     }
 }

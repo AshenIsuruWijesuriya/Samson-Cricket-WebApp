@@ -1,9 +1,8 @@
-import React from 'react'
-
+import React from 'react';
 import CoachingHeader from '../CoachingHeader/CoachingHeader';
 import './CoachingDashboard.css';
 import { FaUsers, FaBoxes, FaChartLine, FaCommentDots } from 'react-icons/fa';
-import usersImage from '../../../assets/images/adminbg.jpg'; 
+import usersImage from '../../../assets/images/adminbg.jpg';
 import inventoryImage from '../../../assets/images/adminbg.jpg';
 import reportsImage from '../../../assets/images/adminbg.jpg';
 import feedbackImage from '../../../assets/images/adminbg.jpg';
@@ -16,25 +15,25 @@ const CoachingDashboard = () => {
             <div className='coaching-title'>Select a Service</div>
             <div className="coaching-container">
                 <a href='/coachingdashboard/manage-users' className="coaching-card-link">
-                    <div className="coaching-card" style={{ backgroundImage: `url(${usersImage})` }}>
+                    <div className="coaching-card coaching-card-users">
                         <FaUsers className="coaching-card-icon" />
-                         View Bookings
+                        Manage Coaches
                     </div>
                 </a>
                 <a href='/coachingdashboard/manage-inventory' className="coaching-card-link">
-                    <div className="coaching-card" style={{ backgroundImage: `url(${inventoryImage})` }}>
+                    <div className="coaching-card coaching-card-inventory">
                         <FaBoxes className="coaching-card-icon" />
-                        Manage Availability
+                        Manage Bookings
                     </div>
                 </a>
                 <a href='/coachingdashboard/generate-reports' className="coaching-card-link">
-                    <div className="coaching-card" style={{ backgroundImage: `url(${reportsImage})` }}>
+                    <div className="coaching-card coaching-card-reports">
                         <FaChartLine className="coaching-card-icon" />
                         Generate Reports
                     </div>
                 </a>
                 <a href='/coachingdashboard/manage-feedback' className="coaching-card-link">
-                    <div className="coaching-card" style={{ backgroundImage: `url(${feedbackImage})` }}>
+                    <div className="coaching-card coaching-card-feedback">
                         <FaCommentDots className="coaching-card-icon" />
                         Manage Feedbacks
                     </div>
