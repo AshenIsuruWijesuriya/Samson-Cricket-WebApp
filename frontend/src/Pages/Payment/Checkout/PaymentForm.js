@@ -152,7 +152,7 @@ const PaymentForm = () => {
             totalAmount: parseFloat(calculateTotal()),
             deliveryAddress: deliveryAddress,
             phoneNumber: phoneNumber,
-            paymentMethod: "Credit Card",
+            paymentMethod: "Card Payment",
             paymentDetails: paymentData,
         };
 
