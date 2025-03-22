@@ -1,4 +1,3 @@
-// controllers/orderController.js
 const Order = require("../models/orderModel");
 const CricketBat = require("../models/batsModel");
 const CricketProtectionGear = require("../models/protectionModel");
@@ -25,9 +24,9 @@ const createOrder = async (req, res) => {
                 product = await CricketBat.findById(item.productId);
             } else if (item.productModel === 'CricketProtectionGear') {
                 product = await CricketProtectionGear.findById(item.productId);
-            } else if (item.productModel === 'Merchandise') {
+            } else if (item.productModel === 'Merchandise') { //added this
                 product = await Merchandise.findById(item.productId);
-            }else {
+            } else {
                 return res.status(400).json({ message: "Invalid product model" });
             }
 
@@ -40,7 +39,7 @@ const createOrder = async (req, res) => {
             }
 
             if (product.stock < item.quantity) {
-              return res.status(400).json({message: "Insufficient Stock"})
+                return res.status(400).json({ message: "Insufficient Stock" });
             }
 
             item.price = product.price; // Set price from the found product
@@ -69,7 +68,7 @@ const createOrder = async (req, res) => {
                 await CricketBat.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
             } else if (item.productModel === 'CricketProtectionGear') {
                 await CricketProtectionGear.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
-            }   else if (item.productModel === 'Merchandise') {
+            } else if (item.productModel === 'Merchandise') { // added this
                 await Merchandise.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
             }
         }
@@ -117,18 +116,18 @@ const getOrderById = async (req, res) => {
 
 // Get orders by User ID
 const getOrdersByUserId = async (req, res) => {
-  try {
-      const orders = await Order.find({ userId: req.params.id }).populate("items.productId"); // Ensure populate is here
+    try {
+        const orders = await Order.find({ userId: req.params.id }).populate("items.productId"); // Ensure populate is here
 
-      if (!orders || orders.length === 0) {
-          return res.status(404).json({ message: "No orders found for this user" });
-      }
+        if (!orders || orders.length === 0) {
+            return res.status(404).json({ message: "No orders found for this user" });
+        }
 
-      res.status(200).json(orders);
-  } catch (error) {
-      console.error("Error getting user orders:", error);
-      res.status(500).json({ message: "Failed to get user orders" });
-  }
+        res.status(200).json(orders);
+    } catch (error) {
+        console.error("Error getting user orders:", error);
+        res.status(500).json({ message: "Failed to get user orders" });
+    }
 };
 
 // Get all orders (admin only)
