@@ -2,6 +2,7 @@
 const Order = require("../models/orderModel");
 const CricketBat = require("../models/batsModel");
 const CricketProtectionGear = require("../models/protectionModel");
+const Merchandise = require("../models/merchModel");
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 
@@ -24,7 +25,9 @@ const createOrder = async (req, res) => {
                 product = await CricketBat.findById(item.productId);
             } else if (item.productModel === 'CricketProtectionGear') {
                 product = await CricketProtectionGear.findById(item.productId);
-            } else {
+            } else if (item.productModel === 'Merchandise') {
+                product = await Merchandise.findById(item.productId);
+            }else {
                 return res.status(400).json({ message: "Invalid product model" });
             }
 
@@ -66,6 +69,8 @@ const createOrder = async (req, res) => {
                 await CricketBat.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
             } else if (item.productModel === 'CricketProtectionGear') {
                 await CricketProtectionGear.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
+            }   else if (item.productModel === 'Merchandise') {
+                await Merchandise.findByIdAndUpdate(item.productId, { $inc: { stock: -item.quantity } });
             }
         }
 

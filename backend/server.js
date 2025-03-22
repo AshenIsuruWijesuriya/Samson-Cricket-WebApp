@@ -6,6 +6,7 @@ require('dotenv').config();
 const userRoutes =  require('./routes/userRoutes');
 const batRoutes = require('./routes/batsRoutes');
 const protectionRoutes = require('./routes/protectionRoutes');
+const merchRoutes = require('./routes/merchRoutes')
 const repairRoutes = require('./routes/repairRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const otpRoutes = require('./routes/otpRoutes');
@@ -31,6 +32,7 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/users', userRoutes);
 app.use('/api/bats', batRoutes);
 app.use('/api/protection', protectionRoutes);
+app.use('/api/merch', merchRoutes)
 app.use('/api/services', repairRoutes);
 app.use('/api/order', orderRoutes);
 app.use('/api/auth', otpRoutes);
