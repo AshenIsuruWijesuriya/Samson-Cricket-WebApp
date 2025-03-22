@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
-import axios from 'axios';
-import MainHeader from '../../../Common/mainHeader';
-import MainFooter from '../../../Common/mainFooter';
-import './ViewBats.css';
-import Swal from 'sweetalert2';
-import { CartContext } from '../../../context/CartContext'; // Corrected path
+import React, { useState, useEffect, useCallback, useContext } from "react";
+import axios from "axios";
+import MainHeader from "../../../Common/mainHeader";
+import MainFooter from "../../../Common/mainFooter";
+import "./ViewBats.css";
+import Swal from "sweetalert2";
+import { CartContext } from "../../../context/CartContext"; // Corrected path
 
 const ViewBats = () => {
   const [bats, setBats] = useState([]);
   const [filteredBats, setFilteredBats] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedBat, setSelectedBat] = useState(null);
   const api = process.env.REACT_APP_BASE_URL;
   const { addToCart } = useContext(CartContext); // Access addToCart from context
@@ -21,7 +21,7 @@ const ViewBats = () => {
       setBats(sortedBats);
       setFilteredBats(sortedBats);
     } catch (error) {
-      console.error('Error fetching bats:', error);
+      console.error("Error fetching bats:", error);
     }
   }, [api]);
 
@@ -50,15 +50,15 @@ const ViewBats = () => {
     if (bat.stock > 0) {
       addToCart(bat); // Use addToCart from context
       Swal.fire({
-        icon: 'success',
-        title: 'Added to Cart!',
+        icon: "success",
+        title: "Added to Cart!",
         text: `${bat.brand} ${bat.model} has been added to your cart.`,
       });
       handleCloseDetails();
     } else {
       Swal.fire({
-        icon: 'error',
-        title: 'Out of Stock',
+        icon: "error",
+        title: "Out of Stock",
         text: `Sorry, ${bat.brand} ${bat.model} is currently out of stock.`,
       });
     }
@@ -68,6 +68,9 @@ const ViewBats = () => {
     <div className="bat-shop-container">
       <MainHeader />
       <div className="bat-shop-content">
+        <div className="navigation-path-shop">
+          <a href="/shop">Shop</a> / Bats
+        </div>
         <h2 className="bat-shop-title">Explore Cricket Bats</h2>
         <div className="bat-shop-filter">
           <input
@@ -80,7 +83,11 @@ const ViewBats = () => {
         </div>
         <div className="bat-shop-grid">
           {filteredBats.map((bat) => (
-            <div key={bat._id} className="bat-shop-item" onClick={() => handleBatClick(bat)}>
+            <div
+              key={bat._id}
+              className="bat-shop-item"
+              onClick={() => handleBatClick(bat)}
+            >
               <div className="bat-shop-image-container">
                 {bat.images && bat.images.length > 0 && (
                   <img
@@ -91,16 +98,23 @@ const ViewBats = () => {
                 )}
               </div>
               <div className="bat-shop-details">
-                <h3 className="bat-shop-name">{bat.brand} {bat.model}</h3>
+                <h3 className="bat-shop-name">
+                  {bat.brand} {bat.model}
+                </h3>
                 <div className="bat-shop-price-stock">
                   <p className="bat-shop-price">
-                    LKR {bat.price.toLocaleString(undefined, {
+                    LKR{" "}
+                    {bat.price.toLocaleString(undefined, {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,
                     })}
                   </p>
-                  <p className={`bat-shop-stock ${bat.stock > 0 ? 'bat-shop-stock-in' : 'bat-shop-stock-out'}`}>
-                    {bat.stock > 0 ? 'In Stock' : 'Out of Stock'}
+                  <p
+                    className={`bat-shop-stock ${
+                      bat.stock > 0 ? "bat-shop-stock-in" : "bat-shop-stock-out"
+                    }`}
+                  >
+                    {bat.stock > 0 ? "In Stock" : "Out of Stock"}
                   </p>
                 </div>
               </div>
@@ -110,7 +124,10 @@ const ViewBats = () => {
         {selectedBat && (
           <div className="bat-details-overlay">
             <div className="bat-details-modal">
-              <button className="bat-details-close" onClick={handleCloseDetails}>
+              <button
+                className="bat-details-close"
+                onClick={handleCloseDetails}
+              >
                 &times;
               </button>
               <div className="bat-details-content">
@@ -124,21 +141,43 @@ const ViewBats = () => {
                   )}
                 </div>
                 <div className="bat-details-info-section">
-                  <h2 className="bat-details-title">{selectedBat.brand} {selectedBat.model}</h2>
-                  <p className="bat-details-info"><strong>Wood:</strong> {selectedBat.woodType}</p>
-                  <p className="bat-details-info"><strong>Grade:</strong> {selectedBat.grade}</p>
-                  <p className="bat-details-info"><strong>Weight:</strong> {selectedBat.weight}</p>
+                  <h2 className="bat-details-title">
+                    {selectedBat.brand} {selectedBat.model}
+                  </h2>
+                  <p className="bat-details-info">
+                    <strong>Wood:</strong> {selectedBat.woodType}
+                  </p>
+                  <p className="bat-details-info">
+                    <strong>Grade:</strong> {selectedBat.grade}
+                  </p>
+                  <p className="bat-details-info">
+                    <strong>Weight:</strong> {selectedBat.weight}
+                  </p>
                   <p className="bat-details-price">
-                    <strong>Price:</strong> LKR {selectedBat.price.toLocaleString(undefined, {
+                    <strong>Price:</strong> LKR{" "}
+                    {selectedBat.price.toLocaleString(undefined, {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,
                     })}
                   </p>
-                  <p className={`bat-details-stock ${selectedBat.stock > 0 ? 'bat-details-stock-in' : 'bat-details-stock-out'}`}>
-                    <strong>Stock:</strong> {selectedBat.stock > 0 ? 'In Stock' : 'Out of Stock'}
+                  <p
+                    className={`bat-details-stock ${
+                      selectedBat.stock > 0
+                        ? "bat-details-stock-in"
+                        : "bat-details-stock-out"
+                    }`}
+                  >
+                    <strong>Stock:</strong>{" "}
+                    {selectedBat.stock > 0 ? "In Stock" : "Out of Stock"}
                   </p>
-                  <p className="bat-details-description"><strong>Description:</strong> {selectedBat.description || 'No description available.'}</p>
-                  <button className="bat-details-add-to-cart" onClick={() => handleAddToCart(selectedBat)}>
+                  <p className="bat-details-description">
+                    <strong>Description:</strong>{" "}
+                    {selectedBat.description || "No description available."}
+                  </p>
+                  <button
+                    className="bat-details-add-to-cart"
+                    onClick={() => handleAddToCart(selectedBat)}
+                  >
                     Add to Cart
                   </button>
                 </div>
@@ -147,7 +186,7 @@ const ViewBats = () => {
           </div>
         )}
       </div>
-      <MainFooter/>
+      <MainFooter />
     </div>
   );
 };

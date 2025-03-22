@@ -234,3 +234,23 @@
     font-size: 20px;
     cursor: pointer;
   }
+
+  .navigation-path-shop {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #444444;
+    font-family: 'Trebuchet MS';
+}
+
+.navigation-path-shop a {
+    color: #fd3a3a;
+    text-decoration: none;
+}
+
+.navigation-path-shop a:hover {
+    text-decoration: underline;
+}
+
+.navigation-path-shop span {
+    margin: 0 5px;
+}
