@@ -28,6 +28,7 @@ import shoeImage4 from '../../assets/images/shoe4.png';
 
 const Shop = () => {
     const navigate = useNavigate();
+    document.title = 'Shop';
 
     const navigateTo = (path) => {
         navigate(path);

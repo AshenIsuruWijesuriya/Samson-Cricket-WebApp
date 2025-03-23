@@ -28,6 +28,7 @@ const ViewBats = () => {
   }, [api]);
 
   useEffect(() => {
+    document.title = 'All Bats';
     fetchBats();
   }, [fetchBats]);
 
