@@ -31,8 +31,6 @@ import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 
 import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
 
-import FinanceDashboard from '../Pages/Payment/FinanceDashboard';
-
 import CoachingDashboard from '../Pages/Coaching/CoachingDashbaord/CoachingDashboard';
 import ViewCoaches from '../Pages/Coaching/ViewCoaches/ViewCoaches';
 
@@ -206,15 +204,6 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Consultant']}>
                                 <ConsultantDashboard />
-                            </ProtectedRoute>
-                        }
-                    />
-                    {/* Finance Dashboard */}
-                    <Route
-                        path="/financedashboard"
-                        element={
-                            <ProtectedRoute roles={['Finance']}>
-                                <FinanceDashboard />
                             </ProtectedRoute>
                         }
                     />
