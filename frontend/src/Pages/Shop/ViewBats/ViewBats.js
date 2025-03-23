@@ -4,7 +4,7 @@ import MainHeader from "../../../Common/mainHeader";
 import MainFooter from "../../../Common/mainFooter";
 import "./ViewBats.css";
 import Swal from "sweetalert2";
-import { CartContext } from "../../../context/CartContext"; // Corrected path
+import { CartContext } from "../../../context/CartContext";
 
 const ViewBats = () => {
   const [bats, setBats] = useState([]);
@@ -12,7 +12,9 @@ const ViewBats = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedBat, setSelectedBat] = useState(null);
   const api = process.env.REACT_APP_BASE_URL;
-  const { addToCart } = useContext(CartContext); // Access addToCart from context
+  const { addToCart } = useContext(CartContext);
+  const [currentPage, setCurrentPage] = useState(1);
+  const batsPerPage = 8;
 
   const fetchBats = useCallback(async () => {
     try {
@@ -36,6 +38,7 @@ const ViewBats = () => {
     });
     let sortedResults = results.sort((a, b) => b.stock - a.stock);
     setFilteredBats(sortedResults);
+    setCurrentPage(1); // Reset to first page when search term changes
   }, [searchTerm, bats]);
 
   const handleBatClick = (bat) => {
@@ -48,7 +51,7 @@ const ViewBats = () => {
 
   const handleAddToCart = (bat) => {
     if (bat.stock > 0) {
-      addToCart(bat); // Use addToCart from context
+      addToCart(bat);
       Swal.fire({
         icon: "success",
         title: "Added to Cart!",
@@ -62,6 +65,20 @@ const ViewBats = () => {
         text: `Sorry, ${bat.brand} ${bat.model} is currently out of stock.`,
       });
     }
+  };
+
+  const indexOfLastBat = currentPage * batsPerPage;
+  const indexOfFirstBat = indexOfLastBat - batsPerPage;
+  const currentBats = filteredBats.slice(indexOfFirstBat, indexOfLastBat);
+
+  const totalPages = Math.ceil(filteredBats.length / batsPerPage);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
   };
 
   return (
@@ -82,7 +99,7 @@ const ViewBats = () => {
           />
         </div>
         <div className="bat-shop-grid">
-          {filteredBats.map((bat) => (
+          {currentBats.map((bat) => (
             <div
               key={bat._id}
               className="bat-shop-item"
@@ -121,6 +138,25 @@ const ViewBats = () => {
             </div>
           ))}
         </div>
+        {totalPages > 1 && (
+          <div className="bat-shop-pagination">
+            <button
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+              className="bat-shop-pagination-button"
+            >
+              Previous
+            </button>
+            <span>{`Page ${currentPage} of ${totalPages}`}</span>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className="bat-shop-pagination-button"
+            >
+              Next
+            </button>
+          </div>
+        )}
         {selectedBat && (
           <div className="bat-details-overlay">
             <div className="bat-details-modal">
