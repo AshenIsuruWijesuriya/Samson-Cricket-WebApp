@@ -40,8 +40,6 @@ const SignIn = () => {
           navigate("/servicedashboard");
         } else if (user.role === "Coach") {
           navigate("/coachingdashboard");
-        } else if (user.role === "Finance") {
-          navigate("/financedashboard");
         } else {
           navigate("/userdashboard");
         }
