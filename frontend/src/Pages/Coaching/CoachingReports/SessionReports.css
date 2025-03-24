@@ -1,0 +1,59 @@
+.session-report-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .session-report-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .download-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .session-report-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .session-report-table th,
+  .session-report-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .session-report-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .status-approved {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-rejected {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .status-pending {
+    color: orange;
+    font-weight: bold;
+  }
+  

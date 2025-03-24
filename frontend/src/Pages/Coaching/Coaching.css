@@ -70,7 +70,7 @@
 /* ===================== */
 /* Coach Card Styling    */
 /* ===================== */
-.coach-card {
+.coach-card1 {
   background-color: #ffffff; /* White background for cards */
   border: 1px solid #dddddd; /* Light border for definition */
   padding: 1.5rem;
@@ -80,12 +80,12 @@
   text-align: center; /* Center-align card content */
 }
 
-.coach-card:hover {
+.coach-card1:hover {
   transform: translateY(-5px); /* Slight lift on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
-.coach-card img {
+.coach-card1 img {
   width: 100%; /* Ensure image fills the container */
   height: 300px; /* Fixed height for consistency */
   object-fit: cover; /* Ensure images are cropped properly */
@@ -94,13 +94,13 @@
   margin-bottom: 1rem; /* Space below the image */
 }
 
-.coach-card h2 {
+.coach-card1 h2 {
   font-size: 1.5rem; /* Medium font size for coach names */
   color: #007bff; /* Blue color for coach names */
   margin: 0 0 0.75rem 0; /* Space below the coach name */
 }
 
-.coach-card p {
+.coach-card1 p {
   font-size: 1rem; /* Standard font size for descriptions */
   color: #555555; /* Medium gray for softer text */
   margin: 0 0 1rem 0; /* Space below the description */
@@ -109,7 +109,7 @@
 /* ===================== */
 /* Button Styling        */
 /* ===================== */
-.coach-card button {
+.coach-card1 button {
   background-color: #007bff; /* Blue background for buttons */
   color: #ffffff; /* White text for contrast */
   border: none;
@@ -120,7 +120,7 @@
   transition: background-color 0.2s ease; /* Smooth hover effect */
 }
 
-.coach-card button:hover {
+.coach-card1 button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
 

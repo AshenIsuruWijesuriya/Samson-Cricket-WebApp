@@ -32,6 +32,7 @@ import FinanceDashboard from '../Pages/Payment/FinanceDashboard';
 
 import CoachingDashboard from '../Pages/Coaching/CoachingDashbaord/CoachingDashboard';
 import ViewCoaches from '../Pages/Coaching/ViewCoaches/ViewCoaches';
+import ManageCoaches from '../Pages/Coaching/CoachingDashbaord/ManageCoaches/ManageCoaches';
 
 import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
 import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
@@ -40,6 +41,12 @@ import PhysicalConsulting from '../Pages/Consulting/PhysicalConsulting/PhysicalC
 import { CartProvider } from '../context/CartContext'; // Import CartProvider
 import Cart from '../Components/Cart/Cart'; // Import Cart component
 import ViewProtectionGear from '../Pages/Shop/ViewProtectionGear/ViewProtectionGear';
+import CoachDetails from '../Pages/Coaching/ViewCoaches/CoachDetails';
+import AdminSessions from '../Pages/Coaching/CoachingDashbaord/ManageSessions/AdminSessions';
+import UserBookings from '../Pages/Coaching/ViewCoaches/UserBookings';
+import SessionReport from '../Pages/Coaching/CoachingReports/SessionReports';
+import FeedbackForm from '../Pages/Coaching/CoachingDashbaord/CoachFeedbacks/FeedbackForm';
+import FeedbackList from '../Pages/Coaching/CoachingDashbaord/CoachFeedbacks/FeedbackList';
 
 const AppRoutes = () => {
     const isAuthenticated = () => {
@@ -94,6 +101,11 @@ const AppRoutes = () => {
                     <Route path="/bawling-consulting" element={<BawlingConsulting />} />
                     <Route path="/fielding-consulting" element={<FieldingConsulting />} />
                     <Route path="/physical-consulting" element={<PhysicalConsulting />} />
+                    {/* Coaching User side */}
+                    <Route path="/viewCoaches" element={<ViewCoaches />} />
+                    <Route path="/coach/:id" element={<CoachDetails/>} />
+                    <Route path="/mySessions" element={<UserBookings />} />
+                    <Route path='/coachFeedbacks' element={<FeedbackForm/>} />
 
                     <Route
                         path="/checkout"
@@ -214,6 +226,46 @@ const AppRoutes = () => {
                             </ProtectedRoute>
                         }
                     />
+                    <Route
+                        path="/coachingdashboard/manage-users"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <ManageCoaches /> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/coachingdashboard/manage-reports"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <SessionReport /> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/coachingdashboard/manage-sessions"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <AdminSessions/> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/coachingdashboard/manage-Feedbacks"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <FeedbackList/> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    {/* <Route
+                        path="/mySessions"
+                        element={
+                            <ProtectedRoute roles={['Normal']}>
+                                <UserBookings />
+                            </ProtectedRoute>
+                        }
+                    /> */}
                 </RouterRoutes>
             </Router>
         </CartProvider>
