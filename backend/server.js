@@ -34,7 +34,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/bats', batRoutes);
 app.use('/api/protection', protectionRoutes);
 app.use('/api/merch', merchRoutes);
-app.use('api/shoe', shoeRoutes)
+app.use('/api/shoes', shoeRoutes)
 app.use('/api/services', repairRoutes);
 app.use('/api/order', orderRoutes);
 app.use('/api/auth', otpRoutes);

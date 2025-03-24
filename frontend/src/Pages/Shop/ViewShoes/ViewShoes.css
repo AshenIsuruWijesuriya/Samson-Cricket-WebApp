@@ -1,0 +1,288 @@
+.shoe-shop-container {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .shoe-shop-content {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .shoe-shop-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 35px;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .shoe-shop-filter {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .shoe-shop-search {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 35px;
+    width: 300px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .shoe-shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+  }
+  
+  .shoe-shop-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+  
+  .shoe-shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .shoe-shop-image-container {
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .shoe-shop-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .shoe-shop-details {
+    padding: 15px;
+  }
+  
+  .shoe-shop-name {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .shoe-shop-category{
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .shoe-shop-price-stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .shoe-shop-price {
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  .shoe-shop-stock {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .shoe-shop-stock-in {
+    background-color: #e6f7e9;
+    color: #3f8600;
+  }
+  
+  .shoe-shop-stock-out {
+    background-color: #fff0f0;
+    color: #d93025;
+  }
+  
+  .shoe-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .shoe-details-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+  }
+  
+  .shoe-details-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .shoe-details-content {
+    display: flex;
+  }
+  
+  .shoe-details-image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .shoe-details-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin-right: 20px;
+  }
+  
+  .shoe-details-info-section {
+    flex: 1;
+  }
+  
+  .shoe-details-title {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .shoe-details-info,
+  .shoe-details-price,
+  .shoe-details-stock,
+  .shoe-details-description {
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+  
+  .shoe-details-stock-in {
+    color: green;
+  }
+  
+  .shoe-details-stock-out {
+    color: red;
+  }
+  
+  .shoe-details-add-to-cart {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1rem;
+  }
+  
+  .shoe-details-add-to-cart:hover {
+    background-color: #0056b3;
+  }
+  
+  .cart-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .cart-popup-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .cart-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .navigation-path-shop {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #444444;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .navigation-path-shop a {
+    color: #fd3a3a;
+    text-decoration: none;
+  }
+  
+  .navigation-path-shop a:hover {
+    text-decoration: underline;
+  }
+  
+  .navigation-path-shop span {
+    margin: 0 5px;
+  }
+  
+  .shoe-shop-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: 'Trebuchet MS';
+    color: red;
+  }
+  
+  .shoe-shop-pagination-button {
+    padding: 8px 15px;
+    margin: 0 10px;
+    border: 2px solid #ff0000;
+    color: red;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .shoe-shop-pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .shoe-shop-pagination span {
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+  

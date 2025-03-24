@@ -8,6 +8,7 @@ import Shop from '../Pages/Shop/Shop';
 import ViewBats from '../Pages/Shop/ViewBats/ViewBats';
 import ViewProtectionGear from '../Pages/Shop/ViewProtectionGear/ViewProtectionGear';
 import ViewMerchandise from '../Pages/Shop/ViewMerchandise/ViewMerchandise';
+import ViewShoes from '../Pages/Shop/ViewShoes/ViewShoes';
 
 import PaymentForm from '../Pages/Payment/Checkout/PaymentForm';
 
@@ -23,6 +24,7 @@ import AdminUsers from '../Pages/Admin/ManageUsers/AdminUsers/AdminUsers';
 import ManageBats from '../Pages/Admin/ManageInventory/ManageBats/ManageBats';
 import ManageProtectionGear from '../Pages/Admin/ManageInventory/ManageProtection/ManageProtectionGear';
 import ManageMerch from '../Pages/Admin/ManageInventory/ManageMerch/ManageMerch';
+import ManageShoes from '../Pages/Admin/ManageInventory/ManageShoes/ManageShoes';
 
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
 import ManageRepairs from '../Pages/ServiceManager/ManageRepair/ManageRepairs';
@@ -83,6 +85,7 @@ const AppRoutes = () => {
                     <Route path="/shop/bats" element={<ViewBats />} />
                     <Route path="/shop/protection-gears" element={<ViewProtectionGear />} />
                     <Route path='/shop/merchandise' element={<ViewMerchandise/>}/>
+                    <Route path='/shop/shoes' element={<ViewShoes/>}/>
 
                     <Route path="/cart" element={<Cart />} /> {/* Cart route */}
                     <Route path="/services" element={<Services />} />
@@ -178,6 +181,14 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Admin']}>
                                 <ManageMerch />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-inventory/manage-shoes"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageShoes />
                             </ProtectedRoute>
                         }
                     />
