@@ -4,6 +4,7 @@ import './UserDashboard.css';
 
 import EditProfile from '../../Components/UserDashboard/EditProfile';
 import MyOrder from '../../Components/UserDashboard/MyOrders';
+import MyServices from '../../Components/UserDashboard/MyServices';
 
 const UserDashboard = () => {
     const [selectedOption, setSelectedOption] = useState(null);
@@ -23,7 +24,7 @@ const UserDashboard = () => {
             case 'myConsulting':
                 return <div><h2>My Consulting</h2><p>Your consulting appointments.</p></div>;
             case 'myServices':
-                return <div><h2>My Services</h2><p>Your available services.</p></div>;
+                return <div><MyServices/></div>;
             default:
                 return <div><h2>Welcome to your Dashboard</h2><p>Please select an option from the left.</p></div>;
         }

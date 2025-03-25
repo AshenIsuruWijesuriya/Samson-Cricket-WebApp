@@ -1,0 +1,80 @@
+.services-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.services-container h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.services-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.services-table th,
+.services-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.services-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #555;
+}
+
+.services-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.services-table tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+.contact-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #218838;
+}
+
+.contact-button svg {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.services-container p {
+    text-align: center;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services-table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    .services-table th,
+    .services-table td {
+        white-space: nowrap;
+    }
+}
