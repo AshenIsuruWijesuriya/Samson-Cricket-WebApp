@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useContext } from "react";
 import axios from "axios";
 import MainHeader from "../../../Common/mainHeader";
 import MainFooter from "../../../Common/mainFooter";
-import "./ViewMerchandise.css"; // Create this CSS file
+import "./ViewMerchandise.css"; 
 import Swal from "sweetalert2";
 import { CartContext } from "../../../context/CartContext";
 
