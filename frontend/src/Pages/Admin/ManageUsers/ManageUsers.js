@@ -26,7 +26,7 @@ const ManageUsers = () => {
                         <h2>Manage Administrators</h2>
                     </div>
                 </a>
-                <a href='/' className="manage-user-link">
+                <a href='/admindashboard/manage-users/service-users' className="manage-user-link">
                     <div className="manage-user-box manage-service-managers">
                         <FaUserCog className="user-box-icon" />
                         <h2>Manage Service Managers</h2>

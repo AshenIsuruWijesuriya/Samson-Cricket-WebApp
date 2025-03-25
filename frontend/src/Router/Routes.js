@@ -22,6 +22,7 @@ import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
 import AdminUsers from '../Pages/Admin/ManageUsers/AdminUsers/AdminUsers';
+import ServiceUsers from '../Pages/Admin/ManageUsers/ServiceUsers/ServiceUsers';
 import ManageBats from '../Pages/Admin/ManageInventory/ManageBats/ManageBats';
 import ManageProtectionGear from '../Pages/Admin/ManageInventory/ManageProtection/ManageProtectionGear';
 import ManageMerch from '../Pages/Admin/ManageInventory/ManageMerch/ManageMerch';
@@ -150,6 +151,14 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Admin']}>
                                 <AdminUsers />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-users/service-users"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ServiceUsers />
                             </ProtectedRoute>
                         }
                     />
