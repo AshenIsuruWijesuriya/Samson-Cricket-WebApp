@@ -21,16 +21,81 @@
 .bat-shop-filter {
   margin-bottom: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically by default */
+  align-items: flex-start; /* Align items to the start (left in LTR) */
+  gap: 10px; /* Space between filter elements */
 }
 
 .bat-shop-search {
   padding: 10px 15px;
   border: 1px solid #ddd;
   border-radius: 35px;
-  width: 300px;
+  width: 450px;
   font-size: 16px;
   outline: none;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  font-family: 'Trebuchet MS';
 }
+
+.filter-sort-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Vertically align items if needed */
+  gap: 20px; /* Space between filter and sort */
+  width: 100%; /* Ensure it takes full width of container */
+}
+
+
+.bat-shop-sort-select {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  font-size: 16px;
+  outline: none;
+  width: 200px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg'viewBox='0 0 4 5'%3E%3Cpath fill='%23777' d='M2 0L0 2h4z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  margin-bottom: 10px;
+  font-family: 'Trebuchet MS';
+}
+
+.bat-shop-sort-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+
+.bat-shop-brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-family: 'Trebuchet MS';
+}
+
+.bat-shop-brands .filter-label {
+  margin-right: 5px;
+}
+
+.bat-shop-brand-label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+.bat-shop-brand-label input[type="checkbox"] {
+  margin-right: 5px;
+}
+
 
 .bat-shop-grid {
   display: grid;
