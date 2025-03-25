@@ -102,7 +102,7 @@ const AddGearModal = ({ onClose, onGearAdded }) => {
         'Tie Pads',
         'Arm Guard'
     ];
-    const specialTypeOptions = ['Left Handed', 'Right Handed'];
+    const specialTypeOptions = ['Left Handed', 'Right Handed','None'];
     const sizeTypeOptions = ['Junior', 'Adult'];
 
     return (
