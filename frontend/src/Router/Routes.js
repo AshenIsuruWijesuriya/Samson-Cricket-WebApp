@@ -17,6 +17,7 @@ import Services from '../Pages/Services/Service';
 import Consulting from '../Pages/Consulting/Consulting';
 
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
+import ManageOrders from '../Pages/Admin/ManageOrders/ManageOrders';
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
@@ -189,6 +190,14 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Admin']}>
                                 <ManageShoes />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-orders"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageOrders />
                             </ProtectedRoute>
                         }
                     />

@@ -1,0 +1,95 @@
+.order-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.order-modal-content {
+    background: rgba(0, 0, 0, 0.781);
+    padding: 25px;
+    border-radius: 12px;
+    width: 450px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.order-modal-title {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.order-modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-modal-label {
+    margin-bottom: 8px;
+}
+
+.order-modal-select {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+}
+
+.order-modal-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.order-modal-error {
+    color: #d9534f;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.order-modal-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.order-modal-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.order-modal-button-update {
+    background-color: #28a745;
+    color: white;
+}
+
+.order-modal-button-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.order-modal-button-update:hover {
+    background-color: #218838;
+}
+
+.order-modal-button-cancel:hover {
+    background-color: #c82333;
+}
