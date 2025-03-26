@@ -145,7 +145,7 @@ const PaymentForm = () => {
             userId: userId,
             items: cartItems.map(item => {
                 let productModel = 'CricketBat'; // Default
-                if (item.category === 'CricketProtectionGear') {
+                if (item.sizeType) {
                     productModel = 'CricketProtectionGear';
                 } else if (item.size) { //  check if it has size.
                     productModel = 'Merchandise';
