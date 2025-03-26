@@ -137,7 +137,7 @@ const ViewProtectionGear = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="gear-shop-search"
           />
-          <div className="filter-sort-container">
+          <div className="gear-filter-sort-container">
             <div className="gear-shop-categories">
               <span className="filter-label">Filter by Category:</span>
               {categories.map((category) => (

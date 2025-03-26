@@ -129,7 +129,7 @@ const ViewBats = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="bat-shop-search"
                     />
-                    <div className="filter-sort-container">
+                    <div className="bat-filter-sort-container">
                         <div className="bat-shop-brands">
                             <span className="filter-label">Filter by Brand:</span>
                             {uniqueBrands.map((brand) => (
