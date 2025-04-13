@@ -6,6 +6,9 @@ import SignUp from '../Pages/SignUp';
 
 import Shop from '../Pages/Shop/Shop';
 import ViewBats from '../Pages/Shop/ViewBats/ViewBats';
+import ViewProtectionGear from '../Pages/Shop/ViewProtectionGear/ViewProtectionGear';
+import ViewMerchandise from '../Pages/Shop/ViewMerchandise/ViewMerchandise';
+import ViewShoes from '../Pages/Shop/ViewShoes/ViewShoes';
 
 import PaymentForm from '../Pages/Payment/Checkout/PaymentForm';
 
@@ -14,12 +17,16 @@ import Services from '../Pages/Services/Service';
 import Consulting from '../Pages/Consulting/Consulting';
 
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
+import ManageOrders from '../Pages/Admin/ManageOrders/ManageOrders';
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
 import AdminUsers from '../Pages/Admin/ManageUsers/AdminUsers/AdminUsers';
+import ServiceUsers from '../Pages/Admin/ManageUsers/ServiceUsers/ServiceUsers';
 import ManageBats from '../Pages/Admin/ManageInventory/ManageBats/ManageBats';
 import ManageProtectionGear from '../Pages/Admin/ManageInventory/ManageProtection/ManageProtectionGear';
+import ManageMerch from '../Pages/Admin/ManageInventory/ManageMerch/ManageMerch';
+import ManageShoes from '../Pages/Admin/ManageInventory/ManageShoes/ManageShoes';
 
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
 import ManageRepairs from '../Pages/ServiceManager/ManageRepair/ManageRepairs';
@@ -27,8 +34,6 @@ import ManageRepairs from '../Pages/ServiceManager/ManageRepair/ManageRepairs';
 import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 
 import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
-
-import FinanceDashboard from '../Pages/Payment/FinanceDashboard';
 
 import CoachingDashboard from '../Pages/Coaching/CoachingDashbaord/CoachingDashboard';
 import ViewCoaches from '../Pages/Coaching/ViewCoaches/ViewCoaches';
@@ -40,7 +45,7 @@ import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingC
 import PhysicalConsulting from '../Pages/Consulting/PhysicalConsulting/PhysicalConsulting';
 import { CartProvider } from '../context/CartContext'; // Import CartProvider
 import Cart from '../Components/Cart/Cart'; // Import Cart component
-import ViewProtectionGear from '../Pages/Shop/ViewProtectionGear/ViewProtectionGear';
+
 import CoachDetails from '../Pages/Coaching/ViewCoaches/CoachDetails';
 import AdminSessions from '../Pages/Coaching/CoachingDashbaord/ManageSessions/AdminSessions';
 import UserBookings from '../Pages/Coaching/ViewCoaches/UserBookings';
@@ -88,6 +93,9 @@ const AppRoutes = () => {
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/shop/bats" element={<ViewBats />} />
                     <Route path="/shop/protection-gears" element={<ViewProtectionGear />} />
+                    <Route path='/shop/merchandise' element={<ViewMerchandise/>}/>
+                    <Route path='/shop/shoes' element={<ViewShoes/>}/>
+
                     <Route path="/cart" element={<Cart />} /> {/* Cart route */}
                     <Route path="/services" element={<Services />} />
                     <Route path="/coaching" element={<Coaching />} />
@@ -159,6 +167,14 @@ const AppRoutes = () => {
                         }
                     />
                     <Route
+                        path="/admindashboard/manage-users/service-users"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ServiceUsers />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
                         path="/admindashboard/manage-inventory"
                         element={
                             <ProtectedRoute roles={['Admin']}>
@@ -179,6 +195,30 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Admin']}>
                                 <ManageProtectionGear />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-inventory/manage-merchandise"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageMerch />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-inventory/manage-shoes"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageShoes />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-orders"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageOrders />
                             </ProtectedRoute>
                         }
                     />
@@ -205,15 +245,6 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Consultant']}>
                                 <ConsultantDashboard />
-                            </ProtectedRoute>
-                        }
-                    />
-                    {/* Finance Dashboard */}
-                    <Route
-                        path="/financedashboard"
-                        element={
-                            <ProtectedRoute roles={['Finance']}>
-                                <FinanceDashboard />
                             </ProtectedRoute>
                         }
                     />

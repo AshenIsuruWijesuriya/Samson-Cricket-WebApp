@@ -1,8 +1,7 @@
-// MyOrder.js (React component)
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import './MyOrder.css';
-import { FaPhoneAlt } from 'react-icons/fa'; // Import the phone icon
+import { FaPhoneAlt } from 'react-icons/fa';
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
@@ -67,10 +66,16 @@ const MyOrder = () => {
                                     <td>
                                         <ul>
                                             {order.items.map((item) => (
-                                                <li key={item.productId._id}>
-                                                    Product: {item.productId.brand} {item.productId.model}
-                                                    <br/>Quantity: {item.quantity}
-                                                    <br/>Price: LKR {item.price.toFixed(2)}
+                                                <li key={item.productId?._id}>
+                                                    {item.productId && (
+                                                        <>
+                                                            Product: {item.productId.brand} {item.productId.model}
+                                                            <br />
+                                                        </>
+                                                    )}
+                                                    Quantity: {item.quantity}
+                                                    <br />
+                                                    Price: LKR {item.price.toFixed(2)}
                                                 </li>
                                             ))}
                                         </ul>

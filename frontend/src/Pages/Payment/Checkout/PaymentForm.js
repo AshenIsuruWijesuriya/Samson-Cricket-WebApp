@@ -143,12 +143,20 @@ const PaymentForm = () => {
 
         const order = {
             userId: userId,
-            items: cartItems.map(item => ({
-                productId: item._id,
-                quantity: item.quantity,
-                price: item.price,
-                productModel: item.category ? 'CricketProtectionGear' : 'CricketBat' // Determine product model
-            })),
+            items: cartItems.map(item => {
+                let productModel = 'CricketBat'; // Default
+                if (item.sizeType) {
+                    productModel = 'CricketProtectionGear';
+                } else if (item.size) { //  check if it has size.
+                    productModel = 'Merchandise';
+                }
+                return {
+                    productId: item._id,
+                    quantity: item.quantity,
+                    price: item.price,
+                    productModel: productModel,
+                };
+            }),
             totalAmount: parseFloat(calculateTotal()),
             deliveryAddress: deliveryAddress,
             phoneNumber: phoneNumber,

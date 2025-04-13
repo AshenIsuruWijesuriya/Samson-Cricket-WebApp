@@ -6,6 +6,7 @@ const {
   updateRepairRequest,
   deleteRepairRequest,
   updateRepairRequestStatus,
+  getRepairRequestsByUserId
 } = require('../controllers/repairController'); // Adjust the path
 
 const router = express.Router();
@@ -27,5 +28,6 @@ router.delete('/delete-repair/:id', deleteRepairRequest);
 
 // Update repair request status by ID
 router.patch('/update-repair-status/:id', updateRepairRequestStatus);
-
+// Get Repair Request by User ID
+router.get('/user-repair/:id', getRepairRequestsByUserId)
 module.exports = router;

@@ -12,6 +12,7 @@ const Cart = () => {
     const api = process.env.REACT_APP_BASE_URL;
     const [batStocks, setBatStocks] = useState({});
     const [gearStocks, setGearStocks] = useState({});
+    const [merchStocks, setMerchStocks] = useState({});
 
     useEffect(() => {
         const fetchStocks = async () => {
@@ -31,6 +32,14 @@ const Cart = () => {
                     gearStocksData[gear._id] = gear.stock;
                 });
                 setGearStocks(gearStocksData);
+
+                // Fetch merchandise stocks
+                const merchResponse = await axios.get(`${api}/api/merch`);
+                const merchStocksData = {};
+                merchResponse.data.forEach(merch => {
+                    merchStocksData[merch._id] = merch.stock;
+                });
+                setMerchStocks(merchStocksData);
 
             } catch (error) {
                 console.error('Error fetching stocks:', error);
@@ -61,7 +70,7 @@ const Cart = () => {
     };
 
     const handleQuantityChange = (itemId, newQuantity) => {
-        let currentStock = batStocks[itemId] || gearStocks[itemId];
+        let currentStock = batStocks[itemId] || gearStocks[itemId] || merchStocks[itemId];
 
         if (newQuantity > currentStock) {
             Swal.fire({
@@ -114,13 +123,13 @@ const Cart = () => {
                                         {item.images && item.images.length > 0 && (
                                             <img
                                                 src={`${api}/uploads/${item.images[0]}`}
-                                                alt={`${item.brand} ${item.model}`}
+                                                alt={item.name || `${item.brand} ${item.model}`}
                                                 className="sc-item-image"
                                             />
                                         )}
                                     </div>
                                     <div className="sc-item-details">
-                                        <h3 className="sc-item-name">{item.brand} {item.model}</h3>
+                                        <h3 className="sc-item-name">{item.name || `${item.brand} ${item.model}`}</h3>
                                         <p className="sc-item-price">
                                             Price: LKR {item.price.toLocaleString(undefined, {
                                                 minimumFractionDigits: 2,

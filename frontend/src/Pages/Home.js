@@ -13,6 +13,7 @@ const Home = () => {
     const api = process.env.REACT_APP_BASE_URL;
 
     useEffect(() => {
+        document.title = 'Samson Cricket';
         const fetchBats = async () => {
             try {
                 const response = await axios.get(`${api}/api/bats`); 

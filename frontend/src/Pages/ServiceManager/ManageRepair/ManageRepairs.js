@@ -50,18 +50,14 @@ const ManageRepair = () => {
   };
 
   const handleWhatsAppChat = (phoneNumber) => {
-    // Remove all non-digit and non-plus characters
     const cleanedPhoneNumber = phoneNumber.replace(/[^0-9+]/g, "");
 
-    // Check if the cleaned number starts with +94
     if (cleanedPhoneNumber.startsWith("+94")) {
       window.open(`https://wa.me/${cleanedPhoneNumber}`, "_blank");
     } else if (cleanedPhoneNumber.startsWith("0")) {
-      // Handle cases where the number starts with 0 (Sri Lankan mobile)
-      const sriLankanNumber = "+94" + cleanedPhoneNumber.substring(1); // Remove the leading 0 and add +94
+      const sriLankanNumber = "+94" + cleanedPhoneNumber.substring(1);
       window.open(`https://wa.me/${sriLankanNumber}`, "_blank");
     } else {
-      // Handle other cases (missing country code, incorrect format)
       Swal.fire(
         "Error",
         "Phone number must start with +94 or 0 (Sri Lanka).",
@@ -82,7 +78,7 @@ const ManageRepair = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(api +`/api/services/delete-repair/${id}`);
+          await axios.delete(api + `/api/services/delete-repair/${id}`);
           setRepairRequests((prevRequests) =>
             prevRequests.filter((request) => request._id !== id)
           );
@@ -140,7 +136,9 @@ const ManageRepair = () => {
             <tbody className="repair-management-tbody">
               {repairRequests.map((request) => (
                 <tr key={request._id} className="repair-management-tr">
-                  <td className="repair-management-td">{request.name}</td>
+                  <td className="repair-management-td">
+                    {request.firstName} {request.lastName}
+                  </td>
                   <td className="repair-management-td">{request.email}</td>
                   <td className="repair-management-td">
                     {request.phoneNumber}

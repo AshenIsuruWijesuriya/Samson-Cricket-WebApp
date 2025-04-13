@@ -74,7 +74,6 @@ const EditProfile = () => {
             const updateData = {
                 firstname: profileData.firstName,
                 lastname: profileData.lastName,
-                email: profileData.email,
             };
 
             if (profileData.password) {
@@ -159,8 +158,8 @@ const EditProfile = () => {
                         id="ep-email"
                         name="email"
                         value={profileData.email}
-                        onChange={handleProfileChange}
                         className="ep-input"
+                        disabled // Disabled email input
                     />
                 </div>
                 <div className="ep-form-group">
@@ -169,7 +168,7 @@ const EditProfile = () => {
                         type="password"
                         id="ep-password"
                         name="password"
-                        placeholder="Keep empty for no password change" // Added placeholder
+                        placeholder="Keep empty for no password change"
                         value={profileData.password}
                         onChange={handleProfileChange}
                         className="ep-input"
