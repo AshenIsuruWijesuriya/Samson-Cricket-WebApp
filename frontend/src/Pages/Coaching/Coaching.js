@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import MainHeader from '../../Common/mainHeader';
 import './Coaching.css';
 
@@ -11,8 +12,9 @@ import coach5 from '../../assets/images/coach5.jpg';
 import coach6 from '../../assets/images/coach6.jpg';
 import MainFooter from '../../Common/mainFooter';
 
-
 const Coaching = () => {
+  const navigate = useNavigate();
+
   const coaches = [
     { id: 1, name: 'Coach John', description: 'Expert in personal development', image: coach1 },
     { id: 2, name: 'Coach Sarah', description: 'Specializes in academic coaching', image: coach2 },
@@ -24,41 +26,41 @@ const Coaching = () => {
 
   return (
     <div>
-    <div className="coaching-page">
-      <MainHeader />
-      <div className="coaching-content">
-        {/* Coaching Description Section */}
-        <div className="coaching-description">
-          <h1>Welcome to Samson Cricket Coaching</h1>
-          <p>
-            At Samson Cricket Coaching, we offer personalized coaching sessions, online coaching sessions and
-            academic coaching sessions to help you achieve your goals.
-            Whether you're looking to improve your skills, advance your career, or enhance your fitness, our
-            expert coaches are here to guide you every step of the way. Book a session today and take the
-            first step towards your success!
-          </p>
-        </div>
+      <div className="coaching-page">
+        <MainHeader />
+        <div className="coaching-content">
+          {/* Coaching Description Section */}
+          <div className="coaching-description">
+            <h1>Welcome to Samson Cricket Coaching</h1>
+            <p>
+              At Samson Cricket Coaching, we offer personalized coaching sessions, online coaching sessions and
+              academic coaching sessions to help you achieve your goals.
+              Whether you're looking to improve your skills, advance your career, or enhance your fitness, our
+              expert coaches are here to guide you every step of the way. Book a session today and take the
+              first step towards your success!
+            </p>
+          </div>
 
-        {/* Book a Coach Section */}
-        <h1 className="coaching-title" style={{ color: '#000000' }}>Book a Coach</h1>
-        <div className="coach-list">
-          {coaches.map((coach) => (
-            <div key={coach.id} className="coach-card">
-              <img src={coach.image} alt={coach.name} className="coach-image" />
-              <h2>{coach.name}</h2>
-              <p>{coach.description}</p>
-              <button onClick={() => alert(`Booking ${coach.name}`)}>Book Now</button>
-            </div>
-          ))}
-        </div>
-        <div className="view-all-coaches">
-          <a href="/ViewCoaches" className="cricket-shop-button">
-            View All Coaches
-          </a>
+          {/* Book a Coach Section */}
+          <h1 className="coaching-title" style={{ color: '#000000' }}>Book a Coach</h1>
+          <div className="coach-list">
+            {coaches.map((coach) => (
+              <div key={coach.id} className="coach-card1">
+                <img src={coach.image} alt={coach.name} className="coach-image" />
+                <h2>{coach.name}</h2>
+                <p>{coach.description}</p>
+                <button onClick={() => navigate('/ViewCoaches')}>Book Now</button>
+              </div>
+            ))}
+          </div>
+          <div className="view-all-coaches">
+            <a href="/ViewCoaches" className="cricket-shop-button">
+              View All Coaches
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <MainFooter/>
+      <MainFooter />
     </div>
   );
 };

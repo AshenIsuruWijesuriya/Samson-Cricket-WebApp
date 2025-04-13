@@ -1,0 +1,77 @@
+.coach-details-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .coach-info {
+    margin-bottom: 40px;
+  }
+  
+  .coach-info h2 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  .coach-info p {
+    color: #555;
+    margin: 6px 0;
+  }
+  
+  .booking-section {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  
+  .booking-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .booking-form input,
+  .booking-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 12px 15px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: border 0.2s ease;
+  }
+  
+  .booking-form input:focus,
+  .booking-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+  }
+  
+  .booking-form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .booking-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .booking-form button:hover {
+    background-color: #0056b3;
+  }
+  
