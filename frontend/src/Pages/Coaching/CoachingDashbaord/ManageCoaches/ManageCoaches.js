@@ -76,7 +76,7 @@ const ManageCoaches = () => {
       <div className="coaches-content">
         <AdminHeader />
         <div className="navigation-path-admindb">
-          <a href="/admindashboard">Admin Dashboard</a> / Manage Coaches
+          <a href="/coachingdashboard">Coaching Dashboard</a> / Manage Coaches
         </div>
         <h2 className="coaches-title">Manage Coaches</h2>
 
