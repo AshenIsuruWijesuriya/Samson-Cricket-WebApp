@@ -102,10 +102,11 @@ const AppRoutes = () => {
                     <Route path="/signIn" element={<SignIn />} />
                     <Route path="/signUp" element={<SignUp />} />
                     {/* Consulting Home Side */}
-                    <Route path="/batting-consulting" element={<BattingConsulting />} />
+                    {/* <Route path="/batting-consulting" element={<BattingConsulting />} />
                     <Route path="/bawling-consulting" element={<BawlingConsulting />} />
                     <Route path="/fielding-consulting" element={<FieldingConsulting />} />
-                    <Route path="/physical-consulting" element={<PhysicalConsulting />} />
+                    <Route path="/physical-consulting" element={<PhysicalConsulting />} /> */}
+
                     {/* Coaching User side */}
                     <Route path="/viewCoaches" element={<ViewCoaches />} />
                     <Route path="/coach/:id" element={<CoachDetails/>} />
