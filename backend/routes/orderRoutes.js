@@ -20,4 +20,7 @@ router.delete("/:id", orderController.deleteOrder);
 // Get orders by user ID
 router.get("/user-orders/:id", orderController.getOrdersByUserId); // Added this route
 
+// Route to download the invoice for a specific order
+router.get("/invoice/:orderId", orderController.downloadInvoice);
+
 module.exports = router;

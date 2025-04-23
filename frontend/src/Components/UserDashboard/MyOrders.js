@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import './MyOrder.css';
-import { FaPhoneAlt } from 'react-icons/fa';
+import { FaPhoneAlt, FaDownload } from 'react-icons/fa';
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
@@ -41,6 +41,19 @@ const MyOrder = () => {
         console.log(`Contacting about order: ${order._id}`);
     };
 
+    const handleDownloadInvoice = (orderId) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            window.open(`${api}/api/order/invoice/${orderId}`, '_blank', `Authorization=Bearer ${token}`);
+            console.log(`Downloading invoice for order: ${orderId}`);
+            // In a real application, you might trigger a download directly using a library
+            // or by setting appropriate headers on the backend.
+            // For a simple example, we're opening a new tab with the invoice URL.
+        } else {
+            console.error('No token found, cannot download invoice.');
+        }
+    };
+
     return (
         <div>
             <div className="order-container">
@@ -58,6 +71,7 @@ const MyOrder = () => {
                                 <th>Order Date & Time</th>
                                 <th>Order Status</th>
                                 <th>Contact</th>
+                                <th>Invoice</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,6 +102,11 @@ const MyOrder = () => {
                                     <td>
                                         <button className="contact-button" onClick={() => handleContact(order)}>
                                             <FaPhoneAlt />
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button className="invoice-button" onClick={() => handleDownloadInvoice(order._id)}>
+                                            <FaDownload />
                                         </button>
                                     </td>
                                 </tr>
