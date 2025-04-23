@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./AdminSessions.css";
@@ -15,18 +15,18 @@ const AdminSessions = () => {
   });
   const api = process.env.REACT_APP_BASE_URL;
 
-  useEffect(() => {
-    fetchSessions();
-  }, []);
-
-  const fetchSessions = async () => {
+  const fetchSessions = useCallback(async () => {
     try {
       const res = await axios.get(`${api}/api/coach/sessions`);
       setSessions(res.data);
     } catch (err) {
       console.error("Error fetching sessions:", err);
     }
-  };
+  }, [api]);
+
+  useEffect(() => {
+    fetchSessions();
+  }, [fetchSessions]);
 
   const handleUpdateStatus = async (coachId, sessionId, status) => {
     try {
@@ -61,7 +61,7 @@ const AdminSessions = () => {
       }
     });
   };
-  
+
 
   const handleEditClick = (session) => {
     setEditingSession(session);

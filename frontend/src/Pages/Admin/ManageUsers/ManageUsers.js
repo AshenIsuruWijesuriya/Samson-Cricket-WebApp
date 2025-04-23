@@ -32,13 +32,13 @@ const ManageUsers = () => {
                         <h2>Manage Service Managers</h2>
                     </div>
                 </a>
-                <a href='/' className="manage-user-link">
+                <a href='/admindashboard/manage-users/coach-users' className="manage-user-link">
                     <div className="manage-user-box manage-coaching-managers">
                         <FaUserTie className="user-box-icon" />
                         <h2>Manage Coaching Managers</h2>
                     </div>
                 </a>
-                <a href='/' className="manage-user-link">
+                <a href='/admindashboard/manage-users/consult-users' className="manage-user-link">
                     <div className="manage-user-box manage-consultation-managers">
                         <FaUserTie className="user-box-icon" />
                         <h2>Manage Consulting Managers</h2>
