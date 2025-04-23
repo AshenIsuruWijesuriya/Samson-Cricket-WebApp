@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AdminHeader from "../AdminHeader/AdminHeader";
 import "./ManageOrders.css";
-import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit, FaSort } from "react-icons/fa";
 import Swal from "sweetalert2";
 import UpdateOrderModal from "../../../Components/Admin/ManageOrders/UpdateOrderModel";
 
@@ -12,6 +12,8 @@ const ManageOrders = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isUpdatingModalOpen, setIsUpdatingModalOpen] = useState(false);
     const [selectedOrder, setSelectedOrder] = useState(null);
+    const [selectedStatus, setSelectedStatus] = useState("all");
+    const [sortByDate, setSortByDate] = useState("desc");
     const api = process.env.REACT_APP_BASE_URL;
 
     const fetchOrders = useCallback(async () => {
@@ -29,12 +31,30 @@ const ManageOrders = () => {
     }, [fetchOrders]);
 
     useEffect(() => {
-        const results = orders.filter((order) => {
-            const searchString = `${order._id} ${order.firstName} ${order.lastName} ${order.email} ${order.deliveryAddress} ${order.phoneNumber} ${order.paymentMethod} ${order.orderStatus}`.toLowerCase();
-            return searchString.includes(searchTerm.toLowerCase());
+        let results = [...orders];
+
+        // Filter by search term
+        if (searchTerm) {
+            results = results.filter((order) => {
+                const searchString = `${order._id} ${order.firstName} ${order.lastName} ${order.email} ${order.deliveryAddress} ${order.phoneNumber} ${order.paymentMethod} ${order.orderStatus}`.toLowerCase();
+                return searchString.includes(searchTerm.toLowerCase());
+            });
+        }
+
+        // Filter by status
+        if (selectedStatus !== "all") {
+            results = results.filter((order) => order.orderStatus === selectedStatus);
+        }
+
+        // Sort by date
+        results.sort((a, b) => {
+            const dateA = new Date(a.orderDate);
+            const dateB = new Date(b.orderDate);
+            return sortByDate === "desc" ? dateB - dateA : dateA - dateB;
         });
+
         setFilteredOrders(results);
-    }, [searchTerm, orders]);
+    }, [searchTerm, orders, selectedStatus, sortByDate]);
 
     const handleDeleteOrder = async (orderId) => {
         Swal.fire({
@@ -73,6 +93,10 @@ const ManageOrders = () => {
         fetchOrders();
     };
 
+    const toggleSortByDate = () => {
+        setSortByDate(sortByDate === "desc" ? "asc" : "desc");
+    };
+
     return (
         <div className="orders-bg">
             <div className="orders-content">
@@ -90,6 +114,25 @@ const ManageOrders = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="orders-search-input"
                     />
+                    <select
+                        value={selectedStatus}
+                        onChange={(e) => setSelectedStatus(e.target.value)}
+                        className="orders-status-filter"
+                    >
+                        <option value="all">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                    <button
+                        onClick={toggleSortByDate}
+                        className="orders-sort-button"
+                        title={sortByDate === "desc" ? "Sort by Oldest First" : "Sort by Newest First"}
+                    >
+                        <FaSort /> {sortByDate === "desc" ? "Newest First" : "Oldest First"}
+                    </button>
                 </div>
 
                 {isUpdatingModalOpen && (
@@ -136,7 +179,7 @@ const ManageOrders = () => {
                                 <td className="orders-td">{order.firstName}</td>
                                 <td className="orders-td">{order.lastName}</td>
                                 <td className="orders-td">{order.email}</td>
-                                <td className="orders-td">{order.totalAmount}</td>
+                                <td className="orders-td">LKR {order.totalAmount.toFixed(2)}</td>
                                 <td className="orders-td">{order.deliveryAddress}</td>
                                 <td className="orders-td">{order.phoneNumber}</td>
                                 <td className="orders-td">{order.paymentMethod}</td>

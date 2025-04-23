@@ -98,26 +98,72 @@
 }
 
 .orders-filter-container {
-    margin: 20px auto;
-    width: 80%;
     display: flex;
-    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+    width: 95%;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #000000a4;
+    border-radius: 8px;
 }
 
 .orders-search-input {
-    width: 50%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 24px;
-    font-size: 16px;
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 14px;
     background-color: #000000a4;
     color: white;
+    transition: all 0.3s ease;
 }
 
 .orders-search-input:focus {
     outline: none;
     border-color: #ff0000ca;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.orders-status-filter {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #000000a4;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.orders-status-filter:focus {
+    outline: none;
+    border-color: #ff0000ca;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.orders-sort-button {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #000000a4;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.orders-sort-button:hover {
+    background-color: #ff0000ca;
+    border-color: #ff0000ca;
+}
+
+.orders-sort-button:focus {
+    outline: none;
 }
 
 .orders-edit-btn {
@@ -189,11 +235,11 @@
 /* Specific styles for order details column */
 .order-details-td {
     text-align: left;
-    padding: 12px 15px; /* Match other td padding */
-    border-bottom: 1px solid #ddd; /* Match other td border */
-    color: white; /* Match other td color */
-    font-family: "Trebuchet MS"; /* Match other td font */
-    font-size: 16px; /* Match other td font size */
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    font-family: "Trebuchet MS";
+    font-size: 16px;
 }
 
 .order-details-list {
