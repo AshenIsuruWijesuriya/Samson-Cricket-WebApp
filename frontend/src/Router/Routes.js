@@ -210,6 +210,7 @@ const AppRoutes = () => {
                             </ProtectedRoute>
                         }
                     />
+                    {/* Service dashboard to Manage Repairs */}
                     <Route
                         path="/servicedashboard/manage-repairs"
                         element={

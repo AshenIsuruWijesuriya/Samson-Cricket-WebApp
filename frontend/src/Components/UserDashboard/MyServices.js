@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import './MyServices.css';
-import { FaPhoneAlt } from 'react-icons/fa';
+import { FaWhatsapp } from "react-icons/fa";
 
 const MyServices = () => {
     const [services, setServices] = useState([]);
     const api = process.env.REACT_APP_BASE_URL;
+    const whatsappNumber = "94713293602"; // Service Manager's WhatsApp number
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -37,9 +38,9 @@ const MyServices = () => {
         }
     }, [api]);
 
-    const handleContact = (service) => {
-        console.log(`Contacting about service: ${service._id}`);
-        // Implement your contact logic here
+    const handleContact = () => {
+        const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+        window.open(whatsappUrl, '_blank');
     };
 
     return (
@@ -67,8 +68,8 @@ const MyServices = () => {
                                     <td>{service.status}</td>
                                     <td>{new Date(service.createdAt).toLocaleString()}</td>
                                     <td>
-                                        <button className="contact-button" onClick={() => handleContact(service)}>
-                                            <FaPhoneAlt />
+                                        <button className="contact-button" onClick={handleContact}>
+                                        <FaWhatsapp />
                                         </button>
                                     </td>
                                 </tr>

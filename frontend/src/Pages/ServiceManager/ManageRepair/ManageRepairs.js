@@ -10,6 +10,7 @@ const api = process.env.REACT_APP_BASE_URL;
 const ManageRepair = () => {
   const [repairRequests, setRepairRequests] = useState([]);
   const [error, setError] = useState(null);
+  const [filterStatus, setFilterStatus] = useState("All");
 
   useEffect(() => {
     const fetchRepairRequests = async () => {
@@ -110,12 +111,54 @@ const ManageRepair = () => {
     });
   };
 
+  const filteredRequests = filterStatus === "All"
+    ? repairRequests
+    : repairRequests.filter((request) => request.status === filterStatus);
+
   return (
     <div>
       <ServiceManagerHeader />
       <div className="repair-management-container">
         <h2 className="repair-management-title">Manage Repair Requests</h2>
-        {repairRequests.length === 0 ? (
+        <div className="filter-buttons">
+          <button
+            className={`filter-button ${filterStatus === "All" ? "active" : ""}`}
+            onClick={() => setFilterStatus("All")}
+          >
+            All
+          </button>
+          <button
+            className={`filter-button ${filterStatus === "Pending" ? "active" : ""}`}
+            onClick={() => setFilterStatus("Pending")}
+          >
+            Pending
+          </button>
+          <button
+            className={`filter-button ${filterStatus === "Accepted" ? "active" : ""}`}
+            onClick={() => setFilterStatus("Accepted")}
+          >
+            Accepted
+          </button>
+          <button
+            className={`filter-button ${filterStatus === "Cancelled" ? "active" : ""}`}
+            onClick={() => setFilterStatus("Cancelled")}
+          >
+            Cancelled
+          </button>
+          <button
+            className={`filter-button ${filterStatus === "In Progress" ? "active" : ""}`}
+            onClick={() => setFilterStatus("In Progress")}
+          >
+            In Progress
+          </button>
+          <button
+            className={`filter-button ${filterStatus === "Completed" ? "active" : ""}`}
+            onClick={() => setFilterStatus("Completed")}
+          >
+            Completed
+          </button>
+        </div>
+        {filteredRequests.length === 0 ? (
           <p className="repair-management-no-requests">
             No repair requests found.
           </p>
@@ -134,7 +177,7 @@ const ManageRepair = () => {
               </tr>
             </thead>
             <tbody className="repair-management-tbody">
-              {repairRequests.map((request) => (
+              {filteredRequests.map((request) => (
                 <tr key={request._id} className="repair-management-tr">
                   <td className="repair-management-td">
                     {request.firstName} {request.lastName}

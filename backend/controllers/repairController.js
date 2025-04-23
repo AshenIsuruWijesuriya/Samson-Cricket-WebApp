@@ -34,7 +34,7 @@ const createRepairRequest = async (req, res) => {
     }
 };
 
-// Get all repair requests (admin only)
+// Get all repair requests (Ser-Manager only)
 const getAllRepairRequests = async (req, res) => {
     try {
         const repairRequests = await RepairRequest.find();
@@ -59,7 +59,7 @@ const getRepairRequestById = async (req, res) => {
     }
 };
 
-// Update a repair request by ID (admin only)
+// Update a repair request by ID 
 const updateRepairRequest = async (req, res) => {
     try {
         const repairRequest = await RepairRequest.findByIdAndUpdate(req.params.id, req.body, {
@@ -76,7 +76,7 @@ const updateRepairRequest = async (req, res) => {
     }
 };
 
-// Delete a repair request by ID (admin only)
+// Delete a repair request by ID 
 const deleteRepairRequest = async (req, res) => {
     try {
         const repairRequest = await RepairRequest.findByIdAndDelete(req.params.id);
@@ -90,7 +90,7 @@ const deleteRepairRequest = async (req, res) => {
     }
 };
 
-// Update repair request status by ID (admin only)
+// Update repair request status by ID 
 const updateRepairRequestStatus = async (req, res) => {
     try {
         const repairRequest = await RepairRequest.findByIdAndUpdate(
@@ -111,7 +111,7 @@ const updateRepairRequestStatus = async (req, res) => {
 // Get repair requests by User ID
 const getRepairRequestsByUserId = async (req, res) => {
     try {
-        const repairRequests = await RepairRequest.find({ userId: req.params.id }); // Corrected line
+        const repairRequests = await RepairRequest.find({ userId: req.params.id }); // Find all repair requests for the user
         if (!repairRequests || repairRequests.length === 0) {
             return res.status(404).json({ message: "No repair requests found for this user" });
         }

@@ -1,13 +1,11 @@
-/* Dark background with modern UI */
 .sm-dashboard-container {
-    background-color: #121212; /* Dark theme */
+    background-color: #121212;
     min-height: 100vh;
     padding: 0px 0px;
     text-align: center;
     color: #ffffff;
 }
 
-/* Dashboard Title */
 .sm-dashboard-title {
     font-size: 40px;
     font-weight: bold;
@@ -15,18 +13,16 @@
     margin-bottom: 50px;
     text-transform: uppercase;
     font-family: 'Trebuchet MS', sans-serif;
-    color: #ffcc00; /* Yellow title */
+    color: #ffcc00; 
 }
 
-/* Service Card Container */
 .sm-card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px;
+    gap: 100px;
 }
 
-/* Individual Cards with unique background and hover effect */
 .sm-repair-card {
     background-image: url("../../assets/images/repairlogo.png");
 }
@@ -36,11 +32,8 @@
 .sm-reports-card {
     background-image: url("../../assets/images/reportlogo.jpg");
 }
-.sm-analysis-card {
-    background-image: url("../../assets/images/analysis.jpg");
-}
 
-/* Common Card Styles */
+
 .sm-card {
     width: 280px;
     height: 350px;
@@ -55,13 +48,11 @@
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Card Hover Effect */
 .sm-card:hover {
     transform: scale(1.05);
     box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Text Overlay on Cards */
 .sm-card-text {
     position: absolute;
     bottom: 20px;
@@ -76,12 +67,10 @@
     border-radius: 0 0 20px 20px;
 }
 
-/* Card Links */
 .sm-card-link {
     text-decoration: none;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .sm-card {
         width: 100%;
