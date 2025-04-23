@@ -49,4 +49,4 @@ shoesSchema.pre("save", function (next) {
   next();
 });
 
-module.exports = mongoose.model("Shoes", shoesSchema); 
+module.exports = mongoose.model("Shoe", shoesSchema); 
