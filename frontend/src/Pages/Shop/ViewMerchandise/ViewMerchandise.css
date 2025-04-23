@@ -1,256 +1,298 @@
+.merch-shop-stock-out {
+  background-color: #fff0f0;
+  color: #d93025;
+}
+
 .merch-shop-container {
-    background-color: #f4f4f4;
-    min-height: 100vh;
-    font-family: sans-serif;
-  }
-  
-  .merch-shop-content {
-    max-width: 1400px;
-    margin: 20px auto;
-    padding: 20px; 
-    
-  }
-  
-  .merch-shop-title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-    font-size:35px;
-    font-family: 'Trebuchet MS';
-  }
-  
-  .merch-shop-filter {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .merch-shop-search {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 35px;
-    width: 300px;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  .merch-shop-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
-    gap: 20px;
-    margin-top:50px ;
-  }
-  
-  .merch-shop-item {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    width: 100%; /* Ensure the item fills its grid cell */
-  }
-  
-  .merch-shop-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .merch-shop-image-container {
-    width: 100%;
-    height: 370px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .merch-shop-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  .merch-shop-details {
-    padding: 15px;
-  }
-  
-  .merch-shop-name {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    color: #333;
-  }
-  
-  .merch-shop-info {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 5px;
-  }
-  
-  .merch-shop-price-stock {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .merch-shop-price {
-    font-weight: 600;
-    color: #007bff;
-  }
-  
-  .merch-shop-stock {
-    font-size: 0.85rem;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .merch-shop-stock-in {
-    background-color: #e6f7e9;
-    color: #3f8600;
-  }
-  
-  .merch-shop-stock-out {
-    background-color: #fff0f0;
-    color: #d93025;
-  }
-  
-  .merch-details-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .merch-details-modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 800px;
-    position: relative;
-  }
-  
-  .merch-details-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .merch-details-content {
-    display: flex;
-  }
-  
-  .merch-details-image-section {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .merch-details-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: contain;
-    margin-right: 20px;
-  }
-  
-  .merch-details-info-section {
-    flex: 1;
-  }
-  
-  .merch-details-title {
-    text-align: left;
-    margin-bottom: 15px;
-  }
-  
-  .merch-details-info,
-  .merch-details-price,
-  .merch-details-stock,
-  .merch-details-description {
-    margin-bottom: 8px;
-    font-size: 1rem;
-  }
-  
-  .merch-details-stock-in {
-    color: green;
-  }
-  
-  .merch-details-stock-out {
-    color: red;
-  }
-  
-  .merch-details-add-to-cart {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 1rem;
-  }
-  
-  .merch-details-add-to-cart:hover {
-    background-color: #0056b3;
-  }
-
-  .cart-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it's on top */
-  }
-  
-  .cart-popup-modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%; /* Adjust as needed */
-    max-width: 600px; /* Adjust as needed */
-    position: relative;
-  }
-  
-  .cart-popup-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .navigation-path-shop {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #444444;
-    font-family: 'Trebuchet MS';
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  font-family: sans-serif;
 }
 
-.navigation-path-shop a {
-    color: #fd3a3a;
-    text-decoration: none;
+.merch-shop-content {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
-.navigation-path-shop a:hover {
-    text-decoration: underline;
+.merch-shop-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 35px;
+  font-family: 'Trebuchet MS';
 }
 
-.navigation-path-shop span {
-    margin: 0 5px;
+.merch-shop-filter {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically by default */
+  align-items: flex-start; /* Align items to the start (left in LTR) */
+  gap: 10px; /* Space between filter elements */
+}
+
+.merch-shop-search {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  width: 300px;
+  font-size: 16px;
+  outline: none;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  font-family: 'Trebuchet MS';
+}
+
+.merch-filter-sort-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.merch-shop-sort-select {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  font-size: 16px;
+  outline: none;
+  width: 200px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg'viewBox='0 0 4 5'%3E%3Cpath fill='%23777' d='M2 0L0 2h4z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  margin-bottom: 10px;
+  font-family: 'Trebuchet MS';
+}
+
+.merch-shop-sort-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.merch-shop-brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-family: 'Trebuchet MS';
+}
+
+.merch-shop-brands .filter-label {
+  margin-right: 5px;
+}
+
+.merch-shop-brand-label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+.merch-shop-brand-label input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.merch-shop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.merch-shop-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 100%; /* Ensure the item fills its grid cell */
+}
+
+.merch-shop-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.merch-shop-image-container {
+  width: 100%;
+  height: 370px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.merch-shop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.merch-shop-details {
+  padding: 15px;
+}
+
+.merch-shop-name {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.merch-shop-info {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.merch-shop-price-stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.merch-shop-price {
+  font-weight: 600;
+  color: #007bff;
+}
+
+.merch-shop-stock {
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.merch-shop-stock-in {
+  background-color: #e6f7e9;
+  color: #3f8600;
+}
+
+.merch-shop-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: 'Trebuchet MS';
+  color: red;
+}
+
+.merch-shop-pagination-button {
+  padding: 8px 15px;
+  margin: 0 10px;
+  border: 2px solid #ff0000;
+  color: red;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Trebuchet MS';
+}
+
+.merch-shop-pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.merch-shop-pagination span {
+  font-size: 1rem;
+  margin: 0 10px;
+}
+
+/* Exact CSS from the bat shop for the merchandise pop-up */
+.merch-details-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.merch-details-modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+}
+
+.merch-details-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.merch-details-content {
+  display: flex;
+}
+
+.merch-details-image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.merch-details-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.merch-details-info-section {
+  flex: 1;
+}
+
+.merch-details-title {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.merch-details-info,
+.merch-details-price,
+.merch-details-stock,
+.merch-details-description {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.merch-details-stock-in {
+  color: green;
+}
+
+.merch-details-stock-out {
+  color: red;
+}
+
+.merch-details-add-to-cart {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.merch-details-add-to-cart:hover {
+  background-color: #0056b3;
 }
