@@ -2,117 +2,161 @@
     background-color: #f4f4f4;
     min-height: 100vh;
     font-family: sans-serif;
-}
-
-.gear-shop-content {
+  }
+  
+  .gear-shop-content {
     max-width: 1400px;
     margin: 20px auto;
     padding: 20px;
-}
-
-.gear-shop-title {
+  }
+  
+  .gear-shop-title {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
     font-size: 35px;
     font-family: 'Trebuchet MS';
-}
-
-.gear-shop-filter {
+  }
+  
+  .gear-shop-filter {
     margin-bottom: 20px;
     text-align: center;
-}
-
-.gear-shop-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .gear-shop-search {
     padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 35px;
     width: 300px;
     font-size: 16px;
     outline: none;
-}
-
-.gear-shop-grid {
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .gear-shop-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .gear-shop-category-label {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+  }
+  
+  .gear-shop-category-label input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .gear-shop-sort {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .gear-shop-sort-select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-left: 10px;
+    width: 150px;
+  }
+  
+  .gear-shop-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 50px;
-}
-
-.gear-shop-item {
+  }
+  
+  .gear-shop-item {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
     width: 100%;
-}
-
-.gear-shop-item:hover {
+  }
+  
+  .gear-shop-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.gear-shop-image-container {
+  }
+  
+  .gear-shop-image-container {
     width: 100%;
     height: 370px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.gear-shop-image {
+  }
+  
+  .gear-shop-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-}
-
-.gear-shop-details {
+  }
+  
+  .gear-shop-details {
     padding: 15px;
-}
-
-.gear-shop-name {
+  }
+  
+  .gear-shop-name {
     font-size: 1.2rem;
     margin-bottom: 8px;
     color: #333;
-}
-
-.gear-shop-info {
+  }
+  
+  .gear-shop-info {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 5px;
-}
-
-.gear-shop-price-stock {
+  }
+  
+  .gear-shop-price-stock {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-}
-
-.gear-shop-price {
+  }
+  
+  .gear-shop-price {
     font-weight: 600;
     color: #007bff;
-}
-
-.gear-shop-stock {
+  }
+  
+  .gear-shop-stock {
     font-size: 0.85rem;
     padding: 5px 10px;
     border-radius: 5px;
-}
-
-.gear-shop-stock-in {
+  }
+  
+  .gear-shop-stock-in {
     background-color: #e6f7e9;
     color: #3f8600;
-}
-
-.gear-shop-stock-out {
+  }
+  
+  .gear-shop-stock-out {
     background-color: #fff0f0;
     color: #d93025;
-}
-
-.gear-details-overlay {
+  }
+  
+  .gear-details-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -123,18 +167,18 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.gear-details-modal {
+  }
+  
+  .gear-details-modal {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     width: 80%;
     max-width: 800px;
     position: relative;
-}
-
-.gear-details-close {
+  }
+  
+  .gear-details-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -142,52 +186,52 @@
     background: none;
     border: none;
     cursor: pointer;
-}
-
-.gear-details-content {
+  }
+  
+  .gear-details-content {
     display: flex;
-}
-
-.gear-details-image-section {
+  }
+  
+  .gear-details-image-section {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.gear-details-image {
+  }
+  
+  .gear-details-image {
     width: 100%;
     max-height: 400px;
     object-fit: contain;
     margin-right: 20px;
-}
-
-.gear-details-info-section {
+  }
+  
+  .gear-details-info-section {
     flex: 1;
-}
-
-.gear-details-title {
+  }
+  
+  .gear-details-title {
     text-align: left;
     margin-bottom: 15px;
-}
-
-.gear-details-info,
-.gear-details-price,
-.gear-details-stock,
-.gear-details-description {
+  }
+  
+  .gear-details-info,
+  .gear-details-price,
+  .gear-details-stock,
+  .gear-details-description {
     margin-bottom: 8px;
     font-size: 1rem;
-}
-
-.gear-details-stock-in {
+  }
+  
+  .gear-details-stock-in {
     color: green;
-}
-
-.gear-details-stock-out {
+  }
+  
+  .gear-details-stock-out {
     color: red;
-}
-
-.gear-details-add-to-cart {
+  }
+  
+  .gear-details-add-to-cart {
     background-color: #007bff;
     color: white;
     padding: 10px 15px;
@@ -196,13 +240,13 @@
     cursor: pointer;
     margin-top: 15px;
     font-size: 1rem;
-}
-
-.gear-details-add-to-cart:hover {
+  }
+  
+  .gear-details-add-to-cart:hover {
     background-color: #0056b3;
-}
-
-.cart-popup-overlay {
+  }
+  
+  .cart-popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -213,18 +257,18 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.cart-popup-modal {
+  }
+  
+  .cart-popup-modal {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     width: 80%;
     max-width: 600px;
     position: relative;
-}
-
-.cart-popup-close {
+  }
+  
+  .cart-popup-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -232,4 +276,97 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
-}
+  }
+  
+  
+  .gear-shop-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: 'Trebuchet MS';
+    color: red;
+  }
+  
+  .gear-shop-pagination-button {
+    padding: 8px 15px;
+    margin: 0 10px;
+    border: 2px solid #ff0000;
+    color: red;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .gear-shop-pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .gear-shop-pagination span {
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+  
+  .gear-shop-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .gear-shop-category-label {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .gear-shop-category-label input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .filter-label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #f10000;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .gear-shop-sort {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .gear-shop-sort-select {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-left: 10px;
+    width: 150px;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .gear-filter-sort-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  

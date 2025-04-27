@@ -52,7 +52,12 @@ const ViewShoes = () => {
 
     const handleAddToCart = (shoe) => {
     if (shoe.stock > 0) {
-      addToCart(shoe);
+      // Ensure the shoe object has the correct category
+      const shoeWithCategory = {
+        ...shoe,
+        category: 'shoes' // Explicitly set the category
+      };
+      addToCart(shoeWithCategory);
       Swal.fire({
         icon: "success",
         title: "Added to Cart!",

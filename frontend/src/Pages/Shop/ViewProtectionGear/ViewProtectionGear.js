@@ -13,6 +13,20 @@ const ViewProtectionGear = () => {
   const [selectedGear, setSelectedGear] = useState(null);
   const api = process.env.REACT_APP_BASE_URL;
   const { addToCart } = useContext(CartContext);
+  const [currentPage, setCurrentPage] = useState(1);
+  const gearsPerPage = 8;
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [sortOrder, setSortOrder] = useState(""); // "" | "asc" | "desc"
+
+  const categories = [
+    "Helmet",
+    "Batting Pads",
+    "Wicket Keeping Pads",
+    "Gloves",
+    "Bowl Guard",
+    "Tie Pads",
+    "Arm Guard",
+  ];
 
   const fetchGears = useCallback(async () => {
     try {
@@ -26,18 +40,34 @@ const ViewProtectionGear = () => {
   }, [api]);
 
   useEffect(() => {
+    document.title = "Protection & Others";
     fetchGears();
   }, [fetchGears]);
 
   useEffect(() => {
-    const results = gears.filter((gear) => {
-      const searchString =
-        `${gear.brand} ${gear.model} ${gear.category}`.toLowerCase();
+    let results = gears.filter((gear) => {
+      const searchString = `${gear.brand} ${gear.model} ${gear.category}`.toLowerCase();
       return searchString.includes(searchTerm.toLowerCase());
     });
-    let sortedResults = results.sort((a, b) => b.stock - a.stock);
-    setFilteredGears(sortedResults);
-  }, [searchTerm, gears]);
+
+    if (selectedCategories.length > 0) {
+      results = results.filter((gear) =>
+        selectedCategories.includes(gear.category)
+      );
+    }
+
+    // Sorting
+    if (sortOrder === "asc") {
+      results = results.sort((a, b) => a.price - b.price);
+    } else if (sortOrder === "desc") {
+      results = results.sort((a, b) => b.price - a.price);
+    } else {
+      results = results.sort((a, b) => b.stock - a.stock);
+    }
+
+    setFilteredGears(results);
+    setCurrentPage(1);
+  }, [searchTerm, gears, selectedCategories, sortOrder]);
 
   const handleGearClick = (gear) => {
     setSelectedGear(gear);
@@ -65,6 +95,32 @@ const ViewProtectionGear = () => {
     }
   };
 
+  const indexOfLastGear = currentPage * gearsPerPage;
+  const indexOfFirstGear = indexOfLastGear - gearsPerPage;
+  const currentGears = filteredGears.slice(indexOfFirstGear, indexOfLastGear);
+
+  const totalPages = Math.ceil(filteredGears.length / gearsPerPage);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const handleCategoryChange = (category) => {
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(selectedCategories.filter((c) => c !== category));
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
+  };
+
+  const handleSortChange = (order) => {
+    setSortOrder(order);
+  };
+
   return (
     <div className="gear-shop-container">
       <MainHeader />
@@ -81,9 +137,37 @@ const ViewProtectionGear = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="gear-shop-search"
           />
+          <div className="gear-filter-sort-container">
+            <div className="gear-shop-categories">
+              <span className="filter-label">Filter by Category:</span>
+              {categories.map((category) => (
+                <label key={category} className="gear-shop-category-label">
+                  <input
+                    type="checkbox"
+                    value={category}
+                    checked={selectedCategories.includes(category)}
+                    onChange={() => handleCategoryChange(category)}
+                  />
+                  {category}
+                </label>
+              ))}
+            </div>
+            <div className="gear-shop-sort">
+              <span className="filter-label">Sort by Price:</span>
+              <select
+                value={sortOrder}
+                onChange={(e) => handleSortChange(e.target.value)}
+                className="gear-shop-sort-select"
+              >
+                <option value="">Relevance</option>
+                <option value="asc">Low to High</option>
+                <option value="desc">High to Low</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div className="gear-shop-grid">
-          {filteredGears.map((gear) => (
+          {currentGears.map((gear) => (
             <div
               key={gear._id}
               className="gear-shop-item"
@@ -124,6 +208,25 @@ const ViewProtectionGear = () => {
             </div>
           ))}
         </div>
+        {totalPages > 1 && (
+          <div className="gear-shop-pagination">
+            <button
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+              className="gear-shop-pagination-button"
+            >
+              Previous
+            </button>
+            <span>{`Page ${currentPage} of ${totalPages}`}</span>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className="gear-shop-pagination-button"
+            >
+              Next
+            </button>
+          </div>
+        )}
         {selectedGear && (
           <div className="gear-details-overlay">
             <div className="gear-details-modal">

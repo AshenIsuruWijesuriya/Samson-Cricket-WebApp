@@ -1,0 +1,48 @@
+.user-booking-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .user-booking-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-booking-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-booking-table th,
+  .user-booking-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 15px;
+  }
+  
+  .user-booking-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .status-approved {
+    color: green;
+    font-weight: 600;
+  }
+  
+  .status-rejected {
+    color: red;
+    font-weight: 600;
+  }
+  
+  .status-pending {
+    color: orange;
+    font-weight: 600;
+  }
+  

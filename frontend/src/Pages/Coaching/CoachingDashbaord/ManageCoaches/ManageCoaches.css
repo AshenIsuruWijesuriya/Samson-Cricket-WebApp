@@ -1,0 +1,200 @@
+/* ManageCoaches.css */
+
+.coaches-bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../assets/images/admin-card.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  .coaches-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .coaches-title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Trebuchet MS";
+  }
+  
+  .coaches-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .coaches-thead {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    
+  }
+  
+  .coaches-tr-header {
+    background-color: #000000;
+    color: white;
+  }
+  
+  .coaches-th,
+  .coaches-td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    font-family: "Trebuchet MS";
+    font-size: 17px; /* Added font-size */
+  }
+  
+  .coaches-th {
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .coaches-tbody .coaches-tr-data {
+    background-color: #000000a4;
+  }
+  
+  .navigation-path-admindb {
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .navigation-path-admindb a {
+    color: rgb(184, 184, 184);
+    text-decoration: none;
+  }
+  
+  .navigation-path-admindb a:hover {
+    text-decoration: underline;
+  }
+  
+  .coaches-delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .coaches-delete-btn:hover {
+    color: #c0392b;
+  }
+  
+  .coaches-delete-btn:focus {
+    outline: none;
+  }
+  
+  .coaches-filter-container {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .coaches-search-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 24px;
+    font-size: 16px;
+    background-color: #000000a4;
+    color: white;
+  }
+  
+  .coaches-search-input:focus {
+    outline: none;
+    border-color: #ff0000ca;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+  
+  .coaches-edit-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #3498db;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .coaches-edit-btn:hover {
+    color: #2980b9;
+  }
+  
+  .coaches-edit-btn:focus {
+    outline: none;
+  }
+  
+  .add-coach-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .add-coach-form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #000000a4;
+    border-radius: 8px;
+  }
+  
+  .add-coach-form input,
+  .add-coach-form textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .add-coach-form button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .coach-preview-image {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }

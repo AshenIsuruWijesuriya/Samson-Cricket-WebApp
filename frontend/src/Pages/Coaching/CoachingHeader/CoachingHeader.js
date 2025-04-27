@@ -41,7 +41,7 @@ const CoachingHeader = () => {
                     <h1 className="ch-brand-title">SAMSON CRICKET</h1>
                 </a>
             </div>
-            <a href="/admindashboard" className="ch-dashboard-link">
+            <a href="/coachingdashboard" className="ch-dashboard-link">
                 <div className="ch-dashboard-title">Coaching Dashboard</div>
             </a>
             

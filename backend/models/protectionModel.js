@@ -17,7 +17,7 @@ const cricketProtectionGearSchema = new mongoose.Schema(
     },
     specialType: {
       type: String,
-      enum: ["Left Handed", "Right Handed"],
+      enum: ["Left Handed", "Right Handed", "None"],
       required: false,
     },
     sizeType: {

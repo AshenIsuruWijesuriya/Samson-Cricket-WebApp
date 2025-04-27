@@ -19,7 +19,7 @@ const orderSchema = new mongoose.Schema({
       productModel: {
         type: String,
         required: true,
-        enum: ["CricketBat", "CricketProtectionGear", "Merchandise", "Shoes"],
+        enum: ["CricketBat", "CricketProtectionGear", "Merchandise", "Shoe"],
       },
       quantity: {
         type: Number,

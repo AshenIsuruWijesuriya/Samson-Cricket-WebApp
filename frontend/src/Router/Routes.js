@@ -15,13 +15,18 @@ import PaymentForm from '../Pages/Payment/Checkout/PaymentForm';
 import Coaching from '../Pages/Coaching/Coaching';
 import Services from '../Pages/Services/Service';
 import Consulting from '../Pages/Consulting/Consulting';
+import Community from '../Pages/Community/Community';
 
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
 import ManageOrders from '../Pages/Admin/ManageOrders/ManageOrders';
+import ManageFeedback from '../Pages/Admin/ManageFeedbacks/ManageFeedback'
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
 import AdminUsers from '../Pages/Admin/ManageUsers/AdminUsers/AdminUsers';
+import ServiceUsers from '../Pages/Admin/ManageUsers/ServiceUsers/ServiceUsers';
+import CoachUsers from '../Pages/Admin/ManageUsers/CoachUsers/CoachUsers';
+import ConsultUsers from '../Pages/Admin/ManageUsers/ConsultUsers/ConsultUsers';
 import ManageBats from '../Pages/Admin/ManageInventory/ManageBats/ManageBats';
 import ManageProtectionGear from '../Pages/Admin/ManageInventory/ManageProtection/ManageProtectionGear';
 import ManageMerch from '../Pages/Admin/ManageInventory/ManageMerch/ManageMerch';
@@ -36,14 +41,18 @@ import ConsultantDashboard from '../Pages/Consulting/ConsultantDashboard';
 
 import CoachingDashboard from '../Pages/Coaching/CoachingDashbaord/CoachingDashboard';
 import ViewCoaches from '../Pages/Coaching/ViewCoaches/ViewCoaches';
+import ManageCoaches from '../Pages/Coaching/CoachingDashbaord/ManageCoaches/ManageCoaches';
 
-import BattingConsulting from '../Pages/Consulting/BattingConsulting/BattingConsulting';
-import BawlingConsulting from '../Pages/Consulting/BawlingConsulting/BawlingConsulting';
-import FieldingConsulting from '../Pages/Consulting/FieldingConsulting/FieldingConsulting';
-import PhysicalConsulting from '../Pages/Consulting/PhysicalConsulting/PhysicalConsulting';
+
 import { CartProvider } from '../context/CartContext'; // Import CartProvider
 import Cart from '../Components/Cart/Cart'; // Import Cart component
 
+import CoachDetails from '../Pages/Coaching/ViewCoaches/CoachDetails';
+import AdminSessions from '../Pages/Coaching/CoachingDashbaord/ManageSessions/AdminSessions';
+import UserBookings from '../Pages/Coaching/ViewCoaches/UserBookings';
+import SessionReport from '../Pages/Coaching/CoachingReports/SessionReports';
+import FeedbackForm from '../Pages/Coaching/CoachingDashbaord/CoachFeedbacks/FeedbackForm';
+import FeedbackList from '../Pages/Coaching/CoachingDashbaord/CoachFeedbacks/FeedbackList';
 
 const AppRoutes = () => {
     const isAuthenticated = () => {
@@ -91,16 +100,24 @@ const AppRoutes = () => {
                     <Route path="/cart" element={<Cart />} /> {/* Cart route */}
                     <Route path="/services" element={<Services />} />
                     <Route path="/coaching" element={<Coaching />} />
+                    <Route path="/community" element={<Community />} />
                     <Route path="/ViewCoaches" element={<ViewCoaches />} />
                     <Route path="/consulting" element={<Consulting />} />
                     {/* Sign In & Sign Up */}
                     <Route path="/signIn" element={<SignIn />} />
                     <Route path="/signUp" element={<SignUp />} />
                     {/* Consulting Home Side */}
-                    <Route path="/batting-consulting" element={<BattingConsulting />} />
+                    {/* <Route path="/batting-consulting" element={<BattingConsulting />} />
                     <Route path="/bawling-consulting" element={<BawlingConsulting />} />
                     <Route path="/fielding-consulting" element={<FieldingConsulting />} />
-                    <Route path="/physical-consulting" element={<PhysicalConsulting />} />
+                    <Route path="/physical-consulting" element={<PhysicalConsulting />} /> */}
+
+                    {/* Coaching User side */}
+                    <Route path="/viewCoaches" element={<ViewCoaches />} />
+                    <Route path="/coach/:id" element={<CoachDetails/>} />
+                    <Route path="/mySessions" element={<UserBookings />} />
+                    <Route path='/coachFeedbacks' element={<FeedbackForm/>} />
+                   
 
                     <Route
                         path="/checkout"
@@ -154,6 +171,30 @@ const AppRoutes = () => {
                         }
                     />
                     <Route
+                        path="/admindashboard/manage-users/service-users"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ServiceUsers />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-users/coach-users"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <CoachUsers />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-users/consult-users"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ConsultUsers />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
                         path="/admindashboard/manage-inventory"
                         element={
                             <ProtectedRoute roles={['Admin']}>
@@ -201,6 +242,14 @@ const AppRoutes = () => {
                             </ProtectedRoute>
                         }
                     />
+                    <Route
+                        path="/admindashboard/manage-feedback"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageFeedback />
+                            </ProtectedRoute>
+                        }
+                    />
                     {/* Service Manager Dashboard */}
                     <Route
                         path="/servicedashboard"
@@ -237,6 +286,46 @@ const AppRoutes = () => {
                             </ProtectedRoute>
                         }
                     />
+                    <Route
+                        path="/coachingdashboard/manage-users"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <ManageCoaches /> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/coachingdashboard/manage-reports"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <SessionReport /> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/coachingdashboard/manage-sessions"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <AdminSessions/> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/coachingdashboard/manage-Feedbacks"
+                        element={
+                            <ProtectedRoute roles={['Coach']}>
+                                <FeedbackList/> {/* Add ManageCoaches here */}
+                            </ProtectedRoute>
+                        }
+                    />
+                    {/* <Route
+                        path="/mySessions"
+                        element={
+                            <ProtectedRoute roles={['Normal']}>
+                                <UserBookings />
+                            </ProtectedRoute>
+                        }
+                    /> */}
                 </RouterRoutes>
             </Router>
         </CartProvider>

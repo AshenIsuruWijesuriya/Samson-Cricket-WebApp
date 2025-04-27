@@ -1,0 +1,78 @@
+.admin-session-container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  .admin-session-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .session-filter {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .session-filter select {
+    padding: 6px 12px;
+    margin-left: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .session-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .session-table th,
+  .session-table td {
+    padding: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+  }
+  
+  .session-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .approve-btn,
+  .reject-btn,
+  .delete-btn,
+  .edit-btn {
+    padding: 6px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  
+  .approve-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .reject-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  .edit-btn {
+    background-color: #6c757d;
+    color: white;
+  }
+  

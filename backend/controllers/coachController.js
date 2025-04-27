@@ -154,3 +154,91 @@ exports.deleteCoachById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.bookSession = async (req, res) => {
+  try {
+    const coachId = req.params.id;
+    const coach = await Coach.findById(coachId);
+    if (!coach) return res.status(404).json({ message: "Coach not found" });
+
+    const session = {
+      userName: req.body.userName,
+      userEmail: req.body.userEmail,
+      userPhone: req.body.userPhone,
+      coachType: req.body.coachType,
+      preferredDate: req.body.preferredDate,
+      preferredTime: req.body.preferredTime,
+      notes: req.body.notes,
+    };
+
+    coach.sessions.push(session);
+    await coach.save();
+
+    res.status(200).json({ message: "Session booked successfully", session });
+  } catch (err) {
+    console.error("Booking error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Admin: get all sessions
+exports.getAllSessions = async (req, res) => {
+  try {
+    const coaches = await Coach.find({}, "name sessions");
+    const allSessions = coaches.flatMap((coach) =>
+      coach.sessions.map((session) => ({
+        coachId: coach._id,
+        coachName: coach.name,
+        ...session.toObject(),
+      }))
+    );
+    res.status(200).json(allSessions);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Admin: update session
+exports.updateSession = async (req, res) => {
+  try {
+    const { coachId, sessionId } = req.params;
+    const coach = await Coach.findById(coachId);
+    if (!coach) return res.status(404).json({ message: "Coach not found" });
+
+    const session = coach.sessions.id(sessionId);
+    if (!session) return res.status(404).json({ message: "Session not found" });
+
+    Object.assign(session, req.body);
+    await coach.save();
+
+    res.status(200).json({ message: "Session updated", session });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Admin: delete session
+// Delete a session from a coach
+exports.deleteSession = async (req, res) => {
+  try {
+    const { coachId, sessionId } = req.params;
+
+    const coach = await Coach.findById(coachId);
+    if (!coach) {
+      return res.status(404).json({ message: "Coach not found" });
+    }
+
+    const session = coach.sessions.id(sessionId);
+    if (!session) {
+      return res.status(404).json({ message: "Session not found" });
+    }
+
+    session.deleteOne(); // Use deleteOne for subdocument removal (Mongoose 6+)
+    await coach.save();
+
+    res.status(200).json({ message: "Session deleted successfully" });
+  } catch (err) {
+    console.error("Error deleting session:", err);
+    res.status(500).json({ message: "Server error while deleting session" });
+  }
+};

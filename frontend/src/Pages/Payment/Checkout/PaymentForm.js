@@ -141,15 +141,36 @@ const PaymentForm = () => {
         const decoded = jwtDecode(token);
         const userId = decoded.id;
 
+        console.log('Cart Items:', cartItems);
+
         const order = {
             userId: userId,
             items: cartItems.map(item => {
                 let productModel = 'CricketBat'; // Default
-                if (item.category === 'CricketProtectionGear') {
+                if (item.sizeType) {
                     productModel = 'CricketProtectionGear';
-                } else if (item.size) { //  check if it has size.
+                } else if (item.size && item.category === 'shoes') {
+                    productModel = 'Shoe';
+                } else if (item.size) {
                     productModel = 'Merchandise';
                 }
+
+                console.log('Processing cart item:', {
+                    id: item._id,
+                    model: productModel,
+                    name: item.name || `${item.brand} ${item.model}`,
+                    size: item.size,
+                    category: item.category,
+                    brand: item.brand,
+                    price: item.price,
+                    quantity: item.quantity
+                });
+
+                if (!item._id) {
+                    console.error('Invalid product ID for item:', item);
+                    throw new Error('Invalid product ID in cart');
+                }
+
                 return {
                     productId: item._id,
                     quantity: item.quantity,
@@ -163,6 +184,8 @@ const PaymentForm = () => {
             paymentMethod: "Card Payment",
             paymentDetails: paymentData,
         };
+
+        console.log('Order being sent:', order);
 
         try {
             const response = await fetch(`${api}/api/order/create-order`, {
@@ -263,4 +286,3 @@ const PaymentForm = () => {
 };
 
 export default PaymentForm;
-

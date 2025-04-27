@@ -13,6 +13,7 @@ const Cart = () => {
     const [batStocks, setBatStocks] = useState({});
     const [gearStocks, setGearStocks] = useState({});
     const [merchStocks, setMerchStocks] = useState({});
+    const [shoeStocks, setShoeStocks] = useState({});
 
     useEffect(() => {
         const fetchStocks = async () => {
@@ -40,6 +41,14 @@ const Cart = () => {
                     merchStocksData[merch._id] = merch.stock;
                 });
                 setMerchStocks(merchStocksData);
+
+                // Fetch shoe stocks
+                const shoeResponse = await axios.get(`${api}/api/shoes`);
+                const shoeStocksData = {};
+                shoeResponse.data.forEach(shoe => {
+                    shoeStocksData[shoe._id] = shoe.stock;
+                });
+                setShoeStocks(shoeStocksData);
 
             } catch (error) {
                 console.error('Error fetching stocks:', error);
@@ -70,7 +79,7 @@ const Cart = () => {
     };
 
     const handleQuantityChange = (itemId, newQuantity) => {
-        let currentStock = batStocks[itemId] || gearStocks[itemId] || merchStocks[itemId];
+        let currentStock = batStocks[itemId] || gearStocks[itemId] || merchStocks[itemId] || shoeStocks[itemId];
 
         if (newQuantity > currentStock) {
             Swal.fire({
