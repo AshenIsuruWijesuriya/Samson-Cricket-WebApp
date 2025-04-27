@@ -19,14 +19,9 @@ const ServiceManagerDashboard = () => {
                         <span className="sm-card-text">Manage Repairs</span>
                     </div>
                 </a>
-                <a href="/servicemanager/manage-inventory" className="sm-card-link">
-                    <div className="sm-card sm-inventory-card">
+                <a href="/servicedashboard/manage-technicians" className="sm-card-link">
+                    <div className="sm-card sm-technician-card">
                         <span className="sm-card-text">Technician Management</span>
-                    </div>
-                </a>
-                <a href="/servicemanager/generate-reports" className="sm-card-link">
-                    <div className="sm-card sm-reports-card">
-                        <span className="sm-card-text">Generate Reports</span>
                     </div>
                 </a>
                 

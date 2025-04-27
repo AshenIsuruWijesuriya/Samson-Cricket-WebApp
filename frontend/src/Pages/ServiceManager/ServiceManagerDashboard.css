@@ -26,17 +26,15 @@
 .sm-repair-card {
     background-image: url("../../assets/images/repairlogo.png");
 }
-.sm-inventory-card {
+.sm-technician-card {
     background-image: url("../../assets/images/inventorylogo.jpg");
 }
-.sm-reports-card {
-    background-image: url("../../assets/images/reportlogo.jpg");
-}
+
 
 
 .sm-card {
-    width: 280px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     background-size: cover;
     background-position: center;
     border-radius: 20px;

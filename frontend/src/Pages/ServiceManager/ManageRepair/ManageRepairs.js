@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ManageRepair.css";
 import ServiceManagerHeader from "../ServicemanagerHeader/ServiceManagerHeader";
-import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp, FaDownload } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable"; // Import jspdf-autotable  - ADD THIS LINE
 
 const api = process.env.REACT_APP_BASE_URL;
 
@@ -107,13 +109,39 @@ const ManageRepair = () => {
       month: "long",
       day: "numeric",
       hour: "2-digit",
-      minute: "2-digit",
     });
   };
 
   const filteredRequests = filterStatus === "All"
     ? repairRequests
     : repairRequests.filter((request) => request.status === filterStatus);
+
+  const downloadSummaryPDF = () => {
+    const doc = new jsPDF();
+    const tableColumn = ["Name", "Email", "Phone", "Type", "Details", "Status", "Request Date"];
+    const tableRows = [];
+
+    filteredRequests.forEach((request) => {
+      const tableData = [
+        `${request.firstName} ${request.lastName}`,
+        request.email,
+        request.phoneNumber,
+        request.repairType,
+        request.details,
+        request.status,
+        formatDate(request.createdAt),
+      ];
+      tableRows.push(tableData);
+    });
+
+    doc.autoTable({ // Now this should work
+      head: [tableColumn],
+      body: tableRows,
+      startY: 20,
+    });
+
+    doc.save(`repair_requests_summary_${filterStatus.toLowerCase()}.pdf`);
+  };
 
   return (
     <div>
@@ -158,6 +186,11 @@ const ManageRepair = () => {
             Completed
           </button>
         </div>
+
+        <button className="download-summary-button" onClick={downloadSummaryPDF}>
+          <FaDownload /> Download Summary ({filterStatus})
+        </button>
+
         {filteredRequests.length === 0 ? (
           <p className="repair-management-no-requests">
             No repair requests found.
@@ -239,3 +272,4 @@ const ManageRepair = () => {
 };
 
 export default ManageRepair;
+
