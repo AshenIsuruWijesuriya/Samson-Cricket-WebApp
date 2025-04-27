@@ -101,7 +101,8 @@
     margin: 20px auto;
     width: 80%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .shoes-search-input {
@@ -112,6 +113,7 @@
     font-size: 16px;
     background-color: #000000a4;
     color: white;
+    margin-bottom: 10px;
 }
 
 .shoes-search-input:focus {
@@ -138,19 +140,47 @@
     outline: none;
 }
 
-.add-shoe-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
+.add-shoe-button,
+.download-shoes-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px auto;
-    cursor: pointer;
     border-radius: 5px;
-    width: 200px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 10px 0 0 0;
+    width: 230px;
+    text-decoration: none;
+}
+
+.add-shoe-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    margin: 10px auto;
+}
+
+.add-shoe-button:hover {
+    background-color: #45a049;
+}
+
+.download-shoes-button{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin: 0 auto;
+}
+
+.download-shoes-button:hover {
+  background-color: #0056b3;
+}
+
+.button-icon {
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .add-shoe-form {

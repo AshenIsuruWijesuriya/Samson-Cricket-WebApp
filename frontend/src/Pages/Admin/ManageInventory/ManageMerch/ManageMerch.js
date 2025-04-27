@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AdminHeader from "../../AdminHeader/AdminHeader";
-import "./ManageMerch.css"; // Create this CSS file
-import { FaTrash, FaEdit } from "react-icons/fa";
+import "./ManageMerch.css";
+import { FaTrash, FaEdit, FaDownload, FaPlus } from "react-icons/fa";
 import Swal from "sweetalert2";
-import AddMerchModal from "../../../../Components/Admin/ManageMerch/AddMerchModal"; 
-import UpdateMerchModal from "../../../../Components/Admin/ManageMerch/UpdateMerchModal"; 
+import AddMerchModal from "../../../../Components/Admin/ManageMerch/AddMerchModal";
+import UpdateMerchModal from "../../../../Components/Admin/ManageMerch/UpdateMerchModal";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 
 const ManageMerch = () => {
   const [merchandise, setMerchandise] = useState([]);
@@ -87,12 +89,51 @@ const ManageMerch = () => {
     fetchMerchandise();
   };
 
+  const downloadMerchPDF = () => {
+    const doc = new jsPDF();
+    const tableColumn = [
+      "Name",
+      "Category",
+      "Brand",
+      "Size",
+      "Price (LKR)",
+      "Stock",
+      "Status",
+    ];
+    const tableRows = [];
+
+    filteredMerchandise.forEach((merch) => {
+      const tableData = [
+        merch.name,
+        merch.category,
+        merch.brand,
+        merch.size,
+        merch.price.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+        merch.stock,
+        merch.stock > 0 ? "In Stock" : "Out of Stock",
+      ];
+      tableRows.push(tableData);
+    });
+
+    doc.autoTable({
+      head: [tableColumn],
+      body: tableRows,
+      startY: 20,
+    });
+
+    doc.save("merchandise_report.pdf");
+  };
+
   return (
     <div className="merch-bg">
       <div className="merch-content">
         <AdminHeader />
         <div className="navigation-path-admindb">
-          <a href="/admindashboard">Admin Dashboard</a> / <a href="/admindashboard/manage-inventory">Manage Inventory</a> / Manage Merchandise
+          <a href="/admindashboard">Admin Dashboard</a> /{" "}
+          <a href="/admindashboard/manage-inventory">Manage Inventory</a> / Manage Merchandise
         </div>
         <h2 className="merch-title">Manage Merchandise</h2>
 
@@ -107,7 +148,12 @@ const ManageMerch = () => {
         </div>
 
         <button onClick={handleOpenAddModal} className="add-merch-button">
+          <FaPlus className="button-icon" />
           Add New Merchandise
+        </button>
+        <button className="download-merch-button" onClick={downloadMerchPDF}>
+          <FaDownload className="button-icon" />
+          Download Report
         </button>
 
         {isAddingModalOpen && (
@@ -176,3 +222,4 @@ const ManageMerch = () => {
 };
 
 export default ManageMerch;
+

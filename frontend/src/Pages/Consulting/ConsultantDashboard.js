@@ -68,7 +68,7 @@ const ConsultantDashboard = () => {
     return (
         <div className='container'>
             <ConsultingHeader/>
-            <div className="dashboard-container">
+            <div className="cons-dashboard-container">
                 {renderBreadcrumbs()}
                 {renderComponent()}
             </div>

@@ -5,6 +5,8 @@ import './UserDashboard.css';
 import EditProfile from '../../Components/UserDashboard/EditProfile';
 import MyOrder from '../../Components/UserDashboard/MyOrders';
 import MyServices from '../../Components/UserDashboard/MyServices';
+import MyFeedbacks from '../../Components/UserDashboard/MyFeedbacks';
+
 import YourConsultingAppointments from '../Consulting/UserComponents/YourConsultingAppoiments';
 
 import { FaUserEdit, FaShoppingCart, FaChalkboardTeacher, FaCalendarAlt, FaWrench, FaCommentDots } from 'react-icons/fa';
@@ -29,7 +31,7 @@ const UserDashboard = () => {
             case 'myServices':
                 return <div><MyServices/></div>;
             case 'myFeedbacks':
-                return <div><h2>My Feedbacks</h2><p>Your feedbacks.</p></div>;
+                return <div><MyFeedbacks/></div>;
             default:
                 return <div><EditProfile/></div>;
         }

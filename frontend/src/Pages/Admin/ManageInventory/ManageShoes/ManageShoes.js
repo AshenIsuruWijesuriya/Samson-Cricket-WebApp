@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AdminHeader from "../../AdminHeader/AdminHeader";
-import "./ManageShoes.css"; // Create a new CSS file for managing shoes
-import { FaTrash, FaEdit } from "react-icons/fa";
+import "./ManageShoes.css";
+import { FaTrash, FaEdit, FaDownload, FaPlus } from "react-icons/fa";
 import Swal from "sweetalert2";
-import AddShoeModal from "../../../../Components/Admin/ManageShoes/AddShoeModel"; // Create AddShoeModal
-import UpdateShoeModal from "../../../../Components/Admin/ManageShoes/UpdateShoeModal"; // Create UpdateShoeModal
+import AddShoeModal from "../../../../Components/Admin/ManageShoes/AddShoeModel";
+import UpdateShoeModal from "../../../../Components/Admin/ManageShoes/UpdateShoeModal";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 
 const ManageShoes = () => {
   const [shoes, setShoes] = useState([]);
@@ -87,27 +89,69 @@ const ManageShoes = () => {
     fetchShoes();
   };
 
+  const downloadShoesPDF = () => {
+    const doc = new jsPDF();
+    const tableColumn = [
+      "Brand",
+      "Model",
+      "Size",
+      "Price (LKR)",
+      "Stock",
+      "Status",
+    ];
+    const tableRows = [];
+
+    filteredShoes.forEach((shoe) => {
+      const tableData = [
+        shoe.brand,
+        shoe.model,
+        shoe.size,
+        shoe.price.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+        shoe.stock,
+        shoe.stock > 0 ? "In Stock" : "Out of Stock",
+      ];
+      tableRows.push(tableData);
+    });
+
+    doc.autoTable({
+      head: [tableColumn],
+      body: tableRows,
+      startY: 20,
+    });
+
+    doc.save("shoes_inventory_report.pdf");
+  };
+
   return (
-    <div className="shoes-bg"> {/* Apply a new CSS class for the background */}
+    <div className="shoes-bg">
       <div className="shoes-content">
         <AdminHeader />
         <div className="navigation-path-admindb">
-          <a href="/admindashboard">Admin Dashboard</a> / <a href="/admindashboard/manage-inventory">Manage Inventory</a> / Manage Shoes
+          <a href="/admindashboard">Admin Dashboard</a> /{" "}
+          <a href="/admindashboard/manage-inventory">Manage Inventory</a> / Manage Shoes
         </div>
-        <h2 className="shoes-title">Manage Shoes</h2> {/* Apply a new CSS class for the title */}
+        <h2 className="shoes-title">Manage Shoes</h2>
 
-        <div className="shoes-filter-container"> {/* Apply a new CSS class for the filter */}
+        <div className="shoes-filter-container">
           <input
             type="text"
             placeholder="Search shoes..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="shoes-search-input" // Apply a new CSS class for the search input
+            className="shoes-search-input"
           />
         </div>
 
-        <button onClick={handleOpenAddModal} className="add-shoe-button"> {/* Apply a new CSS class for the add button */}
+        <button onClick={handleOpenAddModal} className="add-shoe-button">
+          <FaPlus className="button-icon" />
           Add New Shoe
+        </button>
+        <button className="download-shoes-button" onClick={downloadShoesPDF}>
+          <FaDownload className="button-icon" />
+          Download Report
         </button>
 
         {isAddingModalOpen && (
@@ -118,10 +162,10 @@ const ManageShoes = () => {
           <UpdateShoeModal shoe={selectedShoe} onClose={handleCloseUpdateModal} onShoeUpdated={handleShoeUpdated} />
         )}
 
-        <table className="shoes-table"> {/* Apply a new CSS class for the table */}
-          <thead className="shoes-thead"> {/* Apply a new CSS class for the table head */}
-            <tr className="shoes-tr-header"> {/* Apply a new CSS class for the table row in head */}
-              <th className="shoes-th">Shoe Image</th> {/* Apply a new CSS class for the table header */}
+        <table className="shoes-table">
+          <thead className="shoes-thead">
+            <tr className="shoes-tr-header">
+              <th className="shoes-th">Shoe Image</th>
               <th className="shoes-th">Brand</th>
               <th className="shoes-th">Model</th>
               <th className="shoes-th">Size</th>
@@ -131,15 +175,15 @@ const ManageShoes = () => {
               <th className="shoes-th">Action</th>
             </tr>
           </thead>
-          <tbody className="shoes-tbody"> {/* Apply a new CSS class for the table body */}
+          <tbody className="shoes-tbody">
             {filteredShoes.map((shoe) => (
-              <tr key={shoe._id} className="shoes-tr-data"> {/* Apply a new CSS class for the table row in body */}
-                <td className="shoes-td"> {/* Apply a new CSS class for the table data */}
+              <tr key={shoe._id} className="shoes-tr-data">
+                <td className="shoes-td">
                   {shoe.images && shoe.images.length > 0 && (
                     <img
                       src={`${api}/uploads/${shoe.images[0]}`}
                       alt={shoe.model}
-                      className="shoe-preview-image" // Apply a new CSS class for the image
+                      className="shoe-preview-image"
                     />
                   )}
                 </td>
@@ -157,10 +201,10 @@ const ManageShoes = () => {
                   {shoe.stock > 0 ? "In Stock" : "Out of Stock"}
                 </td>
                 <td className="shoes-td">
-                  <button className="shoes-edit-btn" onClick={() => handleEditShoe(shoe)}> {/* Apply a new CSS class for the edit button */}
+                  <button className="shoes-edit-btn" onClick={() => handleEditShoe(shoe)}>
                     <FaEdit />
                   </button>
-                  <button className="shoes-delete-btn" onClick={() => handleDeleteShoe(shoe._id)}> {/* Apply a new CSS class for the delete button */}
+                  <button className="shoes-delete-btn" onClick={() => handleDeleteShoe(shoe._id)}>
                     <FaTrash />
                   </button>
                 </td>

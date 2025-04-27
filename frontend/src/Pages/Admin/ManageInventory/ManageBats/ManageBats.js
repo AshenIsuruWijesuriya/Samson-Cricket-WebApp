@@ -2,10 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AdminHeader from "../../AdminHeader/AdminHeader";
 import "./ManageBats.css";
-import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit, FaDownload, FaPlus } from "react-icons/fa"; // Import FaPlus
 import Swal from "sweetalert2";
 import AddBatModal from "../../../../Components/Admin/ManageBats/AddBatModal";
 import UpdateBatModal from "../../../../Components/Admin/ManageBats/UpdateBatModal";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 
 const ManageBats = () => {
   const [bats, setBats] = useState([]);
@@ -87,12 +89,53 @@ const ManageBats = () => {
     fetchBats();
   };
 
+  const downloadBatsPDF = () => {
+    const doc = new jsPDF();
+    const tableColumn = [
+      "Brand",
+      "Model",
+      "Wood Type",
+      "Grade",
+      "Weight",
+      "Price (LKR)",
+      "Stock",
+      "Status",
+    ];
+    const tableRows = [];
+
+    filteredBats.forEach((bat) => {
+      const tableData = [
+        bat.brand,
+        bat.model,
+        bat.woodType,
+        bat.grade,
+        bat.weight,
+        bat.price.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+        bat.stock,
+        bat.stock > 0 ? "In Stock" : "Out of Stock",
+      ];
+      tableRows.push(tableData);
+    });
+
+    doc.autoTable({
+      head: [tableColumn],
+      body: tableRows,
+      startY: 20,
+    });
+
+    doc.save("bats_inventory_report.pdf");
+  };
+
   return (
     <div className="bats-bg">
       <div className="bats-content">
         <AdminHeader />
         <div className="navigation-path-admindb">
-          <a href="/admindashboard">Admin Dashboard</a> / <a href="/admindashboard/manage-inventory">Manage Inventory</a> / Manage Bats
+          <a href="/admindashboard">Admin Dashboard</a> /{" "}
+          <a href="/admindashboard/manage-inventory">Manage Inventory</a> / Manage Bats
         </div>
         <h2 className="bats-title">Manage Bats</h2>
 
@@ -107,7 +150,12 @@ const ManageBats = () => {
         </div>
 
         <button onClick={handleOpenAddModal} className="add-bat-button">
+          <FaPlus className="button-icon" />
           Add New Bat
+        </button>
+        <button className="download-bats-button" onClick={downloadBatsPDF}>
+          <FaDownload className="button-icon" />
+          Download Bats Report
         </button>
 
         {isAddingModalOpen && (
@@ -115,7 +163,11 @@ const ManageBats = () => {
         )}
 
         {isUpdatingModalOpen && (
-          <UpdateBatModal bat={selectedBat} onClose={handleCloseUpdateModal} onBatUpdated={handleBatUpdated} />
+          <UpdateBatModal
+            bat={selectedBat}
+            onClose={handleCloseUpdateModal}
+            onBatUpdated={handleBatUpdated}
+          />
         )}
 
         <table className="bats-table">
@@ -164,7 +216,10 @@ const ManageBats = () => {
                   <button className="bats-edit-btn" onClick={() => handleEditBat(bat)}>
                     <FaEdit />
                   </button>
-                  <button className="bats-delete-btn" onClick={() => handleDeleteBat(bat._id)}>
+                  <button
+                    className="bats-delete-btn"
+                    onClick={() => handleDeleteBat(bat._id)}
+                  >
                     <FaTrash />
                   </button>
                 </td>

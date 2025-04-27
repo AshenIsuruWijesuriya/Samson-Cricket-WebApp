@@ -2,10 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AdminHeader from "../../AdminHeader/AdminHeader";
 import "./ManageProtectionGear.css";
-import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit, FaDownload, FaPlus } from "react-icons/fa";
 import Swal from "sweetalert2";
-import AddGearModal from "../../../../Components/Admin/ManageProtection/AddGearModal"; 
-import UpdateGearModal from "../../../../Components/Admin/ManageProtection/UpdateGearModal"; 
+import AddGearModal from "../../../../Components/Admin/ManageProtection/AddGearModal";
+import UpdateGearModal from "../../../../Components/Admin/ManageProtection/UpdateGearModal";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 
 const ManageProtectionGear = () => {
     const [gear, setGear] = useState([]);
@@ -18,7 +20,7 @@ const ManageProtectionGear = () => {
 
     const fetchGear = useCallback(async () => {
         try {
-            const response = await axios.get(`${api}/api/protection`); 
+            const response = await axios.get(`${api}/api/protection`);
             setGear(response.data);
             setFilteredGear(response.data);
         } catch (error) {
@@ -87,6 +89,46 @@ const ManageProtectionGear = () => {
         fetchGear();
     };
 
+    const downloadGearPDF = () => {
+        const doc = new jsPDF();
+        const tableColumn = [
+            "Category",
+            "Brand",
+            "Model",
+            "Special Type",
+            "Size Type",
+            "Price (LKR)",
+            "Stock",
+            "Status"
+        ];
+        const tableRows = [];
+
+        filteredGear.forEach((item) => {
+            const tableData = [
+                item.category,
+                item.brand,
+                item.model,
+                item.specialType,
+                item.sizeType,
+                item.price.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                }),
+                item.stock,
+                item.stock > 0 ? "In Stock" : "Out of Stock"
+            ];
+            tableRows.push(tableData);
+        });
+
+        doc.autoTable({
+            head: [tableColumn],
+            body: tableRows,
+            startY: 20,
+        });
+
+        doc.save("protection_gear_report.pdf");
+    };
+
     return (
         <div className="gear-bg">
             <div className="gear-content">
@@ -107,7 +149,12 @@ const ManageProtectionGear = () => {
                 </div>
 
                 <button onClick={handleOpenAddModal} className="add-gear-button">
+                    <FaPlus className="button-icon"/>
                     Add New Gear
+                </button>
+                <button className="download-gear-button" onClick={downloadGearPDF}>
+                    <FaDownload className="button-icon"/>
+                    Download Report
                 </button>
 
                 {isAddingModalOpen && (
