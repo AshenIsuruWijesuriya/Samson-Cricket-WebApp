@@ -15,9 +15,11 @@ import PaymentForm from '../Pages/Payment/Checkout/PaymentForm';
 import Coaching from '../Pages/Coaching/Coaching';
 import Services from '../Pages/Services/Service';
 import Consulting from '../Pages/Consulting/Consulting';
+import Community from '../Pages/Community/Community';
 
 import AdminDashboard from '../Pages/Admin/AdminDashboard';
 import ManageOrders from '../Pages/Admin/ManageOrders/ManageOrders';
+import ManageFeedback from '../Pages/Admin/ManageFeedbacks/ManageFeedback'
 import ManageUsers from '../Pages/Admin/ManageUsers/ManageUsers';
 import ManageInventory from '../Pages/Admin/ManageInventory/ManageInventory';
 import CustomerUsers from '../Pages/Admin/ManageUsers/CustomerUsers/CustomerUsers';
@@ -98,6 +100,7 @@ const AppRoutes = () => {
                     <Route path="/cart" element={<Cart />} /> {/* Cart route */}
                     <Route path="/services" element={<Services />} />
                     <Route path="/coaching" element={<Coaching />} />
+                    <Route path="/community" element={<Community />} />
                     <Route path="/ViewCoaches" element={<ViewCoaches />} />
                     <Route path="/consulting" element={<Consulting />} />
                     {/* Sign In & Sign Up */}
@@ -236,6 +239,14 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute roles={['Admin']}>
                                 <ManageOrders />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admindashboard/manage-feedback"
+                        element={
+                            <ProtectedRoute roles={['Admin']}>
+                                <ManageFeedback />
                             </ProtectedRoute>
                         }
                     />

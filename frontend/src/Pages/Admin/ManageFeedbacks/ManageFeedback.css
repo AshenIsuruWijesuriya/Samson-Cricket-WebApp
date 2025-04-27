@@ -1,0 +1,197 @@
+.manage-feedback-bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/admin-card.jpg"); /* Adjust path if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    position: absolute; /* To allow content to scroll over it */
+}
+
+.manage-feedback-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px; /* Add some padding at the bottom for the footer or other content */
+}
+
+.manage-feedback-title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+.manage-feedback-table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.manage-feedback-thead {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+}
+
+.manage-feedback-tr-header {
+    background-color: #000000;
+    color: white;
+}
+
+.manage-feedback-th,
+.manage-feedback-td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    font-family: "Trebuchet MS";
+    font-size: 16px;
+}
+
+.manage-feedback-th {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.manage-feedback-tbody .manage-feedback-tr-data {
+    background-color: #000000a4;
+}
+
+.navigation-path-admindb {
+    color: white;
+    margin-bottom: 10px;
+    padding-left: 2.5%; /* Match table width */
+}
+
+.navigation-path-admindb a {
+    color: rgb(184, 184, 184);
+    text-decoration: none;
+}
+
+.navigation-path-admindb a:hover {
+    text-decoration: underline;
+}
+
+.manage-feedback-delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    font-size: 1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    border-radius: 4px;
+}
+
+.manage-feedback-delete-btn:hover {
+    color: #c0392b;
+}
+
+.manage-feedback-delete-btn:focus {
+    outline: none;
+}
+
+.manage-feedback-view-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #3498db;
+    font-size: 1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.manage-feedback-view-btn:hover {
+    color: #2980b9;
+}
+
+.manage-feedback-view-btn:focus {
+    outline: none;
+}
+
+.manage-feedback-filter-container {
+    display: flex;
+    gap: 15px;
+    margin: 20px auto;
+    width: 95%;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #000000a4;
+    border-radius: 8px;
+}
+
+.manage-feedback-search-input {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 14px;
+    background-color: #000000a4;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.manage-feedback-search-input:focus {
+    outline: none;
+    border-color: #ff0000ca;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.manage-feedback-status-filter {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #000000a4;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.manage-feedback-status-filter:focus {
+    outline: none;
+    border-color: #ff0000ca;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.manage-feedback-sort-button {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #000000a4;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.manage-feedback-sort-button:hover {
+    background-color: #ff0000ca;
+    border-color: #ff0000ca;
+}
+
+.manage-feedback-sort-button:focus {
+    outline: none;
+}
+
+/* Style for the message column (can be adjusted) */
+.manage-feedback-td:nth-child(3) { /* Select the third column (Message) */
+    text-align: left;
+}

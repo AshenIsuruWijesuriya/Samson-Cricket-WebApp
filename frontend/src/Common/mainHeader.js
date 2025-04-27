@@ -80,7 +80,7 @@ const MainHeader = () => {
           <li className="mh-navbar-item"><a href="/services" className="mh-nav-link">Services</a></li>
           <li className="mh-navbar-item"><a href="/coaching" className="mh-nav-link">Coaching</a></li>
           <li className="mh-navbar-item"><a href="/consulting" className="mh-nav-link">Consulting</a></li>
-          <li className="mh-navbar-item"><a href="/about" className="mh-nav-link">About Us</a></li>
+          <li className="mh-navbar-item"><a href="/community" className="mh-nav-link">Community</a></li>
         </ul>
       </nav>
       <div className="mh-header-right">
