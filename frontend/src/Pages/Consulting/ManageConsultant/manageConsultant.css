@@ -525,3 +525,65 @@
   text-align: center;
   color: black;
 }
+
+/* PDF Styles */
+.pdf-modal {
+    max-width: 500px;
+}
+
+.pdf-info {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.pdf-download-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.pdf-download-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e53e3e;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.pdf-download-link:hover {
+    background-color: #c53030;
+}
+
+.download-button {
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 5px;
+    transition: background-color 0.2s;
+}
+
+.download-button:hover {
+    background-color: #2b6cb0;
+}
+
+tableRowEven {
+    flexDirection: 'row';
+    borderBottomWidth: 1;
+    borderColor: '#E2E8F0';
+    padding: 8;
+    backgroundColor: '#F7FAFC'; /* Light background for even rows */
+}
+
+tableRowOdd {
+    flexDirection: 'row';
+    borderBottomWidth: 1;
+    borderColor: '#E2E8F0';
+    padding: 8;
+}
