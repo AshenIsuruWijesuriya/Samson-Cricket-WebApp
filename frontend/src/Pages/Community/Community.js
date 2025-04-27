@@ -248,7 +248,6 @@ const Community = () => {
                                         <div key={feedback._id} className="feedback-item">
                                             <div className="feedback-header">
                                                 <span className="feedback-type">{feedback.feedbackType}</span>
-                                                <span className="feedback-status">Status: {feedback.status}</span> {/* Display status */}
                                             </div>
                                             <h3 className="feedback-subject">{feedback.subject}</h3>
                                             <p className="feedback-message">{feedback.message}</p>
