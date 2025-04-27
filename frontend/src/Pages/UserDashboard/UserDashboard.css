@@ -2,7 +2,7 @@
 
 .ud-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f4f6f8; /* Light background */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,48 +14,60 @@
 }
 
 .ud-sidebar {
-    width: 200px; /* Adjust sidebar width as needed */
-    background-color: #f0f0f0;
+    width: 220px;
+    background-color: #fff; /* White sidebar */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 60px;
-    
-    border-right: 1px solid #ddd;
+    gap: 18px; /* Slightly increased gap for larger text */
+    border-right: 1px solid #e0e0e0; /* Light border */
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
 .ud-sidebar-btn {
-    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 18px; /* Space between icon and text */
+    margin-top: 20px;
+    background-color: transparent;
     font-family: 'Trebuchet MS';
-    padding: 20px 15px;
+    padding: 14px 16px; /* Adjusted padding for larger text */
     border: none;
-    color: rgb(84, 84, 84);
-    border-radius: 5px;
+    color: #444; /* Darker text */
+    border-radius: 22px;
     cursor: pointer;
-    font-size: 20px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
+    font-size: 20px; /* Increased font size */
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    text-align: left;
+}
+
+.ud-sidebar-icon {
+    font-size: 28px; /* Increased icon size */
+    color: #666; /* Medium gray icon */
 }
 
 .ud-sidebar-btn:hover {
-    background-color: #df2727;
-    color: white;
-    transform: translateY(-2px);
+    background-color: #f0f0f0; /* Light hover */
+    color: #222; /* Darker hover text */
+    transform: translateX(2px);
 }
 
 .ud-content-area {
     flex-grow: 1;
-    padding: 20px;
+    padding: 25px;
+    background-color: #fff;
 }
 
 .ud-content-area h2 {
     color: #333;
     margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
 }
 
 .ud-content-area p {
-    color: #555;
+    color: #666;
     line-height: 1.6;
 }
 
@@ -68,15 +80,28 @@
     .ud-sidebar {
         width: 100%;
         border-right: none;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #e0e0e0;
         flex-direction: row;
-        flex-wrap: wrap; /* Allow buttons to wrap onto multiple lines */
+        flex-wrap: nowrap;
+        overflow-x: auto;
         padding: 10px;
+        gap: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     .ud-sidebar-btn {
-        width: auto; /* Allow buttons to size based on content */
-        flex-grow: 1;
+        flex-shrink: 0;
+        padding: 10px 12px;
+        font-size: 15px; /* Slightly increased font size for smaller screens */
         text-align: center;
+        border-radius: 20px;
+        gap: 10px;
+        color: #444;
+    }
+
+    .ud-sidebar-icon {
+        font-size: 20px; /* Slightly increased icon size for smaller screens */
+        color: #666;
+        margin-right: 6px;
     }
 }

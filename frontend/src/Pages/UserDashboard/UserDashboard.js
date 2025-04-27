@@ -7,6 +7,8 @@ import MyOrder from '../../Components/UserDashboard/MyOrders';
 import MyServices from '../../Components/UserDashboard/MyServices';
 import YourConsultingAppointments from '../Consulting/UserComponents/YourConsultingAppoiments';
 
+import { FaUserEdit, FaShoppingCart, FaChalkboardTeacher, FaCalendarAlt, FaWrench, FaCommentDots } from 'react-icons/fa';
+
 const UserDashboard = () => {
     const [selectedOption, setSelectedOption] = useState(null);
 
@@ -27,7 +29,7 @@ const UserDashboard = () => {
             case 'myServices':
                 return <div><MyServices/></div>;
             case 'myFeedbacks':
-                return <div><h2>My Feedbacks</h2><p>Your coaching sessions.</p></div>;
+                return <div><h2>My Feedbacks</h2><p>Your feedbacks.</p></div>;
             default:
                 return <div><EditProfile/></div>;
         }
@@ -38,12 +40,24 @@ const UserDashboard = () => {
             <UserHeader />
             <div className="ud-main-layout">
                 <div className="ud-sidebar">
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('editProfile')}>Edit Profile</button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myOrders')}>My Orders</button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myCoaching')}>My Coaching</button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myConsulting')}>My Consulting</button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myServices')}>My Services</button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myFeedbacks')}>My Feedbacks</button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('editProfile')}>
+                        <FaUserEdit className="ud-sidebar-icon" /> Edit Profile
+                    </button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myOrders')}>
+                        <FaShoppingCart className="ud-sidebar-icon" /> My Orders
+                    </button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myCoaching')}>
+                        <FaChalkboardTeacher className="ud-sidebar-icon" /> My Coaching
+                    </button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myConsulting')}>
+                        <FaCalendarAlt className="ud-sidebar-icon" /> My Consulting
+                    </button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myServices')}>
+                        <FaWrench className="ud-sidebar-icon" /> My Services
+                    </button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myFeedbacks')}>
+                        <FaCommentDots className="ud-sidebar-icon" /> My Feedbacks
+                    </button>
                 </div>
                 <div className="ud-content-area">
                     {renderPreview()}
