@@ -34,6 +34,8 @@ import ManageShoes from '../Pages/Admin/ManageInventory/ManageShoes/ManageShoes'
 
 import ServiceManagerDashboard from '../Pages/ServiceManager/ServiceManagerDashboard';
 import ManageRepairs from '../Pages/ServiceManager/ManageRepair/ManageRepairs';
+import ManageTechnicians from '../Pages/ServiceManager/ManageTechnicians/ManageTechnicians';
+
 
 import UserDashboard from '../Pages/UserDashboard/UserDashboard';
 
@@ -53,6 +55,7 @@ import UserBookings from '../Pages/Coaching/ViewCoaches/UserBookings';
 import SessionReport from '../Pages/Coaching/CoachingReports/SessionReports';
 import FeedbackForm from '../Pages/Coaching/CoachingDashbaord/CoachFeedbacks/FeedbackForm';
 import FeedbackList from '../Pages/Coaching/CoachingDashbaord/CoachFeedbacks/FeedbackList';
+
 
 const AppRoutes = () => {
     const isAuthenticated = () => {
@@ -259,11 +262,21 @@ const AppRoutes = () => {
                             </ProtectedRoute>
                         }
                     />
+                    {/* Service dashboard to Manage Repairs */}
                     <Route
                         path="/servicedashboard/manage-repairs"
                         element={
                             <ProtectedRoute roles={['ServiceManager']}>
                                 <ManageRepairs />
+                            </ProtectedRoute>
+                        }
+                    />
+                    {/* Service dashboard to Manage Technicians */}
+                    <Route
+                        path="/servicedashboard/manage-technicians"
+                        element={
+                            <ProtectedRoute roles={['ServiceManager']}>
+                                <ManageTechnicians />
                             </ProtectedRoute>
                         }
                     />

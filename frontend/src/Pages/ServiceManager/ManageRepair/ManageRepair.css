@@ -1,119 +1,204 @@
-/* manageRepair.css */
-
+/* ManageRepair.css */
 .repair-management-container {
-    padding: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-  }
-  
-  .repair-management-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #007bff;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.5rem;
-  }
-  
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.repair-management-title {
+  color: #343a40;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #dee2e6;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.filter-buttons {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #495057;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.download-summary-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 10px auto 25px auto;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.download-summary-button:hover {
+  background-color: #218838;
+}
+
+.download-summary-button svg {
+  margin-right: 8px;
+}
+
+.repair-management-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.repair-management-thead {
+  background-color: #343a40;
+  color: white;
+}
+
+.repair-management-th,
+.repair-management-td {
+  border: 1px solid #dee2e6;
+  padding: 15px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.repair-management-th {
+  font-weight: 600;
+}
+
+.repair-management-tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.repair-management-tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.repair-management-select {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  width: 180px;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.repair-management-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.repair-management-email-btn,
+.repair-management-whatsapp-btn,
+.repair-management-delete-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.repair-management-email-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.repair-management-email-btn:hover {
+  background-color: #0056b3;
+}
+
+.repair-management-whatsapp-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.repair-management-whatsapp-btn:hover {
+  background-color: #218838;
+}
+
+.repair-management-delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.repair-management-delete-btn:hover {
+  background-color: #c82333;
+}
+
+.repair-management-email-btn svg,
+.repair-management-whatsapp-btn svg {
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.repair-management-no-requests {
+  text-align: center;
+  color: #6c757d;
+  margin-top: 30px;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
   .repair-management-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    overflow-x: auto;
   }
-  
+
   .repair-management-th,
   .repair-management-td {
-    border: 1px solid #e0e0e0;
-    padding: 1rem;
-    text-align: left;
-    transition: background-color 0.3s ease;
+    padding: 10px;
+    font-size: 0.9rem;
   }
-  
-  .repair-management-th {
-    background-color: #f8f9fa;
-    font-weight: 600;
-    color: #555;
-  }
-  
-  .repair-management-tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .repair-management-tr:hover {
-    background-color: #f0f8ff;
-  }
-  
+
   .repair-management-select {
-    padding: 0.6rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    appearance: none;
-    background-color: #fff;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
+    width: 150px;
   }
-  
-  .repair-management-select:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+
+  .filter-buttons {
+    justify-content: flex-start;
   }
-  
-  .repair-management-actions {
-    display: flex;
+
+  .download-summary-button {
+    margin-left: auto;
+    margin-right: auto;
   }
-  
-  .repair-management-email-btn,
-  .repair-management-delete-btn {
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-right: 0.5rem;
-  }
-  
-  .repair-management-actions button:last-child {
-    margin-right: 0;
-  }
-  
-  .repair-management-email-btn:hover,
-  .repair-management-delete-btn:hover {
-    opacity: 0.8;
-  }
-  
-  .repair-management-email-btn:focus,
-  .repair-management-delete-btn:focus {
-    outline: none;
-  }
-  
-  .repair-management-email-btn {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .repair-management-delete-btn {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .repair-management-no-requests {
-    margin-top: 1rem;
-    font-style: italic;
-    color: #777;
-  }
-  
-  .error-message {
-    color: #dc3545;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
-    font-weight: 500;
-  }
+}

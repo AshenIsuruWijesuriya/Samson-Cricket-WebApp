@@ -49,10 +49,11 @@ const Services = () => {
                             <h2>How It Works</h2>
                             <p>From submission to delivery, we've got you covered!</p>
                             <ol>
-                                <li>Submit your repair request online.</li>
-                                <li>Receive a professional evaluation.</li>
-                                <li>Your bat is carefully repaired with premium materials.</li>
-                                <li>Ready for delivery or pickup.</li>
+                                <strong><li>Submit your repair request online.</li></strong>
+                                <strong><li>Our team will contact you to confirm the details.</li></strong>
+                                <strong><li>Send your bat to our workshop for repair.</li></strong>
+                                <strong><li>Your bat is carefully repaired with premium materials.</li></strong>
+                                <strong><li>Receive your bat in top condition within 7-10 days.</li></strong>
                             </ol>
                         </div>
                     </div>
@@ -67,8 +68,8 @@ const Services = () => {
                         <div className="repair-info-panel">
                             <h2>Cost Estimation</h2>
                             <p>The cost depends on the type of damage to your bat.</p>
-                            <p>A simple cosmetic repair starts at <strong>£30</strong>, while a full handle replacement with a complete refurbishment is available for under <strong>£60</strong>.</p>
-                            <p>If your bat cannot be repaired, we’ll offer you a <strong>£25 discount</strong> toward a new 5★ or higher bat!</p>
+                            <p>A simple cosmetic repair starts at <strong>LKR 12 000.00</strong>, while a full handle replacement with a complete refurbishment is available for under <strong>LKR 24 000.00</strong>.</p>
+                            <p>If your bat cannot be repaired, we’ll offer you a <strong>LKR 10 000.00 discount</strong> toward a new 5★ or higher bat!</p>
                         </div>
                     </div>
                 </section>
