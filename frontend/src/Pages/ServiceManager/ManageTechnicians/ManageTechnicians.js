@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./ManageTechnicians.css";
 import ServiceManagerHeader from "../ServicemanagerHeader/ServiceManagerHeader";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 
 const ManageTechnicians = () => {
-    const initialTechnicians = [
+    const initialTechnicians = useMemo(() => [
         {
             _id: "tech1",
             name: "Priya Sharma",
@@ -76,7 +76,7 @@ const ManageTechnicians = () => {
             description: "Expert in routine maintenance and inspections.",
             repairTypes: ["General Clean-Up"],
         },
-    ];
+    ], []);
     const [technicians, setTechnicians] = useState(initialTechnicians);
     const [repairTypes] = useState([
         "Handle Replacement",

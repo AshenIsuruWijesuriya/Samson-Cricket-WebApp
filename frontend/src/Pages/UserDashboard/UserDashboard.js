@@ -26,8 +26,10 @@ const UserDashboard = () => {
                 return <div><YourConsultingAppointments/></div>;
             case 'myServices':
                 return <div><MyServices/></div>;
+            case 'myFeedbacks':
+                return <div><h2>My Feedbacks</h2><p>Your coaching sessions.</p></div>;
             default:
-                return <div><h2>Welcome to your Dashboard</h2><p>Please select an option from the left.</p></div>;
+                return <div><EditProfile/></div>;
         }
     };
 
@@ -41,6 +43,7 @@ const UserDashboard = () => {
                     <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myCoaching')}>My Coaching</button>
                     <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myConsulting')}>My Consulting</button>
                     <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myServices')}>My Services</button>
+                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myFeedbacks')}>My Feedbacks</button>
                 </div>
                 <div className="ud-content-area">
                     {renderPreview()}
