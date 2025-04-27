@@ -244,3 +244,38 @@ exports.updateSession = async (req, res) => {
     }
 };
 
+// Get sessions by user ID
+exports.getSessionsByUserId = async (req, res) => {
+    try {
+        const { userId } = req.params;
+        
+        // Find all consultants with sessions for this user
+        const consultants = await Consultant.find({ 'sessions.userId': userId }); 
+
+        const userSessions = [];
+        
+        consultants.forEach(consultant => {
+            if (consultant.sessions && consultant.sessions.length > 0) {
+                const filteredSessions = consultant.sessions.filter(
+                    session => session.userId.toString() === userId
+                );
+                
+                filteredSessions.forEach(session => {
+                    userSessions.push({
+                        ...session.toObject(),
+                        _id: session._id,
+                        consultantId: consultant._id,
+                        consultantName: `${consultant.firstName} ${consultant.lastName}`,
+                        consultantType: consultant.type
+                    });
+                });
+            }
+        });
+        
+        res.status(200).json(userSessions);
+    } catch (error) {
+        console.error(`Error fetching sessions for user ${req.params.userId}:`, error);
+        res.status(500).json({ message: 'Failed to fetch user sessions', error: error.message });
+    }
+};
+

@@ -20,6 +20,9 @@ router.delete('/:id', consultantController.deleteConsultant);
 // Book a session with consultant
 router.post('/:id/book-session', consultantController.bookSession);
 
+// Get sessions by user ID
+router.get('/user-sessions/:userId', consultantController.getSessionsByUserId);
+
 // Session management routes
 router.patch('/sessions/:sessionId/accept', consultantController.acceptSession);
 router.patch('/sessions/:sessionId/reject', consultantController.rejectSession);

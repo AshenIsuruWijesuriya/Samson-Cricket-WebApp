@@ -19,7 +19,7 @@ const Consulting = () => {
         date: '',
         time: '',
         consultantId: '',
-        duration: 90
+        duration: 90 
     });
 
     useEffect(() => {
@@ -84,12 +84,12 @@ const Consulting = () => {
 
             <div className="consulting-description">
                 <p>
-                    Consulting Management in a website allows users to book specialized coaching sessions
-                    in four categories: Bowling, Batting, Physical, and Fielding. Users can
-                    schedule appointments with expert consultants to improve their cricket skills and
-                    overall performance. The system provides an easy-to-use interface for booking, managing,
-                    and canceling consultations. Coaches can oversee scheduled sessions, track progress,
-                    and communicate with players. This platform ensures a seamless experience for both
+                    Consulting Management in a website allows users to book specialized coaching sessions 
+                    in four categories: Bowling, Batting, Physical, and Fielding. Users can 
+                    schedule appointments with expert consultants to improve their cricket skills and 
+                    overall performance. The system provides an easy-to-use interface for booking, managing, 
+                    and canceling consultations. Coaches can oversee scheduled sessions, track progress, 
+                    and communicate with players. This platform ensures a seamless experience for both 
                     players and consultants, enhancing training efficiency.
                 </p>
             </div>
@@ -97,18 +97,18 @@ const Consulting = () => {
             <h2 className="consulting-subtitle">Select a Consulting Type</h2>
 
             <div className="consulting-dashboard">
-                <button className="consulting-card-link" onClick={() => handleSelectType('Batting')}>
+                <a className="consulting-card-link" onClick={() => handleSelectType('Batting')}>
                     <div className={`consulting-card ${selectedType === 'Batting' ? 'selected' : ''}`}>Batting Consulting</div>
-                </button>
-                <button className="consulting-card-link" onClick={() => handleSelectType('Bowling')}>
+                </a>
+                <a className="consulting-card-link" onClick={() => handleSelectType('Bowling')}>
                     <div className={`consulting-card ${selectedType === 'Bowling' ? 'selected' : ''}`}>Bowling Consulting</div>
-                </button>
-                <button className="consulting-card-link" onClick={() => handleSelectType('Fielding')}>
+                </a>
+                <a className="consulting-card-link" onClick={() => handleSelectType('Fielding')}>
                     <div className={`consulting-card ${selectedType === 'Fielding' ? 'selected' : ''}`}>Fielding Consulting</div>
-                </button>
-                <button className="consulting-card-link" onClick={() => handleSelectType('Physical')}>
+                </a>
+                <a className="consulting-card-link" onClick={() => handleSelectType('Physical')}>
                     <div className={`consulting-card ${selectedType === 'Physical' ? 'selected' : ''}`}>Physical Consulting</div>
-                </button>
+                </a>
             </div>
 
             {/* Content displayed only when a consulting type is selected */}
@@ -121,7 +121,7 @@ const Consulting = () => {
                         </div>
                     </div>
 
-                    <BookingSession
+                    <BookingSession 
                         selectedType={selectedType}
                         consultants={consultants}
                         filteredConsultants={filteredConsultants}
@@ -130,7 +130,7 @@ const Consulting = () => {
                     />
                 </div>
             )}
-
+            
             {/* Toast container for notifications */}
             <ToastContainer
                 position="top-right"
@@ -144,7 +144,7 @@ const Consulting = () => {
                 pauseOnHover
                 theme="colored"
             />
-            <MainFooter />
+         <MainFooter/>
         </div>
     );
 };
