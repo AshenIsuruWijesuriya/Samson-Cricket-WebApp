@@ -9,6 +9,14 @@ import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [forgotPasswordEmail, setForgotPasswordEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [generatedOtp, setGeneratedOtp] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
   const api = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
 
@@ -23,7 +31,7 @@ const SignIn = () => {
       const { token, user } = response.data;
 
       localStorage.setItem("token", token);
-      localStorage.setItem("userId", user.id); // Store the user ID
+      localStorage.setItem("userId", user.id);
 
       Swal.fire({
         title: "Login Successful!",
@@ -48,6 +56,84 @@ const SignIn = () => {
       Swal.fire({
         title: "Login Failed",
         text: err.response.data.message || "An error occurred. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${api}/api/auth/generate-otp`, { email: forgotPasswordEmail });
+      setGeneratedOtp(response.data.otp);
+      setShowForgotPasswordModal(false);
+      setShowOtpModal(true);
+      Swal.fire({
+        title: "OTP Sent!",
+        text: "Please check your email for the OTP",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+    } catch (err) {
+      Swal.fire({
+        title: "Error",
+        text: err.response?.data?.message || "Failed to send OTP. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
+  const handleVerifyOtp = () => {
+    if (otp === generatedOtp) {
+      setShowOtpModal(false);
+      setShowResetPasswordModal(true);
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: "Invalid OTP. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      setOtp(""); // Clear the OTP input
+    }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    if (newPassword !== confirmPassword) {
+      Swal.fire({
+        title: "Error",
+        text: "Passwords do not match",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    try {
+      await axios.post(`${api}/api/users/update-password`, {
+        email: forgotPasswordEmail,
+        password: newPassword,
+      });
+
+      Swal.fire({
+        title: "Success!",
+        text: "Password updated successfully",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then(() => {
+        setShowResetPasswordModal(false);
+        setForgotPasswordEmail("");
+        setOtp("");
+        setNewPassword("");
+        setConfirmPassword("");
+      });
+    } catch (err) {
+      Swal.fire({
+        title: "Error",
+        text: err.response?.data?.message || "Failed to update password. Please try again.",
         icon: "error",
         confirmButtonText: "OK",
       });
@@ -88,9 +174,13 @@ const SignIn = () => {
             />
           </div>
           <div className="sign-in-page-forgot-password">
-            <a href="/forgot-password" className="sign-in-page-forgot-link">
+            <button
+              type="button"
+              className="sign-in-page-forgot-link"
+              onClick={() => setShowForgotPasswordModal(true)}
+            >
               Forgot Password?
-            </a>
+            </button>
           </div>
           <button type="submit" className="sign-in-page-button">
             Sign In
@@ -103,7 +193,100 @@ const SignIn = () => {
           </div>
         </form>
       </div>
-      <MainFooter/>
+
+      {/* Forgot Password Modal */}
+      {showForgotPasswordModal && (
+        <div className="otp-modal">
+          <div className="otp-modal-content">
+            <h2>Reset Password</h2>
+            <form onSubmit={handleForgotPassword}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={forgotPasswordEmail}
+                onChange={(e) => setForgotPasswordEmail(e.target.value)}
+                required
+                className="sign-in-page-input"
+              />
+              <button type="submit" className="sign-in-page-button">
+                Send OTP
+              </button>
+              <button
+                type="button"
+                className="sign-in-page-button"
+                onClick={() => setShowForgotPasswordModal(false)}
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* OTP Verification Modal */}
+      {showOtpModal && (
+        <div className="otp-modal">
+          <div className="otp-modal-content">
+            <h2>Verify OTP</h2>
+            <input
+              type="text"
+              placeholder="Enter OTP"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              className="sign-in-page-input"
+            />
+            <button onClick={handleVerifyOtp} className="sign-in-page-button">
+              Verify
+            </button>
+            <button
+              type="button"
+              className="sign-in-page-button"
+              onClick={() => setShowOtpModal(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Reset Password Modal */}
+      {showResetPasswordModal && (
+        <div className="otp-modal">
+          <div className="otp-modal-content">
+            <h2>Reset Password</h2>
+            <form onSubmit={handleResetPassword}>
+              <input
+                type="password"
+                placeholder="New Password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                required
+                className="sign-in-page-input"
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                className="sign-in-page-input"
+              />
+              <button type="submit" className="sign-in-page-button">
+                Update Password
+              </button>
+              <button
+                type="button"
+                className="sign-in-page-button"
+                onClick={() => setShowResetPasswordModal(false)}
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      <MainFooter />
     </div>
   );
 };

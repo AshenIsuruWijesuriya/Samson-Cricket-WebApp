@@ -8,6 +8,7 @@ const {
     getUsersByRole,
     sendOtp,
     verifyOtp,
+    updatePassword,
 } = require('../controllers/userController');
 
 const router = express.Router();
@@ -20,5 +21,6 @@ router.delete('/:id', deleteUser);
 router.get('/role/:role', getUsersByRole);
 router.post('/send-otp', sendOtp);
 router.post('/verify-otp', verifyOtp);
+router.post('/update-password', updatePassword);
 
 module.exports = router;
