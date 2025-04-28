@@ -6,6 +6,7 @@ import EditProfile from '../../Components/UserDashboard/EditProfile';
 import MyOrder from '../../Components/UserDashboard/MyOrders';
 import MyServices from '../../Components/UserDashboard/MyServices';
 import MyFeedbacks from '../../Components/UserDashboard/MyFeedbacks';
+import UserBookings from '../Coaching/ViewCoaches/UserBookings';
 
 import YourConsultingAppointments from '../Consulting/UserComponents/YourConsultingAppoiments';
 
@@ -25,7 +26,7 @@ const UserDashboard = () => {
             case 'myOrders':
                 return <div><MyOrder/></div>;
             case 'myCoaching':
-                return <div><h2>My Coaching</h2><p>Your coaching sessions.</p></div>;
+                return <div><UserBookings/></div>;
             case 'myConsulting':
                 return <div><YourConsultingAppointments/></div>;
             case 'myServices':

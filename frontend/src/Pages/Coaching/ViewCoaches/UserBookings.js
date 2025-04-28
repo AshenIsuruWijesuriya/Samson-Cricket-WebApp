@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./UserBookings.css";
-import MainHeader from "../../../Common/mainHeader";
 
 const UserBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -34,7 +33,6 @@ const UserBookings = () => {
 
   return (
     <>
-    <MainHeader />
     <div className="user-booking-container">
       <h2>Your Coach Bookings</h2>
       {bookings.length === 0 ? (
