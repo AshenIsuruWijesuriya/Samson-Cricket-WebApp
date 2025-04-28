@@ -3,17 +3,17 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-title {
+.signin-page-title {
     text-align: center;
     font-size: 27px;
     color: rgb(86, 86, 86);
     font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-form-container {
+.signin-page-form-container {
     max-width: 400px;
     margin: 60px auto;
     padding: 40px;
@@ -21,14 +21,16 @@ body {
     border-radius: 45px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.992);
+    font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-form {
+.signin-page-form {
     display: flex;
     flex-direction: column;
+    font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-input-group {
+.signin-page-input-group {
     margin-bottom: 16px;
     margin-top: 15px;
     color: rgb(255, 255, 255);
@@ -38,7 +40,7 @@ body {
     font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-input {
+.signin-page-input {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #35353571;
@@ -50,7 +52,7 @@ body {
     font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-button {
+.signin-page-button {
     padding: 10px;
     font-size: 19px;
     background-color: #e00000;
@@ -64,47 +66,52 @@ body {
     font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-button:hover {
+.signin-page-button:hover {
     background-color: #920000;
     color: rgb(255, 255, 255);
 }
 
-.sign-in-page-forgot-password {
+.signin-page-forgot-password {
     margin-top: 1px;
     margin-bottom: 15px;
     text-align: right;
+    font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-forgot-link {
+.signin-page-forgot-link {
     background: none;
     border: none;
     color: #ff0000;
     cursor: pointer;
     text-decoration: underline;
     font-family: 'Trebuchet MS';
+    padding: 0;
+    font-size: inherit;
 }
 
-.sign-in-page-signup {
+.signin-page-signup {
     margin-top: 1px;
     margin-bottom: 15px;
     text-align: center;
     font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-signup-text {
+.signin-page-signup-text {
     color: rgb(88, 88, 88);
+    font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-signup-link {
+.signin-page-signup-link {
     background: none;
     border: none;
     color: #ff0000;
     cursor: pointer;
     text-decoration: underline;
     font-weight: bold;
+    font-family: 'Trebuchet MS';
 }
 
-.sign-in-page-bg {
+.signin-page-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -117,6 +124,175 @@ body {
     z-index: -1;
 }
 
-.sign-in-page-container{
-    position:relative;
+.signin-page-container {
+    position: relative;
+    font-family: 'Trebuchet MS';
+}
+
+/* Modal Styles */
+.signin-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: signinOverlayFadeIn 0.3s ease-out;
+    font-family: 'Trebuchet MS';
+}
+
+@keyframes signinOverlayFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.signin-modal-content {
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    animation: signinModalFadeIn 0.3s ease-out;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-family: 'Trebuchet MS';
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+@keyframes signinModalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signin-modal-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+    text-align: center;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Trebuchet MS';
+}
+
+.signin-modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Trebuchet MS';
+    width: 100%;
+}
+
+.signin-modal-button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.signin-modal-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    font-family: 'Trebuchet MS';
+    box-sizing: border-box;
+}
+
+.signin-modal-input:focus {
+    border-color: #e00000;
+    box-shadow: 0 0 0 4px rgba(224, 0, 0, 0.1);
+    background-color: #fff;
+    transform: translateY(-1px);
+}
+
+.signin-modal-button {
+    padding: 15px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    background: linear-gradient(135deg, #e00000 0%, #920000 100%);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(224, 0, 0, 0.2);
+    font-family: 'Trebuchet MS';
+    flex: 1;
+    text-align: center;
+}
+
+.signin-modal-button:hover {
+    background: linear-gradient(135deg, #920000 0%, #6b0000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(224, 0, 0, 0.3);
+}
+
+.signin-modal-button-cancel {
+    background: #f5f5f5;
+    color: #555;
+    border: 1px solid #e0e0e0;
+    box-shadow: none;
+    font-family: 'Trebuchet MS';
+    flex: 1;
+    text-align: center;
+}
+
+.signin-modal-button-cancel:hover {
+    background-color: #e0e0e0;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .signin-modal-content {
+        width: 90%;
+        padding: 30px;
+        margin: 20px;
+        gap: 20px;
+    }
+
+    .signin-modal-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .signin-modal-input,
+    .signin-modal-button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .signin-modal-button-container {
+        gap: 10px;
+    }
 }

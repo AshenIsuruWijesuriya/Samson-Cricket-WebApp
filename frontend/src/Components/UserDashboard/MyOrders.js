@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import './MyOrder.css';
-import { FaPhoneAlt, FaDownload } from 'react-icons/fa';
+import { FaDownload } from 'react-icons/fa';
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
@@ -37,10 +37,6 @@ const MyOrder = () => {
         }
     }, [api]);
 
-    const handleContact = (order) => {
-        console.log(`Contacting about order: ${order._id}`);
-    };
-
     const handleDownloadInvoice = (orderId) => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -70,7 +66,6 @@ const MyOrder = () => {
                                 <th>Phone Number</th>
                                 <th>Order Date & Time</th>
                                 <th>Order Status</th>
-                                <th>Contact</th>
                                 <th>Invoice</th>
                             </tr>
                         </thead>
@@ -99,11 +94,6 @@ const MyOrder = () => {
                                     <td>{order.phoneNumber}</td>
                                     <td>{new Date(order.orderDate).toLocaleString()}</td>
                                     <td>{order.orderStatus}</td>
-                                    <td>
-                                        <button className="contact-button" onClick={() => handleContact(order)}>
-                                            <FaPhoneAlt />
-                                        </button>
-                                    </td>
                                     <td>
                                         <button className="invoice-button" onClick={() => handleDownloadInvoice(order._id)}>
                                             <FaDownload />

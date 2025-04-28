@@ -243,7 +243,7 @@ const Community = () => {
                         ) : feedbacks.length > 0 ? (
                             <div className="feedback-list">
                                 {feedbacks
-                                    .filter(feedback => feedback.status !== 'Closed') // Filter out closed feedbacks
+                                    .filter(feedback => feedback.status === 'Open') // Only show Open feedbacks
                                     .map((feedback) => (
                                         <div key={feedback._id} className="feedback-item">
                                             <div className="feedback-header">
