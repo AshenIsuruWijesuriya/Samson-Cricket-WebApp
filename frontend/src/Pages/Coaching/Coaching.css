@@ -149,3 +149,28 @@
 .view-all-coaches a.cricket-shop-button:hover {
   background-color: #0056b3;
 }
+
+/* ===================== */
+/* feedback All Coaches Button */
+/* ===================== */
+.feedback-all-coaches {
+  text-align: center; /* Center-align the button */
+  margin-top: 2rem; /* Space above the button */
+  margin-bottom: 2rem; /* Space below the button */
+}
+
+.feedback-all-coaches a.cricket-shop-button { /* Target the <a> tag with the class */
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  text-decoration: none; /* Remove underline from link */
+}
+
+.eedback-all-coaches-all-coaches a.cricket-shop-button:hover {
+  background-color: #0056b3;
+}
