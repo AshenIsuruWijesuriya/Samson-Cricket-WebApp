@@ -50,7 +50,7 @@ const SignIn = () => {
         } else if (user.role === "Coach") {
           navigate("/coachingdashboard");
         } else {
-          navigate("/");
+          navigate("/userdashboard");
         }
       });
     } catch (err) {
