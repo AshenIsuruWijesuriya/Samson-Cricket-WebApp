@@ -1,8 +1,9 @@
-.cons-dashboard-container {
+.consultant-dashboard-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content:center;
-    gap:50px;
+    justify-content: center;
+    gap: 50px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -66,7 +67,7 @@
     transform: translateY(-5px);
 }
 
-.container {
+.consultant-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -75,13 +76,17 @@
     background-color: lightgray;
 }
 
-.content-area {
+.consultant-content-area {
     padding: 20px;
     margin-top: 20px;
     background: white;
     border-radius: 8px;
     min-height: 400px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .back-button {
@@ -114,7 +119,7 @@
     padding-bottom: 10px;
 }
 
-.dashboard-welcome {
+.consultant-dashboard-welcome {
     margin-bottom: 30px;
     color: #666;
     font-size: 18px;
@@ -133,7 +138,7 @@
     margin-bottom: 0;
 }
 
-.dashboard-cards {
+.consultant-dashboard-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
