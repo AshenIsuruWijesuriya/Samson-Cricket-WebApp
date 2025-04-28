@@ -99,7 +99,7 @@ const ManageFeedback = () => {
     };
 
     return (
-        <div className="manage-feedback-bg">
+        <div className="bats-bg">
             <div className="manage-feedback-content">
                 <AdminHeader />
                 <div className="navigation-path-admindb">
