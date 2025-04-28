@@ -19,7 +19,7 @@ const MainFooter = () => {
             <li><a href="/services" className="mf-link">Services</a></li>
             <li><a href="/coaching" className="mf-link">Coaching</a></li>
             <li><a href="/consulting" className="mf-link">Consulting</a></li>
-            <li><a href="/about" className="mf-link">About Us</a></li>
+            <li><a href="/community" className="mf-link">Community</a></li>
           </ul>
         </div>
         <div className="mf-section">

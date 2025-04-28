@@ -1,8 +1,9 @@
 /* Main container styling */
 .consulting-management {
-    background-color: lightgrey;
+    background-color: rgb(255, 255, 255);
     text-align: center;
     min-height: 100vh;
+    font-family: 'Trebuchet MS';
 }
 
 /* Consulting title */
@@ -74,6 +75,8 @@
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
+    background-color: white;
+    border: 0px;
 }
 
 /* Consulting details section */

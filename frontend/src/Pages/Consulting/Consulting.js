@@ -78,6 +78,7 @@ const Consulting = () => {
     };
 
     return (
+        <div>
         <div className="consulting-management">
             <MainHeader />
             <h1 className="consulting-title">Consulting</h1>
@@ -144,6 +145,7 @@ const Consulting = () => {
                 pauseOnHover
                 theme="colored"
             />
+            </div>
          <MainFooter/>
         </div>
     );

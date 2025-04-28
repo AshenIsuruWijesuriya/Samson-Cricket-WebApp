@@ -11,6 +11,7 @@
 /* Content Container     */
 /* ===================== */
 .coaching-content {
+  font-family: 'Trebuchet MS';
   flex: 1; /* Allow content to grow and fill space */
   padding: 2rem; /* Padding for spacing */
   max-width: 1200px; /* Limit width for better readability */
