@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useContext } from "react";
 import axios from "axios";
 import MainHeader from "../../../Common/mainHeader";
 import MainFooter from "../../../Common/mainFooter";
-import "./ViewShoes.css"; // Create a new CSS file for shoes
+import "./ViewShoes.css";
 import Swal from "sweetalert2";
 import { CartContext } from "../../../context/CartContext";
 
@@ -12,9 +12,13 @@ const ViewShoes = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedShoe, setSelectedShoe] = useState(null);
   const api = process.env.REACT_APP_BASE_URL;
-    const { addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const [currentPage, setCurrentPage] = useState(1);
   const shoesPerPage = 8;
+  const [sortOption, setSortOption] = useState("stock");
+  const [selectedBrands, setSelectedBrands] = useState([]);
+
+  const uniqueBrands = [...new Set(shoes.map((shoe) => shoe.brand))];
 
   const fetchShoes = useCallback(async () => {
     try {
@@ -28,19 +32,33 @@ const ViewShoes = () => {
   }, [api]);
 
   useEffect(() => {
-    document.title = 'All Shoes';
+    document.title = "All Shoes";
     fetchShoes();
   }, [fetchShoes]);
 
   useEffect(() => {
-    const results = shoes.filter((shoe) => {
+    let results = shoes.filter((shoe) => {
       const searchString = `${shoe.brand} ${shoe.model} ${shoe.category}`.toLowerCase();
       return searchString.includes(searchTerm.toLowerCase());
     });
-        let sortedResults = results.sort((a, b) => b.stock - a.stock);
-    setFilteredShoes(sortedResults);
-    setCurrentPage(1); // Reset to first page when search term changes
-  }, [searchTerm, shoes]);
+
+    // Apply brand filtering
+    if (selectedBrands.length > 0) {
+      results = results.filter((shoe) => selectedBrands.includes(shoe.brand));
+    }
+
+    // Apply sorting
+    if (sortOption === "price-low-to-high") {
+      results = results.sort((a, b) => a.price - b.price);
+    } else if (sortOption === "price-high-to-low") {
+      results = results.sort((a, b) => b.price - a.price);
+    } else {
+      results = results.sort((a, b) => b.stock - a.stock);
+    }
+
+    setFilteredShoes(results);
+    setCurrentPage(1);
+  }, [searchTerm, shoes, sortOption, selectedBrands]);
 
   const handleShoeClick = (shoe) => {
     setSelectedShoe(shoe);
@@ -50,12 +68,11 @@ const ViewShoes = () => {
     setSelectedShoe(null);
   };
 
-    const handleAddToCart = (shoe) => {
+  const handleAddToCart = (shoe) => {
     if (shoe.stock > 0) {
-      // Ensure the shoe object has the correct category
       const shoeWithCategory = {
         ...shoe,
-        category: 'shoes' // Explicitly set the category
+        category: "shoes",
       };
       addToCart(shoeWithCategory);
       Swal.fire({
@@ -87,6 +104,18 @@ const ViewShoes = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
 
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const handleBrandChange = (brand) => {
+    if (selectedBrands.includes(brand)) {
+      setSelectedBrands(selectedBrands.filter((b) => b !== brand));
+    } else {
+      setSelectedBrands([...selectedBrands, brand]);
+    }
+  };
+
   return (
     <div className="shoe-shop-container">
       <MainHeader />
@@ -103,6 +132,34 @@ const ViewShoes = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="shoe-shop-search"
           />
+          <div className="shoe-filter-sort-container">
+            <div className="shoe-shop-brands">
+              <span className="filter-label">Filter by Brand:</span>
+              {uniqueBrands.map((brand) => (
+                <label key={brand} className="shoe-shop-brand-label">
+                  <input
+                    type="checkbox"
+                    value={brand}
+                    checked={selectedBrands.includes(brand)}
+                    onChange={() => handleBrandChange(brand)}
+                  />
+                  {brand}
+                </label>
+              ))}
+            </div>
+            <div className="shoe-shop-sort">
+              <span className="filter-label">Sort by Price:</span>
+              <select
+                value={sortOption}
+                onChange={handleSortChange}
+                className="shoe-shop-sort-select"
+              >
+                <option value="stock">Relevance</option>
+                <option value="price-low-to-high">Price: Low to High</option>
+                <option value="price-high-to-low">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div className="shoe-shop-grid">
           {currentShoes.map((shoe) => (
@@ -124,9 +181,9 @@ const ViewShoes = () => {
                 <h3 className="shoe-shop-name">
                   {shoe.brand} {shoe.model}
                 </h3>
-                 <p className="shoe-shop-category">
-                    Category: {shoe.category}
-                  </p>
+                <p className="shoe-shop-category">
+                  Category: {shoe.category}
+                </p>
                 <div className="shoe-shop-price-stock">
                   <p className="shoe-shop-price">
                     LKR{" "}
@@ -237,3 +294,4 @@ const ViewShoes = () => {
 };
 
 export default ViewShoes;
+

@@ -217,7 +217,7 @@ const PaymentForm = () => {
             clearCart();
             Swal.fire({
                 icon: 'success',
-                title: 'Payment Successful!',
+                title: 'Payment Successful! Check My Orders',
                 text: 'Your payment has been processed.',
             }).then(() => {
                 navigate(`/userdashboard`);

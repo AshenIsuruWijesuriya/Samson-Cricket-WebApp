@@ -10,7 +10,6 @@ const AddShoeModal = ({ onClose, onShoeAdded }) => {
     brand: "",
     model: "",
     size: "",
-    color: "",
     price: "",
     description: "",
     images: [],
@@ -40,8 +39,8 @@ const AddShoeModal = ({ onClose, onShoeAdded }) => {
       !newShoe.brand ||
       !newShoe.model ||
       !newShoe.size ||
-      !newShoe.color ||
       !newShoe.price ||
+      !newShoe.description ||
       !newShoe.stock ||
       !newShoe.category
     ) {

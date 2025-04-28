@@ -10,7 +10,6 @@ const UpdateShoeModal = ({ shoe, onClose, onShoeUpdated }) => {
     brand: '',
     model: '',
     size: 0,
-    color: '',
     price: 0,
     description: '',
     images: [],
@@ -51,6 +50,7 @@ const UpdateShoeModal = ({ shoe, onClose, onShoeUpdated }) => {
       !updatedShoe.model ||
       !updatedShoe.size ||
       !updatedShoe.price ||
+      !updatedShoe.description ||
       !updatedShoe.stock ||
       !updatedShoe.category
     ) {
