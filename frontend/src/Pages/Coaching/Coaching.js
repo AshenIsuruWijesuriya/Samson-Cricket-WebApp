@@ -59,6 +59,11 @@ const Coaching = () => {
               View All Coaches
             </a>
           </div>
+          <div className="feedback-all-coaches">
+            <a href="/coachFeedbacks" className="cricket-shop-button">
+              Feedbacks
+            </a>
+          </div>
         </div>
       </div>
       <MainFooter />
