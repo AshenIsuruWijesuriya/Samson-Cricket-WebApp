@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 const Services = () => {
     const [showForm, setShowForm] = useState(false);
     const [repairRequests, setRepairRequests] = useState([]);
+    document.title = 'Services';
 
     const handleRepairRequestAdded = (newRequest) => {
         setRepairRequests([...repairRequests, newRequest]);

@@ -13,6 +13,7 @@ import YourConsultingAppointments from '../Consulting/UserComponents/YourConsult
 import { FaUserEdit, FaShoppingCart, FaChalkboardTeacher, FaCalendarAlt, FaWrench, FaCommentDots } from 'react-icons/fa';
 
 const UserDashboard = () => {
+    document.title = 'User Dashboard';
     const [selectedOption, setSelectedOption] = useState(null);
 
     const handleOptionClick = (option) => {

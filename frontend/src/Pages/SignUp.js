@@ -21,6 +21,7 @@ const SignUpPage = () => {
     const [otpModalOpen, setOtpModalOpen] = useState(false);
     // const [emailToVerify, setEmailToVerify] = useState(''); // Removed unused variable
     const navigate = useNavigate();
+    document.title = 'Sign Up';
 
     const { firstname, lastname, email, password } = formData;
 

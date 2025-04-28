@@ -14,6 +14,7 @@ import MainFooter from '../../Common/mainFooter';
 
 const Coaching = () => {
   const navigate = useNavigate();
+  document.title = 'Coaching';
 
   const coaches = [
     { id: 1, name: 'Coach John', description: 'Expert in personal development', image: coach1 },

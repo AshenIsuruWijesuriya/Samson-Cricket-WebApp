@@ -19,6 +19,7 @@ const SignIn = () => {
   const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
   const api = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
+  document.title = 'Sign In';
 
   const handleSubmit = async (e) => {
     e.preventDefault();

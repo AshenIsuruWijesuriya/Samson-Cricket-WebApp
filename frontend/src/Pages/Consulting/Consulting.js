@@ -8,6 +8,7 @@ import './Consulting.css';
 import BookingSession from './BookingSession/BookingSession';
 
 const Consulting = () => {
+    document.title = 'Consulting';
     const [selectedType, setSelectedType] = useState(null);
     const [consultants, setConsultants] = useState([]);
     const [loading, setLoading] = useState(false);

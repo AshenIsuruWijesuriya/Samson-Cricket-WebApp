@@ -14,6 +14,7 @@ const Cart = () => {
     const [gearStocks, setGearStocks] = useState({});
     const [merchStocks, setMerchStocks] = useState({});
     const [shoeStocks, setShoeStocks] = useState({});
+    document.title = 'Shopping Cart';
 
     useEffect(() => {
         const fetchStocks = async () => {

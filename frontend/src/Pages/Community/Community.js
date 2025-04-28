@@ -16,7 +16,7 @@ const Community = () => {
     const [message, setMessage] = useState('');
     const [formError, setFormError] = useState('');
     const [, setUserEmail] = useState(''); // State to store user email (not directly used in rendering the list)
-
+    document.title = 'Community';
     // Fetch feedbacks from the server
     const fetchFeedbacks = async () => {
         try {
@@ -129,7 +129,7 @@ const Community = () => {
 
             Swal.fire({
                 title: 'Success!',
-                text: 'Your feedback has been submitted.',
+                text: 'Your feedback has been submitted and currently under the review',
                 icon: 'success',
                 confirmButtonText: 'OK',
             });
