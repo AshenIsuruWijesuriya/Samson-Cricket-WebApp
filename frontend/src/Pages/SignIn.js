@@ -141,16 +141,16 @@ const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-page-container">
-      <div className="sign-in-page-bg"></div>
+    <div className="signin-page-container">
+      <div className="signin-page-bg"></div>
       <MainHeader />
-      <div className="sign-in-page-form-container">
-        <h2 className="sign-in-page-title">
+      <div className="signin-page-form-container">
+        <h2 className="signin-page-title">
           Sign In to your Samson Cricket Account
         </h2>
-        <form onSubmit={handleSubmit} className="sign-in-page-form">
-          <div className="sign-in-page-input-group">
-            <label htmlFor="email" className="sign-in-page-label"></label>
+        <form onSubmit={handleSubmit} className="signin-page-form">
+          <div className="signin-page-input-group">
+            <label htmlFor="email" className="signin-page-label"></label>
             <input
               type="email"
               id="email"
@@ -158,11 +158,11 @@ const SignIn = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="sign-in-page-input"
+              className="signin-page-input"
             />
           </div>
-          <div className="sign-in-page-input-group">
-            <label htmlFor="password" className="sign-in-page-label"></label>
+          <div className="signin-page-input-group">
+            <label htmlFor="password" className="signin-page-label"></label>
             <input
               type="password"
               id="password"
@@ -170,24 +170,24 @@ const SignIn = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="sign-in-page-input"
+              className="signin-page-input"
             />
           </div>
-          <div className="sign-in-page-forgot-password">
+          <div className="signin-page-forgot-password">
             <button
               type="button"
-              className="sign-in-page-forgot-link"
+              className="signin-page-forgot-link"
               onClick={() => setShowForgotPasswordModal(true)}
             >
               Forgot Password?
             </button>
           </div>
-          <button type="submit" className="sign-in-page-button">
+          <button type="submit" className="signin-page-button">
             Sign In
           </button>
-          <div className="sign-in-page-signup">
-            <p className="sign-in-page-signup-text">Don't have an Account?</p>
-            <a href="/signUp" className="sign-in-page-signup-link">
+          <div className="signin-page-signup">
+            <p className="signin-page-signup-text">Don't have an Account?</p>
+            <a href="/signUp" className="signin-page-signup-link">
               Sign Up
             </a>
           </div>
@@ -196,8 +196,8 @@ const SignIn = () => {
 
       {/* Forgot Password Modal */}
       {showForgotPasswordModal && (
-        <div className="otp-modal">
-          <div className="otp-modal-content">
+        <div className="signin-modal-overlay">
+          <div className="signin-modal-content">
             <h2>Reset Password</h2>
             <form onSubmit={handleForgotPassword}>
               <input
@@ -206,18 +206,20 @@ const SignIn = () => {
                 value={forgotPasswordEmail}
                 onChange={(e) => setForgotPasswordEmail(e.target.value)}
                 required
-                className="sign-in-page-input"
+                className="signin-modal-input"
               />
-              <button type="submit" className="sign-in-page-button">
-                Send OTP
-              </button>
-              <button
-                type="button"
-                className="sign-in-page-button"
-                onClick={() => setShowForgotPasswordModal(false)}
-              >
-                Cancel
-              </button>
+              <div className="signin-modal-button-container">
+                <button type="submit" className="signin-modal-button">
+                  Send OTP
+                </button>
+                <button
+                  type="button"
+                  className="signin-modal-button signin-modal-button-cancel"
+                  onClick={() => setShowForgotPasswordModal(false)}
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -225,34 +227,36 @@ const SignIn = () => {
 
       {/* OTP Verification Modal */}
       {showOtpModal && (
-        <div className="otp-modal">
-          <div className="otp-modal-content">
+        <div className="signin-modal-overlay">
+          <div className="signin-modal-content">
             <h2>Verify OTP</h2>
             <input
               type="text"
               placeholder="Enter OTP"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="sign-in-page-input"
+              className="signin-modal-input"
             />
-            <button onClick={handleVerifyOtp} className="sign-in-page-button">
-              Verify
-            </button>
-            <button
-              type="button"
-              className="sign-in-page-button"
-              onClick={() => setShowOtpModal(false)}
-            >
-              Cancel
-            </button>
+            <div className="signin-modal-button-container">
+              <button onClick={handleVerifyOtp} className="signin-modal-button">
+                Verify
+              </button>
+              <button
+                type="button"
+                className="signin-modal-button signin-modal-button-cancel"
+                onClick={() => setShowOtpModal(false)}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}
 
       {/* Reset Password Modal */}
       {showResetPasswordModal && (
-        <div className="otp-modal">
-          <div className="otp-modal-content">
+        <div className="signin-modal-overlay">
+          <div className="signin-modal-content">
             <h2>Reset Password</h2>
             <form onSubmit={handleResetPassword}>
               <input
@@ -261,7 +265,7 @@ const SignIn = () => {
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 required
-                className="sign-in-page-input"
+                className="signin-modal-input"
               />
               <input
                 type="password"
@@ -269,18 +273,20 @@ const SignIn = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                className="sign-in-page-input"
+                className="signin-modal-input"
               />
-              <button type="submit" className="sign-in-page-button">
-                Update Password
-              </button>
-              <button
-                type="button"
-                className="sign-in-page-button"
-                onClick={() => setShowResetPasswordModal(false)}
-              >
-                Cancel
-              </button>
+              <div className="signin-modal-button-container">
+                <button type="submit" className="signin-modal-button">
+                  Update Password
+                </button>
+                <button
+                  type="button"
+                  className="signin-modal-button signin-modal-button-cancel"
+                  onClick={() => setShowResetPasswordModal(false)}
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
           </div>
         </div>
