@@ -141,8 +141,6 @@ const PaymentForm = () => {
         const decoded = jwtDecode(token);
         const userId = decoded.id;
 
-        console.log('Cart Items:', cartItems);
-
         const order = {
             userId: userId,
             items: cartItems.map(item => {
@@ -154,17 +152,6 @@ const PaymentForm = () => {
                 } else if (item.size) {
                     productModel = 'Merchandise';
                 }
-
-                console.log('Processing cart item:', {
-                    id: item._id,
-                    model: productModel,
-                    name: item.name || `${item.brand} ${item.model}`,
-                    size: item.size,
-                    category: item.category,
-                    brand: item.brand,
-                    price: item.price,
-                    quantity: item.quantity
-                });
 
                 if (!item._id) {
                     console.error('Invalid product ID for item:', item);
@@ -184,8 +171,6 @@ const PaymentForm = () => {
             paymentMethod: "Card Payment",
             paymentDetails: paymentData,
         };
-
-        console.log('Order being sent:', order);
 
         try {
             const response = await fetch(`${api}/api/order/create-order`, {
@@ -248,8 +233,39 @@ const PaymentForm = () => {
         <div>
             <MainHeader />
             <div className="payment-page-container">
+                <div className="total-preview-section">
+                    <h3>Order Summary</h3>
+                    <ul className="cart-items-list">
+                        {cartItems.map(item => (
+                            <li key={item._id} className="cart-item">
+                                {item.images && item.images.length > 0 ? (
+                                    <img
+                                        src={`${api}/uploads/${item.images[0]}`}
+                                        alt={item.name || `${item.brand} ${item.model}`}
+                                        className="cart-item-image"
+                                    />
+                                ) : (
+                                    <div className="cart-item-image placeholder">
+                                        No Image
+                                    </div>
+                                )}
+                                <div className="cart-item-details">
+                                    <h4>{item.name || `${item.brand} ${item.model}`}</h4>
+                                    {item.size && <p>Size: {item.size}</p>}
+                                    {item.sizeType && <p>Size: {item.sizeType}</p>}
+                                    <p>Quantity: {item.quantity}</p>
+                                    <p className="item-price">LKR {(item.price * item.quantity).toFixed(2)}</p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="cart-total">
+                        <strong>Total:</strong> <span>LKR {calculateTotal()}</span>
+                    </div>
+                </div>
+
                 <div className="card-section">
-                    <h3>Card Information</h3>
+                    <h3>Payment Details</h3>
                     <form onSubmit={handleSubmit} className="payment-form">
                         <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                         <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
@@ -260,9 +276,6 @@ const PaymentForm = () => {
                         <input type="text" placeholder="Delivery Address" value={deliveryAddress} onChange={(e) => setDeliveryAddress(e.target.value)} required />
                         <input type="text" placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
 
-                        <div className="total-preview">
-                            <strong>Total to Pay:</strong> LKR {calculateTotal()}
-                        </div>
                         <button type="submit" className="payment-button">Pay Now</button>
                     </form>
                 </div>

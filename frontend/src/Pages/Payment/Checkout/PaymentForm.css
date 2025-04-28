@@ -1,244 +1,286 @@
 /* Pages/Checkout/PaymentForm.css */
 
 .payment-page-container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
     max-width: 1200px;
-    margin: 20px auto;
-    gap: 10px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Trebuchet MS';
 }
 
-.cart-preview {
-    width: 45%;
-    border: 1px solid #eee;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+@media (min-width: 768px) {
+    .payment-page-container {
+        grid-template-columns: 40% 58%;
+    }
 }
 
-.payment-form-container {
-    width: 50%;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
+.card-section,
+.total-preview-section {
+    padding: 25px;
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-.payment-form-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.card-section h3 {
     color: #333;
-}
-
-.information-section, .delivery-section, .card-section {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 25px; /* Increased margin */
+    font-size: 1.8rem; /* Increased font size */
+    border-bottom: 2px solid #eee;
     padding-bottom: 15px;
 }
 
-.information-section h3, .delivery-section h3, .card-section h3 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.delivery-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-    min-height: 100px;
-    resize: vertical;
-    margin-bottom: 10px;
-}
-
-.phone-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.payment-form .form-group {
-    margin-bottom: 15px;
-}
-
-.payment-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #555;
+.payment-form {
+    display: grid;
+    gap: 18px; /* Increased gap */
 }
 
 .payment-form input[type="text"],
 .payment-form input[type="email"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 14px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1.1rem; /* Increased font size */
+    color: #333;
     box-sizing: border-box;
-    font-size: 16px;
-    color: #333;
+    transition: border-color 0.2s ease-in-out;
 }
 
-.payment-form .payment-button {
-    background-color: #ff0000;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+.payment-form input[type="text"]:focus,
+.payment-form input[type="email"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
 }
 
-.payment-form .payment-button:hover {
-    background-color: #da0000;
-}
-
-.cart-preview h3 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.cart-preview ul {
-    list-style: none;
-    padding: 0;
-}
-
-.cart-preview li {
-    margin-bottom: 8px;
-    padding: 8px;
-    border-bottom: 1px solid #eee;
-    color: #444;
-    display: flex;
-    align-items: center;
-}
-
-.cart-item-image {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-right: 15px;
-    border-radius: 4px;
-}
-
-.cart-item-details {
-    flex-grow: 1;
-}
-
-.cart-preview li:last-child {
-    border-bottom: none;
-}
-
-.cart-preview p strong {
+.payment-form .total-preview {
+    margin-top: 30px; /* Increased margin */
+    padding: 20px; /* Increased padding */
+    background-color: #f0f8ff;
+    border: 1px solid #add8e6;
+    border-radius: 6px;
+    font-size: 1.2rem; /* Increased font size */
     font-weight: 600;
-    color: #333;
-}
-
-.total-preview {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: red;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    font-size: 18px;
-    font-weight: 600;
+    color: #2e8b57;
     text-align: right;
 }
 
+.payment-form .total-preview strong {
+    color: #333;
+    margin-right: 12px; /* Increased margin */
+}
+
+.payment-form .payment-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 16px 28px; /* Increased padding */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem; /* Increased font size */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form .payment-button:hover {
+    background-color: #c82333;
+}
+
+/* OTP Modal Styles */
 .otp-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1050;
 }
 
 .otp-modal-content {
-    background: rgb(255, 255, 255);
-    padding: 20px;
-    border-radius: 28px;
-    width: 300px;
+    background: #fff;
+    padding: 35px; /* Increased padding */
+    border-radius: 12px;
+    width: 450px; /* Increased width */
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
     opacity: 1;
     transform: translateY(0);
 }
 
 .otp-modal-content h2 {
-    margin-bottom: 20px;
-    color: #2c3e50;
-    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px; /* Increased margin */
+    font-size: 2rem; /* Increased font size */
 }
 
-.otp-modal-content input {
-    padding: 12px;
-    margin-bottom: 20px;
+.otp-modal-content input[type="text"] {
+    padding: 16px; /* Increased padding */
+    margin-bottom: 30px; /* Increased margin */
     width: calc(100% - 40px);
-    border: 1px solid #bdc3c7;
-    border-radius: 16px;
-    font-size: 18px;
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1rem;
     box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
 }
 
-.otp-modal-content input:focus {
+.otp-modal-content input[type="text"]:focus {
     outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
 }
-
 
 .otp-modal-content button {
-    background-color: #ee0101;
+    background-color: #d00c0c;
     color: white;
-    padding: 12px 25px;
+    padding: 16px 32px; /* Increased padding */
     border: none;
-    border-radius: 26px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease-in-out, transform 0.1s ease;
-    width: fit-content;
-    margin: 0 auto;
+    font-size: 1.2rem; /* Increased font size */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .otp-modal-content button:hover {
-    background-color: #bd0202;
-    transform: scale(1.05);
+    background-color: #c40a0a;
 }
 
 .otp-modal-content button:active {
-    transform: scale(1);
+    transform: scale(0.98);
 }
 
-/* Optional: Adjust for responsiveness */
-@media (max-width: 900px) {
+.total-preview-section h3 {
+    color: #333;
+    margin-bottom: 25px; /* Increased margin */
+    font-size: 1.8rem; /* Increased font size */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.cart-items-list {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 0; /* Increased padding */
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 100px; /* Increased size */
+    height: 100px; /* Increased size */
+    object-fit: contain;
+    margin-right: 20px; /* Increased margin */
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    color: #333;
+    margin-bottom: 8px; /* Increased margin */
+    font-size: 1rem; /* Increased font size */
+    font-weight: 600;
+}
+
+.cart-item-details p {
+    color: #666;
+    font-size: 0.8rem; /* Increased font size */
+    margin-bottom: 5px; /* Increased margin */
+}
+
+.cart-item-details .item-price {
+    font-weight: bold;
+    color: #276ced;
+    font-size: 0.8rem; /* Increased font size */
+}
+
+.cart-total {
+    margin-top: 25px; /* Increased margin */
+    padding-top: 18px; /* Increased padding */
+    border-top: 2px solid #eee;
+    text-align: right;
+    font-size: 1.2rem; /* Increased font size */
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-total span {
+    color: #ee280a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
     .payment-page-container {
-        flex-direction: column;
+        padding: 15px;
     }
 
-    .cart-preview, .payment-form-container {
-        width: 100%;
-        margin-bottom: 20px;
+    .card-section h3,
+    .total-preview-section h3 {
+        font-size: 1.6rem; /* Increased font size */
+        margin-bottom: 20px; /* Increased margin */
+        padding-bottom: 12px; /* Increased padding */
+    }
+
+    .payment-form input[type="text"],
+    .payment-form input[type="email"],
+    .payment-form .payment-button {
+        font-size: 1.1rem; /* Increased font size */
+        padding: 12px; /* Increased padding */
+    }
+
+    .otp-modal-content {
+        width: 95%; /* Increased width */
+        padding: 25px; /* Increased padding */
+    }
+
+    .otp-modal-content h2 {
+        font-size: 1.8rem; /* Increased font size */
+        margin-bottom: 20px; /* Increased margin */
+    }
+
+    .otp-modal-content input[type="text"],
+    .otp-modal-content button {
+        font-size: 1.1rem; /* Increased font size */
+        padding: 12px; /* Increased padding */
+        margin-bottom: 20px; /* Increased margin */
     }
 
     .cart-item-image {
-        width: 60px;
-        height: 60px;
+        width: 80px; /* Increased size */
+        height: 80px; /* Increased size */
+        margin-right: 15px; /* Increased margin */
+    }
+
+    .cart-item-details h4 {
+        font-size: 1rem; /* Increased font size */
+    }
+
+    .cart-item-details p,
+    .cart-total {
+        font-size: 0.95rem; /* Increased font size */
     }
 }
+
