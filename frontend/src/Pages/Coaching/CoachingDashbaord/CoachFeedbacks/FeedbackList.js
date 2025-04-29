@@ -12,23 +12,36 @@ const FeedbackList = () => {
 
   return (
     <>
-    <CoachingHeader />
-    <div className="feedback-list-container">
-      <h2>User Feedback</h2>
-      {feedbacks.length === 0 ? (
-        <p>No feedback available.</p>
-      ) : (
-        <ul>
-          {feedbacks.map((f, index) => (
-            <li key={index} className="feedback-item">
-              <strong>{f.name}</strong> ({f.email}) <br />
-              <span>{f.message}</span><br />
-              <small>{new Date(f.createdAt).toLocaleString()}</small>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+      <CoachingHeader />
+      <div className="coach-feedback-list-container">
+        <h2 className="coach-feedback-list-title">User Feedback</h2>
+        {feedbacks.length === 0 ? (
+          <p className="coach-feedback-empty">No feedback available.</p>
+        ) : (
+          <div className="coach-feedback-list">
+            {feedbacks.map((f, index) => (
+              <div key={index} className="coach-feedback-item">
+                <div className="coach-feedback-header">
+                  <div className="coach-feedback-user">
+                    <strong className="coach-feedback-name">{f.name}</strong>
+                    <span className="coach-feedback-email">({f.email})</span>
+                  </div>
+                  <div className="coach-feedback-coach">
+                    <span className="coach-feedback-coach-label">Coach:</span>
+                    <span className="coach-feedback-coach-name">{f.coachName}</span>
+                  </div>
+                </div>
+                <div className="coach-feedback-message">{f.message}</div>
+                <div className="coach-feedback-footer">
+                  <small className="coach-feedback-date">
+                    {new Date(f.createdAt).toLocaleString()}
+                  </small>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };
