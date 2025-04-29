@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainHeader from '../../Common/mainHeader';
 import './Coaching.css';
+import MainFooter from '../../Common/mainFooter';
 
 // Import coach images (replace with actual image paths)
 import coach1 from '../../assets/images/coach1.jpg';
@@ -10,7 +11,6 @@ import coach3 from '../../assets/images/coach3.jpg';
 import coach4 from '../../assets/images/coach4.jpg';
 import coach5 from '../../assets/images/coach5.jpg';
 import coach6 from '../../assets/images/coach6.jpg';
-import MainFooter from '../../Common/mainFooter';
 
 const Coaching = () => {
   const navigate = useNavigate();
@@ -54,14 +54,14 @@ const Coaching = () => {
               </div>
             ))}
           </div>
-          <div className="view-all-coaches">
-            <a href="/ViewCoaches" className="cricket-shop-button">
+
+          {/* Action Buttons */}
+          <div className="coach-action-buttons">
+            <a href="/ViewCoaches" className="coach-action-button">
               View All Coaches
             </a>
-          </div>
-          <div className="feedback-all-coaches">
-            <a href="/coachFeedbacks" className="cricket-shop-button">
-              Feedbacks
+            <a href="/coachFeedbacks" className="coach-action-button">
+              Leave Feedback
             </a>
           </div>
         </div>

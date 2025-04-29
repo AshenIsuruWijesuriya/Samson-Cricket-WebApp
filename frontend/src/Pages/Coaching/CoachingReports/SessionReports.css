@@ -57,3 +57,159 @@
     font-weight: bold;
   }
   
+  .coach-session-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .coach-session-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
+  
+  .coach-session-title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .coach-session-filters {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .coach-session-filter-dropdown {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    font-size: 14px;
+    min-width: 180px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .coach-session-filter-dropdown:hover {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+  }
+  
+  .coach-session-filter-dropdown:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  }
+  
+  .coach-download-btn {
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .coach-download-btn:hover {
+    background-color: #357abd;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+  }
+  
+  .coach-session-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .coach-session-table th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  .coach-session-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #34495e;
+  }
+  
+  .coach-session-table tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .coach-status-approved {
+    color: #28a745;
+    font-weight: 500;
+    padding: 4px 8px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: 4px;
+  }
+  
+  .coach-status-pending {
+    color: #ffc107;
+    font-weight: 500;
+    padding: 4px 8px;
+    background-color: rgba(255, 193, 7, 0.1);
+    border-radius: 4px;
+  }
+  
+  .coach-status-rejected {
+    color: #dc3545;
+    font-weight: 500;
+    padding: 4px 8px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 4px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .coach-session-container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    .coach-session-filters {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .coach-session-filter-dropdown,
+    .coach-download-btn {
+      width: 100%;
+    }
+  
+    .coach-session-table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+  

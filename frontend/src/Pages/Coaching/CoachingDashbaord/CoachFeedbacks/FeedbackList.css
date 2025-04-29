@@ -1,57 +1,192 @@
 /* FeedbackList.css */
 
-.feedback-list-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 25px;
-    background: #ffffff;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    font-family: "Segoe UI", sans-serif;
+.coach-feedback-list-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.coach-feedback-list-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.coach-feedback-empty {
+  text-align: center;
+  color: #6c757d;
+  font-size: 16px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.coach-feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.coach-feedback-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.coach-feedback-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.coach-feedback-read {
+  background-color: #f8f9fa;
+  border-left: 4px solid #28a745;
+}
+
+.coach-feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.coach-feedback-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coach-feedback-name {
+  color: #2c3e50;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.coach-feedback-email {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.coach-feedback-coach {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8f9fa;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.coach-feedback-coach-label {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.coach-feedback-coach-name {
+  color: #4a90e2;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.coach-feedback-message {
+  color: #34495e;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.coach-feedback-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coach-feedback-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.coach-feedback-mark-read,
+.coach-feedback-delete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.coach-feedback-mark-read {
+  background-color: #28a745;
+  color: white;
+}
+
+.coach-feedback-mark-read:hover:not(:disabled) {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.coach-feedback-mark-read:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.coach-feedback-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.coach-feedback-delete:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.coach-feedback-date {
+  color: #6c757d;
+  font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .coach-feedback-list-container {
+    margin: 20px;
+    padding: 20px;
   }
-  
-  .feedback-list-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333333;
+
+  .coach-feedback-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
-  
-  .feedback-list-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+
+  .coach-feedback-coach {
+    width: 100%;
+    justify-content: space-between;
   }
-  
-  .feedback-item {
-    padding: 15px 20px;
-    background-color: #f9f9f9;
-    border-left: 4px solid #007bff;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    transition: background 0.2s ease;
+
+  .coach-feedback-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
   }
-  
-  .feedback-item:hover {
-    background-color: #ffffff;
+
+  .coach-feedback-actions {
+    width: 100%;
+    justify-content: flex-start;
   }
-  
-  .feedback-item strong {
-    color: #007bff;
-    font-size: 16px;
-  }
-  
-  .feedback-item span {
-    display: block;
-    margin-top: 6px;
-    font-size: 15px;
-    color: #444;
-    line-height: 1.5;
-  }
-  
-  .feedback-item small {
-    display: block;
-    margin-top: 8px;
-    color: #777;
-    font-size: 12px;
-  }
+}
   

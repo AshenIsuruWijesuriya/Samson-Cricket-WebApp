@@ -4,29 +4,40 @@ import "./FeedbackForm.css";
 import MainHeader from "../../../../Common/mainHeader";
 
 const FeedbackForm = () => {
-  const [feedback, setFeedback] = useState({ name: "", email: "", message: "" });
+  const [feedback, setFeedback] = useState({ 
+    name: "", 
+    email: "", 
+    message: "",
+    coachId: "" 
+  });
+  const [coaches, setCoaches] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const api = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const userId = localStorage.getItem("userId");
-      if (!userId) return;
-
+    const fetchData = async () => {
       try {
-        const res = await axios.get(`${api}/api/users/${userId}`);
-        const user = res.data;
-        setFeedback((prev) => ({
-          ...prev,
-          name: user.firstname + " " + user.lastname,
-          email: user.email,
-        }));
+        // Fetch user data
+        const userId = localStorage.getItem("userId");
+        if (userId) {
+          const userRes = await axios.get(`${api}/api/users/${userId}`);
+          const user = userRes.data;
+          setFeedback(prev => ({
+            ...prev,
+            name: user.firstname + " " + user.lastname,
+            email: user.email,
+          }));
+        }
+
+        // Fetch coaches data
+        const coachesRes = await axios.get(`${api}/api/coach`);
+        setCoaches(coachesRes.data);
       } catch (err) {
-        console.error("Failed to fetch user data:", err);
+        console.error("Failed to fetch data:", err);
       }
     };
 
-    fetchUser();
+    fetchData();
   }, [api]);
 
   const handleChange = (e) => {
@@ -36,7 +47,11 @@ const FeedbackForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newFeedback = { ...feedback, createdAt: new Date().toISOString() };
+    const newFeedback = { 
+      ...feedback, 
+      createdAt: new Date().toISOString(),
+      coachName: coaches.find(c => c._id === feedback.coachId)?.name || "Unknown Coach"
+    };
 
     const existing = JSON.parse(localStorage.getItem("feedbacks")) || [];
     existing.push(newFeedback);
@@ -47,38 +62,65 @@ const FeedbackForm = () => {
 
   return (
     <>
-    <MainHeader />
-    <div className="feedback-form-container">
-      <h2>Leave Your Feedback</h2>
-      {submitted ? (
-        <p className="feedback-success">Thank you for your feedback!</p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            value={feedback.name}
-            placeholder="Your Name"
-            disabled
-          />
-          <input
-            type="email"
-            name="email"
-            value={feedback.email}
-            placeholder="Your Email"
-            disabled
-          />
-          <textarea
-            name="message"
-            placeholder="Your Feedback"
-            value={feedback.message}
-            required
-            onChange={handleChange}
-          ></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      )}
-    </div>
+      <MainHeader />
+      <div className="coach-feedback-container">
+        <h2 className="coach-feedback-title">Leave Your Feedback</h2>
+        {submitted ? (
+          <p className="coach-feedback-success">Thank you for your feedback!</p>
+        ) : (
+          <form onSubmit={handleSubmit} className="coach-feedback-form">
+            <div className="coach-feedback-field-group">
+              <label className="coach-feedback-label">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                value={feedback.name}
+                className="coach-feedback-input"
+                disabled
+              />
+            </div>
+            <div className="coach-feedback-field-group">
+              <label className="coach-feedback-label">Your Email</label>
+              <input
+                type="email"
+                name="email"
+                value={feedback.email}
+                className="coach-feedback-input"
+                disabled
+              />
+            </div>
+            <div className="coach-feedback-field-group">
+              <label className="coach-feedback-label">Select Coach</label>
+              <select
+                name="coachId"
+                value={feedback.coachId}
+                onChange={handleChange}
+                required
+                className="coach-feedback-select"
+              >
+                <option value="">Select a Coach</option>
+                {coaches.map((coach) => (
+                  <option key={coach._id} value={coach._id}>
+                    {coach.name} - {coach.coachType.join(", ")}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="coach-feedback-field-group">
+              <label className="coach-feedback-label">Your Feedback</label>
+              <textarea
+                name="message"
+                placeholder="Share your experience with the coach..."
+                value={feedback.message}
+                required
+                onChange={handleChange}
+                className="coach-feedback-textarea"
+              ></textarea>
+            </div>
+            <button type="submit" className="coach-feedback-submit">Submit Feedback</button>
+          </form>
+        )}
+      </div>
     </>
   );
 };
