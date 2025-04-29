@@ -58,28 +58,28 @@ const ViewCoaches = () => {
   return (
     <>
     <MainHeader />
-    <div className="coach-search-container">
-      <h1 className="coach-search-title">Available Coaches</h1>
-      <p className="coach-search-subtitle">
+    <div className="coach-view-container">
+      <h1 className="coach-view-title">Available Coaches</h1>
+      <p className="coach-view-subtitle">
         Explore our selection of professional coaches ready to help you achieve your goals
       </p>
       
-      <div className="coach-search-filters">
-        <div className="coach-search-input-container">
+      <div className="coach-view-filters">
+        <div className="coach-view-search-container">
           <input
             type="text"
             placeholder="Search by coach name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="coach-search-input"
+            className="coach-view-search-input"
           />
         </div>
         
-        <div className="coach-type-filter-container">
+        <div className="coach-view-type-container">
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
-            className="coach-type-filter"
+            className="coach-view-type-select"
           >
             <option value="">All Coaching Types</option>
             {uniqueTypes.map((type) => (
@@ -92,35 +92,36 @@ const ViewCoaches = () => {
       </div>
       
       {loading ? (
-        <div className="coach-loading-message">Loading coaches...</div>
+        <div className="coach-view-loading">Loading coaches...</div>
       ) : filteredCoaches.length > 0 ? (
-        <div className="coach-card-grid">
+        <div className="coach-view-grid">
           {filteredCoaches.map((coach) => (
-            <div key={coach._id} className="coach-card">
-              <div className="coach-image-container">
+            <div key={coach._id} className="coach-view-card">
+              <div className="coach-view-image-wrapper">
                 <img 
                   src={`${api}/uploads/${coach.images[0]}`} 
                   alt={coach.name} 
+                  className="coach-view-image"
                   onError={(e) => {
                     e.target.src = "https://via.placeholder.com/280x220?text=Coach";
                   }}
                 />
               </div>
-              <div className="coach-card-content">
-                <h3>{coach.name}</h3>
-                <p>{coach.coachType.join(", ")}</p>
+              <div className="coach-view-info">
+                <h3 className="coach-view-name">{coach.name}</h3>
+                <p className="coach-view-type">{coach.coachType.join(", ")}</p>
+                <button 
+                  className="coach-view-button"
+                  onClick={() => handleViewDetails(coach._id)}
+                >
+                  View Details
+                </button>
               </div>
-              <button 
-                className="coach-view-details"
-                onClick={() => handleViewDetails(coach._id)}
-              >
-                View Details
-              </button>
             </div>
           ))}
         </div>
       ) : (
-        <div className="coach-no-results-message">
+        <div className="coach-view-empty">
           No coaches found matching your search criteria.
         </div>
       )}
