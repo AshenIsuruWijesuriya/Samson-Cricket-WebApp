@@ -5,7 +5,7 @@ import "./ManageOrders.css";
 import { FaTrash, FaEdit, FaSort, FaDownload } from "react-icons/fa";
 import Swal from "sweetalert2";
 import UpdateOrderModal from "../../../Components/Admin/ManageOrders/UpdateOrderModel";
-import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx'; // Import the xlsx library
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
