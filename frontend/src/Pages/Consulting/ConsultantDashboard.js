@@ -10,23 +10,7 @@ const ConsultantDashboard = () => {
     const [activeComponent, setActiveComponent] = useState('dashboard');
 
     const renderBreadcrumbs = () => {
-        if (activeComponent === 'dashboard') {
-            return ;
-        } else {
-            const titles = {
-                'manage-consultant': 'Manage Consultant',
-                'manage-consulting-session': 'Manage Consulting Sessions',
-                'manage-questions': 'Q & A Section'
-            };
-            return (
-                <div className="breadcrumbs">
-                    <button className="back-button" onClick={() => setActiveComponent('dashboard')}>
-                        <FontAwesomeIcon icon={faArrowLeft} /> Back to Dashboard
-                    </button>
-                    <h2>{titles[activeComponent]}</h2>
-                </div>
-            );
-        }
+        return null;
     };
 
     const renderComponent = () => {
@@ -36,13 +20,13 @@ const ConsultantDashboard = () => {
             case 'manage-consulting-session':
                 return <ManageConsultingSession onBack={() => setActiveComponent('dashboard')} />;
             case 'manage-questions':
-                return <div className="content-area"><h1>Q & A Section</h1></div>;
+                return <div className="consultant-content-area"><h1>Q & A Section</h1></div>;
             default:
                 return (
-                    <div className="dashboard-content">
-                        <p className="dashboard-welcome">Welcome! Select an option below to manage your consulting services.</p>
+                    <div className="consultant-dashboard-content">
+                        <p className="consultant-dashboard-welcome">Welcome! Select an option below to manage your consulting services.</p>
                         
-                        <div className="dashboard-cards">
+                        <div className="consultant-dashboard-cards">
                             <div className="con-card-link" onClick={() => setActiveComponent('manage-consultant')}>
                                 <div className="con-card">
                                     <FontAwesomeIcon icon={faUsers} className="card-icon" />
@@ -66,9 +50,9 @@ const ConsultantDashboard = () => {
     };
 
     return (
-        <div className='container'>
+        <div className='consultant-container'>
             <ConsultingHeader/>
-            <div className="cons-dashboard-container">
+            <div className="consultant-dashboard-container">
                 {renderBreadcrumbs()}
                 {renderComponent()}
             </div>
