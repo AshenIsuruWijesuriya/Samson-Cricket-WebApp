@@ -2,9 +2,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import AdminHeader from "../AdminHeader/AdminHeader";
 import "./ManageOrders.css";
-import { FaTrash, FaEdit, FaSort } from "react-icons/fa";
+import { FaTrash, FaEdit, FaSort, FaDownload } from "react-icons/fa";
 import Swal from "sweetalert2";
 import UpdateOrderModal from "../../../Components/Admin/ManageOrders/UpdateOrderModel";
+import * as XLSX from 'xlsx';
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -97,6 +98,35 @@ const ManageOrders = () => {
         setSortByDate(sortByDate === "desc" ? "asc" : "desc");
     };
 
+    const downloadOrdersExcel = () => {
+        const data = filteredOrders.map(order => ({
+            "Order ID": order._id,
+            "First Name": order.firstName,
+            "Last Name": order.lastName,
+            "Email": order.email,
+            "Total Amount (LKR)": order.totalAmount.toFixed(2),
+            "Delivery Address": order.deliveryAddress,
+            "Phone Number": order.phoneNumber,
+            "Payment Method": order.paymentMethod,
+            "Order Status": order.orderStatus,
+            "Order Date": new Date(order.orderDate).toLocaleDateString(),
+        }));
+
+        if (data.length > 0) {
+            const worksheet = XLSX.utils.json_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Orders");
+            XLSX.writeFile(workbook, "orders_report.xlsx");
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No Data',
+                text: 'There are no orders to download.',
+            });
+        }
+    };
+
+
     return (
         <div className="orders-bg">
             <div className="orders-content">
@@ -133,7 +163,12 @@ const ManageOrders = () => {
                     >
                         <FaSort /> {sortByDate === "desc" ? "Newest First" : "Oldest First"}
                     </button>
+                    <button className="download-orders-button" onClick={downloadOrdersExcel}>
+                        <FaDownload className="button-icon" />
+                        Download Orders Report (Excel)
+                    </button>
                 </div>
+
 
                 {isUpdatingModalOpen && (
                     <UpdateOrderModal order={selectedOrder} onClose={handleCloseUpdateModal} onOrderUpdated={handleOrderUpdated} />

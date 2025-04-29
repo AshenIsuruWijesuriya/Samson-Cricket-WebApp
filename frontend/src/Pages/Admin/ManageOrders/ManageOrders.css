@@ -8,14 +8,17 @@
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .orders-content {
     position: relative;
     z-index: 1;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .orders-title {
@@ -107,6 +110,7 @@
     padding: 10px;
     background-color: #000000a4;
     border-radius: 8px;
+    flex-wrap: wrap;
 }
 
 .orders-search-input {
@@ -118,6 +122,7 @@
     background-color: #000000a4;
     color: white;
     transition: all 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .orders-search-input:focus {
@@ -135,6 +140,7 @@
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .orders-status-filter:focus {
@@ -155,6 +161,7 @@
     gap: 8px;
     font-size: 14px;
     transition: all 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .orders-sort-button:hover {
@@ -262,4 +269,29 @@
 
 .order-details-price {
     color: #4CAF50;
+}
+
+.download-orders-button {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #000000a4;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.download-orders-button:hover {
+    background-color: #ff0000ca;
+    border-color: #ff0000ca;
+}
+
+.download-orders-button:focus {
+    outline: none;
 }
