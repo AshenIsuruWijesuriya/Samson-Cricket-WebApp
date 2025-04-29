@@ -1,88 +1,93 @@
 .user-booking-container {
-  padding: 30px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  min-height: 100vh;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .user-booking-container h2 {
-  color: #343a40;
-  margin-bottom: 30px;
-  border-bottom: 3px solid #dee2e6;
-  padding-bottom: 15px;
+  color: #2d3748;
+  margin-bottom: 20px;
   text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
 }
 
 .user-booking-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  overflow: hidden;
   background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .user-booking-table th,
 .user-booking-table td {
-  border: 1px solid #dee2e6;
-  padding: 15px;
+  padding: 12px 15px;
   text-align: left;
-  font-size: 0.95rem;
-  color: #444;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .user-booking-table th {
-  background-color: #343a40;
+  background-color: #2b6cb0;
   color: white;
   font-weight: 600;
 }
 
-.user-booking-table tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-.user-booking-table tbody tr:hover {
-  background-color: #e9ecef;
-}
-
-.user-booking-table ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.user-booking-table ul li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-
-
-.status-approved {
-  color: green;
-  font-weight: 600;
-}
-
-.status-rejected {
-  color: red;
-  font-weight: 600;
+.user-booking-table tr:hover {
+  background-color: #f7fafc;
 }
 
 .status-pending {
-  color: orange;
-  font-weight: 600;
+  color: #9a3412;
+  background-color: #fed7aa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.status-confirmed {
+  color: #166534;
+  background-color: #bbf7d0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.status-completed {
+  color: #1e40af;
+  background-color: #bfdbfe;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.coach-pdf-download-btn {
+  text-align: center;
+}
+
+.coach-pdf-download-btn a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #2b6cb0;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.coach-pdf-download-btn a:hover {
+  background-color: #2c5282;
 }
 
 @media (max-width: 768px) {
   .user-booking-table {
-      overflow-x: auto;
+    display: block;
+    overflow-x: auto;
   }
-
+  
   .user-booking-table th,
   .user-booking-table td {
-      padding: 10px;
-      font-size: 0.9rem;
+    min-width: 120px;
   }
 }
