@@ -6,7 +6,10 @@ import MainHeader from "../../../Common/mainHeader";
 
 const ViewCoaches = () => {
   const [coaches, setCoaches] = useState([]);
+  const [filteredCoaches, setFilteredCoaches] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedType, setSelectedType] = useState("");
   const api = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
 
@@ -16,6 +19,7 @@ const ViewCoaches = () => {
       .then((res) => {
         const availableCoaches = res.data.filter((c) => c.status === "available");
         setCoaches(availableCoaches);
+        setFilteredCoaches(availableCoaches);
         setLoading(false);
       })
       .catch((error) => {
@@ -24,31 +28,81 @@ const ViewCoaches = () => {
       });
   }, [api]);
 
+  useEffect(() => {
+    let filtered = [...coaches];
+    
+    if (searchTerm) {
+      filtered = filtered.filter(coach => 
+        coach.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    
+    if (selectedType) {
+      filtered = filtered.filter(coach => 
+        coach.coachType.some(type => 
+          type.toLowerCase().includes(selectedType.toLowerCase())
+        )
+      );
+    }
+    
+    setFilteredCoaches(filtered);
+  }, [searchTerm, selectedType, coaches]);
+
   const handleViewDetails = (id) => {
     navigate(`/coach/${id}`);
   };
 
+  // Get unique coaching types from all coaches
+  const uniqueTypes = [...new Set(coaches.flatMap(coach => coach.coachType))];
+
   return (
     <>
     <MainHeader />
-    <div className="coaches-container">
-      <h1 className="coaches-title1">Available Coaches</h1>
-      <p className="coaches-subtitle">
+    <div className="coach-search-container">
+      <h1 className="coach-search-title">Available Coaches</h1>
+      <p className="coach-search-subtitle">
         Explore our selection of professional coaches ready to help you achieve your goals
       </p>
       
+      <div className="coach-search-filters">
+        <div className="coach-search-input-container">
+          <input
+            type="text"
+            placeholder="Search by coach name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="coach-search-input"
+          />
+        </div>
+        
+        <div className="coach-type-filter-container">
+          <select
+            value={selectedType}
+            onChange={(e) => setSelectedType(e.target.value)}
+            className="coach-type-filter"
+          >
+            <option value="">All Coaching Types</option>
+            {uniqueTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      
       {loading ? (
-        <div className="no-coaches-message">Loading coaches...</div>
-      ) : coaches.length > 0 ? (
+        <div className="coach-loading-message">Loading coaches...</div>
+      ) : filteredCoaches.length > 0 ? (
         <div className="coach-card-grid">
-          {coaches.map((coach) => (
+          {filteredCoaches.map((coach) => (
             <div key={coach._id} className="coach-card">
               <div className="coach-image-container">
                 <img 
                   src={`${api}/uploads/${coach.images[0]}`} 
                   alt={coach.name} 
                   onError={(e) => {
-                    e.target.src = "https://via.placeholder.com/280x220?text=Coach"; // Fallback image
+                    e.target.src = "https://via.placeholder.com/280x220?text=Coach";
                   }}
                 />
               </div>
@@ -66,8 +120,8 @@ const ViewCoaches = () => {
           ))}
         </div>
       ) : (
-        <div className="no-coaches-message">
-          No coaches are currently available. Please check back later.
+        <div className="coach-no-results-message">
+          No coaches found matching your search criteria.
         </div>
       )}
     </div>
