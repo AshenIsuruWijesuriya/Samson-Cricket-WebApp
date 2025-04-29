@@ -523,6 +523,33 @@ const ManageConsultant = ({ onBack }) => {
 
   return (
     <div className="content-area consultant-content">
+      {/* Top bar with Back and Add buttons */}
+      <div className="consultant-topbar">
+        <button
+          className="consultant-back-dashboard-btn"
+          onClick={onBack}
+        >
+          &#8592; Back to Dashboard
+        </button>
+        <div className="add-consultant-container">
+          <button
+            onClick={() => {
+              setIsEditMode(false);
+              setNewConsultant({
+                firstName: "",
+                lastName: "",
+                email: "",
+                type: "batting",
+                availableTimes: "",
+              });
+              setShowModal(true);
+            }}
+            className="add-consultant-btn"
+          >
+            Add New Consultant
+          </button>
+        </div>
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -534,27 +561,6 @@ const ManageConsultant = ({ onBack }) => {
         draggable
         pauseOnHover
       />
-
-      <h1 className="manaTitle">Manage Consultants</h1>
-
-      <div className="add-consultant-container">
-        <button
-          onClick={() => {
-            setIsEditMode(false);
-            setNewConsultant({
-              firstName: "",
-              lastName: "",
-              email: "",
-              type: "batting",
-              availableTimes: "",
-            });
-            setShowModal(true);
-          }}
-          className="add-consultant-btn"
-        >
-          Add New Consultant
-        </button>
-      </div>
 
       {isConsultantsLoading ? (
         <div className="loading-message">Loading consultants...</div>
