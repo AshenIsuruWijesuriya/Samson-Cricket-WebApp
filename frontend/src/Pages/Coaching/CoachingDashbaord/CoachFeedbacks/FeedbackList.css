@@ -46,6 +46,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.coach-feedback-read {
+  background-color: #f8f9fa;
+  border-left: 4px solid #28a745;
+}
+
 .coach-feedback-header {
   display: flex;
   justify-content: space-between;
@@ -101,7 +106,53 @@
 
 .coach-feedback-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coach-feedback-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.coach-feedback-mark-read,
+.coach-feedback-delete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.coach-feedback-mark-read {
+  background-color: #28a745;
+  color: white;
+}
+
+.coach-feedback-mark-read:hover:not(:disabled) {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.coach-feedback-mark-read:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.coach-feedback-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.coach-feedback-delete:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
 }
 
 .coach-feedback-date {
@@ -125,6 +176,17 @@
   .coach-feedback-coach {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .coach-feedback-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .coach-feedback-actions {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
   

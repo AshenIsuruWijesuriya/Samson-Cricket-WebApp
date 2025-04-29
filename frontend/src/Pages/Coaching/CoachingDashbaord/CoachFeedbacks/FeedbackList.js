@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./FeedbackList.css";
 import CoachingHeader from "../../CoachingHeader/CoachingHeader";
+import { FaTrash, FaCheck } from "react-icons/fa";
 
 const FeedbackList = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -9,6 +10,23 @@ const FeedbackList = () => {
     const stored = JSON.parse(localStorage.getItem("feedbacks")) || [];
     setFeedbacks(stored.reverse());
   }, []);
+
+  const handleDelete = (index) => {
+    const updatedFeedbacks = [...feedbacks];
+    updatedFeedbacks.splice(index, 1);
+    setFeedbacks(updatedFeedbacks);
+    localStorage.setItem("feedbacks", JSON.stringify(updatedFeedbacks));
+  };
+
+  const handleMarkAsRead = (index) => {
+    const updatedFeedbacks = [...feedbacks];
+    updatedFeedbacks[index] = {
+      ...updatedFeedbacks[index],
+      isRead: true
+    };
+    setFeedbacks(updatedFeedbacks);
+    localStorage.setItem("feedbacks", JSON.stringify(updatedFeedbacks));
+  };
 
   return (
     <>
@@ -20,7 +38,7 @@ const FeedbackList = () => {
         ) : (
           <div className="coach-feedback-list">
             {feedbacks.map((f, index) => (
-              <div key={index} className="coach-feedback-item">
+              <div key={index} className={`coach-feedback-item ${f.isRead ? 'coach-feedback-read' : ''}`}>
                 <div className="coach-feedback-header">
                   <div className="coach-feedback-user">
                     <strong className="coach-feedback-name">{f.name}</strong>
@@ -33,6 +51,21 @@ const FeedbackList = () => {
                 </div>
                 <div className="coach-feedback-message">{f.message}</div>
                 <div className="coach-feedback-footer">
+                  <div className="coach-feedback-actions">
+                    <button 
+                      className="coach-feedback-mark-read"
+                      onClick={() => handleMarkAsRead(index)}
+                      disabled={f.isRead}
+                    >
+                      <FaCheck /> {f.isRead ? 'Read' : 'Mark as Read'}
+                    </button>
+                    <button 
+                      className="coach-feedback-delete"
+                      onClick={() => handleDelete(index)}
+                    >
+                      <FaTrash /> Delete
+                    </button>
+                  </div>
                   <small className="coach-feedback-date">
                     {new Date(f.createdAt).toLocaleString()}
                   </small>
