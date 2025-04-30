@@ -213,34 +213,80 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  animation: overlayFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .merch-details-modal {
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 800px;
-  position: relative;
+  padding: 30px;
+  border-radius: 12px;
+  width: 85%;
+  max-width: 1000px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: modalFadeIn 0.3s ease-out forwards;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .merch-details-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.merch-details-close:hover {
+  color: #333;
+  background-color: #f5f5f5;
 }
 
 .merch-details-content {
   display: flex;
+  gap: 30px;
 }
 
 .merch-details-image-section {
@@ -248,51 +294,118 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 400px;
 }
 
 .merch-details-image {
   width: 100%;
   max-height: 400px;
   object-fit: contain;
-  margin-right: 20px;
+  transition: transform 0.3s ease;
+}
+
+.merch-details-image:hover {
+  transform: scale(1.05);
 }
 
 .merch-details-info-section {
   flex: 1;
+  padding: 20px;
 }
 
 .merch-details-title {
-  text-align: left;
-  margin-bottom: 15px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Trebuchet MS';
 }
 
-.merch-details-info,
-.merch-details-price,
-.merch-details-stock,
-.merch-details-description {
-  margin-bottom: 8px;
-  font-size: 1rem;
+.merch-details-info {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.merch-details-price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0b144f;
+  margin: 20px 0;
+}
+
+.merch-details-stock {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .merch-details-stock-in {
-  color: green;
+  background-color: #e8f5e9;
+  color: #2e7d32;
 }
 
 .merch-details-stock-out {
-  color: red;
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.merch-details-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 
 .merch-details-add-to-cart {
-  background-color: #007bff;
+  background-color: #0b144f;
   color: white;
-  padding: 10px 15px;
+  padding: 12px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
-  margin-top: 15px;
-  font-size: 1rem;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .merch-details-add-to-cart:hover {
-  background-color: #0056b3;
+  background-color: #0a0f3d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 20, 79, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .merch-details-modal {
+    width: 95%;
+    padding: 20px;
+    max-height: 95vh;
+  }
+
+  .merch-details-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .merch-details-image-section {
+    min-height: 300px;
+  }
+
+  .merch-details-title {
+    font-size: 24px;
+  }
+
+  .merch-details-price {
+    font-size: 20px;
+  }
 }
