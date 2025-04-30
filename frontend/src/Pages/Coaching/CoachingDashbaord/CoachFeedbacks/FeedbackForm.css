@@ -7,7 +7,7 @@
   background: #ffffff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Trebuchet MS';
 }
 
 .coach-feedback-title {
@@ -78,6 +78,7 @@
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-family: 'Trebuchet MS';
 }
 
 .coach-feedback-submit:hover {

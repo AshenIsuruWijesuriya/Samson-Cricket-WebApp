@@ -168,6 +168,7 @@
   max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
+  font-family: 'Trebuchet MS';
 }
 
 .coach-view-title {
@@ -183,6 +184,7 @@
   color: #6c757d;
   font-size: 16px;
   margin-bottom: 30px;
+  font-family: 'Trebuchet MS';
 }
 
 .coach-view-filters {
@@ -204,6 +206,7 @@
   border-radius: 8px;
   font-size: 16px;
   transition: all 0.3s ease;
+  font-family: 'Trebuchet MS';
 }
 
 .coach-view-search-input:focus {
@@ -225,6 +228,7 @@
   background-color: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Trebuchet MS';
 }
 
 .coach-view-type-select:focus {
