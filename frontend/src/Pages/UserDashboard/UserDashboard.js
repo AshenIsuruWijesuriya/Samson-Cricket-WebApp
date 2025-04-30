@@ -44,22 +44,40 @@ const UserDashboard = () => {
             <UserHeader />
             <div className="ud-main-layout">
                 <div className="ud-sidebar">
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('editProfile')}>
+                    <button 
+                        className={`ud-sidebar-btn ${selectedOption === 'editProfile' ? 'active' : ''}`} 
+                        onClick={() => handleOptionClick('editProfile')}
+                    >
                         <FaUserEdit className="ud-sidebar-icon" /> Edit Profile
                     </button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myOrders')}>
+                    <button 
+                        className={`ud-sidebar-btn ${selectedOption === 'myOrders' ? 'active' : ''}`} 
+                        onClick={() => handleOptionClick('myOrders')}
+                    >
                         <FaShoppingCart className="ud-sidebar-icon" /> My Orders
                     </button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myCoaching')}>
+                    <button 
+                        className={`ud-sidebar-btn ${selectedOption === 'myCoaching' ? 'active' : ''}`} 
+                        onClick={() => handleOptionClick('myCoaching')}
+                    >
                         <FaChalkboardTeacher className="ud-sidebar-icon" /> My Coaching
                     </button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myConsulting')}>
+                    <button 
+                        className={`ud-sidebar-btn ${selectedOption === 'myConsulting' ? 'active' : ''}`} 
+                        onClick={() => handleOptionClick('myConsulting')}
+                    >
                         <FaCalendarAlt className="ud-sidebar-icon" /> My Consulting
                     </button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myServices')}>
+                    <button 
+                        className={`ud-sidebar-btn ${selectedOption === 'myServices' ? 'active' : ''}`} 
+                        onClick={() => handleOptionClick('myServices')}
+                    >
                         <FaWrench className="ud-sidebar-icon" /> My Services
                     </button>
-                    <button className="ud-sidebar-btn" onClick={() => handleOptionClick('myFeedbacks')}>
+                    <button 
+                        className={`ud-sidebar-btn ${selectedOption === 'myFeedbacks' ? 'active' : ''}`} 
+                        onClick={() => handleOptionClick('myFeedbacks')}
+                    >
                         <FaCommentDots className="ud-sidebar-icon" /> My Feedbacks
                     </button>
                 </div>

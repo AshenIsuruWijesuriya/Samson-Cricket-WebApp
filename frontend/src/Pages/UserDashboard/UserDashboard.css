@@ -27,30 +27,50 @@
 .ud-sidebar-btn {
     display: flex;
     align-items: center;
-    gap: 18px; /* Space between icon and text */
+    gap: 18px;
     margin-top: 20px;
     background-color: transparent;
     font-family: 'Trebuchet MS';
-    padding: 14px 16px; /* Adjusted padding for larger text */
+    padding: 14px 16px;
     border: none;
-    color: #444; /* Darker text */
+    color: #444;
     border-radius: 22px;
     cursor: pointer;
-    font-size: 20px; /* Increased font size */
+    font-size: 20px;
     font-weight: bold;
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
     text-align: left;
 }
 
-.ud-sidebar-icon {
-    font-size: 28px; /* Increased icon size */
-    color: #666; /* Medium gray icon */
+.ud-sidebar-btn.active {
+    background-color: #0b144f;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ud-sidebar-btn.active .ud-sidebar-icon {
+    color: #ffffff; /* Match the text color when active */
 }
 
 .ud-sidebar-btn:hover {
-    background-color: #f0f0f0; /* Light hover */
-    color: #222; /* Darker hover text */
+    background-color: #e6e7ef;
+    color: #666;
     transform: translateX(2px);
+}
+
+.ud-sidebar-btn.active:hover {
+    background-color: #0b144f;
+    color: #ffffff;
+}
+
+.ud-sidebar-btn.active:hover .ud-sidebar-icon {
+    color: #ffffff; /* White icon color on hover when active */
+}
+
+.ud-sidebar-icon {
+    font-size: 28px;
+    color: #666;
+    transition: color 0.2s ease; /* Smooth transition for icon color */
 }
 
 .ud-content-area {
